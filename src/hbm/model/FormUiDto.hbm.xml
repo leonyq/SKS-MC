@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.more.fw.core.cont.formui.FormUiDto"
+		table="MS_FORM_REL_UI_MODEL">
+		<id name="ID" type="java.lang.String">
+			<column name="ID" length="33" />
+		</id>
+		<property name="DEPT_ID" type="java.lang.String">
+			<column name="DEPT_ID" length="33" />
+		</property>
+		<property name="CREATE_USER" type="java.lang.String">
+			<column name="CREATE_USER" length="33" />
+		</property>
+		<property name="CREATE_TIME" type="java.util.Date">
+			<column name="CREATE_TIME" length="30" />
+		</property>
+		<property name="EDIT_USER" type="java.lang.String">
+			<column name="EDIT_USER" length="33" />
+		</property>
+		<property name="EDIT_TIME" type="java.util.Date">
+			<column name="EDIT_TIME" length="1" />
+		</property>
+		<property name="UI_DATA_TYPE" type="java.lang.String">
+			<column name="UI_DATA_TYPE" length="33" />
+		</property>
+		<property name="UI_DATA" type="java.lang.String">
+			<column name="UI_DATA" length="500" />
+		</property>
+		<property name="UI_MODEL" type="java.lang.String">
+			<column name="UI_MODEL" length="33" />
+		</property>
+		<property name="UP_FORM_COL_ID" type="java.lang.String">
+			<column name="UP_FORM_COL_ID" length="33" />
+		</property>
+		<property name="NEXT_FORM_COL_ID" type="java.lang.String">
+			<column name="NEXT_FORM_COL_ID" length="33" />
+		</property>
+		<property name="VIEW_ID" type="java.lang.String">
+			<column name="VIEW_ID" length="33" />
+		</property>
+		<property name="DATA_AUTH" type="java.lang.String">
+			<column name="DATA_AUTH" length="33" />
+		</property>
+	</class>
+</hibernate-mapping>

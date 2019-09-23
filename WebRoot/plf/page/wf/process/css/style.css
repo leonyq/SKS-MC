@@ -1,0 +1,211 @@
+/*woking_time*/
+.working-time{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+
+}
+.working-time-content-bg{
+    background: #f6f5f7 !important;
+}
+.time-header {
+	border-bottom: 1px solid #dbdbdb;
+	width:100%;
+}
+.time-header span{
+    display: inline-block;
+    color: #666666;  
+    font-size: 14px;
+    padding: 29px 25px 17px 25px;
+    margin-right: 8px;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+
+}
+.time-header span.clickFont{
+    color:#333333;
+}
+.time-header span img{
+    background: #fff;
+    position: absolute;
+    bottom: -1px;
+    left: 0px;
+    display: none;
+
+}
+.work-content{
+    background: #fff;
+    padding-top: 10px;
+    box-sizing:border-box;
+}
+
+.hideIframe{
+    display: none;
+}
+.work-content .showIframe{
+    display: block;
+}
+.working-time  .showImg:after{
+    content: "";
+    display: block;
+    width: 108px;
+    height: 8px;
+    position: absolute;
+    bottom: -1px;
+    left: 0px;
+    background: #fff url('../image/nav_bottom.png');
+
+}
+
+/* ToDo*/
+
+.work-content  .children-page-search{
+    font-size: 14px;
+    color: #333;
+}
+.work-content  .children-page-search  .children-search-box{
+    width: 90%;
+    margin-right: 120px;
+    min-width: 637px;
+    overflow: hidden;
+}
+.children-search-box .search-box-content{
+    display: inline-block;
+    vertical-align: top;
+}
+/*.children-search-box .search-box-left{
+    float: left;
+
+}
+.children-search-box .search-box-right{
+    float: right;
+
+}*/
+.clear-float:after{
+    content:'';
+    display: block;
+    clear: both;
+}
+.children-search-box .search-box-group{
+    margin-bottom: 9px;
+}
+.children-search-box  .input-name{
+    display: inline-block;
+    width: 100px;
+    overflow: hidden;
+    text-align: right;
+}
+
+.children-search-box .input-box{
+    display: inline-block;
+    margin-left: 0px;
+   vertical-align: top;
+}
+.children-search-box .input-lable{
+   display: inline-block;
+   width:240px;
+   vertical-align: top;
+}
+.work-time-optn{
+    margin-top:10px;
+}
+.children-page-search  .search-box-content  .chosen-container{
+     vertical-align: top;
+}
+
+/* initiate*/
+   input[name="inputcolor"]::-webkit-input-placeholder {  
+     color: #999 !important;
+    }
+   input[name="inputcolor"]:-moz-placeholder { 
+      color: #999 !important;
+    } 
+    input[name="inputcolor"]::-moz-placeholder { 
+      color: #999 !important;
+    }
+    input[name="inputcolor"]:-ms-input-placeholder { 
+      color: #999 !important;
+
+    }
+   .clear-float:after{
+	  content:"";
+	  display:block;
+	  clear:both;
+	}
+    .layui-card-title{
+	    padding:20px 15px;
+	 }
+	 .card-body-toggle{
+	       cursor: pointer;
+	       float:right;
+	       font-size:14px;
+	       user-select: none;
+	  }
+	 .work-card-body{
+	    display:none;
+	    padding-left:15px;
+	    
+	  }
+	  .card-item{
+	    display: inline-block;
+        width: 200px;
+        height: 90px;
+        box-sizing: border-box;
+        background: #fff;
+        border-radius: 2px;
+        border: 1px solid #e6e6e6;
+	    margin: 0px 15px 15px 0;
+	    padding: 19px 0px;
+	    cursor: pointer;
+	    vertical-align: top;
+	    position: relative;
+	    overflow: hidden;
+           
+	  }
+	  .card-item:hover{
+	     border: 1px solid #159588;
+	     background: #f8f8f8;
+	  }
+	   .card-icon{
+	     display: inline-block;
+	    width: 50px;
+	    height: 50px;
+	    background:#159688;
+	    vertical-align: middle;
+        margin: 0px 18px;
+        line-height: 50px;
+        text-align: center;
+        border-radius: 4px;
+        padding:10px 0;
+        box-sizing: border-box;
+        vertical-align: top;
+	  }
+	  .card-icon img{
+	    width:28px;
+	    
+	  }
+	  .card-item .card-font{
+		   display: inline-block;
+		   /*max-height: 90px;*/
+           overflow: hidden;
+		    margin: 0;
+		    padding: 0;
+		    max-width: 100px;
+		    word-wrap: break-word;
+		    font-size: 14px;
+		    position: absolute;
+		    /*top: 50%;
+		    transform: translateY(-50%);*/
+	  }
+       .card-name-show{
+         position: absolute;
+         border: 1px solid #aaa;
+         display: inline-block;
+	     background: #fff;
+	     z-index:999;
+      }
+
+
+
+

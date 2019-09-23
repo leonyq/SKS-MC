@@ -1,0 +1,144 @@
+/*flowFrom*/
+html,body{
+ height:100%;
+}
+.flowFrom-content{
+	paddind-left:20px;
+	font-size:14px;
+	margin-top:10px;
+}
+.flowFrom-content .input-content{
+	margin-bottom:10px;
+	 padding:0 10px;
+}
+.flowFrom-content  .input-name {
+    display: inline-block;
+    width: 100px;
+    overflow: hidden;
+    text-align: right;
+}
+.flowFrom-content textarea{
+    width: 800px;
+    color: #757575;
+    padding: 2px 5px;
+    margin-left: 50px;
+}
+.flow-data{
+  padding-left:0px;
+  margin-top:20px;
+  font-size:14px;
+  color:#333;
+}
+.flow-data .data{
+  padding-left:10px;
+}
+.flow-data .data:nth-child(2n){
+  background:rgb(237,237,237);
+}
+.flow-data .data-content{
+    position: relative;
+     width: 700px;
+}
+.flow-data .data-imp{
+  display: inline-block;
+  width:100px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+   cursor: pointer;
+  
+  
+}
+.flow-data .data-imp .pointer-show{
+  position: absolute;
+  top:40px;
+  left:140px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  font-size:14px;
+  margin: 0px;
+  display:none;
+  padding: 0px 5px;
+  background:#fff;
+   
+}
+.flow-data .data-content{
+   display: inline-block;
+   padding:20px 10px;
+   vertical-align: middle;
+   
+}
+.flow-data .data-content span{
+      margin-left: 100px;
+      
+}
+.flow-data .data-content p{
+	    margin-bottom:0px;
+	    padding:10px 0px 0px 100px;
+        display: inline-block;
+        width: 200px;
+        overflow: hidden;
+        height: 30px;
+        text-align: left;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+}
+.showImg:after{
+	   bottom: -2px !important;
+	   min-width:108px !important;
+	   width:100% !important;
+}
+
+ .show-pic{
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+ }
+.data-name{
+	    display: inline-block;
+        width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+}
+.activiting-name{
+       display: inline-block;
+	    overflow: hidden;
+	    max-width: 150px;
+	    height: 21px;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	    vertical-align: top;
+	    cursor: pointer;
+    }
+.data-time{ 
+      display: inline-block;
+      width: 130px;
+       vertical-align: top;
+ }
+/* nextNode */
+.flow-data .node-content p{
+  margin:0px;
+}
+.flow-data .node-content{
+  display: inline-block !important;
+}
+.flow-data .node-name{
+  vertical-align: top;
+}
+.flow-data .node-content span{
+   margin-left:100px;
+   width: 200px;
+}
+.flow-data .node-content p{
+  margin-bottom:10px;
+}
+.flow-data .node-name , .flow-data .node-content span {
+      display: inline-block;
+      width: 150px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      cursor: pointer;
+}

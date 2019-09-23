@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.more.fw.core.sysfa.usermessage.model.AdminTargetDataDto" table="SY_ADMIN_TARGET_DATA">
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="33" />
+		</id>
+		<property name="createId" type="java.lang.String">
+			<column name="CREATE_ID" length="33" />
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE"  />
+		</property>
+		<property name="updateId" type="java.lang.String">
+			<column name="UPDATE_ID" length="33" />
+		</property>
+		<property name="modDate" type="java.util.Date">
+			<column name="UPDATE_DATE" />
+		</property>
+		<property name="targetName" type="java.lang.String">
+			<column name="TARGET_NAME" length="100" />
+		</property>
+		<property name="unit" type="java.lang.String">
+			<column name="UNIT" length="10" />
+		</property>
+		<property name="picId" type="java.lang.String">
+			<column name="PIC_ID" length="33" />
+		</property>
+		<property name="menuId" type="java.lang.String">
+			<column name="MENU_ID" length="33" />
+		</property>
+		<property name="paraArgs" type="java.lang.String">
+			<column name="PARA_ARGS" length="400" />
+		</property>
+		<property name="dataType" type="java.lang.String">
+			<column name="DATA_TYPE" length="10" />
+		</property>
+		<property name="dataComment" type="java.lang.String">
+			<column name="DATA_COMMENT"  length="4000" />
+		</property>
+		<property name="showOrder" type="java.lang.Integer">
+			<column name="SHOW_ORDER" />
+		</property>
+		<property name="showDefault" type="java.lang.String">
+			<column name="SHOW_DEFAULT" length="2" />
+		</property>
+		<property name="classCode" type="java.lang.String">
+			<column name="MS_CLASS_CODE_ID" length="40" />
+		</property>
+			<property name="type" type="java.lang.String">
+			<column name="TYPE" length="10" />
+		</property>
+		<property name="codeType" type="java.lang.String">
+			<column name="CODE_TYPE" length="100" />
+		</property>
+		<property name="status" type="java.lang.String">
+			<column name="STATUS" length="2" />
+		</property>
+	</class>
+</hibernate-mapping>

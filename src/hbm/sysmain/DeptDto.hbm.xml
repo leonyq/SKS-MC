@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.more.fw.core.base.login.model.DeptDto" table="SY_DEPT">
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="33" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" length="600"/>
+		</property>
+		<property name="upId" type="java.lang.String">
+			<column name="up_id" length="33"/>
+		</property>
+		<property name="area" type="java.lang.String">
+			<column name="area" length="33"/>
+		</property>
+		<property name="roleId" type="java.lang.String">
+			<column name="role_id" length="33"/>
+		</property>
+		<property name="jobId" type="java.lang.String">
+			<column name="job_id" length="33"/>
+		</property>
+		<property name="erpCode" type="java.lang.String">
+			<column name="erp_code" length="33"/>
+		</property>
+		<property name="isAuth" type="java.lang.String">
+			<column name="is_auth" length="1"/>
+		</property>
+		<property name="depSn" type="java.lang.String">
+			<column name="dep_sn" length="50"/>
+		</property>
+		<property name="partitionCode" type="java.lang.String">
+			<column name="partition_code" length="2"/>
+		</property>
+		<property name="path" type="java.lang.String">
+			<column name="path" length="4000"/>
+		</property>
+		
+		<property name="data_auth" type="java.lang.String">
+			<column name="data_auth" length="300"/>
+		</property>
+		
+	</class>
+</hibernate-mapping>

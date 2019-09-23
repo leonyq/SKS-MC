@@ -1,0 +1,128 @@
+			BODY {
+				FONT-FAMILY: "mcfont"; 
+				FONT-SIZE: 12px;
+			}
+			.MyTABLE{
+				BORDER-BOTTOM: #7E8DF1 1px solid;
+				BORDER-RIGHT: #7E8DF1 1px solid;
+				BORDER-TOP: #7E8DF1 1px solid;
+				BORDER-LEFT: #7E8DF1 1px solid;				
+				BORDER-COLLAPSE: collapse;			
+				padding:0px 0px 0px 0px;
+			}
+			.MyTABLE TD{
+				BORDER-BOTTOM: #7E8DF1 1px solid;
+				BORDER-RIGHT: #7E8DF1 1px solid;
+				BORDER-TOP: #7E8DF1 1px solid;
+				BORDER-LEFT: #7E8DF1 1px solid;			
+				FONT-FAMILY: "mcfont"; 
+				FONT-SIZE: 12px;
+				height:22px;
+			}
+			.tableHeader{
+				FONT-WEIGHT: bold;
+				FONT-SIZE: 12px;
+				BACKGROUND:URL(images/1.JPG);
+				height:28px;
+				TEXT-ALIGN:center;
+			}
+			.tableHeader1{
+				FONT-WEIGHT: bold;
+				FONT-SIZE: 18px;
+				BACKGROUND: #F0F0FF;
+				height:28px;
+				TEXT-ALIGN:center;
+			}
+			.table_list_tr1 {
+				background-color:#ffffff;
+				text-align: center;
+			}
+			.table_list_tr2 {
+				background-color:#eaf1fa;
+				text-align: center;
+			}
+.button{
+	font-size: 12px;
+	font-family: mcfont;
+	BORDER-TOP:#0000aa 1px solid;
+	BORDER-BOTTOM:#0000aa 1px solid;
+	BORDER-LEFT:#0000aa 1px solid;
+	BORDER-RIGHT:#0000aa 1px solid;
+	HEIGHT:20px;
+	TEXT-DECORATION:none;
+	COLOR: #000066;
+	CURSOR: pointer;
+	BACKGROUND:URL(images/2.JPG);
+}
+			
+.formFieldError {
+font-family: verdana, mcfont;
+font-size: 12px;
+color: #FF3300;
+vertical-align: bottom;
+}
+
+.formFieldError ul{
+  margin: 0px;
+  padding: 3px;
+  vertical-align: middle;
+}
+
+.table_view {
+	text-align: center;
+	font-size: 12px;
+	background-color: #a7a7a7;
+	/*table-layout:fixed;*/
+}
+.table_view tbody td {
+	font-size: 12px;
+	color: #023a6d;
+	height: 25px;
+	text-indent: 6px;
+}
+.table_view_td1 {
+	background-color:#eaf1fa;
+	text-align:right;
+}
+.table_view_td2 {
+	background-color:#ffffff;
+	text-align:left;
+}
+.table_view thead td {
+	background-image: url(./images/view.gif);
+	height: 22px;
+	text-align: center;
+	font-size: 12px;
+	color: #003399;
+	font-family: mcfont;
+	line-height: 22px;
+	vertical-align: middle;
+}
+
+/** ===== 单行文本域宽150 ===== **/
+.text_input_150 {
+	font-family: "mcfont";
+	font-size: 12px;
+	color: #000000;
+	width: 150px;
+	text-decoration: none;
+	border: 1px solid #98acd9;
+	height: 18px;
+	background-color: #ffffff;
+}
+/** ===== 列表/菜单宽150 ===== **/
+.select_150 {
+	font-size: 12px;
+	width: 150px;
+}
+.textarea_n {
+	border: 1px solid #98acd9;
+	height: 100px;
+}
+/* 必填项目*号 */
+.required_sign {
+	margin: 0px, 0px, 0px, 3px;
+	font-size: 12px;
+	color: #FF0000;
+	font-color:#FF0000;;	
+}

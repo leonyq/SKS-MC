@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.more.fw.core.cs.buss.model.ModuleDependyDto" table="SY_FUNC">
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="33" />
+		</id>
+		<property name="path" type="java.lang.String">
+			<column name="path" length="1024" />
+		</property>
+		<property name="classpath" type="java.lang.String">
+			<column name="classpath" length="1024" />
+		</property>
+		
+	</class>
+</hibernate-mapping>

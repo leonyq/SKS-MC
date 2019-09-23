@@ -1,0 +1,753 @@
+.headline{
+    line-height: 35px;
+    font-size: 18px;
+    color: #009688;
+    margin-bottom: 35px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.headline .set{
+    float: left;
+    width: 25px;
+    height: 25px;
+    margin-top: 5px;
+    margin-right: 10px;
+    background-image: url(../images/img/shezhi.png);
+}
+
+.list-left{
+    float: left;
+    width: calc(50% - 200px);
+    text-align: right;
+    line-height: 38px;
+}
+
+.list-right{
+    float: left;
+    box-sizing: border-box;
+    width: calc(50% + 200px);
+    padding-left: 15px;
+    line-height: 38px;
+}
+
+.list-right .pane{
+    width: 460px;
+}
+    
+.listOperate{
+    height: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.listOperate .tit{
+    float: left;
+    line-height: 30px;
+    color: #666;
+    font-size: 18px;
+}
+
+.listOperate .tit .current{
+    color: #009688;
+}
+
+.searchSwitch{
+    display: inline-block;
+    width: 38px;
+    height: 30px;
+    background-image: url(../images/img/switch.png);
+    cursor: pointer;
+}
+
+.switch .searchSwitch{
+    transform:rotate(180deg);
+    -ms-transform:rotate(180deg); 
+    -moz-transform:rotate(180deg); 	
+    -webkit-transform:rotate(180deg); 
+    -o-transform:rotate(180deg);
+}
+
+.switch .searchDiv{
+    display: none;
+}
+
+.searchDiv{
+    margin-top: 20px;
+}
+
+.searchItem{
+    float: left;
+    width: 370px;
+    margin-bottom: 15px;
+}
+
+.searchItem .search_l{
+    float: left;
+    width: 150px;
+    line-height: 38px;
+    text-align: right;
+    padding-right: 15px;
+    box-sizing: border-box;
+}
+
+.searchItem .search_r{
+    float: left;
+    width: calc(100% - 150px);
+    line-height: 38px;
+}
+
+.layui-elem-field{
+    position: relative;
+    margin-top: 20px;
+}
+
+.layui-elem-field legend{
+    color: #666;
+    font-size: 18px;
+}
+
+.layui-elem-field .more{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #fff;
+    padding: 0 10px;
+    height: 24px;
+}
+
+.layui-elem-field .moreBtn{
+    display: inline-block;
+    height: 24px;
+    margin: 0 auto;
+    line-height: 22px;
+    text-align: center;
+    /* border: 1px solid #e6e6e6; */
+    box-sizing: border-box;
+    font-size: 12px;
+    border-radius:2px; 
+    color: #999;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.layui-elem-field .moreBtn:hover{
+    color: #009688;
+}
+
+.layui-elem-field .moreIco{
+    display: inline-block;
+    width: 16px;
+    height: 10px;
+    background-image: url(../images/img/more.png);
+    vertical-align: top;
+    margin-top: 6px;
+    margin-left: 2px;
+}
+
+.layui-elem-field .moreBtn:hover .moreIco{
+    background-image: url(../images/img/more_h.png);
+}
+
+.open .layui-elem-field .moreIco{
+    transform:rotate(180deg);
+    -ms-transform:rotate(180deg); 
+    -moz-transform:rotate(180deg); 	
+    -webkit-transform:rotate(180deg); 
+    -o-transform:rotate(180deg);
+    margin-top: 4px;
+}
+
+.cards{
+    margin: -8px;
+    height: 111px;
+    overflow: hidden;
+}
+
+.open .cards{
+    height: auto;
+}
+
+.cards .item{
+    position: relative;
+    float: left;
+    width: 350px;
+    height: 95px;
+    padding: 20px;
+    padding-bottom: 0;
+    border: 1px solid #e2e2e2;
+    box-sizing: border-box;
+    margin: 8px;
+    cursor: pointer;
+}
+
+.cards .item.active{
+    border: 1px solid #009688;
+}
+
+.cards .item:hover{
+    background-color: #f8f8f8;
+}
+
+.cards .item .p1{
+    height: 20px;
+    line-height: 20px;
+    color: #666;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.cards .item .ico{
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    background-image: url(../images/img/model_default.png);
+}
+
+.cards .item .p2{
+    width: calc(100% - 25px);
+    height: 25px;
+    line-height: 25px;
+    color: #999;
+    margin-top: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.cards .item .code{
+    position: absolute;
+    right: 17px;
+    bottom: 17px;
+    width: 25px;
+    height: 25px;
+    background-image: url(../images/img/code.png);
+}
+
+.cards .item .code:hover{
+    background-image: url(../images/img/code_h.png);
+}
+
+.cards .item .set{
+    position: absolute;
+    right: 17px;
+    bottom: 17px;
+    width: 25px;
+    height: 25px;
+    background-image: url(../images/img/shezhi.png);
+}
+
+.cards .item .set:hover{
+    background-image: url(../images/img/shezhi_h.png);
+}
+
+.layui-table input[type="checkbox"]{
+    height: 18px;
+    width: 18px;
+}
+
+.codeBox{
+    float: left;
+    width: 100%;
+    height: calc(100% - 118px);
+    margin-top: 20px;
+    box-sizing: border-box;
+    border: 1px solid #e2e2e2;
+}
+
+.isHelp .codeBox{
+    width: 50%;
+}
+
+.helpDiv{
+    position: relative;
+    float: right;
+    width: calc(50% - 20px);
+    height: calc(100% - 118px);
+    margin-top: 20px;
+    margin-left: 20px;
+    box-sizing: border-box;
+    border: 1px solid #e2e2e2;
+    border-radius: 2px; 
+    display: none;
+}
+
+.isHelp .helpDiv{
+    display: block;
+}
+
+.helpDiv .head{
+    padding: 0 80px 0 20px;
+    height: 42px;
+    line-height: 42px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    color: #333;
+    overflow: hidden;
+    background-color: #F8F8F8;
+    border-radius: 2px 2px 0 0;
+}
+
+.helpDiv .body{
+    height: calc(100% - 43px);
+    padding: 20px 0;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.helpDiv .body li{
+    line-height: 25px;
+    margin-bottom: 5px;
+    padding:0 20px;
+    cursor: pointer;
+}
+
+.helpDiv .body li.active{
+    background-color: #009688;
+    color: #fff;
+}
+
+.layui-layer-content .layui-form{
+    margin-top: 30px;
+}
+
+.layui-layer-content .list-left{
+    width: calc(50% - 100px);
+}
+
+.layui-layer-content .list-right{
+    width: calc(50% + 100px);
+}
+
+.layui-layer-content .list-right .pane{
+    width: 270px;
+}
+
+.layui-layer-content .ptop_10{
+    position: absolute;
+}
+
+.config{
+    float: left;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+}
+
+.config .layui-row{
+    height: 50%;
+}
+
+.config .layui-col-sm6{
+    padding: 7px;
+    height: 100%;
+    transition: 1s;
+}
+
+.config .layui-card{
+    border: 1px solid #e2e2e2;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.config .layui-card-header{
+    height: 37px;
+    line-height: 37px;
+    background-color: #f8f8f8;
+    color: #009688;
+    border-bottom: 1px solid #eee;
+}
+
+.config .layui-card-header .tit{
+    float: left;
+}
+
+.config .layui-card-header .filter{
+    position: relative;
+    float: left;
+    width: 130px;
+    height: 30px;
+    line-height: 25px;
+    margin-left: 10px;
+    border-bottom: 1px solid #666;
+}
+
+.config .layui-card-header .filter .icon{
+    float: left;
+    width: 25px;
+    height: 25px;
+    margin-top: 5px;
+    background-image: url(../images/img/filter.png);
+    cursor: pointer;
+}
+
+.config .layui-card-header .filter input{
+    width: calc(100% - 25px);
+    height: 25px;
+    background-color: transparent;
+    margin-top: 5px;
+    border: none;
+}
+
+.config .layui-card-header .filter ul{
+    margin-top: 1px; 
+    border: 1px solid #d2d2d2;
+    color: #333;
+    border-top: none; 
+    display: none;
+    max-height: 120px;
+    overflow: auto;
+}
+
+.config .layui-card-header .filter_open ul{
+    display: block;
+}
+
+.config .layui-card-header .filter li{
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 30px;
+    background-color: #fff;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.config .layui-card-header .filter li.active::before{
+    content: ' ';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 7.5px;
+    left: 7.5px;
+    background-image: url(../images/img/checked.png);
+}
+
+.config .layui-card-header .filter li:hover{
+    background-color: #009688;
+    color: #fff;
+}
+
+.config .layui-card-header .filter li:hover::before{
+    background-image: url(../images/img/checked_h.png);
+} 
+
+.config .layui-card-header .operates{
+    top: 0px;
+    right: 5px;
+}
+
+.config .layui-card-header .operates .layui-nav{
+    margin-top: 6px;
+}
+
+.config .layui-card-header .operates .ico{
+    margin-left: 6px;
+    margin-top: 6px;
+}
+
+.config .layui-card-body{
+    padding: 0;
+    height: calc(100% - 38px);
+    overflow: auto;
+}
+
+.config .layui-card-body.type3{
+    padding: 1px;
+}
+
+.config .layui-card-body::after{
+    content: " ";
+    display: table;
+    clear: both;
+} 
+
+.group1 .layui-col-sm61 .operates{
+    width: calc(100% - 76px);
+}
+
+.group2 .layui-col-sm61 .operates{
+    width: calc(100% - 104px);
+}
+
+.group1 .layui-col-sm61 .filter{
+    width: calc(100% - 134px);
+}
+
+.group2 .layui-col-sm61 .filter{
+    width: calc(100% - 165px);
+}
+
+.showConfigDiv .layui-col-sm61 .filter{
+    width: calc(100% - 78px);
+}
+
+.config .layui-card-body.type1 .item{
+    float: left;
+    width: 100%;
+    line-height: 25px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.config .layui-card-body.type1 .item:hover,.config .layui-card-body.type1 .item.active{
+    background-color: #009688;
+    color: #fff;
+}
+
+.config .layui-card-body.type1 .item p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.config .layui-card-body.type1 .item .name{
+    margin-left: 20px;
+    color: #999;
+}
+
+.config .layui-card-body.type1 .item:hover .name,.config .layui-card-body.type1 .item.active .name{
+    color: #fff;
+}
+
+.config .layui-card-body.type1 .item .operates,.config .layui-card-body.type3 .item .operates{
+    padding: 6px 10px;
+    background-color: #f8f8f8;
+    border: 1px solid #d2d2d2;
+    box-shadow: rgba(7, 7, 7, 0.2) 0 0 5px;
+}
+
+.config .layui-card-body.type1 .item .operates .ico,.config .layui-card-body.type3 .item .operates .ico{
+    margin: 0 5px;
+}
+
+.config .layui-card-body.type1 .item .operates .empty,.config .layui-card-body.type3 .item .operates .empty{
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    left: 0;
+    top: -6px;
+    z-index: 1000;
+}
+
+.config .layui-card-body.type2 .item{
+    position: relative;
+    float: left;
+    background-color: #F8F8F8;
+    border: 1px solid #F8F8F8;
+    padding-left: 15px;
+    padding-right: 91px;
+    width: calc(100% - 10px);
+    height: 40px;
+    box-sizing: border-box;
+    line-height: 40px;
+    margin: 2.5px 5px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.config .layui-card-body.type2 .item.active{
+    border: 1px solid #009688;
+    background-color: #fff;
+}
+
+.config .layui-card-body.type2 .item p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#drag{
+    float: left;
+    height: calc(100% - 45px);
+    width: 100%;
+    overflow: auto;
+}
+
+.config .layui-card-body.type2 .item .name{
+    margin-left: 20px;
+    color: #999;
+}
+
+.config .layui-card-body.type2 .item .operates{
+    border-left: 1px solid #e2e2e2;
+    top: 7px;
+    right: 10px;
+}
+
+.config .layui-card-body.type3 .item{
+    float: left;
+    background-color: #F8F8F8;
+    border: 1px solid #eee;
+    padding:0 15px;
+    width: calc(50% - 2px);
+    height: 54px;
+    box-sizing: border-box;
+    margin: 1px;
+    cursor: pointer;
+}
+
+.config .layui-card-body.type3 .item.active{
+    border: 1px solid #009688;
+    background-color: #fff;
+}
+
+.config .layui-card-body.type3 .item .num{
+    display: block;
+    font-size: 14px;
+    line-height: 25px;
+    margin-top: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.config .layui-card-body.type3 .item .name{
+    display: block;
+    font-size: 13px;
+    line-height: 20px;
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.config .layui-card-body.type3 .item .operates{
+    background-color: #fff;
+}
+
+.layui-collapse{
+    margin-bottom: 6px;
+}
+
+.layui-colla-content p{
+    padding-left: 45px;
+    margin: 5px 0;
+    color: #999;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.layui-colla-font{
+    height: 28px;
+    line-height: 28px;
+    color: #009688;
+    padding-left: 40px;
+    border-top:1px solid #e6e6e6;
+}
+
+.layui-card-header .layui-nav{
+    display: none;
+}
+
+.showConfigDiv .layui-card-header .layui-nav{
+    display: block;
+}
+
+.showConfigDiv .layui-card-header .btns{
+    display: none;
+}
+
+.layui-tab-item-config{
+    position: relative;
+    padding: 0 10px;
+}
+
+.layui-tab-item-config .showBtn{
+    position: absolute;
+    background-image: url(../images/img/showBtn.png);
+    width: 38px;
+    height: 38px;
+    right: 0;
+    top: 0px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.layui-tab-item-config.showConfigDiv .showBtn{
+    display: none;
+}
+
+.showConfigDiv .config{
+    width: calc(100% - 300px);
+}
+
+.showConfigDiv .layui-col-sm61{
+    width: 300px;
+}
+
+.showConfigDiv .layui-col-sm62{
+    width: calc(100% - 300px);
+}
+
+.configDiv{
+    position: relative;
+    float: right;
+    width: 0px;
+    border: 0px solid #eee;
+    height: 100%;
+    min-height: 500px;
+    box-shadow: rgba(51, 51, 51, 0.2) -5px 0 5px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.showConfigDiv .configDiv{
+    width: 290px;
+    border: 1px solid #eee;
+}
+
+.configDiv .hiddenBtn{
+    position: absolute;
+    background-image: url(../images/img/hiddenDiv.png);
+    width: 20px;
+    height: 20px;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.configDiv .tit{
+    color: #009688;
+    padding: 0 20px; 
+    margin: 10px 0;
+}
+
+.configDiv .box{
+    padding: 0 20px; 
+    padding-bottom: 10px;
+}
+
+.configDiv .flowCode{
+    margin-bottom: 10px;
+}
+
+.configDiv .flowCode::after{
+    clear: both;
+    content: " ";
+    display: table;
+}
+
+.configDiv .flowCode>.layui-input{
+    float: left;
+    width: calc(100% - 171px);
+}
+
+.configDiv .flowCode .gt{
+    float: left;
+    width: 15px;
+    height: 15px;
+    margin: 10px 3px;
+    background-image: url(../images/img/gt.png);
+}
+
+.configDiv .flowCode .selectBox{
+    float: left;
+    width: 150px;
+    height: 38px;
+}

@@ -1,0 +1,1274 @@
+﻿<!DOCTYPE struts PUBLIC
+         "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+         "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<!-- sys manager -->
+	<package name="loginAction" namespace="/sys" extends="project_default">
+		<action name="LoginAction_*" class="com.more.fw.core.base.login.action.LoginAction"
+			method="{1}">
+			<interceptor-ref name="project_defaultstack" />
+			<!-- <interceptor-ref name="token">
+				<param name="includeMethods">login</param>
+			</interceptor-ref> -->
+			<result name="invalid.token">/plf/common/globalInfo.jsp</result>
+			<result name="input">/plf/page/sysmain/main/{1}.jsp</result>
+			<result name="login">/plf/page/sysmain/main/login.jsp</result>
+			<result name="logout" type="redirect">/plf/page/sysmain/main/forLogin.html</result>
+			<result name="pass" type="redirect">LoginAction_mainFrame.ms</result>
+			<result name="mainFrame">/plf/page/sysmain/main/mainFrame.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>
+
+	<!-- sys manager -->
+	<package name="fpAction" namespace="/fp" extends="project_default">
+		<action name="FpAction_*" class="com.more.fw.core.base.login.action.LoginAction"
+			method="{1}">
+			<interceptor-ref name="project_defaultstack" />
+			<!-- <interceptor-ref name="token">
+				<param name="includeMethods">fpLogin</param>
+			</interceptor-ref>
+			<result name="invalid.token">/plf/common/globalInfo.jsp</result> -->
+			<result name="input">/plf/page/fp/{1}.jsp</result>
+			<result name="fpLogin">/plf/page/fp/fpLogin.jsp</result>
+			<result name="logoutFp" type="redirect">/plf/page/sysmain/main/forLoginFp.html</result>
+			<result name="passFp" type="redirect">FpAction_mainFrameFp.ms</result>
+			<result name="mainFrameFp">/plf/page/fp/mainFrame.jsp</result>
+			<result name="upPWD">/plf/page/fp/upPWD.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>
+
+	<package name="sysAction" namespace="/sys" extends="project_default">
+		<!-- func manager -->
+		<action name="FuncAction_*" class="com.more.fw.core.sysfa.auth.action.SysMainAction"
+			method="{1}">
+			<interceptor-ref name="project_defaultstack" />
+			<interceptor-ref name="token">
+				<param name="includeMethods">addTest111</param>
+			</interceptor-ref>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+			<result name="invalid.token">/plf/common/globalInfo.jsp</result>
+			<result name="input">/plf/page/sysmain/func/{1}.jsp</result>
+			<result name="listFunc">/plf/page/sysmain/func/listFunc.jsp</result>
+			<result name="listCsFunc">/plf/page/sysmain/func/listCsFunc.jsp</result>
+			<result name="addFunc">/plf/page/sysmain/func/addFunc.jsp</result>
+			<result name="addCsFunc">/plf/page/sysmain/func/addCsFunc.jsp</result>
+			<result name="showUpFunc">/plf/page/sysmain/func/upFunc.jsp</result>
+			<result name="showUpCsFunc">/plf/page/sysmain/func/upCsFunc.jsp</result>
+			<result name="listUserFuncTree">/plf/page/sysmain/main/mainTree.jsp</result>
+			<result name="listFpFuncTree">/plf/page/sysmain/main/mainFpTree.jsp</result>
+			<result name="addPublishFunc">/plf/page/sysmain/func/addPublishFunc.jsp</result>
+			<result name="addPublishFuncButton">/plf/page/sysmain/func/addPublishFuncButton.jsp</result>
+			<result name="showPublishUpFunc">/plf/page/sysmain/func/upPublishFunc.jsp</result>
+			
+			<!--
+			<result name="platformParamList">/plf/page/bussmodel/dmp/dmpList.jsp</result> -->
+			 <result name="platformParamList">/plf/page/sysmain/platform/platformParamsList.jsp</result>
+			
+			<!-- <result name="userParamList">/plf/page/bussmodel/dmp/dmpList.jsp</result> -->
+			<result name="flow">/plf/page/wf/flow_from/flow.jsp</result>
+			<result name="userParamList">/plf/page/sysmain/userParam/userParamList.jsp</result>
+			<result name="forPlatForm">/plf/page/sysmain/platform/forPlatForm.jsp</result>
+			<result name="userParamForm">/plf/page/sysmain/userParam/userParamForm.jsp</result>
+			<result name="dataAuthConfigList">/plf/page/sysmain/dataAuthConfig/dataAuthConfigList.jsp</result>
+			<result name="addPublishFuncButtonForNopm">/plf/page/sysmain/func/addPublishFuncButtonForNopm.jsp</result>
+			<result name="upFuncTree">/plf/page/sysmain/func/upFuncTree.jsp</result>
+			<result name="listPdaFunc">/plf/page/sysmain/func/listPdaFunc.jsp</result>
+			<result name="addPdaFunc">/plf/page/sysmain/func/addPdaFunc.jsp</result>
+			<result name="upPdaFunc">/plf/page/sysmain/func/upPdaFunc.jsp</result>
+		</action>
+		<!-- role manager -->
+		<action name="RoleAction_*" class="com.more.fw.core.sysfa.auth.action.SysMainAction"
+			method="{1}">
+			<interceptor-ref name="project_defaultstack" />
+			<!--<interceptor-ref name="token">
+				<param name="includeMethods">addRole</param>
+			</interceptor-ref> -->
+			<result name="invalid.token">/plf/common/globalInfo.jsp</result>
+			<result name="input">/plf/page/sysmain/role/{1}.jsp</result>
+			<result name="listRole">/plf/page/sysmain/role/listRole.jsp</result>
+			<result name="listRolePublish">/plf/page/sysmain/role/listRolePublish.jsp</result>
+			<result name="addRole">/plf/page/sysmain/role/addRole.jsp</result>
+			<result name="showUpRole">/plf/page/sysmain/role/upRole.jsp</result>
+			<result name="seeRole">/plf/page/sysmain/role/seeRole.jsp</result>
+			<result name="addRoleFunc">/plf/page/sysmain/role/addRoleFunc.jsp</result>
+			<result name="confUser">/plf/page/sysmain/role/confUser.jsp</result>
+			<result name="addRoleUser">/plf/page/sysmain/role/addRoleUser.jsp</result>
+			<result name="addRoleUserS">/plf/page/sysmain/role/addRoleUserS.jsp</result>
+			<result name="kpiCollocation">/plf/page/sysmain/role/kpiCollocation.jsp</result>
+			<result name="appConfigure">/plf/page/sysmain/role/appConfigure.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+		<!-- job manager -->
+		<action name="JobAction_*" class="com.more.fw.core.sysfa.auth.action.SysMainAction"
+			method="{1}">
+			<interceptor-ref name="project_defaultstack" />
+			<!-- <interceptor-ref name="token">
+				<param name="includeMethods">addJob</param>
+			</interceptor-ref>-->
+			<result name="invalid.token">/plf/common/globalInfo.jsp</result>
+			<result name="input">/plf/page/sysmain/job/{1}.jsp</result>
+			<result name="listJob">/plf/page/sysmain/job/listJob.jsp</result>
+			<result name="addJob">/plf/page/sysmain/job/addJob.jsp</result>
+			<result name="seeJob">/plf/page/sysmain/job/seeJob.jsp</result>
+			<result name="showUpJob">/plf/page/sysmain/job/upJob.jsp</result>
+			<result name="addJobUserS">/plf/page/sysmain/job/addJobUserS.jsp</result>
+			<result name="JobCommand">/plf/page/sysmain/job/JobCommand.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+		<!-- user manager -->
+		<action name="UserAction_*" class="com.more.fw.core.sysfa.auth.action.SysMainAction"
+			method="{1}">
+			<interceptor-ref name="project_defaultstack" />
+			<!-- <interceptor-ref name="token">
+				<param name="includeMethods">addUser</param>
+			</interceptor-ref> -->
+			<result name="invalid.token">/plf/common/globalInfo.jsp</result>
+			<result name="input">/plf/page/sysmain/user/{1}.jsp</result>
+			<result name="listUser">/plf/page/sysmain/user/listUser.jsp</result>
+			<result name="addUser">/plf/page/sysmain/user/addUser.jsp</result>
+			<result name="upUser">/plf/page/sysmain/user/upUser.jsp</result>
+			<result name="seeUser">/plf/page/sysmain/user/seeUser.jsp</result>
+			<result name="upMyUser">/plf/page/sysmain/user/upMyUser.jsp</result>
+			<result name="upMyPW">/plf/page/sysmain/user/upMyPW.jsp</result>
+			<result name="listUserAx">/plf/page/sysmain/user/listUserAx.jsp</result>
+			<result name="addUserS">/plf/page/sysmain/user/addUserS.jsp</result>
+			<result name="addUserSReturn">/plf/page/sysmain/user/addUserSReturn.jsp</result>
+			<result name="listAllOnlineUser">/plf/page/sysmain/user/listAllOnlineUser.jsp</result>
+			<result name="showUserSetting">/plf/page/sysmain/user/showUserSetting.jsp</result>
+			<result name="showDesignerDownLoad">/plf/page/mlabel/page/showDesignerDownLoad.jsp</result>
+			<result name="showOrganization">/plf/page/sysmain/user/showOrganization.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+		
+		<!-- post manager -->
+		<action name="PostMgrAction_*" class="com.more.fw.core.sysfa.auth.action.PostMgrAction"
+			method="{1}">
+			<interceptor-ref name="project_defaultstack" />			
+			<result name="invalid.token">/plf/common/globalInfo.jsp</result>
+			<result name="input">/plf/page/sysmain/post/{1}.jsp</result>
+			<result name="listPost">/plf/page/sysmain/post/listPost.jsp</result>
+			<result name="addPost">/plf/page/sysmain/post/addPost.jsp</result>
+			<result name="seePost">/plf/page/sysmain/post/seePost.jsp</result>
+			<result name="showUpPost">/plf/page/sysmain/post/upPost.jsp</result>
+			<result name="showConfPost">/plf/page/sysmain/post/showConfPost.jsp</result>
+			<result name="addDeptPost">/plf/page/sysmain/post/addDeptPost.jsp</result>
+			<result name="upDeptPost">/plf/page/sysmain/post/upDeptPost.jsp</result>
+			<result name="chooseUser">/plf/page/sysmain/post/chooseUser.jsp</result>
+			<result name="deptPosition">/plf/page/sysmain/post/deptPosition.jsp</result>
+			<result name="deptPositionAdd">/plf/page/sysmain/post/deptPositionAdd.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+		<action name="AgentAction_*" class="com.more.fw.core.sysfa.auth.action.PostMgrAction"
+			method="{1}">
+			<interceptor-ref name="project_defaultstack" />
+			<result name="taskAgent">/plf/page/sysmain/agent/taskAgent.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+		
+		<!-- tables manager -->
+		<action name="TablesAction_*" class="com.more.fw.core.sysfa.auth.action.SysMainAction"
+			method="{1}">
+			<interceptor-ref name="project_defaultstack" />
+			<result name="listTables">/plf/page/sysmain/SelectTables/listTables.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+		
+		
+		
+		<!-- dept manager -->
+		<action name="DeptAction_*" class="com.more.fw.core.sysfa.auth.action.SysMainAction"
+			method="{1}">
+			<interceptor-ref name="project_defaultstack" />
+			<!--<interceptor-ref name="token">
+				<param name="includeMethods">addDept</param>
+			</interceptor-ref>-->
+			<result name="invalid.token">/plf/common/globalInfo.jsp</result>
+			<result name="input">/plf/page/sysmain/dept/{1}.jsp</result>
+			<result name="listDept">/plf/page/sysmain/dept/listDept.jsp</result>
+			<result name="addDept">/plf/page/sysmain/dept/addDept.jsp</result>
+			<result name="upDept">/plf/page/sysmain/dept/upDept.jsp</result>
+			<result name="seeDept">/plf/page/sysmain/dept/seeDept.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+
+		<action name="BussModelAction_*" class="com.more.fw.core.bd.action.BussModelAction"
+			method="{1}">
+			<interceptor-ref name="project_defaultstack" />
+			<interceptor-ref name="token">
+				<param name="includeMethods">addFuncTT</param>
+			</interceptor-ref>
+			<result name="invalid.token">/plf/common/globalInfo.jsp</result>
+			<result name="input">/plf/page/sysmain/func/{1}.jsp</result>
+			<result name="listBussModelTree">/plf/page/bussmodel/modelTree.jsp</result>
+			<result name="listOrm">/plf/page/bussmodel/listOrm.jsp</result>
+			<result name="listOrmCol">/plf/page/bussmodel/listOrmCol.jsp</result>
+			<result name="addOrm">/plf/page/bussmodel/addOrm.jsp</result>
+			<result name="viewOrm">/plf/page/bussmodel/viewOrm.jsp</result>
+			<result name="editOrm">/plf/page/bussmodel/editOrm.jsp</result>
+			<result name="addOrmCol">/plf/page/bussmodel/addOrmCol.jsp</result>
+			<result name="listView">/plf/page/bussmodel/listView.jsp</result>
+			<result name="viewRelate">/plf/page/bussmodel/viewRelate.jsp</result>
+			<result name="viewOrmRel">/plf/page/bussmodel/viewOrmRel.jsp</result>
+			<result name="viewActRel">/plf/page/bussmodel/viewActRel.jsp</result>
+			<result name="viewAct">/plf/page/bussmodel/viewAct.jsp</result>
+			<result name="editCode">/plf/page/bussmodel/editCode.jsp</result>
+			<result name="runCode">/plf/page/bussmodel/runCode.jsp</result>
+			<result name="editAct">/plf/page/bussmodel/editAct.jsp</result>
+			<result name="addView">/plf/page/bussmodel/addView.jsp</result>
+			<result name="editView">/plf/page/bussmodel/editView.jsp</result>
+			<result name="listAct">/plf/page/bussmodel/listAct.jsp</result>
+			<result name="addAct">/plf/page/bussmodel/addAct.jsp</result>
+			<result name="editAct">/plf/page/bussmodel/editAct.jsp</result>
+			<result name="listRep" type="redirect">/rep/listReport.ms?${paramString}</result>
+			<result name="addRep">/plf/page/bussmodel/addRep.jsp</result>
+			<result name="editRep">/plf/page/bussmodel/editRep.jsp</result>
+			<result name="listForm">/plf/page/bussmodel/listForm.jsp</result>
+			<result name="addForm">/plf/page/bussmodel/addForm.jsp</result>
+			<result name="editForm">/plf/page/bussmodel/editForm.jsp</result>
+			<result name="cfgForm">/plf/page/bussmodel/cfgForm.jsp</result>
+			<result name="dataForm">/plf/page/bussmodel/dataForm.jsp</result>
+			<result name="selectFormCol">/plf/page/bussmodel/selectFormCol.jsp</result>
+			<result name="selectForm">/plf/page/bussmodel/selectForm.jsp</result>
+			<result name="selectView">/plf/page/bussmodel/selectView.jsp</result>
+			<result name="cfgFunc">/plf/page/bussmodel/cfgFunc.jsp</result>
+			<result name="editViewCode">/plf/page/bussmodel/editViewCode.jsp</result>
+			<result name="addFunc">/plf/page/bussmodel/addFunc.jsp</result>
+			
+			<!--  
+			<result name="editJsValFun">/plf/page/bussmodel/editJsValFun.jsp</result>
+			-->
+			<result name="editJsValFun">/plf/page/common/cfgcode/cfgcode_jsp.jsp</result>
+			
+			<result name="listSearch">/plf/page/bussmodel/listSearch.jsp</result>
+			<result name="addSearch">/plf/page/bussmodel/addSearch.jsp</result>
+			<result name="editSearch">/plf/page/bussmodel/editSearch.jsp</result>			
+			<result name="cfgUICompFrame">/plf/page/bussmodel/formui/cfgUICompFrame.jsp</result>
+			<result name="uICompTree">/plf/page/bussmodel/formui/uICompTree.jsp</result>
+			<result name="cfgUIComp">/plf/page/bussmodel/formui/cfgUIComp.jsp</result>
+			<result name="listBussModel">/plf/page/bussmodel/listBussModel.jsp</result>
+			<result name="addBussModel">/plf/page/bussmodel/addBussModel.jsp</result>
+			<result name="editBussModel">/plf/page/bussmodel/editBussModel.jsp</result>
+			
+			<!--  
+			<result name="cfgClsCode">/plf/page/bussmodel/cfgClsCode.jsp</result>
+			-->
+			<result name="cfgClsCode">/plf/page/common/cfgcode/cfgcode_class_async.jsp</result>
+			
+			<result name="addAccount">/plf/page/bussmodel/addAccount.jsp</result>
+			<result name="editAccount">/plf/page/bussmodel/editAccount.jsp</result>
+			<result name="listAccount">/plf/page/bussmodel/listAccount.jsp</result>
+			<result name="moduleExport">/plf/page/bussmodel/moduleexport.jsp</result>
+			<result name="listModuleExport">/plf/page/bussmodel/listModuleExport.jsp</result>
+			<result name="importModule">/plf/page/bussmodel/importModule.jsp</result>
+			<result name="preview">/plf/page/bussmodel/preview/preview.jsp</result>
+			<result name="previewTab">/plf/page/bussmodel/preview/tab_view.jsp</result>
+			<result name="previewImg">/plf/page/bussmodel/preview/previewImg.jsp</result>
+			<result name="showTabCol">/plf/page/bussmodel/showTabCol.jsp</result> 
+			<result name="listBussViewModelTree">/plf/page/bussmodel/viewModelTree.jsp</result>
+			<result name="viewModelFrameSet">/plf/page/bussmodel/viewModelFrameset.jsp</result>
+			<result name="radioListView">/plf/page/bussmodel/radioListView.jsp</result>
+			<result name="funcModelRadioListView">/plf/page/bussmodel/funcModelRadioListView.jsp</result>
+			<result name="showDict">/plf/page/bussmodel/formui/showDict.jsp</result>
+			<!--ZZL: 模块类管理 -->
+			<result name="listClzMgr">/plf/page/bussmodel/classManager/listModelClz.jsp</result> 
+			<result name="addClzMgr">/plf/page/bussmodel/classManager/addModelClz.jsp</result>
+			<result name="viewClzMgr">/plf/page/bussmodel/classManager/viewModelClz.jsp</result>  
+			<result name="editClzMgr">/plf/page/bussmodel/classManager/editModelClz.jsp</result>
+			<!-- 接口选择 --> 
+			<result name="selectInter">/plf/page/common/selectinterf/interf.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+			<!-- 定时器选择 --> 
+			<result name="listTrigDetail">/plf/page/bussmodel/listTrigDetail.jsp</result>
+			<!-- 多语言 --> 
+			<result name="languageExport">/plf/page/bussmodel/languageExport.jsp</result>
+			<!-- 数据字典 --> 
+			<result name="dictExport">/plf/page/bussmodel/dictExport.jsp</result>
+				<!-- 数据字典 --> 
+			<result name="interExport">/plf/page/bussmodel/interExport.jsp</result>
+			<!-- 模块更新 start -->
+			<result name="listModule">/plf/page/bussmodel/listModule.jsp</result>
+			<result name="listModuleDetail">/plf/page/bussmodel/listModuleDetail.jsp</result>
+			<!-- 模块更新 end -->
+			
+			<result name="listBussModelTreeForNopm">/plf/page/bussmodel/modelTreeForNopm.jsp</result>
+			<result name="listViewForNopm">/plf/page/bussmodel/listViewForNopm.jsp</result>
+			<result name="cfgFuncForNopm">/plf/page/bussmodel/cfgFuncForNopm.jsp</result>
+			<result name="showError">/plf/page/bussmodel/showErrorMsg.jsp</result>
+			<result name="flowListView">/plf/page/bussmodel/flow/flowListView.jsp</result>
+			
+			<!-- 
+			<result name="controlEditCode">/plf/page/bussmodel/formui/editCode.jsp</result>
+			 -->
+			<result name="controlEditCode">/plf/page/common/cfgcode/cfgcode_sql.jsp</result>
+			
+			<!-- 持久模型中增加建索引功能 start -->
+			<result name="addindex">/plf/page/bussmodel/addindex.jsp</result>
+			<result name="addfields">/plf/page/bussmodel/addfields.jsp</result>
+			<!-- 持久模型中增加建索引功能 end -->
+			
+			<!-- (2.1+)快捷帮助向导 start -->
+			<result name="editHelp">/plf/page/bussmodel/editHelp.jsp</result>
+			<result name="showHelp">/plf/page/bussmodel/showHelp.jsp</result>
+			<!-- (2.1+)快捷帮助向导 end -->
+			
+		</action>
+
+	<!-- ZZL:20170808 模块类管理 V2.0-->
+	<action name="MClzMgrAction_*" class="com.more.fw.core.bd.action.MClzMgrAction"
+			method="{1}">
+			<interceptor-ref name="project_defaultstack" />
+			<interceptor-ref name="token">
+				<param name="includeMethods">aaTT</param>
+			</interceptor-ref>
+			<result name="invalid.token">/plf/common/globalInfo.jsp</result>
+			<result name="input">/plf/page/sysmain/func/{1}.jsp</result>
+			<result name="listCommClass">/plf/page/bussmodel/mclzx/listCommClass.jsp</result>
+			<result name="listCommPack">/plf/page/bussmodel/mclzx/listCommPack.jsp</result>
+			<result name="addEditCommClass">/plf/page/bussmodel/mclzx/addEditCommClass.jsp</result>
+			<result name="packPathModel">/plf/page/bussmodel/mclzx/packPathModel.jsp</result>
+			<result name="viewModel">/plf/page/bussmodel/mclzx/viewModel.jsp</result>
+			<result name="addCommClass">/plf/page/bussmodel/mclzx/addCommClass.jsp</result>
+			<result name="editCommClass">/plf/page/bussmodel/mclzx/editCommClass.jsp</result>
+
+			<result name="commClassTree">/plf/page/bussmodel/mclzx/commClassTree.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+
+	<!-- ZZL:20170810 JAVA管理 V1.0-->
+	<action name="JClzAction_*" class="com.more.fw.core.bd.action.JClzAction"
+			method="{1}">
+			<interceptor-ref name="project_defaultstack" />
+			<interceptor-ref name="token">
+				<param name="includeMethods">aaTT</param>
+			</interceptor-ref>
+			<result name="invalid.token">/plf/common/globalInfo.jsp</result>
+			<result name="input">/plf/page/sysmain/func/{1}.jsp</result>
+			<result name="listCommClass">/plf/page/bussmodel/jclz/listCommClass.jsp</result>
+			<result name="listCommPack">/plf/page/bussmodel/jclz/listCommPack.jsp</result>
+			<result name="addEditCommClass">/plf/page/bussmodel/jclz/addEditCommClass.jsp</result>
+			<result name="packPathModel">/plf/page/bussmodel/jclz/packPathModel.jsp</result>
+			<result name="viewModel">/plf/page/bussmodel/jclz/viewModel.jsp</result>
+			<result name="addCommClass">/plf/page/bussmodel/jclz/addCommClass.jsp</result>
+			<result name="editCommClass">/plf/page/bussmodel/jclz/editCommClass.jsp</result>
+
+			<result name="commClassTree">/plf/page/bussmodel/jclz/commClassTree.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+		
+		<!-- Z20180518: CS端 升级-->
+		<action name="CsUpdateAction_*" class="com.more.fw.core.cs.updater.action.CsUpdateAction" method="{1}">
+			<interceptor-ref name="project_defaultstack" />
+			<interceptor-ref name="token">
+				<param name="includeMethods">aaTT</param>
+			</interceptor-ref>
+			<result>/plf/page/csupdater/success.jsp</result>
+			<result name="uploadFile">/plf/page/csupdater/uploadFile.jsp</result>
+			<result name="customScript">/plf/page/csupdater/customScript.jsp</result>
+			<result name="viewScript">/plf/page/csupdater/viewScript.jsp</result>
+			<result name="releasePage">/plf/page/csupdater/releasePage.jsp</result>
+			<result name="update">/plf/page/csupdater/update.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+
+		<action name="UserCustomAction_*" class="com.more.fw.core.bd.action.UserCustomAction"
+			method="{1}">
+			<interceptor-ref name="project_defaultstack" />
+			<interceptor-ref name="token">
+				<param name="includeMethods">aaTT</param>
+			</interceptor-ref>
+			<result name="invalid.token">/plf/common/globalInfo.jsp</result>
+			<result name="input">/plf/page/sysmain/func/{1}.jsp</result>
+			<result name="listCommClass">/plf/page/bussmodel/usercustom/listCommClass.jsp</result>
+			<result name="listCommPack">/plf/page/bussmodel/usercustom/listCommPack.jsp</result>
+			<result name="addEditCommClass">/plf/page/bussmodel/usercustom/addEditCommClass.jsp</result>
+			<result name="packPathModel">/plf/page/bussmodel/usercustom/packPathModel.jsp</result>
+			<result name="viewModel">/plf/page/bussmodel/usercustom/viewModel.jsp</result>
+			<result name="addCommClass">/plf/page/bussmodel/usercustom/addCommClass.jsp</result>
+			<result name="editCommClass">/plf/page/bussmodel/usercustom/editCommClass.jsp</result>
+			<result name="listCommPage">/plf/page/bussmodel/usercustom/listCommPage.jsp</result>
+			<result name="addCommPage">/plf/page/bussmodel/usercustom/addCommPage.jsp</result>
+			<result name="editCommPage">/plf/page/bussmodel/usercustom/editCommPage.jsp</result>
+			<result name="commPageTree">/plf/page/bussmodel/usercustom/commPageTree.jsp</result>
+			<result name="commClassTree">/plf/page/bussmodel/usercustom/commClassTree.jsp</result>
+			<result name="interf">/plf/page/common/selectinterf/interfPath.jsp</result>
+			
+			<!--  
+			<result name="toEditCode">/plf/page/common/commonpage/toEditCode.jsp</result>
+			-->
+			<result name="toEditCode">/plf/page/common/cfgcode/cfgcode_class.jsp</result>
+			
+			<!-- 
+			<result name="editJsValFun">/plf/page/bussmodel/editJsValFun.jsp</result>
+			 -->
+			<result name="editJsValFun">/plf/page/common/cfgcode/cfgcode_jsp.jsp</result>
+
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>
+			<!--用户常用功能设置 -->
+	<package name="footPlatformAction" namespace="/sys" extends="project_default">
+		<action name="FootPlatformAction_*" 
+				class="com.more.fw.core.sysfa.usermessage.action.UserMessageMangerAction"
+				method="{1}">
+				<interceptor-ref name="project_defaultstack" />	
+				<result name="invalid.token">/plf/common/globalInfo.jsp</result>
+				<result name="input">/plf/page/sysmain/commFunc/{1}.jsp</result>
+				<result name="footPlatform">/plf/page/sysmain/commFunc/footPlatform.jsp</result>
+				<result name="AJAX" type="json">
+					<param name="includeProperties">ajax.*</param>
+				</result>
+			</action>
+	</package>
+	<package name="adminTargetDataAction" namespace="/sys" extends="project_default">
+		<action name="AdminTargetDataAction_*" 
+				class="com.more.fw.core.sysfa.usermessage.action.UserMessageMangerAction"
+				method="{1}">
+				<interceptor-ref name="project_defaultstack" />	
+				<result name="invalid.token">/plf/common/globalInfo.jsp</result>
+				<result name="input">/plf/page/sysmain/adminTarget/{1}.jsp</result>
+				<result name="adminTargetDataList">/plf/page/sysmain/adminTarget/list.jsp</result>
+				<result name="goToSetMenu">/plf/page/sysmain/adminTarget/setMenu.jsp</result>
+				<result name="goToSetPic">/plf/page/sysmain/adminTarget/setPic.jsp</result>
+				<result name="goToSetDatabase">/plf/page/sysmain/adminTarget/setDatabase.jsp</result>
+				<result name="AJAX" type="json">
+					<param name="includeProperties">ajax.*</param>
+				</result>
+			</action>
+	</package>
+	<package name="userTargetDataAction" namespace="/sys" extends="project_default">
+		<action name="UserTargetDataAction_*" 
+				class="com.more.fw.core.sysfa.usermessage.action.UserMessageMangerAction"
+				method="{1}">
+				<interceptor-ref name="project_defaultstack" />	
+				<result name="invalid.token">/plf/common/globalInfo.jsp</result>
+				<result name="input">/plf/page/sysmain/adminTarget/{1}.jsp</result>
+				<result name="userSetData">/plf/page/sysmain/userTarget/setTargetData.jsp</result>
+				<result name="goToSetUserData">/plf/page/sysmain/userTarget/adminTargetData.jsp</result>
+				<result name="goToIndex">/plf/page/fp/index.jsp</result>
+				<result name="AJAX" type="json">
+					<param name="includeProperties">ajax.*</param>
+				</result>
+			</action>
+	</package>
+	<!-- 用户关键数据库 -->
+		<package name="adKeyDataAction" namespace="/sys" extends="project_default">
+		<action name="AdKeyDataAction_*" 
+				class="com.more.fw.core.sysfa.usermessage.action.UserMessageMangerAction"
+				method="{1}">
+				<interceptor-ref name="project_defaultstack" />	
+				<result name="invalid.token">/plf/common/globalInfo.jsp</result>
+				<result name="input">/plf/page/sysmain/adKey/{1}.jsp</result>
+				<result name="adList">/plf/page/sysmain/adKey/list.jsp</result>
+				<result name="goToSetAdKeyMenu">/plf/page/sysmain/adKey/setMenu.jsp</result>
+				<result name="goToSetAdKeyDatabase">/plf/page/sysmain/adKey/setDatabase.jsp</result>
+				<result name="goToSetAdPieDatabase">/plf/page/sysmain/adKey/setPieDatabase.jsp</result>
+				<result name="AJAX" type="json">
+					<param name="includeProperties">ajax.*</param>
+				</result>
+			</action>
+	</package>
+	<package name="usKeyDataAction" namespace="/sys" extends="project_default">
+		<action name="UsKeyDataAction_*" 
+				class="com.more.fw.core.sysfa.usermessage.action.UserMessageMangerAction"
+				method="{1}">
+				<interceptor-ref name="project_defaultstack" />	
+				<result name="invalid.token">/plf/common/globalInfo.jsp</result>
+				<result name="input">/plf/page/sysmain/usKey/{1}.jsp</result>
+				<result name="goToSetUserKeyData">/plf/page/sysmain/userTarget/adKeyData.jsp</result>
+				<result name="AJAX" type="json">
+					<param name="includeProperties">ajax.*</param>
+				</result>
+			</action>
+	</package>
+<package name="webservice" namespace="/webservice" extends="project_default">
+		
+		<action name="ServerMgrAction_*" class="com.more.fw.webservice.action.ServerMgrAction" method="{1}">
+			<interceptor-ref name="project_defaultstack" />
+			<interceptor-ref name="token">
+				<param name="includeMethods">aaTT</param>
+			</interceptor-ref>
+			<result name="invalid.token">/plf/common/globalInfo.jsp</result>
+			<result name="input">/plf/page/sysmain/func/{1}.jsp</result>
+			<result name="listModule">/plf/page/webservice/servermgr/listModule.jsp</result>
+			<result name="treeView">/plf/page/webservice/servermgr/moduleTree.jsp</result>
+			<result name="listConfig">/plf/page/webservice/servermgr/listConfig.jsp</result>
+			<result name="toAddConfig">/plf/page/webservice/servermgr/toAddConfig.jsp</result>
+			<result name="toEditConfig">/plf/page/webservice/servermgr/toEditConfig.jsp</result>
+			
+			<!--  
+			<result name="toEditCode">/plf/page/common/commonpage/toEditCode.jsp</result>
+			-->
+			<result name="toEditCode">/plf/page/common/cfgcode/cfgcode_class.jsp</result>
+			
+			<result name="toViewDetail">/plf/page/webservice/servermgr/toViewDetail.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+		
+		<action name="ClientMgrAction_*" class="com.more.fw.webservice.action.ClientMgrAction" method="{1}">
+			<interceptor-ref name="project_defaultstack" />
+			<interceptor-ref name="token">
+				<param name="includeMethods">aaTT</param>
+			</interceptor-ref>
+			<result name="invalid.token">/plf/common/globalInfo.jsp</result>
+			<result name="input">/plf/page/sysmain/func/{1}.jsp</result>
+			<result name="listModule">/plf/page/webservice/clientmgr/listModule.jsp</result>
+			<result name="treeView">/plf/page/webservice/clientmgr/moduleTree.jsp</result>
+			<result name="listConfig">/plf/page/webservice/clientmgr/listConfig.jsp</result>
+			<result name="toAddConfig">/plf/page/webservice/clientmgr/toAddConfig.jsp</result>
+			<result name="toEditConfig">/plf/page/webservice/clientmgr/toEditConfig.jsp</result>
+			<result name="toViewCode">/plf/page/webservice/clientmgr/toViewCode.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+		
+	</package>
+	
+	<package name="charts" namespace="/charts" extends="project_default">
+		<action name="pieAction_*" class="com.more.fw.core.sysfa.echarts.action.PieAction" method="{1}">
+			<interceptor-ref name="project_defaultstack" />	
+			<result name="list">/plf/page/sysmain/echarts/pie/list.jsp</result>
+			<result name="add">/plf/page/sysmain/echarts/pie/add.jsp</result>
+			<result name="update">/plf/page/sysmain/echarts/pie/update.jsp</result>
+			<result name="show">/plf/page/sysmain/echarts/pie/show.jsp</result>
+			<result name="ajaxDemo">/plf/page/sysmain/echarts/pie/ajaxDemo.jsp</result>
+			<result name="javaDataSources">/plf/page/bussmodel/cfgClsCodeFp.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+		
+		<action name="lineAction_*" class="com.more.fw.core.sysfa.echarts.action.LineAction" method="{1}">
+			<interceptor-ref name="project_defaultstack" />	
+			<result name="list">/plf/page/sysmain/echarts/line/list.jsp</result>
+			<result name="add">/plf/page/sysmain/echarts/line/add.jsp</result>
+			<result name="update">/plf/page/sysmain/echarts/line/update.jsp</result>
+			<result name="show">/plf/page/sysmain/echarts/line/show.jsp</result>
+			<result name="ajaxDemo">/plf/page/sysmain/echarts/line/ajaxDemo.jsp</result>
+			<result name="javaDataSources">/plf/page/bussmodel/cfgClsCodeFp.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+		
+	   <action name="calAction_*" class="com.more.fw.core.sysfa.echarts.action.CalAction" method="{1}">
+			<result name="list">/plf/page/sysmain/echarts/cal/list.jsp</result>
+			<result name="add">/plf/page/sysmain/echarts/cal/add.jsp</result>
+			<result name="update">/plf/page/sysmain/echarts/cal/update.jsp</result>
+			<result name="show">/plf/page/sysmain/echarts/cal/show.jsp</result>
+			<result name="ajaxDemo">/plf/page/sysmain/echarts/cal/ajaxDemo.jsp</result>
+			<result name="javaDataSources">/plf/page/bussmodel/cfgClsCodeFp.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+		
+		<action name="barAction_*" class="com.more.fw.core.sysfa.echarts.action.BarAction" method="{1}">
+			<interceptor-ref name="project_defaultstack" />	
+			<result name="list">/plf/page/sysmain/echarts/bar/list.jsp</result>
+			<result name="add">/plf/page/sysmain/echarts/bar/add.jsp</result>
+			<result name="update">/plf/page/sysmain/echarts/bar/update.jsp</result>
+			<result name="show">/plf/page/sysmain/echarts/bar/show.jsp</result>
+			<result name="ajaxDemo">/plf/page/sysmain/echarts/bar/ajaxDemo.jsp</result>
+			<result name="javaDataSources">/plf/page/bussmodel/cfgClsCodeFp.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+		
+		<action name="gaugeAction_*" class="com.more.fw.core.sysfa.echarts.action.GaugeAction" method="{1}">
+			<interceptor-ref name="project_defaultstack" />	
+			<result name="list">/plf/page/sysmain/echarts/gauge/list.jsp</result>
+			<result name="add">/plf/page/sysmain/echarts/gauge/add.jsp</result>
+			<result name="update">/plf/page/sysmain/echarts/gauge/update.jsp</result>
+			<result name="show">/plf/page/sysmain/echarts/gauge/show.jsp</result>
+			<result name="ajaxDemo">/plf/page/sysmain/echarts/gauge/ajaxDemo.jsp</result>
+			<result name="javaDataSources">/plf/page/bussmodel/cfgClsCodeFp.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+		
+		<action name="chartsAction_*" class="com.more.fw.core.sysfa.echarts.action.ChartsAction" method="{1}">
+			<interceptor-ref name="project_defaultstack" />	
+			<result name="list">/plf/page/sysmain/echarts/gauge/list.jsp</result>
+			<result name="chartsAdd">/plf/page/sysmain/echarts/echartsAdd.jsp</result>
+			<result name="update">/plf/page/sysmain/echarts/gauge/update.jsp</result>
+			<result name="show">/plf/page/sysmain/echarts/gauge/show.jsp</result>
+			<result name="ajaxDemo">/plf/page/sysmain/echarts/gauge/ajaxDemo.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+		
+	</package>
+	<package name="httpService" namespace="/httpService" extends="project_default">
+		<action name="httpMgrAction_*"
+				class="com.more.fw.http.action.ServerMgrAction"
+				method="{1}">
+				<interceptor-ref name="project_defaultstack" />	
+				<result name="invalid.token">/plf/common/globalInfo.jsp</result>
+				<result name="input">/plf/page/sysmain/usKey/{1}.jsp</result>
+				<result name="listModule">/plf/page/http/servermgr/listModule.jsp</result>
+				<result name="listConfig">/plf/page/http/servermgr/listConfig.jsp</result>
+				<result name="toAddConfig">/plf/page/http/servermgr/toAddConfig.jsp</result>
+				<result name="toEditConfig">/plf/page/http/servermgr/toAddConfig.jsp</result>
+				
+				<!--  
+				<result name="toEditCode">/plf/page/common/commonpage/toEditCode.jsp</result>
+				-->
+				<result name="toEditCode">/plf/page/common/cfgcode/cfgcode_class.jsp</result>
+				
+				<result name="toViewDetail">/plf/page/http/servermgr/toViewDetail.jsp</result>
+				<result name="toViewCode">/plf/page/http/servermgr/toViewCode.jsp</result>
+				<result name="AJAX" type="json">
+					<param name="includeProperties">ajax.*</param>
+				</result>
+			</action>
+	</package>
+	<package name="http" namespace="/http" extends="project_default">
+		<action name="interface"
+				class="com.more.fw.http.service.HttpCoreService" 
+				method="execHttpResult">
+			 <interceptor-ref name="project_defaultstack" />
+			 <result name="AJAX" type="json">
+					<param name="includeProperties">ajax.*</param>
+				</result>
+		</action>
+	</package>
+	<package name="reportAction" namespace="/rep" extends="project_default">
+		<action name="*" class="com.more.fw.core.report.ireport.action.ReportAction" method="{1}">
+			<interceptor-ref name="project_defaultstack" />	
+			<result name="success">/plf/page/rep/listReport.jsp</result>
+			<result name="showAddReport">/plf/page/rep/addReport.jsp</result>
+			<result name="editReport">/plf/page/rep/editReport.jsp</result>
+			<result name="addSearch">/plf/page/rep/addSearch.jsp</result>
+			<result name="editSearch">/plf/page/rep/editSearch.jsp</result>
+		</action>
+	</package>
+    <package name="reportShowAction" namespace="/repShow" extends="project_default">
+        <action name="*" class="com.more.fw.core.report.ireport.action.ReportShowAction" method="{1}">
+            <interceptor-ref name="project_defaultstack" /> 
+            <result name="showReport">/plf/page/rep/showReport.jsp</result>
+        </action>
+    </package>	
+	<package name="userEmailManageAction" namespace="/email" extends="project_default">
+		<action name="userEmailManageAction_*" class="com.more.fw.email.action.UserEmailManageAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			<result name="input">/plf/page/sysmain/user/{1}.jsp</result>
+			<result name="addUpdate">/plf/page/email/userEMailSet.jsp</result>
+			<result name="listUserEmail">/plf/page/email/listUserEmailManager.jsp</result>
+			<result name="listSendEmail">/plf/page/email/listSendEmailManager.jsp</result>
+			<result name="addSendUpdate">/plf/page/email/sendEMailSet.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>	
+<!-- 触发器 -->
+		<package name="TrigMagAction" namespace="/sys" extends="project_default">
+		<action name="trigMagAction_*" 
+				class="com.more.fw.core.base.core.timer.action.TrigMagAction"
+				method="{1}">
+				<interceptor-ref name="project_defaultstack" />	
+				<result name="invalid.token">/plf/common/globalInfo.jsp</result>
+				<result name="input">/plf/page/timer/trigMag/{1}.jsp</result>
+				<result name="listModule">/plf/page/timer/trigMag/listModule.jsp</result>
+				<result name="listConfig">/plf/page/timer/trigMag/listConfig.jsp</result>
+				<result name="toAddTrig">/plf/page/timer/trigMag/addTrig.jsp</result>
+				
+				<!--  
+				<result name="toEditCode">/plf/page/common/commonpage/toEditCode.jsp</result>
+				-->
+				<result name="toEditCode">/plf/page/common/cfgcode/cfgcode_class.jsp</result>
+				
+				<result name="toEditTrig">/plf/page/timer/trigMag/editTrig.jsp</result>
+				<result name="toCheckLog">/plf/page/timer/trigMag/checkLog.jsp</result>
+				<result name="checkTask">/plf/page/timer/trigMag/selectFrame.jsp</result>
+				<result name="checkWebService">/plf/page/timer/trigMag/checkWebService.jsp</result>
+				<result name="checkTaskReport">/plf/page/timer/trigMag/checkTaskReport.jsp</result>
+				<result name="checkTaskJava">/plf/page/timer/trigMag/checkTaskJava.jsp</result>
+				<result name="checkTaskHttp">/plf/page/timer/trigMag/checkTaskHttp.jsp</result>
+				<result name="AJAX" type="json">
+					<param name="includeProperties">ajax.*</param>
+				</result>
+			</action>
+	</package>	
+	<!-- webser -->
+		<package name="WebsJobMagAction" namespace="/sys" extends="project_default">
+		<action name="websJobMagAction_*" 
+				class="com.more.fw.core.base.core.timer.action.WebsJobMagAction"
+				method="{1}">
+				<interceptor-ref name="project_defaultstack" />	
+				<result name="invalid.token">/plf/common/globalInfo.jsp</result>
+				<result name="input">/plf/page/timer/wbsJob/{1}.jsp</result>
+				<result name="list">/plf/page/timer/wbsJob/list.jsp</result>
+				<result name="toAddWebs">/plf/page/timer/wbsJob/add.jsp</result>
+				<result name="toEditWebs">/plf/page/timer/wbsJob/edit.jsp</result>
+				
+				<!--  
+				<result name="toEditCode">/plf/page/common/commonpage/toEditCode.jsp</result>
+				-->
+				<result name="toEditCode">/plf/page/common/cfgcode/cfgcode_class.jsp</result>
+				
+				<result name="selectWebs">/plf/page/timer/wbsJob/selectWebs.jsp</result>
+				<result name="AJAX" type="json">
+					<param name="includeProperties">ajax.*</param>
+				</result>
+			</action>
+	</package>	
+		<!-- 任务 http -->
+	<package name="EventHttpManageAction" namespace="/eventHttp" extends="project_default">
+		<action name="eventHttpManageAction_*" class="com.more.fw.eventhttp.action.EventHttpManageAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			<result name="input">/plf/page/sysmain/user/{1}.jsp</result>
+			<result name="addUpdate">/plf/page/timer/eventhttp/eventHttp.jsp</result>
+			<result name="listEventHttp">/plf/page/timer/eventhttp/listEventHttpManager.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>
+
+	
+		<!-- 性能监控 -->
+	<package name="PerformanceMonitorAction" namespace="/performance" extends="project_default">
+		<action name="performanceMonitorAction_*" class="com.more.fw.core.base.core.timer.action.PerformanceMonitorAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			<!-- 系统异常日志 -->
+			<result name="sysExceptionLog">/plf/page/timer/perforMonit/log/sysExceptionLog.jsp</result>
+			<!-- 应用异常日志 -->
+			<result name="appExceptionLog">/plf/page/timer/perforMonit/log/appExceptionLog.jsp</result>
+			<!-- 内存对象列表 -->
+			<result name="memoryObjList">/plf/page/timer/perforMonit/url/memoryObjList.jsp</result>
+			<!-- 线程列表 -->
+			<result name="threadList">/plf/page/timer/perforMonit/url/threadList.jsp</result>
+			<!-- sql内容展示 -->
+			<result name="sqlShow">/plf/page/timer/perforMonit/sqlShow.jsp</result>
+			<result name="cpuView">/plf/page/timer/perforMonit/detail/cpuView.jsp</result>
+			<result name="memoryView">/plf/page/timer/perforMonit/detail/memoryView.jsp</result>
+			<result name="diskView">/plf/page/timer/perforMonit/detail/diskView.jsp</result>
+			<result name="sessionView">/plf/page/timer/perforMonit/detail/sessionView.jsp</result>
+			<result name="threadView">/plf/page/timer/perforMonit/detail/threadView.jsp</result>
+			<result name="gcView">/plf/page/timer/perforMonit/detail/gcView.jsp</result>
+			<result name="httpRequestView">/plf/page/timer/perforMonit/detail/httpRequestView.jsp</result>
+			<result name="dbTime">/plf/page/timer/perforMonit/url/dbTime.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>
+
+		<!-- 对外接口 -->
+	<package name="externalInterface" namespace="/exInterface" extends="project_default">
+		<action name="externalInterfaceAction_*" class="com.more.fw.exinterface.action.ExternalInterfaceAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			<result name="input">/plf/page/sysmain/user/{1}.jsp</result>
+			<result name="listModule">/plf/page/externalInterface/listModule.jsp</result>
+			<result name="addModulePage">/plf/page/externalInterface/addInterface.jsp</result>
+			<result name="commInterface">/plf/page/externalInterface/commSkip.jsp</result>
+			<result name="toWSSPage">/plf/page/webservice/servermgr/toEditConfig.jsp</result>
+			<result name="toWSCEditPage">/plf/page/webservice/clientmgr/toEditConfig.jsp</result>
+			<result name="toWSCAddPage">/plf/page/webservice/clientmgr/toAddConfig.jsp</result>
+			<result name="toHTTPPage">/plf/page/http/servermgr/toAddConfig.jsp</result>
+			<result name="toJAVAPage">/plf/page/externalInterface/javaInterface.jsp</result>
+			<result name="nextPageHttp">/plf/page/externalInterface/toHttp.jsp</result>
+			
+			<!--  
+			<result name="toCommClass">/plf/page/common/commonpage/toEditCode.jsp</result>
+			-->
+			<result name="toCommClass">/plf/page/common/cfgcode/cfgcode_class.jsp</result>
+			
+			<result name="toWSSDetailPage">/plf/page/externalInterface/wssDetailPage.jsp</result>
+			<result name="toWSCDetailPage">/plf/page/externalInterface/wscDetailPage.jsp</result>
+			<result name="toHTTPDetailPage">/plf/page/externalInterface/httpDetailPage.jsp</result>
+			<result name="noDetailPage">/plf/page/externalInterface/errorDetailPage.jsp</result>
+			<result name="editModulePage">/plf/page/externalInterface/editModulePage.jsp</result>
+			<result name="editModuleInterfacePage">/plf/page/externalInterface/editModuleInterfacePage.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>	
+<package name="LangTypeMagAction" namespace="/sys" extends="project_default">
+		<action name="LangTypeMagAction_*" 
+				class="com.more.fw.core.base.core.action.LangTypeMagAction"
+				method="{1}">
+				<interceptor-ref name="project_defaultstack" />	
+				<result name="invalid.token">/plf/common/globalInfo.jsp</result>
+				<result name="input">/plf/page/langType/{1}.jsp</result>
+				<result name="list">/plf/page/langType/list.jsp</result>
+				<result name="toAdd">/plf/page/langType/add.jsp</result>
+				<result name="toUpdate">/plf/page/langType/update.jsp</result>
+				<result name="AJAX" type="json">
+					<param name="includeProperties">ajax.*</param>
+				</result>
+			</action>
+	</package>
+	
+			<!-- 日志查找-->
+	<package name="LogAction" namespace="/oper" extends="project_default">
+		<action name="LogAction_*" class="com.more.fw.core.base.oper.action.LogAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+		
+			<!-- sql内容展示 -->
+			<result name="query">/plf/page/oper/queryLogList.jsp</result>
+			<result name="listSyOperLog">/plf/page/oper/listSyOperLog.jsp</result>
+			<result name="listSyAuthorityLog">/plf/page/oper/listSyAuthorityLog.jsp</result>
+			<result name="listSyMonitorSyexception">/plf/page/oper/listSyMonitorSyexception.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>
+			<!-- 心跳测试-->
+	<package name="CenterAction" namespace="/" extends="project_default">
+		<action name="CenterAction_*" class="com.more.fw.core.center.CenterAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>
+		<!-- 对外接口 -->
+	<package name="workMag" namespace="/sys" extends="project_default">
+		<action name="workMagAction_*" class="com.more.fw.core.base.core.timer.action.WorkMagAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			<result name="input">/plf/page/sysmain/user/{1}.jsp</result>
+			<result name="listModule">/plf/page/timer/workMag/listModule.jsp</result>
+			<result name="addModulePage">/plf/page/timer/workMag/addInterface.jsp</result>
+			<result name="toWebs">/plf/page/timer/wbsJob/add.jsp</result>
+			<result name="toJava">/plf/page/bussmodel/jclz/editCommClass.jsp</result>
+			<result name="toHttp">/plf/page/timer/eventhttp/eventHttp.jsp</result>
+			<result name="toEmail">/plf/page/email/sendEMailSet.jsp</result>
+			<result name="modifyModule">/plf/page/timer/workMag/editModule.jsp</result>
+			<result name="toModifyWebs">/plf/page/timer/wbsJob/edit.jsp</result>
+			<result name="toModifyEmail">/plf/page/email/updateEMailSet.jsp</result>
+			<result name="toModifyHttp">/plf/page/timer/eventhttp/updateHttp.jsp</result>
+			<result name="toModifJava">/plf/page/bussmodel/jclz/updateCommClass.jsp</result>
+			<result name="selectListModule">/plf/page/timer/trigMag/selectListModule.jsp</result>		
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>
+
+	<!-- 消息通用模板接口 -->
+	<package name="infComm" namespace="/infComm" extends="project_default">
+		<action name="infCommAction_*" class="com.more.fw.inf.common.action.CommAction" method="{1}">
+			<interceptor-ref name="project_defaultstack" />
+			<result name="toCommTemplateAdd">/plf/page/inf/common/commTemplateAdd.jsp</result>
+			<result name="toCommTemplateEdit">/plf/page/inf/common/commTemplateEdit.jsp</result>
+			<result name="toCommTemplateView">/plf/page/inf/common/commTemplateView.jsp</result>
+			<result name="listCommTemplate">/plf/page/inf/common/commTemplateList.jsp</result>
+
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>
+
+	<!-- 对外接口 -->
+	<package name="uei" namespace="/uei" extends="project_default">
+		<action name="outMsgAction_*" class="com.more.fw.core.uei.action.OutMsgAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>
+
+	<package name="wx" namespace="/wx" extends="project_default">
+		<action name="wxAction_*" class="com.more.fw.inf.wx.action.WxAction" method="{1}">
+			<interceptor-ref name="project_defaultstack" />	
+			<result name="wxIndexPage">/plf/page/inf/wx/wxIndex.jsp</result>
+			<result name="wxUserPage">/plf/page/inf/wx/wxUser.jsp</result>
+			
+			<result name="listWx">/plf/page/inf/wx/listWx.jsp</result>
+			<result name="configwx">/plf/page/inf/wx/configWx.jsp</result>
+			<result name="seewxuser">/plf/page/inf/wx/seewxuser.jsp</result>
+			<result name="seetemplate">/plf/page/inf/wx/seetemplate.jsp</result>
+			<result name="addtp">/plf/page/inf/wx/addtp.jsp</result>
+			<result name="edittp">/plf/page/inf/wx/edittp.jsp</result>
+			
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>
+
+	<!-- 钉钉接口 -->
+	<package name="ding" namespace="/ding" extends="project_default">
+		<action name="dingAction_*" class="com.more.fw.inf.ding.action.DingAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			
+			<result name="listDing">/plf/page/inf/ding/listDing.jsp</result>
+			<result name="listTask">/plf/page/inf/ding/listTask.jsp</result>
+			<result name="addDing">/plf/page/inf/ding/addDing.jsp</result>
+			
+			<result name="addTaskDing">/plf/page/inf/ding/addTaskDing.jsp</result>
+			
+			<result name="listDing2">/plf/page/inf/ding/listDing2.jsp</result>
+			<result name="configDing">/plf/page/inf/ding/configDing.jsp</result>
+			<result name="tbuserDing">/plf/page/inf/ding/tbuserDing.jsp</result>
+			<result name="ckusertree">/plf/page/inf/ding/usertreeDing.jsp</result>
+	
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>			
+	<!-- 阿里接口 -->
+	<package name="ALIMsg" namespace="/sys" extends="project_default">
+		<action name="ALIMsgAction_*" class="com.more.fw.inf.sms.action.ALIMsgAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			<result name="input">/plf/page/sysmain/user/{1}.jsp</result>
+			<result name="index">/plf/page/inf/sms/index.jsp</result>
+			<result name="toAdd">/plf/page/inf/sms/add.jsp</result>
+			<result name="toUpdate">/plf/page/inf/sms/update.jsp</result>
+			<result name="toConfig">/plf/page/inf/sms/attrIndex.jsp</result>
+			<result name="toAttrAdd">/plf/page/inf/sms/attrAdd.jsp</result>
+			<result name="toAttrUpdate">/plf/page/inf/sms/attrUpdate.jsp</result>
+			<result name="showSelPage">/plf/page/inf/sms/selectAliMsg.jsp</result>
+			<result name="showUserPhonePage">/plf/page/inf/sms/selectUserPhone.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>	
+	<!-- 用户自定义控件功能 -->
+	<package name="cusControlAction" namespace="/sys" extends="project_default">
+		<action name="cusControlAction_*" class="com.more.fw.core.cont.custom.action.CusControlAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			<result name="input">/plf/page/sysmain/user/{1}.jsp</result>
+			<result name="list">/plf/page/common/custom/index.jsp</result>
+			<result name="toAdd">/plf/page/common/custom/add.jsp</result>
+			<result name="toModify">/plf/page/common/custom/modify.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+			
+			<result name="seefile">/plf/page/common/custom/seefile.jsp</result>
+			
+		</action>
+	</package>	
+		<!-- 模块管理功能 -->
+	<package name="moduleMagAction" namespace="/sys" extends="project_default">
+		<action name="moduleMagAction_*" class="com.more.fw.core.base.core.boot.action.ModuleMagAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			<result name="input">/plf/page/sysmain/user/{1}.jsp</result>
+			<result name="listModule">/plf/page/boot/listModule.jsp</result>
+			<result name="listModuleDetail">/plf/page/boot/listModuleDetail.jsp</result>
+			<result name="moduleName">/plf/page/boot/moduleName.jsp</result>
+			<result name="bussExport">/plf/page/boot/bussExport.jsp</result>
+			<result name="classExport">/plf/page/boot/classExport.jsp</result>
+			<result name="moduleSourceExport">/plf/page/boot/moduleSourceExport.jsp</result>
+			<result name="moduleType">/plf/page/boot/moduleType.jsp</result>
+			<result name="pageExport">/plf/page/boot/pageExport.jsp</result>
+			<result name="interExport">/plf/page/boot/interExport.jsp</result>
+			<result name="interIframe">/plf/page/boot/interIframe.jsp</result>
+			<result name="listModules">/plf/page/boot/listModules.jsp</result>
+			
+			<!--
+			<result name="toEditCode">/plf/page/boot/toEditCode.jsp</result>
+			-->
+			<result name="toEditCode">/plf/page/common/cfgcode/cfgcode_class.jsp</result>
+			
+			<result name="languageExport">/plf/page/boot/languageExport.jsp</result>
+			<result name="dictExport">/plf/page/boot/dictExport.jsp</result>
+			<result name="listUninstallList">/plf/page/boot/listUninstallList.jsp</result>
+			<result name="moduleFunc">/plf/page/boot/moduleFunc.jsp</result>
+			<result name="toAddModules">/plf/page/boot/addModules.jsp</result>
+			<result name="modulesList">/plf/page/boot/modulesList.jsp</result>
+			<result name="trigTree">/plf/page/boot/trigTree.jsp</result>
+			<result name="listTrigDetail">/plf/page/boot/listTrigDetail.jsp</result>
+			<result name="listImportModule">/plf/page/boot/importModule.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>
+	<!-- 统一的图片管理页面 -->
+	<package name="picmg" namespace="/picmg" extends="project_default">
+		<action name="picmgAction_*" class="com.more.fw.picmg.action.PicmgAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			
+			<result name="addtreenode">/plf/page/picmg/addtreenode.jsp</result>
+			<result name="edittreenode">/plf/page/picmg/edittreenode.jsp</result>
+
+			<result name="picmglist">/plf/page/picmg/picmglist.jsp</result>
+			<result name="addpicmg">/plf/page/picmg/addpicmg.jsp</result>
+			
+			<result name="editpicmg">/plf/page/picmg/editpicmg.jsp</result>
+	
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>	
+	
+	<!-- 外系统单点登录 -->
+	<package name="sso" namespace="/sso" extends="project_default">
+		<action name="ssoLoginAction_*" class="com.more.fw.core.base.login.action.SsoLoginAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			
+			<result name="sso_err_page">/plf/common/errorsso.jsp</result>
+	
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>		
+	<package name="httpmsg" namespace="/httpmsg" extends="project_default">
+		<action name="interface"
+				class="com.more.fw.core.sysmain.msg.interf.PublishMcMsg" 
+				method="putQueue">
+			 <interceptor-ref name="project_defaultstack" />
+			 <result name="AJAX" type="json">
+					<param name="includeProperties">ajax.*</param>
+				</result>
+		</action>
+	</package>
+	<package name="cloud" namespace="/cloud" extends="project_default">
+		<action name="ssologin"
+				class="com.more.fw.api.mc.Ssologin" 
+				method="ssologin">
+			 <interceptor-ref name="project_defaultstack" />
+			 <result name="sureFp">/plf/cloud/fpLogin.jsp</result>
+			 <result name="sureSys">/plf/cloud/sysLogin.jsp</result>
+			 <result name="error">/plf/cloud/error.jsp</result>
+			 <result name="AJAX" type="json">
+					<param name="includeProperties">ajax.*</param>
+				</result>
+		</action>
+	</package>
+	<package name="force" namespace="/force" extends="project_default">
+		<action name="forceLogout"
+				class="com.more.fw.api.mc.ForceLogout" 
+				method="forceLogout">
+			 <interceptor-ref name="project_defaultstack" />
+			 <result name="sure">/plf/cloud/success1.jsp</result>
+			 <result name="error">/plf/cloud/error1.jsp</result>
+			 <result name="AJAX" type="json">
+					<param name="includeProperties">ajax.*</param>
+				</result>
+		</action>
+	</package>
+	<package name="check" namespace="/check" extends="project_default">
+		<action name="checkUserValidate"
+				class="com.more.fw.api.mc.CheckUserValidate" 
+				method="checkUserValidate">
+			 <interceptor-ref name="project_defaultstack" />
+			 <result name="AJAX" type="json">
+					<param name="includeProperties">ajax.*</param>
+				</result>
+		</action>
+	</package>
+	<package name="mcmask" namespace="/mcmask" extends="project_default">
+		<action name="interface"
+				class="com.more.fw.api.mc.GetMask" 
+				method="getMask">
+			 <interceptor-ref name="project_defaultstack" />
+			 <result name="AJAX" type="json">
+					<param name="includeProperties">ajax.*</param>
+				</result>
+		</action>
+	</package>
+	<package name="getLocal" namespace="/getLocal" extends="project_default">
+		<action name="interface"
+				class="com.more.fw.api.mc.GetLocal" 
+				method="getLocalLangage">
+			 <interceptor-ref name="project_defaultstack" />
+			 <result name="AJAX" type="json">
+					<param name="includeProperties">ajax.*</param>
+				</result>
+		</action>
+	</package>
+
+	<!-- 后台首页搜索 -->
+		<package name="fpSearch" namespace="/search" extends="project_default">
+		<action name="SearchAction_*" class="com.more.fw.search.action.SearchAction" method="{1}">
+			 <interceptor-ref name="project_defaultstack" />
+			 <result name="searchModule">/plf/page/moduleSearch/search.jsp</result>
+			 <result name="AJAX" type="json">
+					<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="flow" namespace="/flow" extends="project_default">
+		<action name="queryFlowView"
+				class="com.more.fw.http.service.FlowService" 
+				method="queryFlowView">
+			 <interceptor-ref name="project_defaultstack" />
+			 <result name="AJAX" type="json">
+					<param name="includeProperties">ajax.*</param>
+				</result>
+		</action>
+		<action name="queryModel"
+				class="com.more.fw.http.service.FlowService" 
+				method="queryModel">
+			 <interceptor-ref name="project_defaultstack" />
+			 <result name="AJAX" type="json">
+					<param name="includeProperties">ajax.*</param>
+				</result>
+		</action>
+		<action name="queryFormField"
+				class="com.more.fw.http.service.FlowService" 
+				method="queryFormField">
+			 <interceptor-ref name="project_defaultstack" />
+			 <result name="AJAX" type="json">
+					<param name="includeProperties">ajax.*</param>
+				</result>
+		</action>
+		<action name="validapptoken"
+				class="com.more.fw.http.service.FlowService" 
+				method="validapptoken">
+			 <interceptor-ref name="project_defaultstack" />
+			 <result name="AJAX" type="json">
+					<param name="includeProperties">ajax.*</param>
+				</result>
+		</action>
+	</package>
+
+	<!-- 客户定制化配置 -->
+	<package name="custconf" namespace="/custconf" extends="project_default">
+		<action name="custconfAction_*" class="com.more.fw.custconf.action.MsCustConfAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			
+			 <result name="custconf_sys">/plf/page/custconf/custconf_sys.jsp</result>
+			 <result name="custconf_login">/plf/page/custconf/custconf_login.jsp</result>
+			 <result name="custconf_index">/plf/page/custconf/custconf_index.jsp</result>
+			 <result name="custconf_loginre">/plf/page/custconf/custconf_loginre.jsp</result>
+			 <result name="custconf_indexre">/plf/page/custconf/custconf_indexre.jsp</result>
+			 
+			 <result name="custconf_page">/plf/page/custconf/custconf_page.jsp</result>
+			 
+			 <result name="editJsValFun">/plf/page/common/cfgcode/cfgcode_jsp.jsp</result>
+			 
+			 <result name="pageTree">/plf/page/custconf/pageTree.jsp</result>
+			 
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>	
+	<package name="pageDebugAction" namespace="/sys" extends="project_default">
+		<action name="pageDebugAction_*" class="com.more.fw.pagedebug.action.PageDebugAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			<result name="input">/plf/page/sysmain/user/{1}.jsp</result>
+			<result name="index">/plf/page/pageDebug/index.jsp</result>
+			<result name="pageDebug">/plf/page/pageDebug/pageDebug.jsp</result>
+			<result name="viewModel">/plf/page/pageDebug/viewModel.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>
+
+	
+	<package name="dmp" namespace="/dmp" extends="project_default">
+		<action name="DmpAction_*" class="com.more.fw.buss.dmp.action.DmpAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			<result name="getAlgorithModel"  type="redirect">/plf/page/buss/dmp/algorithModel/algorithModelList.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+			<result name="preAlgorithModelAdd">/plf/page/buss/dmp/algorithModel/algorithModelAdd.jsp</result>
+			<result name="preAlgorithModelEdit">/plf/page/buss/dmp/algorithModel/algorithModelEdit.jsp</result>
+			<result name="preAlgorithModelView">/plf/page/buss/dmp/algorithModel/algorithModelView.jsp</result>
+			<result name="preAlgorithModelSourceCode">/plf/page/buss/dmp/algorithModel/algorithModelSourceCode.jsp</result>
+		</action>
+		
+		<action name="OrderSetAction_*" class="com.more.fw.buss.dmp.action.OrderSetAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			<result name="getOrderSetModel">/plf/page/buss/dmp/ordersetmodel/orderSetList.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+			<result name="preOrderSetModelAdd">/plf/page/buss/dmp/ordersetmodel/orderSetAdd.jsp</result>
+			<result name="preOrderSetModelEdit">/plf/page/buss/dmp/ordersetmodel/orderSetEdit.jsp</result>
+			<result name="preOrderSetModelView">/plf/page/buss/dmp/ordersetmodel/orderSetView.jsp</result>
+		</action>
+
+		<action name="DmpOrderAction_*" class="com.more.fw.buss.dmp.action.DmpOrderAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			<result name="getOrderList"   type="redirect">/plf/page/buss/dmp/order/orderList.jsp</result>
+			<result name="addOrderPage">/plf/page/buss/dmp/order/orderAdd.jsp</result>
+			<result name="editOrderPage">/plf/page/buss/dmp/order/orderEdit.jsp</result>
+			<result name="viewOrderPage">/plf/page/buss/dmp/order/orderView.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+		<action name="DmpDeviceAction_*" class="com.more.fw.buss.dmp.action.DmpDeviceMonitorAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			<result name="getDeviceModel"   >/plf/page/buss/dmp/deviceMonitor/deviceSetting.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+
+		<action name="DmpMotionAction_*" class="com.more.fw.buss.motion.dmp.action.DmpMotionAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			<result name="getMotionModel"  type="redirect">/plf/page/buss/dmp/motionModel/motionModelList.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+			<result name="preMotionModelAdd">/plf/page/buss/dmp/motionModel/motionModelAdd.jsp</result>
+			<result name="preMotionModelEdit">/plf/page/buss/dmp/motionModel/motionModelEdit.jsp</result>
+			<result name="preMotionModelView">/plf/page/buss/dmp/motionModel/motionModelView.jsp</result>
+		</action>
+		
+		<action name="DmpServiceAction_*" class="com.more.fw.buss.dmp.action.DmpServiceAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			<result name="getDmpServiceList"  type="redirect">/plf/page/buss/dmp/dmpservice/dmpServiceList.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+			<result name="dmpServiceAdd">/plf/page/buss/dmp/dmpservice/dmpServiceAdd.jsp</result>
+			<result name="dmpServicelEdit">/plf/page/buss/dmp/dmpservice/dmpServiceEdit.jsp</result>
+			<result name="dmpServicelView">/plf/page/buss/dmp/dmpservice/dmpServiceView.jsp</result>
+		</action>
+		
+	</package>
+	
+
+	</struts>

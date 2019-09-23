@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.more.fw.core.dbo.model.dto.DictLaVersionDto"
+		table="SY_DICT_LAN_VERSION">
+		<id name="dictVersion" type="java.lang.Integer">
+			<column name="DICT_VERSION" ></column>
+		</id>
+		<property name="lanVersion" type="java.lang.Integer">
+			<column name="LANG_VERSION" ></column>
+		</property>
+	</class>
+</hibernate-mapping>

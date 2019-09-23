@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.more.fw.core.sysfa.auth.model.FuncDto" table="SY_FUNC">
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="33" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" length="60" />
+		</property>
+		<property name="url" type="java.lang.String">
+			<column name="url" length="120" />
+		</property>
+		<property name="upId" type="java.lang.String">
+			<column name="up_id" length="32" />
+		</property>
+		<property name="img" type="java.lang.String">
+			<column name="img" length="30" />
+		</property>
+		<property name="type" type="java.lang.String">
+			<column name="type" length="1" />
+		</property>
+		<property name="orderBy" type="java.lang.Integer">
+			<column name="order_by" />
+		</property>
+		<property name="viewId" type="java.lang.String">
+			<column name="VIEW_ID" />
+		</property>
+		<property name="funcMId" type="java.lang.String">
+			<column name="FUNC_M_ID" />
+		</property>
+		<property name="funcCode" type="java.lang.String">
+			<column name="FUNC_CODE" />
+		</property>
+		<property name="className" type="java.lang.String">
+			<column name="CLASS_NAME" />
+		</property>
+		<property name="clientType" type="java.lang.String">
+			<column name="CLIENT_TYPE" />
+		</property>
+		<property name="isAuth" type="java.lang.String">
+			<column name="IS_AUTH" />
+		</property>
+		<property name="isFront" type="java.lang.String">
+			<column name="IS_FRONT" />
+		</property>
+		<property name="isShow" type="java.lang.String">
+			<column name="IS_SHOW" />
+		</property>			
+		<property name="needLogin" type="java.lang.String">
+			<column name="NEED_LOGIN" />
+		</property>
+		
+		<!-- 20180131czh-新增字段 begin-->
+		<property name="funcFlag" type="java.lang.String">
+			<column name="FUNC_FLAG" />
+		</property>
+		<property name="openType" type="java.lang.String">
+			<column name="OPEN_TYPE" />
+		</property>
+
+		<property name="path" type="java.lang.String">
+			<column name="PATH" />
+		</property>
+		
+		<property name="loadType" type="java.lang.String">
+			<column name="LOAD_TYPE" />
+		</property>
+		
+		<!-- 20190605wxy-新增字段 begin-->
+		<property name="remarkText" type="java.lang.String">
+			<column name="REMARK_TEXT" />
+		</property>
+		<!-- 20190605wxy-新增字段 end-->
+
+		<!-- 20180131czh-新增字段 end-->
+		<!--
+		<property name="unifiedId" type="java.lang.String">
+			<column name="UNIFIED_ID" />
+			            
+			              
+		</property>	
+		 201800404wyq-新增字段 begin-->	
+	   	<!-- 201800404wyq-新增字段 end-->
+	</class>
+</hibernate-mapping>

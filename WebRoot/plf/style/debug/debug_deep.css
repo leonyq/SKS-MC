@@ -1,0 +1,84 @@
+html,body{
+    color: #dbdbc0;
+    background-color: #262a39;
+}
+
+.menu{
+    background-color: #20222a;
+}
+
+.frame{
+    border: 1px solid #16181d;
+}
+
+.tab_bar{
+    background-color: #20222a;
+}
+
+.tab_bar .tab{
+    border-left: 1px solid #16181d;
+}
+
+.tab_bar .tab.tab_active{
+    color: #fff;
+    background-color: #262a39;
+}
+
+.tab_bar .tab.tab_active:before{
+    background: #119588;
+}
+
+.frame .btns .icon{
+    color: #dbdbc0;
+}
+
+.frame .btns .icon:hover{
+    color: #fff;
+}
+
+.menu .item:hover{
+    color: #fff;
+    background-color: #159588;
+}
+
+.menu .item:hover .icon{
+    color: #fff;
+}
+
+.menu .item_line{
+    background-color: #16181d;
+}
+
+.frame_main .more{
+    background-color: #20222a;
+    border: 1px solid #16181d;
+}
+
+.frame_main .more li p{
+    border-bottom: 1px solid #16181d;
+}
+
+.frame_main .more li p:hover{
+    color: #fff;
+}
+
+.searchDiv{
+    border-bottom: 1px solid #16181d;
+}
+
+.searchDiv input{
+    background-color: transparent;
+}
+
+.searchDiv .btn{
+    color: #fff;
+    background-color: #159588;
+}
+
+.breakpoint .bottom{
+    background-color: #16181d;
+}
+
+.breakpoint .list li{
+    border-bottom: 1px solid #16181d;
+}

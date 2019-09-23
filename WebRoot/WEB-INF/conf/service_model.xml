@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service name="<%接口名称%>">
+	<description>
+		<%接口说明%>
+	</description>
+	<parameter name="ServiceClass">
+		<%类源码对应类名%>
+	</parameter>
+	<messageReceivers>
+		<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out" 
+		class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only" 
+		class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" />
+	</messageReceivers>
+	<!-- <operation name="getGreeting">
+		<messageReceiver  class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+	</operation>
+	<operation name="getGreeting">
+		<messageReceiver  class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" />
+	</operation> -->
+</service>

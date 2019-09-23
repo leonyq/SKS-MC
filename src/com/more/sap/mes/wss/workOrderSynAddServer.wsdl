@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://wss.mes.sap.more.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://wss.mes.sap.more.com" xmlns:intf="http://wss.mes.sap.more.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://wss.mes.sap.more.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="args">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="AUFNR" type="xsd:string"/>
+   <element name="AUART" type="xsd:string"/>
+   <element name="PLNBEZ" type="xsd:string"/>
+   <element name="GAMNG" type="xsd:string"/>
+   <element name="CHARG" type="xsd:string"/>
+   <element name="GSTRP" type="xsd:string"/>
+   <element name="GLTRP" type="xsd:string"/>
+   <element name="FTRMI" type="xsd:string"/>
+   <element name="TYPE" type="xsd:string"/>
+   <element name="GMEIN" type="xsd:string"/>
+   <element name="LGORT" type="xsd:string"/>
+   <element name="getOrderBaseReturn" type="xsd:string"/>
+   <element name="AUFNR1" type="xsd:string"/>
+   <element name="VORNR" type="xsd:string"/>
+   <element name="ARBPL" type="xsd:string"/>
+   <element name="STEXT" type="xsd:string"/>
+   <element name="BMSCH" type="xsd:string"/>
+   <element name="VGW01" type="xsd:string"/>
+   <element name="VGW02" type="xsd:string"/>
+   <element name="VGW03" type="xsd:string"/>
+   <element name="VGE04" type="xsd:string"/>
+   <element name="getOrderProcessReturn" type="xsd:string"/>
+   <element name="KDAUF" type="xsd:string"/>
+   <element name="KDPOS" type="xsd:string"/>
+   <element name="KDEIN" type="xsd:string"/>
+   <element name="VDATU" type="xsd:string"/>
+   <element name="EDATU" type="xsd:string"/>
+   <element name="KUNNR" type="xsd:string"/>
+   <element name="NAME1" type="xsd:string"/>
+   <element name="ORT01" type="xsd:string"/>
+   <element name="ZTEXT" type="xsd:string"/>
+   <element name="getSalesOrderReturn" type="xsd:string"/>
+   <element name="AUFNR2" type="xsd:string"/>
+   <element name="POSNR" type="xsd:string"/>
+   <element name="POSTP" type="xsd:string"/>
+   <element name="MATNR" type="xsd:string"/>
+   <element name="NOMNG" type="xsd:string"/>
+   <element name="MEINS" type="xsd:string"/>
+   <element name="WERKS" type="xsd:string"/>
+   <element name="LGORT1" type="xsd:string"/>
+   <element name="SORTF" type="xsd:string"/>
+   <element name="getReservedReturn" type="xsd:string"/>
+   <element name="AUFNR3" type="xsd:string"/>
+   <element name="AUART1" type="xsd:string"/>
+   <element name="PLNBEZ1" type="xsd:string"/>
+   <element name="GAMNG1" type="xsd:string"/>
+   <element name="CHARG1" type="xsd:string"/>
+   <element name="GSTRP1" type="xsd:string"/>
+   <element name="GLTRP1" type="xsd:string"/>
+   <element name="FTRMI1" type="xsd:string"/>
+   <element name="TYPE1" type="xsd:string"/>
+   <element name="GMEIN1" type="xsd:string"/>
+   <element name="LGORT2" type="xsd:string"/>
+   <element name="VORNR1" type="xsd:string"/>
+   <element name="ARBPL1" type="xsd:string"/>
+   <element name="STEXT1" type="xsd:string"/>
+   <element name="BMSCH1" type="xsd:string"/>
+   <element name="VGW04" type="xsd:string"/>
+   <element name="VGW05" type="xsd:string"/>
+   <element name="VGW06" type="xsd:string"/>
+   <element name="VGE05" type="xsd:string"/>
+   <element name="POSNR1" type="xsd:string"/>
+   <element name="POSTP1" type="xsd:string"/>
+   <element name="MATNR1" type="xsd:string"/>
+   <element name="NOMNG1" type="xsd:string"/>
+   <element name="MEINS1" type="xsd:string"/>
+   <element name="WERKS1" type="xsd:string"/>
+   <element name="SORTF1" type="xsd:string"/>
+   <element name="KDAUF1" type="xsd:string"/>
+   <element name="KDPOS1" type="xsd:string"/>
+   <element name="KDEIN1" type="xsd:string"/>
+   <element name="VDATU1" type="xsd:string"/>
+   <element name="EDATU1" type="xsd:string"/>
+   <element name="KUNNR1" type="xsd:string"/>
+   <element name="NAME2" type="xsd:string"/>
+   <element name="ORT02" type="xsd:string"/>
+   <element name="ZTEXT1" type="xsd:string"/>
+   <element name="getOrderAllParamReturn" type="xsd:string"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="mainResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="mainRequest">
+
+      <wsdl:part element="impl:args" name="args">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOrderAllParamRequest">
+
+      <wsdl:part element="impl:AUFNR3" name="AUFNR">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:AUART1" name="AUART">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:PLNBEZ1" name="PLNBEZ">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:GAMNG1" name="GAMNG">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:CHARG1" name="CHARG">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:GSTRP1" name="GSTRP">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:GLTRP1" name="GLTRP">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:FTRMI1" name="FTRMI">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:TYPE1" name="TYPE">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:GMEIN1" name="GMEIN">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:LGORT2" name="LGORT">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:VORNR1" name="VORNR">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:ARBPL1" name="ARBPL">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:STEXT1" name="STEXT">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:BMSCH1" name="BMSCH">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:VGW04" name="VGW01">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:VGW05" name="VGW02">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:VGW06" name="VGW03">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:VGE05" name="VGE04">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:POSNR1" name="POSNR">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:POSTP1" name="POSTP">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:MATNR1" name="MATNR">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:NOMNG1" name="NOMNG">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:MEINS1" name="MEINS">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:WERKS1" name="WERKS">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:SORTF1" name="SORTF">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:KDAUF1" name="KDAUF">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:KDPOS1" name="KDPOS">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:KDEIN1" name="KDEIN">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:VDATU1" name="VDATU">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:EDATU1" name="EDATU">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:KUNNR1" name="KUNNR">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:NAME2" name="NAME1">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:ORT02" name="ORT01">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:ZTEXT1" name="ZTEXT">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOrderAllParamResponse">
+
+      <wsdl:part element="impl:getOrderAllParamReturn" name="getOrderAllParamReturn">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSalesOrderResponse">
+
+      <wsdl:part element="impl:getSalesOrderReturn" name="getSalesOrderReturn">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkHesderRequest">
+
+   </wsdl:message>
+
+   <wsdl:message name="getOrderProcessRequest">
+
+      <wsdl:part element="impl:AUFNR1" name="AUFNR">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:VORNR" name="VORNR">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:ARBPL" name="ARBPL">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:STEXT" name="STEXT">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:BMSCH" name="BMSCH">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:VGW01" name="VGW01">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:VGW02" name="VGW02">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:VGW03" name="VGW03">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:VGE04" name="VGE04">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOrderProcessResponse">
+
+      <wsdl:part element="impl:getOrderProcessReturn" name="getOrderProcessReturn">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getReservedRequest">
+
+      <wsdl:part element="impl:AUFNR2" name="AUFNR">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:POSNR" name="POSNR">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:POSTP" name="POSTP">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:MATNR" name="MATNR">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:NOMNG" name="NOMNG">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:MEINS" name="MEINS">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:WERKS" name="WERKS">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:LGORT1" name="LGORT">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:SORTF" name="SORTF">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOrderBaseResponse">
+
+      <wsdl:part element="impl:getOrderBaseReturn" name="getOrderBaseReturn">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSalesOrderRequest">
+
+      <wsdl:part element="impl:KDAUF" name="KDAUF">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:KDPOS" name="KDPOS">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:KDEIN" name="KDEIN">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:VDATU" name="VDATU">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:EDATU" name="EDATU">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:KUNNR" name="KUNNR">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:NAME1" name="NAME1">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:ORT01" name="ORT01">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:ZTEXT" name="ZTEXT">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkHesderResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="getReservedResponse">
+
+      <wsdl:part element="impl:getReservedReturn" name="getReservedReturn">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOrderBaseRequest">
+
+      <wsdl:part element="impl:AUFNR" name="AUFNR">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:AUART" name="AUART">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:PLNBEZ" name="PLNBEZ">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:GAMNG" name="GAMNG">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:CHARG" name="CHARG">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:GSTRP" name="GSTRP">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:GLTRP" name="GLTRP">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:FTRMI" name="FTRMI">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:TYPE" name="TYPE">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:GMEIN" name="GMEIN">
+
+      </wsdl:part>
+
+      <wsdl:part element="impl:LGORT" name="LGORT">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="workOrderSynAddServer">
+
+      <wsdl:operation name="main" parameterOrder="args">
+
+         <wsdl:input message="impl:mainRequest" name="mainRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:mainResponse" name="mainResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOrderBase" parameterOrder="AUFNR AUART PLNBEZ GAMNG CHARG GSTRP GLTRP FTRMI TYPE GMEIN LGORT">
+
+         <wsdl:input message="impl:getOrderBaseRequest" name="getOrderBaseRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getOrderBaseResponse" name="getOrderBaseResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOrderProcess" parameterOrder="AUFNR VORNR ARBPL STEXT BMSCH VGW01 VGW02 VGW03 VGE04">
+
+         <wsdl:input message="impl:getOrderProcessRequest" name="getOrderProcessRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getOrderProcessResponse" name="getOrderProcessResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSalesOrder" parameterOrder="KDAUF KDPOS KDEIN VDATU EDATU KUNNR NAME1 ORT01 ZTEXT">
+
+         <wsdl:input message="impl:getSalesOrderRequest" name="getSalesOrderRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getSalesOrderResponse" name="getSalesOrderResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkHesder">
+
+         <wsdl:input message="impl:checkHesderRequest" name="checkHesderRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:checkHesderResponse" name="checkHesderResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getReserved" parameterOrder="AUFNR POSNR POSTP MATNR NOMNG MEINS WERKS LGORT SORTF">
+
+         <wsdl:input message="impl:getReservedRequest" name="getReservedRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getReservedResponse" name="getReservedResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOrderAllParam" parameterOrder="AUFNR AUART PLNBEZ GAMNG CHARG GSTRP GLTRP FTRMI TYPE GMEIN LGORT VORNR ARBPL STEXT BMSCH VGW01 VGW02 VGW03 VGE04 POSNR POSTP MATNR NOMNG MEINS WERKS SORTF KDAUF KDPOS KDEIN VDATU EDATU KUNNR NAME1 ORT01 ZTEXT">
+
+         <wsdl:input message="impl:getOrderAllParamRequest" name="getOrderAllParamRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getOrderAllParamResponse" name="getOrderAllParamResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="workOrderSynAddServerSoapBinding" type="impl:workOrderSynAddServer">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="main">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="mainRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="mainResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOrderBase">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getOrderBaseRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getOrderBaseResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOrderProcess">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getOrderProcessRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getOrderProcessResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSalesOrder">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSalesOrderRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSalesOrderResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkHesder">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="checkHesderRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="checkHesderResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getReserved">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getReservedRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getReservedResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOrderAllParam">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getOrderAllParamRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getOrderAllParamResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="workOrderSynAddServerService">
+
+      <wsdl:port binding="impl:workOrderSynAddServerSoapBinding" name="workOrderSynAddServer">
+
+         <wsdlsoap:address location="http://localhost:8080//services/com/more/sap/mes/wss/workOrderSynAddServer"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

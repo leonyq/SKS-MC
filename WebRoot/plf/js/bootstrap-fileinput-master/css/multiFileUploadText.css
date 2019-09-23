@@ -1,0 +1,28 @@
+
+
+.multiFileUploadContainer>* {
+	float: left;
+}
+
+.multiFileUploadText {
+	width: 190px;
+	height: 100%;
+	resize: none;
+	border: 1px solid #ccc;
+	outline: none;
+	border-right: 0;
+	box-sizing: border-box;
+}
+
+.multiFileUpload {
+	width: 40px;
+	height: 100%;
+	background-color: #e5eff7;
+	border: 0;
+	outline: none;
+	border-radius: 2px;
+	cursor: pointer;
+	text-align: center;
+	border: 1px solid #ccc;
+	border-left: 0;
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.more.fw.core.cont.custom.model.CusControlDto" table="MS_UI_MODEL">
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="33" />
+		</id>
+		<property name="deptId" type="java.lang.String">
+			<column name="DEPT_ID" length="33" />
+		</property>
+		<property name="createId" type="java.lang.String">
+			<column name="CREATE_USER" length="33" />
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_TIME"  />
+		</property>
+		<property name="updateId" type="java.lang.String">
+			<column name="EDIT_USER" length="33" />
+		</property>
+		<property name="updateDate" type="java.util.Date">
+			<column name="EDIT_TIME" length="33" />
+		</property>
+		<property name="uiName" type="java.lang.String">
+			<column name="UI_NAME" length="33" />
+		</property>
+		<property name="uicode" type="java.lang.String">
+			<column name="UI_CODE" length="100" />
+		</property>
+		<property name="uiImg" type="java.lang.String">
+			<column name="UI_IMG" length="100" />
+		</property>
+		<property name="uiClass" type="java.lang.String">
+			<column name="UI_JAVA_CLASS " length="200" />
+		</property>
+		<property name="uiType" type="java.lang.String">
+			<column name="UI_TYPE " length="1" />
+		</property>
+		<property name="showOrder" type="java.lang.Integer">
+			<column name="SHOW_ORDER "  />
+		</property>
+		<property name="dataAuth" type="java.lang.String">
+			<column name="DATA_AUTH " length="40" />
+		</property>
+		
+		<property name="reszipfilename" type="java.lang.String">
+			<column name="RESZIPFILENAME" length="300" />
+		</property> 
+		
+	</class>
+</hibernate-mapping>

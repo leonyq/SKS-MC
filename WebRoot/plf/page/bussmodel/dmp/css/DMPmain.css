@@ -1,0 +1,838 @@
+.list-left{
+    float: left;
+    width: calc(35% - 250px);
+    text-align: right;
+    line-height: 38px;
+    margin-left: 180px;
+}
+
+.list-right{
+    float: left;
+    box-sizing: border-box;
+    width: calc(50% + 200px);
+    padding-left: 15px;
+    line-height: 38px;
+}
+
+.list-right .pane{
+    width: 460px;
+}
+
+
+.childCards{
+	float: left;
+    width: 100%;
+    padding-left: 20px;
+    box-sizing:border-box;
+}
+
+
+.layui-table input[type="checkbox"]{
+    height: 18px;
+    width: 18px;
+}
+
+.codeBox{
+    float: left;
+    width: 100%;
+    height: calc(100% - 118px);
+    margin-top: 20px;
+    box-sizing: border-box;
+    border: 1px solid #e2e2e2;
+    overflow:auto;
+}
+
+.isHelp .codeBox{
+    width: 50%;
+}
+
+.helpDiv{
+    position: relative;
+    float: right;
+    width: calc(50% - 20px);
+    height: calc(100% - 118px);
+    margin-top: 20px;
+    margin-left: 20px;
+    box-sizing: border-box;
+    border: 1px solid #e2e2e2;
+    border-radius: 2px; 
+    display: none;
+    overflow:auto;
+}
+
+.isHelp .helpDiv{
+    display: block;
+}
+
+.helpDiv .head{
+    padding: 0 80px 0 20px;
+    height: 42px;
+    line-height: 42px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    color: #333;
+    overflow: hidden;
+    background-color: #F8F8F8;
+    border-radius: 2px 2px 0 0;
+}
+
+.helpDiv .body{
+    height: calc(100% - 43px);
+    padding: 20px 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.helpDiv .body li{
+    line-height: 25px;
+    margin-bottom: 5px;
+    padding:0 20px;
+    cursor: pointer;
+}
+
+.helpDiv .body li.active{
+    background-color: #009688;
+    color: #fff;
+}
+
+.layui-layer-content .layui-form{
+    margin-top: 30px;
+}
+
+.layui-layer-content .list-left{
+    width: calc(50% - 100px);
+}
+
+.layui-layer-content .list-right{
+    width: calc(50% + 100px);
+}
+
+.layui-layer-content .list-right .pane{
+    width: 270px;
+}
+
+.config{
+    float: left;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+}
+
+.config .layui-row{
+    height: 50%;
+}
+
+.config .layui-col-sm6{
+    padding: 7px;
+    height: 100%;
+    transition: 1s;
+}
+
+.config .layui-card{
+    border: 1px solid #e2e2e2;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.config .layui-card-header{
+    height: 37px;
+    line-height: 37px;
+    background-color: #f8f8f8;
+    color: #009688;
+    border-bottom: 1px solid #eee;
+}
+
+.config .layui-card-header .tit{
+    float: left;
+}
+
+.config .layui-card-header .filter{
+    position: relative;
+    float: left;
+    width: 130px;
+    height: 30px;
+    line-height: 25px;
+    margin-left: 10px;
+    border-bottom: 1px solid #666;
+}
+
+.config .layui-card-header .filter .icon{
+    float: left;
+    width: 25px;
+    height: 25px;
+    margin-top: 5px;
+    background-image: url(../images/img/filter.png);
+    cursor: pointer;
+}
+
+.config .layui-card-header .filter input{
+    width: calc(100% - 25px);
+    height: 25px;
+    background-color: transparent;
+    margin-top: 5px;
+    border: none;
+}
+
+.config .layui-card-header .filter ul{
+    margin-top: 1px; 
+    border: 1px solid #d2d2d2;
+    color: #333;
+    border-top: none; 
+    display: none;
+    max-height: 120px;
+    overflow: auto;
+}
+
+.config .layui-card-header .filter_open ul{
+    display: block;
+}
+
+.config .layui-card-header .filter li{
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 30px;
+    background-color: #fff;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.config .layui-card-header .filter li.active::before{
+    content: ' ';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 7.5px;
+    left: 7.5px;
+    background-image: url(../images/img/checked.png);
+}
+
+.config .layui-card-header .filter li:hover{
+    background-color: #009688;
+    color: #fff;
+}
+
+.config .layui-card-header .filter li:hover::before{
+    background-image: url(../images/img/checked_h.png);
+} 
+
+.config .layui-card-header .operates{
+    top: 0px;
+    right: 5px;
+}
+
+.config .layui-card-header .operates .layui-nav{
+    margin-top: 6px;
+}
+
+.config .layui-card-header .operates .ico{
+    margin-left: 6px;
+    margin-top: 6px;
+}
+
+.config .layui-card-body{
+    padding: 0;
+    height: calc(100% - 38px);
+    overflow: auto;
+}
+
+.config .layui-card-body.type3{
+    padding: 1px;
+}
+
+.config .layui-card-body::after{
+    content: " ";
+    display: table;
+    clear: both;
+} 
+
+.group1 .layui-col-sm61 .operates{
+    width: calc(100% - 76px);
+}
+
+.group2 .layui-col-sm61 .operates{
+    width: calc(100% - 76px);
+}
+
+.group1 .layui-col-sm61 .filter{
+    width: calc(100% - 134px);
+}
+
+.group2 .layui-col-sm61 .filter{
+    width: calc(100% - 165px);
+}
+
+.showConfigDiv .layui-col-sm61 .filter{
+    width: calc(100% - 78px);
+}
+
+.config .layui-card-body.type1 .item{
+    float: left;
+    width: 100%;
+    line-height: 25px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.config .layui-card-body.type1 .item:hover,.config .layui-card-body.type1 .item.active{
+    background-color: #009688;
+    color: #fff;
+}
+
+.config .layui-card-body.type1 .item p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.config .layui-card-body.type1 .item .name{
+    margin-left: 20px;
+    color: #999;
+}
+
+.config .layui-card-body.type1 .item:hover .name,.config .layui-card-body.type1 .item.active .name{
+    color: #fff;
+}
+
+.config .layui-card-body.type1 .item .operates,.config .layui-card-body.type3 .item .operates{
+    padding: 6px 10px;
+    background-color: #f8f8f8;
+    border: 1px solid #d2d2d2;
+    box-shadow: rgba(7, 7, 7, 0.2) 0 0 5px;
+}
+
+.config .layui-card-body.type1 .item .operates .ico,.config .layui-card-body.type3 .item .operates .ico{
+    margin: 0 5px;
+}
+
+.config .layui-card-body.type1 .item .operates .empty,.config .layui-card-body.type3 .item .operates .empty{
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    left: 0;
+    top: -6px;
+    z-index: 1000;
+}
+
+.config .layui-card-body.type2 .item{
+    position: relative;
+    float: left;
+    background-color: #F8F8F8;
+    border: 1px solid #F8F8F8;
+    padding-left: 15px;
+    padding-right: 91px;
+    width: calc(100% - 10px);
+    height: 40px;
+    box-sizing: border-box;
+    line-height: 40px;
+    margin: 2.5px 5px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.config .layui-card-body.type2 .item.active{
+    border: 1px solid #009688;
+    background-color: #fff;
+}
+
+.config .layui-card-body.type2 .item p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#drag{
+    float: left;
+    height: calc(100% - 45px);
+    width: 100%;
+    overflow: auto;
+}
+
+.config .layui-card-body.type2 .item .name{
+    margin-left: 20px;
+    color: #999;
+}
+
+.config .layui-card-body.type2 .item .operates{
+    border-left: 1px solid #e2e2e2;
+    top: 7px;
+    right: 10px;
+}
+
+.config .layui-card-body.type3 .item{
+    float: left;
+    background-color: #F8F8F8;
+    border: 1px solid #eee;
+    padding:0 15px;
+    width: calc(50% - 2px);
+    height: 54px;
+    box-sizing: border-box;
+    margin: 1px;
+    cursor: pointer;
+}
+
+.config .layui-card-body.type3 .item.active{
+    border: 1px solid #009688;
+    background-color: #fff;
+}
+
+.config .layui-card-body.type3 .item .num{
+    display: block;
+    font-size: 14px;
+    line-height: 25px;
+    margin-top: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.config .layui-card-body.type3 .item .name{
+    display: block;
+    font-size: 13px;
+    line-height: 20px;
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.config .layui-card-body.type3 .item .operates{
+    background-color: #fff;
+}
+
+.layui-collapse{
+    margin-bottom: 6px;
+}
+
+.layui-colla-content p{
+    padding-left: 45px;
+    margin: 5px 0;
+    color: #999;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.layui-colla-font{
+    height: 28px;
+    line-height: 28px;
+    color: #009688;
+    padding-left: 40px;
+    border-top:1px solid #e6e6e6;
+}
+
+.layui-card-header .layui-nav{
+    display: none;
+}
+
+.showConfigDiv .layui-card-header .layui-nav{
+    display: block;
+}
+
+.showConfigDiv .layui-card-header .btns{
+    display: none;
+}
+
+.layui-tab-item-config{
+    position: relative;
+    padding: 0 10px;
+}
+
+.layui-tab-item-config .showBtn{
+    position: absolute;
+    background-image: url(../images/img/showBtn.png);
+    width: 38px;
+    height: 38px;
+    right: 0;
+    top: 0px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.layui-tab-item-config.showConfigDiv .showBtn{
+    display: none;
+}
+
+.showConfigDiv .config{
+    width: calc(100% - 340px);
+}
+
+.showConfigDiv .layui-col-sm61{
+    width: 300px;
+}
+
+.showConfigDiv .layui-col-sm62{
+    width: calc(100% - 300px);
+}
+
+.configDiv{
+    position: relative;
+    float: right;
+    width: 0px;
+    border: 0px solid #eee;
+    height: 100%;
+    min-height: 500px;
+    box-shadow: rgba(51, 51, 51, 0.2) -5px 0 5px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.showConfigDiv .configDiv{
+    width: 340px;
+    overflow-x: hidden;
+    border: 1px solid #eee;
+}
+
+.configDiv .hiddenBtn{
+    position: absolute;
+    background-image: url(../images/img/hiddenDiv.png);
+    width: 20px;
+    height: 20px;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.configDiv .tit{
+    color: #009688;
+    padding: 0 20px; 
+    margin: 10px 0;
+}
+
+.configDiv .box{
+    padding: 0 20px; 
+    padding-bottom: 10px;
+}
+
+.configDiv .flowCode{
+    margin-bottom: 10px;
+}
+
+.configDiv .flowCode::after{
+    clear: both;
+    content: " ";
+    display: table;
+}
+
+.configDiv .flowCode>.layui-input{
+    float: left;
+    width: calc(100% - 230px);
+}
+
+.configDiv .flowCode .gt{
+    float: left;
+    width: 15px;
+    height: 15px;
+    margin: 10px 3px;
+    background-image: url(../images/img/gt.png);
+}
+
+.configDiv .flowCode .selectBox{
+    float: left;
+    width: 150px;
+    height: 38px;
+}
+
+.layui-tab-title .icon{
+	float:left;
+	width:25px;
+	height:25px;
+	margin-top:7px;
+	margin-right:5px;
+}
+
+.layui-tab-title .icon.performance{
+	background-image: url(../images/img/tab_performance.png);
+}
+
+.layui-tab-title .icon.equipment{
+	background-image: url(../images/img/tab_equipment.png);
+}
+
+.layui-tab-title .icon.set{
+	background-image: url(../images/img/tab_set.png);
+}
+
+.layui-tab-title .layui-this .icon.performance{
+	background-image: url(../images/img/tab_performance_h.png);
+}
+
+.layui-tab-title .layui-this .icon.equipment{
+	background-image: url(../images/img/tab_equipment_h.png);
+}
+
+.layui-tab-title .layui-this .icon.set{
+	background-image: url(../images/img/tab_set_h.png);
+}
+
+.charts{
+	width:100%;
+    height: 220px;
+    margin-top:10px;
+    padding-bottom:20px;
+    overflow:auto;  
+}
+
+.charts .tit{
+	position: absolute;
+	width:100%;
+	text-align:center;
+	left:0;
+	bottom:-6px;
+}
+
+.charts .chartsBox{
+	min-width: 1000px;
+	height:100%;
+}
+
+.charts .chart{
+	position: relative;
+    float: left;
+    width: 35%;
+    height: 100%;
+    box-sizing:border-box;
+    border-right:1px solid #E6E6E6;
+    padding-top: 20px;
+}
+
+.charts .data{
+	position: relative;
+    float: left;
+    width: 30%;
+    height: 100%;
+    box-sizing:border-box;
+    padding:0 50px;
+    padding-top:20px;
+}
+
+.charts .chart1 .chartBox{
+	width: 320px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.charts .chart2 .chartBox{
+	width: 310px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.charts .chartLeft{
+	float: left;
+}
+ 
+.charts .chartRight{
+	float:right;
+}
+
+.charts .chart1 .chartMain{
+	height: 148px;
+	width: 148px;
+}
+
+.charts .chart2 .chartMain{
+	height: 140px;
+	width: 140px;
+}
+
+.charts .legend{
+	text-align: center;
+	line-height: 20px;
+	color: #666;
+}
+
+.charts .chart2 .legend{
+	margin-top: 8px;
+}
+
+.charts .legend .color{
+	display: inline-block;
+	width: 15px;
+	height: 10px;
+	margin-right: 10px;
+}
+
+.charts .chartLeft .color{ 
+	background-color: #198F77;
+}
+
+.charts .chartRight .color{
+	background-color: #3B9CE5;
+}
+
+.charts .data .item{
+	height:55px;
+	line-height:55px;
+	padding-left: 18px;
+	padding-right: 34px;
+	background-color: #f8f8f8;
+	margin-bottom: 5px;
+}
+
+.charts .data .name{
+	float: left;
+	color: #666;
+}
+
+.charts .data .num{
+	float: right;
+	color: #1C9179;
+	font-size: 24px;
+}
+
+.searchBox{
+	position: relative;
+	height:38px;
+	line-height:38px;
+}
+
+.searchBox .item{
+	float: left;
+	margin-right: 50px;
+}
+
+.searchBox .item .tit{
+	margin-right:5px;
+}
+
+.searchBox .layui-input{
+	display:inline-block;
+	width:180px;
+}
+
+.searchBox .operates{
+	top:7px;
+}
+
+.tableDiv{
+	float: left;
+	width: 100%
+}
+
+.leftTable{
+	float:left;
+	width:calc(50% - 10px);
+}
+
+.rightTable{
+	float:right;
+	width:calc(50% - 10px);
+}
+
+.equipmentList{
+	float:left;
+	height:97%;
+	width:100%;
+	overflow:auto;
+	transition: 1s;
+}
+
+.equipmentLog{
+	float:right;
+	height:93%;
+	width:0px;
+	border-radius:2px;
+	box-sizing:border-box;
+	overflow:hidden;
+	transition: 1s;
+	border: 1px solid #009688;
+}
+
+.showLog .equipmentList{
+	width:calc(100% - 520px);
+}
+
+.showLog .equipmentLog{
+	width:500px;
+	margin-top:5px;
+	height:93%;
+	border:1px solid rgb(0, 150, 136);
+	box-shadow:-5px 0px 5px 0px rgba(51,51,51,0.1);
+}
+
+.equipmentLog .logHead{
+	height:38px;
+	line-height:38px;
+	background:rgba(248,248,248,1);
+	border-bottom:1px solid rgba(238,238,238,1);
+	border-radius:2px;
+	color:#009688;
+}
+
+.equipmentLog .logBody{
+	height:calc(100% - 39px);
+	overflow:auto;
+	box-sizing:border-box;
+	padding:15px;
+}
+
+.equipmentLog .logHead .pause{
+	float:left;
+	width:25px;
+	height:25px;
+	margin-top:7px;
+	margin-right:5px;
+	margin-left:10px;
+	background-image: url(../images/img/operate_pause.png);
+}
+
+.equipmentLog .logHead .play{
+	float:left;
+	width:25px;
+	height:25px;
+	margin-top:7px;
+	margin-right:5px;
+	margin-left:10px;
+	background-image: url(../images/img/operate_play.png);
+}
+
+.equipmentLog .logHead .sub{
+	color:#999;
+	font-size:12px;
+	margin: 0 10px;
+}
+
+.equipmentLog .logHead .toClose{
+	float:right;
+	width:25px;
+	height:25px;
+	margin-top:7px;
+	margin-right:15px;
+	background-image: url(../images/img/toClose.png);
+	cursor: pointer;
+}
+
+.equipmentLog .logBody p{
+	color:#666;
+	margin:5px 0;
+}
+
+.searchLogBody{
+	height:calc(100% - 78px);
+	border-top:1px solid #E6E6E6;
+	box-sizing:border-box;
+	margin-top:20px;
+	padding:20px 30px;
+	overflow:auto;
+}
+
+.searchLogBody p{
+	color:#666;
+	margin:5px 0;
+}
+
+.ipTable{
+	text-align:center;
+}
+
+.ipTable .layui-form-checkbox[lay-skin=primary]{
+	padding-left:0;
+}
+
+.ipTable .layui-input{
+    text-align:center;
+}

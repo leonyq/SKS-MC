@@ -1,0 +1,116 @@
+/* 红色系：主色#ea6f70；hover：#d45759
+首五：#ef6d6c、#3ba889、#35bbe1、#4b62c3、#f3b139
+hover：#de696b、#409e82、#3dafd2、#4a61b4、#e2a645 */
+
+.pn1 .banner .item1>div{
+	background-color:#ef6d6c;
+}
+
+.pn1 .banner .item1>div:hover{
+	background-color:#de696b;
+}
+
+.pn1 .banner .item2>div{
+	background-color:#3ba889;
+}
+
+.pn1 .banner .item2>div:hover{
+	background-color:#409e82;
+}
+
+.pn1 .banner .item3>div{
+	background-color:#35bbe1;
+}
+
+.pn1 .banner .item3>div:hover{
+	background-color:#3dafd2;
+}
+
+.pn1 .banner .item4>div{
+	background-color:#4b62c3;
+}
+
+.pn1 .banner .item4>div:hover{
+	background-color:#4a61b4;
+}
+
+.pn1 .banner .item5>div{
+	background-color:#f3b139;
+}
+
+.pn1 .banner .item5>div:hover{
+	background-color:#e2a645;
+}
+
+.menu {
+    background-color: #ea6f70;
+}
+
+.menu .item:hover{
+	background-color: #d45759;
+}
+
+.menu .item-in:hover{
+	background-color: #d45759;
+}
+
+.menu .hoverColor{
+	background-color:#d45759;
+}
+
+.menu .item {
+    border-bottom: 1px solid #d45759;
+}
+
+.menu .item-logo {
+    border-bottom: 1px solid #d45759;
+}
+
+.topbar-in .user-drop .item .con{
+	background-color: #ea6f70;
+}
+
+.topbar-in .user-drop .item .con:hover{
+	background-color: #d45759;
+}
+
+.hd .ico-hd{
+	background-color: #ea6f70;
+}
+
+.nav .cur:before{
+	background-color: #d45759;
+}
+
+.menu-sub a:hover{
+	color: #d45759;
+}
+
+.menu-sub{
+	background-color: #f9f9f9;
+}
+
+.menu-sub-sub a:hover{
+	background-color: #f4eaeb;
+}
+
+.item-sub .fontColor{
+	color:#d45759;
+}
+
+.optn button:hover {
+    background-color: #d45759;
+    border: 1px solid #d45759;
+}
+
+.dialog .dialog-hd{
+	background-color: #ea6f70;
+}
+
+.dialog .btn-add{
+	background-color: #d45759;
+}
+
+.topbar-in .state .s2-drop a:hover{
+	background-color: #ea6f70;
+}

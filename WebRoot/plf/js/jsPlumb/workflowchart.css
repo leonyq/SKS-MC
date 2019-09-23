@@ -1,0 +1,267 @@
+		.content-container{
+			margin-top:5px;
+		}
+		.dragActive {
+			border: 2px dotted orange;
+		}
+
+		.dropHover {
+			border: 1px dotted red;
+		}
+
+		.img_cls{
+			width:60px;
+			height:65px;
+			margin-right:5px;
+		}
+		
+		.img_cls_left{
+			width:60px;
+			height:65px;
+			float:right;
+			margin-left:5px;
+		}
+		
+		.img_cls_left_span{
+			top: 30px;
+			position: relative;
+		}
+		
+		.img_cls_bottom{
+			width:60px;
+			height:65px;
+			left:20px;
+			position: relative;
+		}
+		
+		.img_cls_bottom_span{
+			width:60px;
+			height:65px;
+			position: relative;
+			left:-20px;
+			top:50px;
+		}		
+		
+		.img_cls_top{
+			width:60px;
+			height:65px;
+			left:50px;
+			position: relative;
+			top:20px;
+		}
+		
+		.img_cls_top_span{
+			top:-20px;
+			left:-30px;
+			position: relative;
+		}				
+		
+		.node {
+            box-shadow: 2px 2px 19px #aaa;
+            -o-box-shadow: 2px 2px 19px #aaa;
+            -webkit-box-shadow: 2px 2px 19px #aaa;
+            -moz-box-shadow: 2px 2px 19px #aaa;
+            -moz-border-radius: 0.5em;
+            border-radius: 0.5em;
+            opacity: 0.8;
+            filter: alpha(opacity=80);
+            border: 1px solid #346789;
+            width: 150px;
+            /*line-height: 40px;*/
+            text-align: center;
+            z-index: 20;
+            position: absolute;
+            background-color: #eeeeef;
+            color: black;
+            padding: 10px;
+            font-size: 9pt;
+            cursor: pointer;
+            height: 50px;
+            line-height: 50px;
+        }
+        .radius {
+            border-radius: 25em;
+        }
+        .node:hover {
+            box-shadow: 2px 2px 19px #444;
+            -o-box-shadow: 2px 2px 19px #444;
+            -webkit-box-shadow: 2px 2px 19px #444;
+            -moz-box-shadow: 2px 2px 19px #444;
+            opacity: 0.8;
+            filter: alpha(opacity=80);
+        }
+		
+		.item {
+			border: 1px solid black;
+			background-color: #ddddff;
+			width: 100px;
+			height: 100px;
+			position: absolute;
+		}
+
+		#node1 {
+			left: 15px;
+			top: 30px;
+		}
+
+		#node2 {
+			left: 15px;
+			top: 130px;
+		}
+
+		#node3 {
+			left: 30px;
+			top: 230px;
+		}
+		
+		.node3{
+            width: 130px;
+            text-align: center;
+            z-index: 20;
+            position: absolute;
+            background:url(images/lingxing.png) no-repeat;
+            color: black;
+            font-size: 9pt;
+            cursor: pointer;
+            height: 90px;
+            line-height: 90px;
+		}
+
+		#node4 {
+			left: 15px;
+			top: 350px;
+		}
+
+		#left {
+			border: 1px solid #00bfff;
+			/*width: 200px;*/
+			width: 10%;
+			height: 800px;
+			position: absolute;
+		}
+
+		#right {
+			border: 1px solid #00bfff;
+			/*width: 800px;*/
+			width: 75%;
+			position: absolute;
+			height: 800px;
+			/*left: 230px;*/
+			left: 11%;
+		}
+
+		#save {
+			border: 1px solid #00bfff;
+			/*width: 150px;*/
+			width: 12%;
+			height: 795px;
+			position: absolute;
+			/*left: 1020px;*/
+			left: 87%;
+			padding:5px 0 0 5px;
+		}
+		
+		.icon{
+            text-align: center;
+            z-index: 100;
+            position: absolute;
+            color: black;
+            font-size: 9pt;
+            cursor: pointer;
+			padding:10px;
+		}
+		
+		.icon p{
+			margin-top:5px;
+		}
+		
+		.textA{
+			height: 32px;
+			width: 32px;
+			background:url(images/text.png) no-repeat;
+		}
+		#textA{
+			left: 45px;
+			top: 20px;			
+		}
+		
+		.fontCls{
+			width:180px;
+			word-wrap:break-word;
+			word-break:break-all;
+			
+		}
+		.icon_font{
+			width:80px;
+			text-overflow:ellipsis;
+			white-space:nowrap;
+			overflow:hidden;
+		}
+		.person{
+            width: 27px;
+            text-align: center;
+            background:url(images/1_person.png) no-repeat;
+            height: 32px;
+			float:left;
+		}
+		#person{
+			left: 50px;
+			top: 480px;		
+		}
+		.switch{
+            width: 32px;
+            text-align: center;
+            background:url(images/2_switch.png) no-repeat;
+            height: 32px;
+			float:left;
+		}
+		#switch{
+			left: 50px;
+			top: 530px;		
+		}
+
+		.xiabanji{
+            width: 100px;
+            height: 110px;
+            text-align: center;
+            background-size:20% auto;
+            background:url(images/xiabanji.png) no-repeat;
+			float:left;
+		}
+		
+		#xiabanji{
+			left: 30px;
+			top: 70px;		
+		}
+		#shangbanji{
+			left: 30px;
+			top: 165px;		
+		}
+		#huiliuhan{
+			left: 30px;
+			top: 260px;		
+		}
+		#printMachine{
+			left: 30px;
+			top: 355px;			
+		}
+		#AOI{
+			left: 30px;
+			top: 450px;		
+		}
+		#fushiTiePianNXT{
+			left: 30px;
+			top: 515px;			
+		}
+		#tiepian{
+			left: 30px;
+			top: 545px;			
+		}		
+		#panasonicTiePianCM{
+			left: 30px;
+			top: 590px;			
+		}
+		#repairStation{
+			left: 30px;
+			top: 640px;			
+		}

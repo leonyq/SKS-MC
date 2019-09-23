@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.more.fw.core.base.login.model.CloudForcelogoutDto"
+		table="MS_CLOUD_FORCELOGOUT">
+		<id name="serverMask" type="java.lang.String">
+			<column name="SERVER_MASK" length="50" />
+		</id>
+		<property name="userid" type="java.lang.String">
+			<column name="USERID" length="33" />
+		</property>
+		<property name="logouttime" type="java.sql.Timestamp">
+			<column name="LOGOUTTIME" length="7" />
+		</property>
+	</class>
+</hibernate-mapping>

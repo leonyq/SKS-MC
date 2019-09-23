@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.more.fw.core.dict.model.DictValDto"
+		table="SY_DICT_VAL">
+		<id name="dictValId" type="java.lang.String">
+			<column name="DICT_VAL_ID" length="33" />
+		</id>
+		<property name="dictCode" type="java.lang.String">
+			<column name="DICT_CODE" length="20">
+			</column>
+		</property>
+		<property name="code" type="java.lang.String">
+			<column name="CODE" length="20">
+			</column>
+		</property>
+		<property name="value" type="java.lang.String">
+			<column name="VALUE" length="30">
+			</column>
+		</property>
+		<property name="dispIndx" type="java.lang.String">
+			<column name="DISP_INDX" length="9">
+			</column>
+		</property>
+		<property name="isDisp" type="java.lang.String">
+			<column name="IS_DISP" length="1">
+			</column>
+		</property>
+		<property name="isSelc" type="java.lang.String">
+			<column name="IS_SELC" length="1">
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

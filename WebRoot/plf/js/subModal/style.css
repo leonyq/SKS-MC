@@ -1,0 +1,14 @@
+body {
+	background-color: #FFFFFF;
+}
+
+body, html, input {
+	font-family:mcfont;
+	color: #333333;
+}
+
+.info {
+	font-style:italic;
+	font-size: 0.9em;
+	color: #FFFFFF;
+}

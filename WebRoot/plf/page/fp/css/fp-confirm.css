@@ -1,0 +1,47 @@
+@charset "UTF-8";
+         .ico, .ico-search, .bgbtn, .dialog .dialog-close, .search-box .more, .search-box .btn-search, .ico-tag, .ico-tag-h { background: url(..//img/ico.png) no-repeat; }
+    
+        .dialog { position: fixed; z-index: 1201; top: 20%; left: 50%; width: 400px; margin-left: -200px; display: none; }
+        
+        .dialog .btn-know { border: 1px solid #ff4200; height: 28px; line-height: 28px; color: #ff4200; padding: 0 10px; margin: 0 auto; background-color: #fff; border-radius: 2px; }
+        
+        .dialog .btn-know:hover { background-color: #ff4200; color: #fff; }
+        
+        .dialog .btn-box { text-align: center; }
+        
+        .dialog .btn-add { width: 93px; height: 30px; line-height: 30px; background-color: #3386c4; color: #fff; border-radius: 2px; border: none; cursor: pointer; margin-right: 20px; }
+        
+        .dialog .btn-add:hover { background-color: #0068b5; }
+        
+        .dialog .btn-cancel { width: 93px; height: 30px; line-height: 30px; background-color: #f8fcff; box-sizing: border-box; color: #000; border: 1px solid #cbe9ff; border-radius: 2px; cursor: pointer; }
+        
+        .dialog .btn-cancel:hover { background-color: #75c4ff; }
+        
+        .dialog .dialog-hd { height: 36px; line-height: 36px; background-color: #e5eff7/*#f8fcff*/; border-bottom: 1px solid #cbe9ff; padding-left: 10px; border-top-left-radius: 8px;border-top-right-radius: 8px;cursor:move;}
+        
+        .dialog .dialog-hd .tit { color: #3386c4; font-size:14px;}
+        
+        .dialog .dialog-close { position: absolute; top: 12px; right: 10px; width: 13px; height: 13px; background-position: -130px -20px; }
+
+        .dialog .dialog-bd { background-color:#f6f5f7;border-bottom-left-radius: 8px;border-bottom-right-radius: 8px;padding-top:6px;}
+        
+        .dialog .dialog-bd-div {background-color:#fff;border-bottom-left-radius: 8px;border-bottom-right-radius: 8px;}
+        
+        .ico-confirm { width: 40px; height: 40px; }
+        
+        .dialog .btn-box { text-align: center; }
+
+        .dialog .btn-box-alert { position: absolute;bottom:0px; }
+        
+        .ico-warning{position: absolute; background: url(..//img/warning.png) no-repeat; left: 20px; top: 60px;}
+        
+        .ico-success{position: absolute; background: url(..//img/success.png) no-repeat; left: 20px; top: 60px;}
+        
+        .ico-error{position: absolute; background: url(..//img/error.png) no-repeat; left: 20px; top: 60px;}
+        
+        .ico-question{position: absolute; background: url(..//img/question.png) no-repeat; left: 20px; top: 60px;}
+        
+        .ico-lock{position: absolute; background: url(..//img/lock.png) no-repeat; left: 20px; top: 60px;}
+        
+        .dialog-mask { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; filter: alpha(opacity=35);opacity:0.3}
+             

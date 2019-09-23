@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.more.fw.core.base.core.timer.model.TrigDto" table="MS_TRIGGER_MODEL">
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="33" />
+		</id>
+		<property name="deptId" type="java.lang.String">
+			<column name="DEPT_ID" length="33" />
+		</property>
+		<property name="createId" type="java.lang.String">
+			<column name="CREATE_ID" length="33" />
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE"  />
+		</property>
+		<property name="updateId" type="java.lang.String">
+			<column name="UPDATE_ID" length="33" />
+		</property>
+		<property name="updateDate" type="java.util.Date">
+			<column name="UPDATE_DATE" length="33" />
+		</property>
+		<property name="triggerName" type="java.lang.String">
+			<column name="TRIGGER_NAME" length="33" />
+		</property>
+		<property name="moduleId" type="java.lang.String">
+			<column name="MODULE_ID" length="33" />
+		</property>
+		<property name="dec" type="java.lang.String">
+			<column name="DEC" length="4000" />
+		</property>
+		<property name="workMessage" type="java.lang.String">
+			<column name="WORK_MESSAGE" length="255" />
+		</property>
+		<property name="expression" type="java.lang.String">
+			<column name="EXPRESSION" length="255" />
+		</property>
+		<property name="workLis" type="java.lang.String">
+			<column name="WORK_LIS" length="33" />
+		</property>
+		<property name="trigCodeType" type="java.lang.String">
+			<column name="TRI_CODE_TYPE" length="33" />
+		</property>
+		<property name="lisCodeType" type="java.lang.String">
+			<column name="LIS_CODE_TYPE" length="33" />
+		</property>
+			<property name="status" type="java.lang.String">
+			<column name="STATUS" length="1" />
+		</property>
+		<property name="workDec" type="java.lang.String">
+			<column name="WORK_DEC" length="4000" />
+		</property>
+		<property name="workId" type="java.lang.String">
+			<column name="WORK_ID" length="33" />
+		</property>
+			<property name="moduleName" type="java.lang.String">
+			<column name="MC_MODULE_NAME" length="1000" />
+		</property>
+				<property name="node" type="java.lang.String">
+			<column name="NODE" length="100" />
+		</property>
+				<property name="userDataAuth" type="java.lang.String">
+			<column name="USER_DATA_AUTH" length="100" />
+		</property>
+	</class>
+</hibernate-mapping>

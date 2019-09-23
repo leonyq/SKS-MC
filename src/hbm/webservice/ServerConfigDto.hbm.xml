@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.more.fw.webservice.model.ServerConfigDto" table="MS_WS_SERVER">
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="33" />
+		</id>
+		<property name="deptId" type="java.lang.String">
+			<column name="DEPT_ID" length="33" />
+		</property>
+		<property name="createUserId" type="java.lang.String">
+			<column name="CREATE_USER" length="33" />
+		</property>
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" />
+		</property>
+		<property name="editUserId" type="java.lang.String">
+			<column name="EDIT_USER" length="33" />
+		</property>
+		<property name="editTime" type="java.util.Date">
+			<column name="EDIT_TIME"/>
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="SERVICE_NAME" length="50" />
+		</property>
+		<property name="type" type="java.lang.String">
+			<column name="SERVICE_TYPE" length="1" />
+		</property>
+		<property name="status" type="java.lang.String">
+			<column name="SERVICE_STATUS" length="1" />
+		</property>
+		<property name="configDeclare" type="java.lang.String" >
+			<column name="SERVICE_CONFIG_DECLARE" length="4000"/>
+		</property>
+		<property name="moduleId" type="java.lang.String">
+			<column name="MODEL_ID" length="33" />
+		</property>
+		<property name="classId" type="java.lang.String">
+			<column name="CLASS_ID" length="33" />
+		</property>
+		<property name="serverAddress" type="java.lang.String">
+			<column name="SERVER_ADDRESS" length="200" />
+		</property>
+		<property name="memo" type="java.lang.String">
+			<column name="SERVICE_MEMO" length="200" />
+		</property>
+		<property name="className" type="java.lang.String">
+			<column name="CLASS_NAME" length="200" />
+		</property>
+		<property name="codeType" type="java.lang.String">
+			<column name="CODE_TYPE" length="10" />
+		</property>
+		<property name="userClassName" type="java.lang.String">
+			<column name="USER_CLASS_NAME" length="200" />
+		</property>
+		
+	</class>
+</hibernate-mapping>

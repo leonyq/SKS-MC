@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.more.fw.http.model.HttpModuleDto" table="MS_HTTP_SERVER_MODULE">
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="33" />
+		</id>
+		<property name="deptId" type="java.lang.String">
+			<column name="DEPT_ID" length="33" />
+		</property>
+		<property name="createUserId" type="java.lang.String">
+			<column name="CREATE_USER_ID" length="33" />
+		</property>
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" />
+		</property>
+		<property name="editUserId" type="java.lang.String">
+			<column name="EDIT_USER_ID" length="33" />
+		</property>
+		<property name="editTime" type="java.util.Date">
+			<column name="EDIT_TIME"/>
+		</property>		
+		<!-- http -->
+		<property name="name" type="java.lang.String">
+			<column name="MODULE_NAME" length="33" />
+		</property>
+		<property name="memo" type="java.lang.String">
+			<column name="MODULE_DETAIL" length="33" />
+		</property>
+	</class>
+</hibernate-mapping>

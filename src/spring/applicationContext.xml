@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	     http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			 http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			 http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-2.5.xsd ">
+
+
+	<!-- 启动 Spring 注解声明式事务 -->
+	<tx:annotation-driven />
+	<!-- context:component-scan base-package="com.more.fw.core.report.ireport.service" 
+		/ -->
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<!-- value>/WEB-INF/mail.properties</value -->
+				<value>classpath:jdbclogger.properties</value>
+				<value>classpath:system.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="ds1" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/mes"></property>
+	</bean>
+	<bean id="dataSource" class="com.more.fw.core.dbo.model.db.DynamicDataSource">
+		<property name="targetDataSources">
+			<map key-type="java.lang.String">
+				<entry key="ds1" value-ref="ds1" />
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="ds1" />
+	</bean>
+
+	<bean id="baseTransactionProxy"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+		abstract="true">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="get*">readOnly</prop>
+				<prop key="find*">readOnly</prop>
+				<prop key="load*">readOnly</prop>
+				<prop key="view*">readOnly</prop>
+				<prop key="list*">readOnly</prop>
+				<prop key="sel*">readOnly</prop>
+				<prop key="query*">readOnly</prop>
+				<prop key="count*">readOnly</prop>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="sav*">PROPAGATION_REQUIRED</prop>
+				<prop key="new*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="modify*">PROPAGATION_REQUIRED</prop>
+				<prop key="conf*">PROPAGATION_REQUIRED</prop>
+				<prop key="edit*">PROPAGATION_REQUIRED</prop>
+				<prop key="cfg*">PROPAGATION_REQUIRED</prop>
+				<prop key="del*">PROPAGATION_REQUIRED</prop>
+				<prop key="uninstallModule">PROPAGATION_REQUIRED</prop>
+				<prop key="rm*">PROPAGATION_REQUIRED</prop>
+				<prop key="rem*">PROPAGATION_REQUIRED</prop>
+				<prop key="exe*">PROPAGATION_REQUIRED</prop>
+				<prop key="imp*">PROPAGATION_REQUIRED</prop>
+				<prop key="generate*">PROPAGATION_REQUIRED</prop>
+				<prop key="bussCommitClassCode">PROPAGATION_REQUIRED</prop>
+				<prop key="start*">PROPAGATION_REQUIRED</prop>
+				<prop key="proc*">PROPAGATION_REQUIRED</prop>
+				<prop key="sst*">PROPAGATION_REQUIRES_NEW</prop>
+				<prop key="snt*">PROPAGATION_NOT_SUPPORTED</prop>
+				<prop key="*">PROPAGATION_SUPPORTS</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 使用annotation定义事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager"
+		proxy-target-class="true" />
+	<!-- <tx:advice id="txAdvice" transaction-manager="transactionManager"> 
+		<tx:attributes> <tx:method name="add*" rollback-for="Exception" propagation="REQUIRED"/> 
+		<tx:method name="save*" rollback-for="Exception" propagation="REQUIRED"/> 
+		<tx:method name="up*" rollback-for="Exception" propagation="REQUIRED"/> <tx:method 
+		name="edit*" rollback-for="Exception" propagation="REQUIRED"/> <tx:method 
+		name="del*" rollback-for="Exception" propagation="REQUIRED"/> <tx:method 
+		name="*" propagation="NOT_SUPPORTED" /> </tx:attributes> </tx:advice> <aop:config 
+		proxy-target-class="true" > <aop:pointcut id="tranNotice" expression="execution(* 
+		com.more.fw.core.common.tags.mes.formui..*.*(..))"/> <aop:advisor advice-ref="txAdvice" 
+		pointcut-ref="tranNotice" /> </aop:config> -->
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="nativeJdbcExtractor"
+		class="org.springframework.jdbc.support.nativejdbc.CommonsDbcpNativeJdbcExtractor"
+		lazy-init="true" />
+	<bean id="oracleLobHandler" class="org.springframework.jdbc.support.lob.OracleLobHandler"
+		lazy-init="true">
+		<property name="nativeJdbcExtractor">
+			<ref local="nativeJdbcExtractor" />
+		</property>
+	</bean>
+
+	<!-- ZZL:自定义AnnotationSessionFactoryBean,以支持缓存失效触发功能 -->
+	<!-- class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean" -->
+	<!-- -->
+	<bean id="sessionFactory"
+		class="com.more.fw.core.dbo.model.dao.cachex.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="lobHandler">
+			<ref local="oracleLobHandler" />
+		</property>
+		<property name="mappingDirectoryLocations">
+			<list>
+				<value>classpath:/hbm</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${db.hb}</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.jdbc.batch_size">0</prop>
+				<prop key="hibernate.use_sql_comments">true</prop>
+				<prop key="hibernate.query.substitutions">
+					SQL_LITERAL
+				</prop>
+			</props>
+		</property>
+		<!-- Hibernate 注解包扫描 -->
+		<property name="packagesToScan">
+			<list>
+				<value>com.more.fw.core.cs.buss.model</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"> 
+		<property name="dataSource"> <ref local="dataSource" /> </property> </bean> 
+		<bean id="jdbcTemplate2" class="org.springframework.jdbc.core.JdbcTemplate"> 
+		<property name="dataSource"> <ref local="ds1" /> </property> </bean> -->
+
+	<!-- ZZL:JdbcTemplate 自定义,以触发缓存失效 -->
+	<bean id="jdbcTemplate" class="com.more.fw.core.dbo.model.dao.cachex.JdbcTemplate">
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+	</bean>
+	<bean id="jdbcTemplate2" class="com.more.fw.core.dbo.model.dao.cachex.JdbcTemplate">
+		<property name="dataSource">
+			<ref local="ds1" />
+		</property>
+	</bean>
+
+	<bean class="com.more.fw.core.common.method.SpringContextUtil"></bean>
+	<bean id="dynamicLoadBean" class="com.more.fw.core.commu.cloader.spring.DynamicLoadBean">
+	</bean>
+
+	<!-- spring startup init method -->
+	<bean id="dictInit" class="com.more.fw.core.dict.ui.DictInit"
+		init-method="initDict">
+		<property name="dictService">
+			<ref bean="dictService" />
+		</property>
+		<property name="dictValService">
+			<ref bean="dictValService" />
+		</property>
+
+
+	</bean>
+
+	<!-- base begin -->
+	<bean id="baseDao"
+		class="com.more.fw.core.dbo.model.dao.impl.${db.dialect}.DaoSupport"
+		autowire="default" dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+		<property name="jdbcTemplate2">
+			<ref bean="jdbcTemplate2" />
+		</property>
+	</bean>
+
+	<bean id="proxyBaseService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.dbo.model.service.impl.${db.dialect}.ProxyBaseServiceImpl">
+				<property name="baseDao">
+					<ref bean="baseDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="baseService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.core.dbo.model.service.impl.base.BaseServiceImpl">
+				<property name="proxyBaseService">
+					<ref bean="proxyBaseService" />
+				</property>
+				<property name="baseDao">
+					<ref bean="baseDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="springDataSourceBeanPostProcessor"
+		class="com.more.fw.core.base.monitor.core.SpringDataSourceBeanPostProcessor">
+	</bean>
+	<!-- cas -->
+	<bean name="casSingleSignOutFilter" class="${casSingleSignOutFilter}">
+	</bean>
+	<bean name="casAuthenticationFilter" class="${casAuthenticationFilter}">
+		<property name="serverName" value="${casClientServerName}" />
+		<property name="casServerLoginUrl" value="${casServerLoginUrl}" />
+	</bean>
+	<bean name="casTicketValidationFilter" class="${casTicketValidationFilter}">
+		<property name="serverName" value="${casClientServerName}" />
+		<property name="ticketValidator">
+			<bean class="org.jasig.cas.client.validation.Cas20ServiceTicketValidator">
+				<constructor-arg index="0" value="${casServerUrlPrefix}" />
+			</bean>
+		</property>
+	</bean>
+</beans>

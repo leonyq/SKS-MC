@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.more.fw.core.base.login.model.JobDto" table="SY_JOB">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="40" />
+		</id>
+		<property name="jobName" type="java.lang.String">
+			<column name="job_name" length="60" />
+		</property>
+		<property name="jobLevel" type="java.lang.String">
+			<column name="job_level" length="5" />
+		</property>
+		<property name="remark" type="java.lang.String">
+			<column name="remark" length="200" />
+		</property>
+	</class>
+</hibernate-mapping>

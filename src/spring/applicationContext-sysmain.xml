@@ -1,0 +1,1251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- func begin -->
+	<bean id="funcDao" class="com.more.fw.core.sysfa.auth.dao.impl.FuncDaoImpl"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="funcService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.sysfa.auth.service.impl.${db.dialect}.FuncServiceImpl">
+				<property name="baseDao">
+					<ref bean="funcDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- bussModel begin -->
+	<bean id="bussModelDao" class="com.more.fw.core.bd.dao.impl.${db.dialect}.BussModelDaoImpl"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+				<property name="baseDao">
+					<ref bean="baseDao" />
+				</property>
+	</bean>
+	<bean id="bussModelService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.bd.service.impl.${db.dialect}.BussModelServiceImpl">
+				<property name="baseDao">
+					<ref bean="bussModelDao" />
+				</property>
+				<property name="bussModelDao">
+					<ref bean="bussModelDao" />
+				</property>
+				<property name="funcService">
+					<ref bean="funcService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="userCustomService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.bd.service.impl.${db.dialect}.UserCustomServiceImpl">
+				<property name="baseDao">
+					<ref bean="bussModelDao" />
+				</property>
+				<property name="bussModelDao">
+					<ref bean="bussModelDao" />
+				</property>
+				<property name="bussModelService">
+					<ref bean="bussModelService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- ZZL:20170808 模块类管理V2.0 -->
+	<bean id="mclzMgrService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.bd.service.impl.${db.dialect}.MClzMgrServiceImpl">
+				<property name="baseDao">
+					<ref bean="bussModelDao" />
+				</property>
+				<property name="bussModelDao">
+					<ref bean="bussModelDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- ZZL:20170810 定时器任务JAVA管理V1.0 -->
+	<bean id="jclzService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.bd.service.impl.${db.dialect}.JClzServiceImpl">
+				<property name="baseDao">
+					<ref bean="bussModelDao" />
+				</property>
+				<property name="bussModelDao">
+					<ref bean="bussModelDao" />
+				</property>
+				<property name="bussModelService">
+					<ref bean="bussModelService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 集群节点状态 -->
+	<bean id="operVersionDao" class="com.more.fw.core.dist.nodes.dao.impl.OperVersionDaoImpl"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="operVersionService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.dist.nodes.service.impl.${db.dialect}.OperVersionServiceImpl">
+				<property name="operVersionDao">
+					<ref bean="operVersionDao" />
+				</property>
+				<property name="baseDao">
+					<ref bean="operVersionDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- CSupdate -->
+	<bean id="csUpdateDao" class="com.more.fw.core.cs.updater.dao.impl.CsUpdateDaoImpl"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="csUpdateService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.cs.updater.service.impl.${db.dialect}.CsUpdateServiceImpl">
+				<property name="csUpdateDao">
+					<ref bean="csUpdateDao" />
+				</property>
+				<property name="baseDao">
+					<ref bean="csUpdateDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- model begin -->
+	<bean id="modelDao" class="com.more.fw.core.dbo.model.dao.impl.ModelDaoImpl"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="modelService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.dbo.model.service.impl.${db.dialect}.ModelServiceImpl">
+				<property name="baseDao">
+					<ref bean="modelDao" />
+				</property>
+				<property name="modelDao">
+					<ref bean="modelDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="roleDao" class="com.more.fw.core.sysfa.auth.dao.impl.RoleDaoImpl"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="roleService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.sysfa.auth.service.impl.${db.dialect}.RoleServiceImpl">
+				<property name="baseDao">
+					<ref bean="roleDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+
+	<bean id="userDao" class="com.more.fw.core.base.login.dao.impl.UserDaoImpl"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="userService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.base.login.service.impl.${db.dialect}.UserServiceImpl">
+				<property name="baseDao">
+					<ref bean="userDao" />
+				</property>
+				<property name="userDao">
+					<ref bean="userDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="roleUserDao"
+		class="com.more.fw.core.sysfa.auth.dao.impl.RoleUserDaoImpl"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="roleUserService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.sysfa.auth.service.impl.${db.dialect}.RoleUserServiceImpl">
+				<property name="baseDao">
+					<ref bean="roleUserDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="roleFuncDao"
+		class="com.more.fw.core.sysfa.auth.dao.impl.RoleFuncDaoImpl"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="roleFuncService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.sysfa.auth.service.impl.${db.dialect}.RoleFuncServiceImpl">
+				<property name="baseDao">
+					<ref bean="roleFuncDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="deptDao" class="com.more.fw.core.base.login.dao.impl.DeptDaoImpl"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="deptService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.base.login.service.impl.${db.dialect}.DeptServiceImpl">
+				<property name="baseDao">
+					<ref bean="deptDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- job begin -->
+	<bean id="jobDao" class="com.more.fw.core.sysfa.auth.dao.impl.JobDaoImpl"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="jobService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.sysfa.auth.service.impl.${db.dialect}.JobServiceImpl">
+				<property name="baseDao">
+					<ref bean="jobDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="jobUserDao"
+		class="com.more.fw.core.sysfa.auth.dao.impl.JobUserDaoImpl"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="jobUserService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.sysfa.auth.service.impl.${db.dialect}.JobUserServiceImpl">
+				<property name="baseDao">
+					<ref bean="jobUserDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="deptUserService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.sysfa.auth.service.impl.${db.dialect}.DeptUserServiceImpl">
+				<property name="baseDao">
+					<ref bean="baseDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 用户常用功能,添加数据源 -->
+	<bean id="userCommFuncDao" class="com.more.fw.core.sysfa.usermessage.dao.UserCommFuncDao"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="userCommFuncService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.sysfa.usermessage.service.impl.${db.dialect}.UserCommFuncServiceImpl">
+				<property name="baseDao">
+					<ref bean="userCommFuncDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 指标库设置,添加数据源 -->
+	<bean id="adminTargetDataDao" class="com.more.fw.core.sysfa.usermessage.dao.AdminTargetDataDao"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="adminTargetDataService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.sysfa.usermessage.service.impl.${db.dialect}.AdminTargetDataServiceImpl">
+				<property name="baseDao">
+					<ref bean="adminTargetDataDao" />
+				</property>
+				<property name="adminTargetDataDao">
+					<ref bean="adminTargetDataDao" />
+				</property>
+				<property name="bussModelService">
+					<ref bean="bussModelService" />
+				</property>
+				
+			</bean>
+		</property>
+	</bean>
+	<bean id="chartsConfigDao" class="com.more.fw.core.sysfa.echarts.dao.ChartsConfigDao"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="chartsConfigService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.sysfa.echarts.service.impl.${db.dialect}.ChartsConfigServiceImpl">
+				<property name="baseDao">
+					<ref bean="chartsConfigDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 指标库图片设置,添加数据源 -->
+	<bean id="adminTargetPicDao" class="com.more.fw.core.sysfa.usermessage.dao.AdminTargetPicDao"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="adminTargetPicService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.sysfa.usermessage.service.impl.${db.dialect}.AdminTargetPicServiceImpl">
+				<property name="baseDao">
+					<ref bean="adminTargetPicDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 指标库图片设置,添加数据源 -->
+	<bean id="userTargetDataDao" class="com.more.fw.core.sysfa.usermessage.dao.UserTargetDataDao"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="userTargetDataService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.sysfa.usermessage.service.impl.${db.dialect}.UserTargetDataServiceImpl">
+				<property name="baseDao">
+					<ref bean="userTargetDataDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+<!-- 关键数据库 -->
+	<bean id="adKeyDataDao" class="com.more.fw.core.sysfa.usermessage.dao.AdKeyDataDao"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="adKeyDataService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.sysfa.usermessage.service.impl.${db.dialect}.AdKeyDataServiceImpl">
+				<property name="baseDao">
+					<ref bean="adKeyDataDao" />
+				</property>
+				<property name="iChartsConfigService">
+					<ref bean="iChartsConfigService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="usKeyDataDao" class="com.more.fw.core.sysfa.usermessage.dao.UsKeyDataDao"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="usKeyDataService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.sysfa.usermessage.service.impl.${db.dialect}.UsKeyDataServiceImpl">
+				<property name="baseDao">
+					<ref bean="usKeyDataDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!-- webservice manager begin -->
+	<bean id="clientModuleDao" class="com.more.fw.webservice.dao.impl.ClientModuleDaoImpl"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="clientConfigDao" class="com.more.fw.webservice.dao.impl.ClientConfigDaoImpl"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="clientMgrService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.webservice.service.impl.${db.dialect}.ClientMgrServiceImpl">
+				<property name="clientModuleDao">
+					<ref bean="clientModuleDao" />
+				</property>
+				<property name="clientConfigDao">
+					<ref bean="clientConfigDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="serverModuleDao" class="com.more.fw.webservice.dao.impl.ServerModuleDaoImpl"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="serverConfigDao" class="com.more.fw.webservice.dao.impl.ServerConfigDaoImpl"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="serverMgrService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.webservice.service.impl.${db.dialect}.ServerMgrServiceImpl">
+				<property name="serverModuleDao">
+					<ref bean="serverModuleDao" />
+				</property>
+				<property name="serverConfigDao">
+					<ref bean="serverConfigDao" />
+				</property>
+				<property name="bussModelService">
+					<ref bean="bussModelService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!-- webservice manager end -->
+	
+	<!-- http manager start -->
+	<bean id="httpModuleDao" class="com.more.fw.http.dao.impl.HttpModuleDaoImpl"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	 <bean id="httpConfigDao" class="com.more.fw.http.dao.impl.HttpConfigDaoImpl"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="httpMgrService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.http.service.impl.${db.dialect}.ServerMgrServiceImpl">
+				 <property name="httpModuleDao">
+					<ref bean="httpModuleDao" />
+				</property>
+				 <property name="httpConfigDao">
+					<ref bean="httpConfigDao" />
+				</property>
+				<property name="bussModelService">
+					<ref bean="bussModelService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!-- http manager end -->
+	<!-- Email manager begin -->
+	<bean id="userEmailManageService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.email.service.impl.${db.dialect}.UserEmailManageServiceImpl">
+				<property name="bussModelDao">
+					<ref bean="bussModelDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>	
+	<!-- Email manager end -->
+<!-- 触发器管理 -->
+	<bean id="trigDtoDao" class="com.more.fw.core.base.core.timer.dao.TrigDtoDao"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="trigDtoService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.base.core.timer.service.impl.${db.dialect}.TrigDtoServiceImpl">
+				<property name="baseDao">
+					<ref bean="trigDtoDao" />
+				</property>
+				<property name="trigDtoDao">
+					<ref bean="trigDtoDao" />
+				</property>
+				<property name="bussModelService">
+					<ref bean="bussModelService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 触发器日志管理数据源 -->
+	<bean id="trigLogDtoDao" class="com.more.fw.core.base.core.timer.dao.TrigLogDtoDao"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="trigLogDtoService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.base.core.timer.service.impl.${db.dialect}.TrigLogDtoServiceImpl">
+				<property name="baseDao">
+					<ref bean="trigLogDtoDao" />
+				</property>
+				
+			</bean>
+		</property>
+	</bean>
+	<!-- 触发器模块管理 -->
+	<bean id="trigModuleDtoDao" class="com.more.fw.core.base.core.timer.dao.TrigModuleDtoDao"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="trigModuleDtoService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.base.core.timer.service.impl.${db.dialect}.TrigModuleDtoServiceImpl">
+				<property name="baseDao">
+					<ref bean="trigModuleDtoDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+		<!-- 触发器日志管理 -->
+	<bean id="triggerLogger" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.base.core.timer.TriggerLogger">
+				<property name="trigLogDtoService">
+					<ref bean="trigLogDtoService" />
+				</property>
+			</bean>
+		</property>
+	</bean>	
+	<!--自定义任务接口 -->
+	<bean id="ijob" parent="baseTransactionProxy" >
+		<property name="target">
+			<bean
+				class="com.more.fw.core.base.core.timer.IJob">
+				<property name="userEmailManageService">
+					<ref bean="userEmailManageService" />
+				</property>
+				<property name="websJobDtoService">
+					<ref bean="websJobDtoService" />
+				</property>
+				<property name="eventHttpManageService">
+					<ref bean="eventHttpManageService" />
+				</property>
+			</bean>
+		</property>
+	</bean>	
+	<!-- 默认定时监听器-->
+		<bean id="defaultTriggerListener" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.base.core.timer.DefaultTriggerListener">
+				<property name="triggerLogger">
+					<ref bean="triggerLogger" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!-- webservice任务管理-->
+	<bean id="websJobDtoDao" class="com.more.fw.core.base.core.timer.dao.WebsJobDtoDao"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="langTypeDtoDao" class="com.more.fw.core.dbo.model.dao.LangTypeDtoDao"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+		<bean id="langTypeDtoService" parent="baseTransactionProxy">
+			<property name="target">
+			<bean
+				class="com.more.fw.core.dbo.model.service.impl.${db.dialect}.LangTypeDtoServiceImpl">
+				<property name="baseDao">
+					<ref bean="langTypeDtoDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+		<!-- event-http manager begin -->
+	<bean id="eventHttpManageService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.eventhttp.service.impl.${db.dialect}.EventHttpManageServiceImpl">
+				<property name="bussModelDao">
+					<ref bean="bussModelDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>	
+	<!-- event-http manager end -->
+	<!-- ListenerExceptionService manager begin -->
+	<bean id="listenerExceptionService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.core.base.monitor.service.impl.${db.dialect}.ListenerExceptionServiceImpl">
+				<property name="bussModelDao">
+					<ref bean="bussModelDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>	
+	<!-- ListenerExceptionService manager end -->
+	<bean id="diskMonitorService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.core.base.monitor.service.impl.${db.dialect}.DiskMonitorServiceImpl">
+				<property name="bussModelDao">
+					<ref bean="bussModelDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>	 
+	<bean id="memMonitorService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.core.base.monitor.service.impl.${db.dialect}.MemMonitorServiceImpl">
+				<property name="bussModelDao">
+					<ref bean="bussModelDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="CPUMonitorService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.core.base.monitor.service.impl.${db.dialect}.CPUMonitorServiceImpl">
+				<property name="bussModelDao">
+					<ref bean="bussModelDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- performanceMonitor begin -->
+	<bean id="performanceMonitorService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.core.base.core.timer.service.impl.${db.dialect}.PerformanceMonitorServiceImpl">
+				<property name="bussModelDao">
+					<ref bean="bussModelDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>	
+	<!-- performanceMonitor end -->
+
+	<!-- 对外接口 开始 -->
+	<bean id="externalInterfaceService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.exinterface.service.impl.${db.dialect}.ExternalInterfaceServiceImpl">
+				<property name="bussModelDao">
+					<ref bean="bussModelDao" />
+				</property>
+				<property name="bussModelService">
+					<ref bean="bussModelService" />
+				</property>
+			</bean>
+		</property>
+	</bean>	
+	<!-- 对外接口 结束 -->
+	
+	<!-- excelService begin -->
+	<bean id="excelService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.core.excel.service.impl.${db.dialect}.ExcelServiceImpl">
+				<property name="bussModelDao">
+					<ref bean="bussModelDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>	
+	<!-- excelService end -->
+	
+	<bean id="logService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.base.oper.service.impl.LogServiceImpl">
+
+			</bean>
+		</property>
+	</bean>
+	<bean id="syOperLogService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.base.oper.service.impl.${db.dialect}.SyOperLogServiceImpl">
+				<property name="baseDao">
+					<ref bean="baseDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="syAuthorityLogService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.base.oper.service.impl.${db.dialect}.SyAuthorityLogServiceImpl">
+				<property name="baseDao">
+					<ref bean="baseDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="syMonitorSyexceptionService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.base.oper.service.impl.${db.dialect}.SyMonitorSyexceptionServiceImpl">
+				<property name="baseDao">
+					<ref bean="baseDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+		<bean id="websJobDtoService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.base.core.timer.service.impl.${db.dialect}.WebsJobDtoServiceImpl">
+				<property name="baseDao">
+					<ref bean="websJobDtoDao" />
+				</property>
+				<property name="websJobDtoDao">
+					<ref bean="websJobDtoDao" />
+				</property>
+				<property name="clientMgrService">
+					<ref bean="clientMgrService" />
+				</property>
+				<property name="bussModelService">
+					<ref bean="bussModelService" />
+				</property>
+		
+			</bean>
+		</property>
+	</bean>
+	<!-- 任务管理 开始 -->
+	<bean id="workMagService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.core.base.core.timer.service.impl.${db.dialect}.WorkMagServiceImpl">
+				<property name="bussModelDao">
+					<ref bean="bussModelDao" />
+				</property>
+				<property name="bussModelService">
+					<ref bean="bussModelService" />
+				</property>
+				<property name="websJobDtoService">
+					<ref bean="websJobDtoService" />
+				</property>
+				<property name="jclzService">
+					<ref bean="jclzService" />
+				</property>
+				<property name="eventHttpManageService">
+					<ref bean="eventHttpManageService" />
+				</property>
+				<property name="userEmailManageService">
+					<ref bean="userEmailManageService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- 消息通用模板 begin -->
+	<bean id="commService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.inf.common.service.impl.${db.dialect}.CommServiceImpl">
+				<property name="baseDao">
+					<ref bean="bussModelDao" />
+				</property>
+				<property name="bussModelDao">
+					<ref bean="bussModelDao" />
+				</property>
+				<property name="wxService">
+					<ref bean="wxService" />
+				</property>
+				<property name="dingService">
+					<ref bean="dingService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 消息通用模板 end -->
+
+		<!-- weixin begin -->
+	<bean id="wxService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.inf.wx.service.impl.${db.dialect}.WxServiceImpl">
+				<property name="bussModelDao">
+					<ref bean="bussModelDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>	
+	<!-- weixin end -->
+	
+	<!-- 钉钉接口 -->	<bean id="dingService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.inf.ding.service.impl.base.DingServiceAbs">
+				<property name="baseDao">
+					<ref bean="bussModelDao" />
+				</property>
+				<property name="bussModelDao">
+					<ref bean="bussModelDao" />
+				</property>
+		
+			</bean>
+		</property>
+	</bean>	<bean id="aliMsgDtoDao" class="com.more.fw.inf.sms.dao.AliMsgDtoDao"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="aliMsgService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.inf.sms.service.impl.${db.dialect}.AliMsgServiceImpl">
+				<property name="baseDao">
+					<ref bean="aliMsgDtoDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="aliAttrTempDtoDao" class="com.more.fw.inf.sms.dao.AliAttrTempDtoDao"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="aliAttrTempService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.inf.sms.service.impl.${db.dialect}.AliAttrTempServiceImpl">
+				<property name="baseDao">
+					<ref bean="aliAttrTempDtoDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="cusControlDtoDao" class="com.more.fw.core.cont.custom.dao.CusControlDtoDao"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="cusControlService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.core.cont.custom.service.impl.${db.dialect}.CusControlServiceImpl">
+				<property name="baseDao">
+					<ref bean="cusControlDtoDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 统一的图片管理页面 -->	
+	<bean id="picmgService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.picmg.service.impl.base.PicmgServiceAbs">
+				<property name="baseDao">
+					<ref bean="bussModelDao" />
+				</property>
+				<property name="bussModelDao">
+					<ref bean="bussModelDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="searchService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.search.service.impl.${db.dialect}.SearchServiceImpl">
+				
+				<property name="bussModelDao">
+					<ref bean="bussModelDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+		<bean id="mainImportService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.core.base.core.boot.service.impl.${db.dialect}.MainImportServiceImpl">
+				<property name="bussModelDao">
+					<ref bean="bussModelDao" />
+				</property>
+				<property name="funcService">
+					<ref bean="funcService" />
+				</property>
+				<property name="bussModelService">
+					<ref bean="bussModelService" />
+				</property>
+				<property name="trigDtoService">
+					<ref bean="trigDtoService" />
+				</property>
+				<property name="dictService">
+					<ref bean="dictService" />
+				</property>
+				<property name="dictValService">
+					<ref bean="dictValService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 模块管理页面 -->	
+	<bean id="moduleDtoDao" class="com.more.fw.core.base.core.boot.dao.ModuleDtoDao"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="moduleMagService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.core.base.core.boot.service.impl.${db.dialect}.ModuleMagServiceImpl">
+				<property name="baseDao">
+					<ref bean="moduleDtoDao" />
+				</property>
+				<property name="bussModelDao">
+					<ref bean="bussModelDao" />
+				</property>
+				<property name="funcService">
+					<ref bean="funcService" />
+				</property>
+				<property name="bussModelService">
+					<ref bean="bussModelService" />
+				</property>
+				<property name="trigDtoService">
+					<ref bean="trigDtoService" />
+				</property>
+				<property name="dictService">
+					<ref bean="dictService" />
+				</property>
+				<property name="dictValService">
+					<ref bean="dictValService" />
+				</property>
+					<property name="mainImportService">
+					<ref bean="mainImportService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- cloudForcelogout begin -->
+	<bean id="cloudForcelogoutDao" class="com.more.fw.core.base.login.dao.impl.CloudForcelogoutDaoImpl"
+		autowire="default" dependency-check="default" parent="baseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="cloudForcelogoutService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="com.more.fw.core.base.login.service.impl.${db.dialect}.CloudForcelogoutServiceImpl">
+				<property name="baseDao">
+					<ref bean="cloudForcelogoutDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!-- cloudForcelogout end -->
+	<bean id="pageDebugService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.pagedebug.service.impl.PageDebugServiceImpl">
+			<property name="bussModelService">
+					<ref bean="bussModelService" />
+				</property>
+			</bean>
+		</property>
+			
+	</bean>
+	<bean id="dmpService" parent="baseTransactionProxy">
+	<property name="target">
+		<bean class="com.more.fw.buss.dmp.service.impl.${db.dialect}.DmpServiceImpl">
+			<property name="baseDao">
+				<ref bean="bussModelDao" />
+			</property>
+			<property name="bussModelDao">
+				<ref bean="bussModelDao" />
+			</property>
+			<property name="bussModelService">
+				<ref bean="bussModelService" />
+			</property>
+		</bean>	
+	</property>
+	
+	</bean>
+
+	<bean id="dmpOrderService" parent="baseTransactionProxy">
+	<property name="target">
+			<bean class="com.more.fw.buss.dmp.service.impl.${db.dialect}.DmpOrderServiceImpl">
+			<property name="baseDao">
+				<ref bean="bussModelDao" />
+			</property>
+			<property name="bussModelDao">
+				<ref bean="bussModelDao" />
+			</property>
+			<property name="bussModelService">
+				<ref bean="bussModelService" />
+			</property>
+		</bean>	
+	</property>
+	
+	</bean>	
+	<bean id="dmpDeviceService" parent="baseTransactionProxy">
+	<property name="target">
+			<bean class="com.more.fw.buss.dmp.service.impl.${db.dialect}.DmpDeviceMonitorServiceImpl">
+			<property name="baseDao">
+				<ref bean="bussModelDao" />
+			</property>
+			<property name="bussModelDao">
+				<ref bean="bussModelDao" />
+			</property>
+			<property name="bussModelService">
+				<ref bean="bussModelService" />
+			</property>
+		</bean>	
+	</property>
+	
+	</bean>			
+	
+	<bean id="motionDmpService" parent="baseTransactionProxy">
+	<property name="target">
+		<bean
+			class="com.more.fw.buss.motion.dmp.service.impl.${db.dialect}.MotionDmpServiceImpl">
+			<property name="baseDao">
+				<ref bean="bussModelDao" />
+			</property>
+			<property name="bussModelDao">
+				<ref bean="bussModelDao" />
+			</property>
+			<property name="bussModelService">
+				<ref bean="bussModelService" />
+			</property>
+		</bean>
+	</property>
+	</bean>
+
+	          
+	<bean id="orderSetDetailService" parent="baseTransactionProxy">
+	<property name="target">
+		<bean
+			class="com.more.fw.buss.dmp.service.impl.${db.dialect}.OrderSetDetailServiceImpl">
+			<property name="baseDao">
+				<ref bean="bussModelDao" />
+			</property>
+			<property name="bussModelDao">
+				<ref bean="bussModelDao" />
+			</property>
+			<property name="bussModelService">
+				<ref bean="bussModelService" />
+			</property>
+		</bean>
+	</property>
+	</bean>
+	<bean id="orderSetService" parent="baseTransactionProxy">
+	<property name="target">
+		<bean
+			class="com.more.fw.buss.dmp.service.impl.${db.dialect}.OrderSetServiceImpl">
+			<property name="baseDao">
+				<ref bean="bussModelDao" />
+			</property>
+			<property name="bussModelDao">
+				<ref bean="bussModelDao" />
+			</property>
+			<property name="bussModelService">
+				<ref bean="bussModelService" />
+			</property>
+		</bean>
+	</property>
+	</bean>	
+	
+	<bean id="dmpSerService" parent="baseTransactionProxy">
+	<property name="target">
+		<bean
+			class="com.more.fw.buss.dmp.service.impl.${db.dialect}.DmpSerServiceImpl">
+			<property name="baseDao">
+				<ref bean="bussModelDao" />
+			</property>
+			<property name="bussModelDao">
+				<ref bean="bussModelDao" />
+			</property>
+			<property name="bussModelService">
+				<ref bean="bussModelService" />
+			</property>
+		</bean>
+	</property>
+	</bean>	
+	
+	</beans>

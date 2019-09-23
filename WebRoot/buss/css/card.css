@@ -1,0 +1,136 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    overflow:hidden;
+    height:100%;
+}
+
+.content {
+    width: 100%;
+    background-color: #f6f5f7;
+    font-size: 14px;
+    height:100%;
+  overflow-y:scroll;
+}
+
+.top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+.underline{
+    border-bottom: 1px solid #ccc;
+   
+}
+.topLeft,
+.topRight {
+    display: flex;
+    align-items: center;
+    margin-right:14px;
+    cursor: pointer;
+}
+
+.topLeft span {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+}
+
+.open{
+    background: url('../images/card/packUp.png') no-repeat 0px 4px;
+    width: 15px;
+    height: 15px;
+}
+.close{
+    background: url('../images/card/open.png') no-repeat 0px 4px;
+    width: 15px;
+    height: 15px;
+    display: none;
+}
+
+.topRight p {
+    font-size: 14px;
+    color: #a7cc31;
+    margin-right: 3px;
+    cursor: pointer;
+}
+
+.niddle {
+    margin-right: 10px;
+    height: 21px;
+    width: 6px;
+    background: blue;
+    border-radius: 4px;
+}
+
+.list {
+    width: 100%;
+}
+
+.list ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    padding: 0;
+    
+    margin: 0;
+}
+
+.list ul li {
+    width: 218px;
+    height: 75px;
+    background-color: #fff;
+    box-shadow: 6px 8px 10px #ebeaec;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    cursor:pointer;
+    border-radius: 4px;
+    margin-bottom: 18px;
+    margin-right: 15px;
+    margin-left:16px;
+}
+
+.list ul li:hover {
+    background-color: #e0e0e0;
+}
+
+.logo {
+    width: 34px;
+    height: 34px;
+    margin-right: 16px;
+    margin-left: 18px;
+}
+
+.syslogo {
+   background: url('../images/card/system.png') no-repeat;
+}
+
+.applyset {
+    background: url('../images/card/application.png') no-repeat;
+}
+.person{
+    background: url('../images/card/staff.png') no-repeat;
+}
+.materials{
+    background: url('../images/card/materiel.png') no-repeat;
+}
+.cargo{
+    background: url('../images/card/wareHouse.png') no-repeat;
+}
+.art{
+    background: url('../images/card/technology.png') no-repeat;
+}
+.device{
+    background: url('../images/card/device.png') no-repeat;
+}
+.produce{
+    background: url('../images/card/produce.png') no-repeat;
+}
+.quelity{
+    background: url('../images/card/badCode.png') no-repeat;
+}

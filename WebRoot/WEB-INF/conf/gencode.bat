@@ -1,0 +1,1 @@
+wsdl2java -uri %1 -p %2 -s -o %3 

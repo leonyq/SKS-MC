@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- dict begin -->
+	<bean id="dictDao" class="com.more.fw.core.dict.dao.impl.DictDaoImpl" autowire="default" dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="dictService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.core.dict.service.impl.${db.dialect}.DictServiceImpl">
+				<property name="dictDao">
+					<ref bean="dictDao"/>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="chartsConfigDaoImpl" class="com.more.fw.core.sysfa.echarts.dao.impl.ChartsConfigDaoImpl" autowire="default" dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="iChartsConfigService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.core.sysfa.echarts.service.impl.ChartsConfigServiceImpl">
+				<property name="chartsConfigDaoImpl">
+					<ref bean="chartsConfigDaoImpl"/>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="dictValDao" class="com.more.fw.core.dict.dao.impl.DictValDaoImpl" autowire="default" dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="dictValService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.core.dict.service.impl.${db.dialect}.DictValServiceImpl">
+				<property name="dictValDao">
+					<ref bean="dictValDao"/>
+				</property>
+				<property name="baseDao">
+					<ref bean="dictValDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!-- dict end -->
+	
+	<bean id="msgService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.core.sysmain.msg.service.impl.${db.dialect}.MsgServiceImpl">
+				<property name="baseDao">
+					<ref bean="baseDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="workFlowService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.more.fw.wf.service.impl.${db.dialect}.WorkFlowServiceImpl">
+				<property name="bussModelDao">
+					<ref bean="bussModelDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>	
+</beans>

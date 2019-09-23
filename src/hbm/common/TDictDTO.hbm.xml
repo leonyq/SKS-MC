@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.more.fw.core.dict.model.DictDto"
+		table="SY_DICT">
+		<id name="dictId" type="java.lang.String">
+			<column name="DICT_ID" length="33" />
+		</id>
+		<property name="code" type="java.lang.String">
+			<column name="CODE" length="20"></column>
+		</property>
+		<property name="value" type="java.lang.String">
+			<column name="VALUE" length="30"></column>
+		</property>
+		<property name="className" type="java.lang.String">
+			<column name="CLASS_NAME" length="120"></column>
+		</property>
+		<property name="remark" type="java.lang.String">
+			<column name="REMARK" length="400"></column>
+		</property>
+
+	</class>
+</hibernate-mapping>

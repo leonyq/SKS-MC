@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="skin/WdatePicker.css">
+</head>
+<body>
+<input id="d11" type="text" onClick="WdatePicker({isShowWeek:true,dateFmt:'yyyy-MM-dd HH:mm:ss',startDate:'2018-04-02 23:59:59'})"/>
+<script src="../jquery/jquery-1.12.4.min.js"></script>
+<script src="WdatePicker.js"></script>
+<!--<script src="calendar.js"></script>-->
+<script>
+    var _GLO_USER_TIMEZONE=parseInt('-8',10);
+    function toTimeZone(tz) {
+        var d=new Date();
+        var localTime = d.getTime();
+        var localOffset = d.getTimezoneOffset() * 60000;
+        var utc = localTime + localOffset; //得到国际标准时间
+        var calctime = utc + (3600000*tz);
+        return new Date(calctime);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,792 @@
+::-webkit-scrollbar-track {
+    background-color: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #999;
+}
+
+html,body{
+    height: 100%;
+}
+
+.layui-fluid {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 15px;
+}
+
+
+/* 标题头相关 */
+.headline{
+    line-height: 35px;
+    height: 35px;
+    font-size: 18px;
+    color: #009688;
+    margin-bottom: 35px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.headline .set{
+    float: left;
+    width: 25px;
+    height: 25px;
+    margin-top: 5px;
+    margin-right: 10px;
+    background-image: url(../images/img/shezhi.png);
+}
+
+/* tab标签页相关  */
+.layui-tab-title{
+    margin: 0 15px;
+}
+
+.layui-tab{
+    padding-top: 10px;
+    margin: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.layui-tab-content{
+    height: 100%;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+.layui-tab-item{
+    height: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+/* 底部按钮 */
+.ptop_10{
+    position: fixed;
+    right: 0;
+    z-index: 99;
+    width: 100%;
+    background-color: #fff;
+    bottom: 0;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    box-shadow: 0 -1px 2px #f5f5f5; 
+    text-align: center;
+}
+
+.ptop_10 .layui-layer-close{
+    position: static;
+}
+
+.layui-layer-content .ptop_10{
+    position: absolute;
+}
+ 
+/* 操作图标相关 */
+.operates{
+    position: absolute;
+    top: 2px;
+    right: 0;
+}
+
+.operates .layui-nav{
+    float: left;
+    background-color: transparent;
+    padding: 0;
+    line-height: 25px;
+}
+
+.operates .layui-nav .layui-nav-item{
+    line-height: 25px;
+}
+
+.operates .layui-nav .layui-nav-item a{
+    color: #666;
+}
+
+.operates .layui-nav .layui-nav-more{
+    border-top-color: #666;
+    margin-top: -4px;
+}
+
+.operates .layui-nav-bar{
+    background-color: transparent;
+}
+
+.operates .layui-nav-child{
+    top: 30px;
+    text-align: center;
+}
+
+.operates .layui-nav .layui-nav-child dd{
+    color: #333;
+    cursor: pointer;
+}
+
+.operates .layui-nav .layui-nav-child dd:hover{
+    background-color: #009688;
+    color: #fff;
+}
+
+.operates .layui-nav .layui-nav-mored{
+    border-color: transparent transparent #666;
+    margin-top: -11px;
+}
+
+.operates .ico{
+    float: left;
+    width: 25px;
+    height: 25px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.operates .btns{
+    float: left;
+}
+
+.operates .ico.search{
+    background-image: url(../images/img/operate_search.png);
+}
+
+.operates .ico.search:hover{
+    background-image: url(../images/img/operate_search_h.png);
+}
+
+.operates .ico.list{
+    background-image: url(../images/img/operate_list.png);
+}
+
+.operates .ico.list:hover{
+    background-image: url(../images/img/operate_list_h.png);
+}
+
+.operates .ico.card{
+    background-image: url(../images/img/operate_card.png);
+}
+
+.operates .ico.card:hover{
+    background-image: url(../images/img/operate_card_h.png);
+}
+
+.operates .ico.help{
+    background-image: url(../images/img/operate_help.png);
+}
+
+.operates .ico.help:hover{
+    background-image: url(../images/img/operate_help_h.png);
+}
+
+.operates .ico.edit{
+    background-image: url(../images/img/operate_edit.png);
+}
+
+.operates .ico.edit:hover{
+    background-image: url(../images/img/operate_edit_h.png);
+}
+
+.operates .ico.saveAs{
+    background-image: url(../images/img/operate_saveAs.png);
+}
+
+.operates .ico.saveAs:hover{
+    background-image: url(../images/img/operate_saveAs_h.png);
+}
+
+.operates .ico.close{
+    background-image: url(../images/img/operate_close.png);
+}
+
+.operates .ico.close:hover{
+    background-image: url(../images/img/operate_close_h.png);
+}
+
+.operates .ico.add{
+    background-image: url(../images/img/operate_add.png);
+}
+
+.operates .ico.add:hover{
+    background-image: url(../images/img/operate_add_h.png);
+}
+
+.operates .ico.toRight{
+    background-image: url(../images/img/operate_toright.png);
+}
+
+.operates .ico.toRight:hover{
+    background-image: url(../images/img/operate_toright_h.png);
+}
+
+.operates .ico.toLeft{
+    background-image: url(../images/img/operate_toLeft.png);
+}
+
+.operates .ico.toLeft:hover{
+    background-image: url(../images/img/operate_toLeft_h.png);
+}
+
+.operates .ico.code{
+    background-image: url(../images/img/code.png);
+}
+
+.operates .ico.code:hover{
+    background-image: url(../images/img/code_h.png);
+}
+.operates .btns .code2{
+    background-image: url(../images/img/code.png);
+}
+
+.operates .btns .code2:hover{
+    background-image: url(../images/img/code_h.png);
+}
+.operates .code3{
+    background-image: url(../images/img/code.png);
+}
+
+.operates .code3:hover{
+    background-image: url(../images/img/code_h.png);
+}
+.operates .ico.play{
+    background-image: url(../images/img/operate_play.png);
+}
+
+.operates .ico.play:hover{
+    background-image: url(../images/img/operate_play_h.png);
+}
+
+.operates .ico.pause{
+    background-image: url(../images/img/operate_pause.png);
+}
+
+.operates .ico.pause:hover{
+    background-image: url(../images/img/operate_pause_h.png);
+}
+
+.operates .ico.export{
+    background-image: url(../images/img/operate_export.png);
+}
+
+.operates .ico.export:hover{
+    background-image: url(../images/img/operate_export_h.png);
+}
+
+.operates .ico.timeLog{
+    background-image: url(../images/img/operate_timeLog.png);
+}
+
+.operates .ico.timeLog:hover{
+    background-image: url(../images/img/operate_timeLog_h.png);
+}
+
+.operates .ico.searchLog{
+    background-image: url(../images/img/operate_searchLog.png);
+}
+
+.operates .ico.searchLog:hover{
+    background-image: url(../images/img/operate_searchLog_h.png);
+}
+
+.operates .ico.del{
+    background-image: url(../images/img/operate_del.png);
+}
+
+.operates .ico.del:hover{
+    background-image: url(../images/img/operate_del_h.png);
+}
+
+.operates .ico.downLoad{
+    background-image: url(../images/img/down.png);
+}
+
+.operates .ico.downLoad:hover{
+    background-image: url(../images/img/down_h.png);
+}
+
+.operates .ico.view{
+    background-image: url(../images/img/see.png);
+}
+
+.operates .ico.view:hover{
+    background-image: url(../images/img/see_h.png);
+}
+
+.operates .ico.set{
+     background-image: url(../images/img/set.png);
+}
+
+.operates .ico.set:hover{
+     background-image: url(../images/img/set_h.png);
+}
+
+/* 卡片样式相关 */
+
+.layui-elem-field{
+    position: relative;
+    margin-top: 20px;
+}
+
+.layui-elem-field legend{
+    color: #666;
+    font-size: 18px;
+}
+
+.layui-elem-field .more{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #fff;
+    padding: 0 10px;
+    height: 24px;
+}
+
+.layui-elem-field .moreBtn{
+    float: left;
+    height: 24px;
+    margin: 0 auto;
+    line-height: 22px;
+    text-align: center;
+    /* border: 1px solid #e6e6e6; */
+    box-sizing: border-box;
+    font-size: 12px;
+    border-radius:2px; 
+    color: #999;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.layui-elem-field .moreBtn:hover{
+    color: #009688;
+}
+
+.layui-elem-field .moreIco{
+    display: inline-block;
+    width: 16px;
+    height: 10px;
+    background-image: url(../images/img/more.png);
+    vertical-align: top;
+    margin-top: 6px;
+    margin-left: 2px;
+}
+
+.layui-elem-field .moreBtn:hover .moreIco{
+    background-image: url(../images/img/more_h.png);
+}
+
+.open>.layui-elem-field .moreIco{
+    transform:rotate(180deg);
+    -ms-transform:rotate(180deg); 
+    -moz-transform:rotate(180deg); 	
+    -webkit-transform:rotate(180deg); 
+    -o-transform:rotate(180deg);
+    margin-top: 4px;
+}
+
+.cards,.cards2,.cards3{
+    margin: -8px;
+    height: 0px;
+    overflow: hidden;
+}
+
+.open>.cards,.open>.cards2,.open>.cards3{
+    height: auto;
+}
+
+
+.cards .item{
+    position: relative;
+    float: left;
+    width: 350px;
+    height: 95px;
+    padding: 20px;
+    padding-bottom: 0;
+    border: 1px solid #e2e2e2;
+    box-sizing: border-box;
+    margin: 8px;
+}
+
+.cards .item.active{
+    border: 1px solid #009688;
+}
+
+.cards .item:hover{
+    background-color: #f8f8f8;
+}
+
+.cards .item .p1{
+    height: 20px;
+    line-height: 20px;
+    color: #666;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.cards .item .ico{
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    background-image: url(../images/img/model_default.png);
+}
+
+.cards .item .p2{
+    width: calc(100% - 25px);
+    height: 25px;
+    line-height: 25px;
+    color: #999;
+    margin-top: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.cards .item .code{
+    position: absolute;
+    right: 17px;
+    bottom: 17px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    background-image: url(../images/img/code.png);
+}
+.codeView{
+	position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 25px;
+    height: 25px;
+    background-image: url(../images/img/code.png);
+}
+
+
+.codeView:hover{
+    background-image: url(../images/img/code_h.png);
+}
+
+.cards .item .code:hover{
+    background-image: url(../images/img/code_h.png);
+}
+
+.cards .item .set{
+    position: absolute;
+    right: 17px;
+    bottom: 17px;
+    width: 25px;
+    height: 25px;
+    background-image: url(../images/img/shezhi.png);
+}
+
+.cards .item .set:hover{
+    background-image: url(../images/img/shezhi_h.png);
+}
+
+.cards2 .item{
+    position: relative;
+    float: left;
+    width: 350px;
+    height: 135px;
+    padding: 20px;
+    padding-bottom: 0;
+    border: 1px solid #e2e2e2;
+    box-sizing: border-box;
+    margin: 8px;
+}
+
+.cards2 .item.active{
+    border: 1px solid #009688;
+}
+
+.cards2 .item:hover{
+    background-color: #f8f8f8;
+}
+
+.cards2 .item .p1{
+    height: 20px;
+    line-height: 20px;
+    color: #666;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.cards2 .item .p2{
+    height: 25px;
+    line-height: 25px;
+    color: #999;
+    margin-top: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.cards2 .item .operates{
+    height: 45px;
+    width: 100%;
+    top: auto;
+    left: 0;
+    bottom: 0;
+    border-top: 1px solid #e2e2e2;
+}
+
+.cards2 .item .operates .ico{
+    margin-top: 10px;
+}
+
+.cards2 .item.pause{
+	background-color:#ebebeb;
+}
+
+.cards3 .item{
+	position: relative;
+    float: left;
+    width: 260px;
+    height: 84px;
+    padding: 17px;
+    padding-bottom: 0;
+    border: 1px solid #e2e2e2;
+    box-sizing: border-box;
+    margin: 8px;
+    cursor: pointer;
+}
+
+.cards3 .item img{
+	float:left;
+	width:50px;
+	height:50px;
+	margin-right:15px;
+}
+
+.cards3 .item .p1{
+	float:left;
+	width:calc(100% - 65px);
+	line-height:25px;
+	color:#666;
+}
+
+.cards3 .item .p2{
+	float:left;
+	width:calc(100% - 65px);
+	line-height:25px;
+	color:#999;
+}
+
+.cards3 .item .p3{
+	float:left;
+	width:calc(100% - 65px);
+	line-height:50px;
+	color:#666;
+}
+
+.cards3 .item .hoverBtn{
+    position: absolute;
+    height:100%;
+   	width:100%;
+   	top:0;
+   	left:0;
+   	text-align:center;
+   	padding:21px 0;
+   	box-sizing:border-box;
+   	background-color:#F8F8F8;
+   	overflow:hidden;
+   	opacity:0;
+   	transition:0.5s;
+}
+
+.cards3 .item:hover .hoverBtn{
+	opacity:1;
+}
+
+.cards3 .item .hoverBtn .icon{
+	display:inline-block;
+	width:40px;
+	height:40px;
+	margin:0 12px;
+}
+
+.cards3 .item .hoverBtn .edit{
+	background-image:url(../images/img/btn_edit.png)
+}
+
+.cards3 .item .hoverBtn .play{
+	background-image:url(../images/img/btn_play.png)
+}
+
+.cards3 .item .hoverBtn .view{
+	background-image:url(../images/img/btn_view.png)
+}
+
+.cards3 .item .hoverBtn .pause{
+	background-image:url(../images/img/btn_pause.png)
+}
+
+.cards3 .item .hoverBtn .unbind{
+	background-image:url(../images/img/btn_unbind.png)
+}
+
+
+.cards3 .item.active{
+    border: 1px solid #009688;
+}
+
+.cards3 .item:hover{
+    background-color: #f8f8f8;
+}
+
+.cards3 .operates{
+	top:9px;
+	right:9px;
+}
+
+/* 查询条件收缩相关 */
+.listOperate{
+    height: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.listOperate .tit{
+    float: left;
+    line-height: 30px;
+    color: #666;
+    font-size: 18px;
+}
+
+.listOperate .tit .current{
+    color: #009688;
+}
+
+.searchSwitch{
+    display: inline-block;
+    width: 38px;
+    height: 30px;
+    background-image: url(../images/img/switch.png);
+    cursor: pointer;
+}
+
+.switch .searchSwitch{
+    transform:rotate(180deg);
+    -ms-transform:rotate(180deg); 
+    -moz-transform:rotate(180deg); 	
+    -webkit-transform:rotate(180deg); 
+    -o-transform:rotate(180deg);
+}
+
+.switch .searchDiv{
+    display: none;
+}
+
+.searchDiv{
+    margin-top: 10px;
+}
+
+.searchItem{
+    float: left;
+    width: 355px;
+    margin-bottom: 10px;
+    margin-left: -15px;
+}
+
+.searchDivBig .searchItem{
+	width: 420px;
+}
+
+.searchDivSmall .searchItem{
+	width: 25%;
+}
+
+.search_l{
+    float: left;
+    width: 150px;
+    line-height: 38px;
+    text-align: right;
+    padding-right: 15px;
+    box-sizing: border-box;
+}
+
+.searchItem .search_r{
+    float: left;
+    width: calc(100% - 150px);
+    line-height: 38px;
+}
+
+
+.searchDivSmall .searchItem  .search_l{
+	width: 170px;
+}
+
+.searchDivSmall .searchItem  .search_r{
+	width: calc(100% - 170px);
+}
+
+.searchDivSmall .searchItem .layui-form-select{
+	width: 100%;
+}
+
+.Subtitle{
+	position: relative;
+    height: 45px;
+    border-bottom: 1px solid #e6e6e6;
+	margin-bottom:10px;
+}
+
+.Subtitle h3{
+    float: left;
+    padding: 0 10px;
+    line-height: 44px;
+    font-size: 14px;
+    border-bottom: 2px solid #6EB081
+}
+
+.Subtitle .operates{
+	top:10px;
+}
+
+
+.tableCheck .layui-form-checkbox[lay-skin=primary]{
+	padding-left:0;
+}
+
+.dmpServiceIcon{
+	background-image:url(../images/img/dmpService.png);
+}
+
+.item .icon {
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+}
+
+.item .icon.dmpPDA{
+    background-image:url(../images/img/dmpPDA.png);
+}
+
+
+.item .icon.dmpDCT{
+    background-image:url(../images/img/dmpDCT.png);
+}
+.item .icon.dmppdared{
+    background-image:url(../images/img/pdared.png);
+}
+
+
+.item .icon.dmpdctred{
+    background-image:url(../images/img/dctred.png);
+}
+.item .icon.dmppdagreen{
+    background-image:url(../images/img/pdagreen.png);
+}
+
+
+.item .icon.dmpdctgreen{
+    background-image:url(../images/img/dctgreen.png);
+}
+
+
+
+.item .icon.dmpServiceIcon{
+    background-image:url(../images/img/dmpService.png);
+}
+
+

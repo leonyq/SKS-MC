@@ -1,0 +1,37 @@
+.progress-button
+{
+	display:none;
+	cursor:default; 
+	position:absolute;
+	border: 1px solid #a8c7ce;
+	border-width: 0px 1px 1px 1px;
+	height: 22px;
+	z-index:10;
+	/* padding: 0px 5px; */
+	/* width: 141px; */
+	background-color:#FFFFFF;
+}
+.progress-previous
+{
+	tabindex=1;
+	display:none;
+	position:absolute;
+	right:50%;
+	width:26px;
+	height:26px;
+	margin-top:6px;
+	background:url(../../../../images/common/page/icon_before.gif) no-repeat;
+	cursor:pointer;
+}
+.progress-next
+{
+	tabindex=2;
+	display:none;
+	position:absolute;
+	left:50%;
+	width:26px;
+	height:26px;
+	margin-top:6px;
+	background:url(../../../../images/common/page/icon_next.gif) no-repeat;
+	cursor:pointer;
+}

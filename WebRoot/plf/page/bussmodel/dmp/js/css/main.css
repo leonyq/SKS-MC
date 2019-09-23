@@ -1,0 +1,212 @@
+::-webkit-scrollbar-track {
+    background-color: #ffffff;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #999;
+}
+
+html,body{
+    height: 100%;
+}
+
+.layui-fluid {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 15px;
+}
+
+/* tab标签页相关 */
+.layui-tab-title{
+    margin: 0 15px;
+}
+
+.layui-tab{
+    padding-top: 10px;
+    margin: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.layui-tab-content{
+    height: calc(100% - 41px);
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+.layui-tab-item{
+    height: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+/* 底部按钮 */
+.ptop_10{
+    position: fixed;
+    right: 0;
+    z-index: 99;
+    width: 100%;
+    background-color: #fff;
+    bottom: 0;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    box-shadow: 0 -1px 2px #f5f5f5; 
+    text-align: center;
+}
+
+/* 操作图标相关 */
+.operates{
+    position: absolute;
+    top: 2px;
+    right: 0;
+}
+
+.operates .layui-nav{
+    float: left;
+    background-color: transparent;
+    padding: 0;
+    line-height: 25px;
+}
+
+.operates .layui-nav .layui-nav-item{
+    line-height: 25px;
+}
+
+.operates .layui-nav .layui-nav-item a{
+    color: #666;
+}
+
+.operates .layui-nav .layui-nav-more{
+    border-top-color: #666;
+    margin-top: -4px;
+}
+
+.operates .layui-nav-bar{
+    background-color: transparent;
+}
+
+.operates .layui-nav-child{
+    top: 30px;
+    text-align: center;
+}
+
+.operates .layui-nav .layui-nav-child dd{
+    color: #333;
+    cursor: pointer;
+}
+
+.operates .layui-nav .layui-nav-child dd:hover{
+    background-color: #009688;
+    color: #fff;
+}
+
+.operates .layui-nav .layui-nav-mored{
+    border-color: transparent transparent #666;
+    margin-top: -11px;
+}
+
+.operates .ico{
+    float: left;
+    width: 25px;
+    height: 25px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.operates .btns{
+    float: left;
+}
+
+.operates .ico.search{
+    background-image: url(../images/img/operate_search.png);
+}
+
+.operates .ico.search:hover{
+    background-image: url(../images/img/operate_search_h.png);
+}
+
+.operates .ico.list{
+    background-image: url(../images/img/operate_list.png);
+}
+
+.operates .ico.list:hover{
+    background-image: url(../images/img/operate_list_h.png);
+}
+
+.operates .ico.card{
+    background-image: url(../images/img/operate_card.png);
+}
+
+.operates .ico.card:hover{
+    background-image: url(../images/img/operate_card_h.png);
+}
+
+.operates .ico.help{
+    background-image: url(../images/img/operate_help.png);
+}
+
+.operates .ico.help:hover{
+    background-image: url(../images/img/operate_help_h.png);
+}
+
+.operates .ico.edit{
+    background-image: url(../images/img/operate_edit.png);
+}
+
+.operates .ico.edit:hover{
+    background-image: url(../images/img/operate_edit_h.png);
+}
+
+.operates .ico.saveAs{
+    background-image: url(../images/img/operate_saveAs.png);
+}
+
+.operates .ico.saveAs:hover{
+    background-image: url(../images/img/operate_saveAs_h.png);
+}
+
+.operates .ico.close{
+    background-image: url(../images/img/operate_close.png);
+}
+
+.operates .ico.close:hover{
+    background-image: url(../images/img/operate_close_h.png);
+}
+
+.operates .ico.add{
+    background-image: url(../images/img/operate_add.png);
+}
+
+.operates .ico.add:hover{
+    background-image: url(../images/img/operate_add_h.png);
+}
+
+.operates .ico.toRight{
+    background-image: url(../images/img/operate_toright.png);
+}
+
+.operates .ico.toRight:hover{
+    background-image: url(../images/img/operate_toright_h.png);
+}
+
+.operates .ico.toLeft{
+    background-image: url(../images/img/operate_toLeft.png);
+}
+
+.operates .ico.toLeft:hover{
+    background-image: url(../images/img/operate_toLeft_h.png);
+}
+
+.operates .ico.code{
+    background-image: url(../images/img/code.png);
+}
+
+.operates .ico.code:hover{
+    background-image: url(../images/img/code_h.png);
+}

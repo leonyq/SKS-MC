@@ -1,0 +1,182 @@
+<!DOCTYPE struts PUBLIC
+         "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+         "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<!-- dict manager -->
+	<package name="dictAction" namespace="/comm" extends="project_default">
+		<action name="DictAction_*" class="com.more.fw.core.dict.action.DictAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			<interceptor-ref name="token">
+				<param name="includeMethods">addDict</param>
+			</interceptor-ref>
+			<result name="invalid.token" >/plf/common/globalInfo.jsp</result>			
+			<result name="input">/plf/page/common/tags/dict/{1}.jsp</result>
+			<result name="listDict">/plf/page/common/tags/dict/listDict.jsp</result>
+			<result name="showAddDict">/plf/page/common/tags/dict/addDict.jsp</result>
+			<result name="showUpdateDict">/plf/page/common/tags/dict/updateDict.jsp</result>
+			<result name="viewDict">/plf/page/common/tags/dict/viewDict.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+		<action name="DictValAction_*" class="com.more.fw.core.dict.action.DictValAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			<interceptor-ref name="token">
+				<param name="includeMethods">addDictVal</param>
+			</interceptor-ref>
+			<result name="invalid.token" >/plf/common/globalInfo.jsp</result>
+			<result name="input">/plf/page/common/tags/dict/{1}.jsp</result>
+			<result name="listDictVal">/plf/page/common/tags/dict/listDictVal.jsp</result>
+			<result name="showAddDictVal">/plf/page/common/tags/dict/addDictVal.jsp</result>
+			<result name="showUpdateDictVal">/plf/page/common/tags/dict/updateDictVal.jsp</result>
+			<result name="viewDictVal">/plf/page/common/tags/dict/viewDictVal.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>
+	<!-- cache manager -->
+	<package name="cacheAction" namespace="/comm" extends="project_default">
+		<action name="CacheAction_*" class="com.more.fw.core.base.core.action.CacheAction" method="{1}">
+			<result name="input">/plf/common/cache/{1}.jsp</result>
+			<result name="reloadCache">/plf/common/cache/reloadCache.jsp</result>
+			<result name="addPropFile">/plf/common/cache/addPropFile.jsp</result>
+			<result name="editPropFile">/plf/common/cache/editPropFile.jsp</result>
+			<result name="paramsPage">/plf/common/paramsPage/paramsPage.jsp</result>
+			<result name="editLangFile">/plf/common/cache/editLangFile.jsp</result>
+			<result name="addLangFileAx">/plf/common/cache/addLangFileAx.jsp</result>
+			<result name="editLangFileAx">/plf/common/cache/upLangFileAx.jsp</result>
+			<result name="seeLangFileAx">/plf/common/cache/seeLangFileAx.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+				<param name="enableGZIP">UTF-8</param><!-- 不加也正常压缩 -->
+			</result>
+			<interceptor-ref name="project_defaultstack"/>
+		</action>
+	</package>
+	
+			<!-- model manager -->
+	<package name="ModelAction" namespace="/buss" extends="project_default">
+		<action name="bussModel_*" class="com.more.fw.core.base.core.action.ModelAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			<!--interceptor-ref name="token">
+				<param name="includeMethods">addComm</param>
+			</interceptor-ref -->
+			<result>${modelUrl}</result>
+			<result name="invalid.token" >/plf/common/globalInfo.jsp</result>
+			<result name="input">/plf/page/sysmain/user/{1}.jsp</result>
+			<result name="addComm">/plf/page/common/buss/addComm.jsp</result>
+			<result name="editComm">/plf/page/common/buss/editComm.jsp</result>
+			<result name="addCommPop">/plf/page/bussmodel/addBussDataPopWin.jsp</result>
+			<result name="editCommPop">/plf/page/bussmodel/editBussDataPopWin.jsp</result>
+			<result name="showOpenSel">/plf/page/bussmodel/showOpenSel.jsp</result>
+			<result name="multiFileUpload">/plf/page/common/buss/multiFileUpload.jsp</result>
+			<result name="showOpenPopWinSel">/plf/page/bussmodel/showOpenPopWinSel.jsp</result>
+			<result name="showOpenSelMult">/plf/page/bussmodel/showOpenSelMult.jsp</result>
+			<result name="showOpenTree">/plf/page/bussmodel/showOpenTree.jsp</result>
+			<result name="tableListComm">/plf/page/common/buss/tableListComm.jsp</result>
+			<result name="addAjaxComm">/plf/page/common/buss/addAjaxComm.jsp</result>
+			<result name="editAjaxComm">/plf/page/common/buss/editAjaxComm.jsp</result>
+			<result name="showDetailComm">/plf/page/common/buss/showDetailComm.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+			
+			<result name="showOpenTreebyztree">/plf/page/bussmodel/showOpenTreebyztree.jsp</result>
+			
+			<result name="multiFileUpload_byListIcon">/plf/page/bussmodel/formui/multiFileUpload.jsp</result>
+			
+			<result name="showGroupSelect">/plf/page/bussmodel/showOpenGroupSel.jsp</result>
+			
+		</action>
+	</package>
+
+	<package name="msgAction" namespace="/comm" extends="project_default">
+		<action name="MsgAction_*" class="com.more.fw.core.sysmain.msg.action.MsgAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			<result>${modelUrl}</result>
+			<result name="invalid.token" >/plf/common/globalInfo.jsp</result>
+			<result name="input">/plf/page/sysmain/user/{1}.jsp</result>
+			<result name="addSendMsg">/plf/page/msg/addSendMsg.jsp</result>
+			<result name="listMsg">/plf/page/msg/listMsg.jsp</result>
+			<result name="sendMsg">/plf/page/msg/sendMsg.jsp</result>
+			<result name="showMsgReceiveType">/plf/page/msg/showMsgReceiveType.jsp</result>
+			<result name="fpShowList">/plf/page/sysmain/msg/listMsg.jsp</result>
+			<result name="seeMsgData">/plf/page/sysmain/msg/seeMsg.jsp</result>
+			<result name="selectedObj">/plf/page/msg/selectedObj.jsp</result>
+			<result name="UsertList">/plf/page/msg/UsertList.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="workFlowAction" namespace="/comm" extends="project_default">
+		<action name="WorkFlowAction_*" class="com.more.fw.wf.action.WorkFlowAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			<result>${modelUrl}</result>
+			<result name="input">/plf/page/sysmain/user/{1}.jsp</result>
+			<result name="editWorkFlowChart">/plf/page/wf/editWorkFlowChart.jsp</result>
+			<result name="listWorkFlowChart">/plf/page/wf/workFlowIndex.jsp</result>
+			<result name="addFlowType">/plf/page/wf/addFlowType.jsp</result>
+			<result name="editFlowType">/plf/page/wf/editFlowType.jsp</result>
+			<result name="addProcessde">/plf/page/wf/addProcessde.jsp</result>
+			<result name="chooseSysPic">/plf/page/wf/chooseSysPic.jsp</result>
+			<result name="chooseLaunch">/plf/page/wf/chooseLaunch.jsp</result>
+			<result name="editProcessde">/plf/page/wf/editProcessde.jsp</result>
+			<result name="copyProcessde">/plf/page/wf/copyProcessde.jsp</result>
+			<result name="importProcessde">/plf/page/wf/importProcessde.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="processAction" namespace="/comm" extends="project_default">
+		<action name="ProcessAction_*" class="com.more.fw.wf.action.ProcessAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			<result name="input">/plf/page/sysmain/user/{1}.jsp</result>
+			<result name="approval">/plf/page/wf/process/approval.jsp</result>
+			<result name="flowAdminList">/plf/page/wf/flowAdmin/flowAdminList.jsp</result>
+			<result name="todoFlow">/plf/page/wf/process/todoFlow.jsp</result>
+			<result name="completedFlow">/plf/page/wf/process/completedFlow.jsp</result>
+			<result name="requestFlow">/plf/page/wf/process/requestFlow.jsp</result>
+			<result name="chooseUser">/plf/page/wf/process/chooseUser.jsp</result>
+			<result name="revoke">/plf/page/wf/process/revoke.jsp</result>
+			<result name="undoForm">/plf/page/wf/flowAdmin/updo.jsp</result>
+			<result name="queryUserPage">/plf/page/wf/process/queryUserPage.jsp</result>
+			<result name="initiateFlow">/plf/page/wf/process/initiateFlow.jsp</result>
+			<result name="agent">/plf/page/wf/agent/agent.jsp</result>
+			<result name="selProcessPage">/plf/page/wf/agent/selProcessPage.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>	
+	
+	<!-- 提供给移动端调用  mc效验app合法性 -->
+	<package name="appLoginAction" namespace="/comm" extends="project_default">
+		<action name="AppLoginAction_*" class="com.more.fw.core.base.login.action.AppLoginAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+			
+		</action>
+	</package>	
+	
+	<!-- 引IM的iframe页面传参数加密功能 -->
+	<package name="InteAuthAction" namespace="/comm" extends="project_default">
+		<action name="InteAuthAction_*" class="com.more.fw.core.sysfa.auth.action.InteAuthAction" method="{1}">
+			<interceptor-ref name="project_defaultstack"/>
+			
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+			
+		</action>
+	</package>	
+		
+</struts>

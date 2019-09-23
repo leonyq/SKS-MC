@@ -1,0 +1,377 @@
+	.workFlowIndex-header {
+		  padding: 5px 0px 40px 0px;
+	}
+	.clear-float:after{
+	  content:"";
+	  display:block;
+	  clear:both;
+	}
+	  .search-box{
+	     position: relative;
+	  }	
+	 .search-input::-webkit-input-placeholde{
+	   color:red !important; 
+	}
+	.search-png{
+	  position: absolute;
+      right: 3px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+	}
+	.btn-group{
+	  float:right;
+	  padding:5px 0px;
+	 }
+	 .card-title{
+	    height:30px;
+	    border-top:1px solid #e6e6e6;
+	    position: relative;
+        margin-right: 35px;
+	 }
+	 .card-title-font{
+        display: inline-block;
+	    color: #666;
+	    font-size: 18px;
+	    background: #fff;
+	    padding: 0 35px 0 20px;
+	    position: absolute;
+	    top: -13px;
+	    left: 20px;
+	 }
+	  .card-body-toggle{
+	    cursor: pointer;
+	    font-size: 10px;
+	    user-select: none;
+	    position: absolute;
+	    right: -30px;
+	    top: -7px;
+	    background: #fff;
+	  }
+
+	  .tool-item{
+		 width:260px;
+		 height:210px;
+         display:inline-block;
+		 background: #f8f8f8;
+         border: 1px solid #e2e2e2;
+         margin: 0px 20px 42px 0;
+         position: relative;
+	    cursor: pointer;
+	  }
+	  .tool-item:hover{
+	     border: 1px solid #009689;
+	  }
+	  .tool-item .tool-img{
+	     width:100%;
+		 height:140px;
+		
+	  }
+	  .tool-img img{
+	    width:100%;
+	    height:140px;
+	  }
+	  .tool-item-content{
+	    margin-top:11px;
+	  }
+	   .tool-item .tool-font{
+	    display: inline-block;
+	    padding:0 0 0 15px;
+	    width: 170px;
+	   }
+	  .tool-item .tool-font p{
+	     font-size:14px;
+	     color:#999;
+	     margin:0;
+	     padding:0px;	     
+	  }
+	  .tool-item .tool-font p:first-child{
+	     color:#333;
+	     margin-bottom:10px;
+	     
+	  }
+     .tool-item .tool-font p span{
+           display:inline-block;
+           max-width:170px;
+           overflow: hidden;
+           text-overflow: ellipsis;
+           white-space: nowrap;
+     }
+     .tool-item .item-btn{
+       display:inline-block;
+       vertical-align: top;
+     }
+     .tool-item .item-btn input[type='button']{
+	    height: 32px;
+	    padding: 0px 12px;
+	    line-height: 32px;
+	    border-radius: 16px;
+	    color:#666;
+	    background-color: #fff;
+	    margin-top: 10px;   
+	    white-space: nowrap;
+	    text-align: center;
+	    font-size: 14px;
+	    border:1px solid #ccc;
+	    cursor: pointer;
+	    
+     }
+     .tool-item .item-btn input[type='button']:hover{
+         background-color: #009688;
+         color: #fff;
+         border:none;
+     }
+
+     .tool-item .install-sign{
+        width:70px;
+        height:25px;
+        box-sizing: border-box;
+        padding-right: 5px;
+        font-size:12px;
+        color:#fff;
+        position: absolute;
+	    top: -6px;
+	    right: 10px;
+	    text-align: center;
+	    line-height: 25px;
+        background:url(../images/install-bg.png);
+     }
+     .tool-item .uninstall-sign{
+       background:url(../images/uninstall-bg.png);
+     }
+     .tool-item.overdue{
+       background:#ebebeb;
+     }
+     .overdue-sign{
+        display: inline-block;
+        vertical-align: top;
+     }
+     .select-sign{
+        width: 0;
+        height: 0;
+        border-top:26px solid transparent;
+        border-left:21px solid transparent;
+        border-right:21px solid #159588;
+        border-bottom:26px solid #159588;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        display:none;
+     }
+	/*upload*/
+	.upload-content{
+	    display: inline-block;
+        margin-top: 60px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+       
+	}
+	.upload-content img{ 
+	  margin:0 auto;
+	  display: table-cell;
+	  margin-bottom: 32px;
+	}
+	.upload-content .upload-btn span{
+	  color:#666;
+	  margin-right:20px;
+	}
+	/*unstallTip*/
+	.prompt{
+	  color: #333;
+      margin-top: 15px;
+      padding-left: 15px;
+	}
+	/*face-recognition*/
+	.recognition{
+	  padding:15px;
+	}
+	.recognition-title{
+	  border-bottom:1px solid rgba(230,230,230,1);
+	  padding:8px 7px;
+	  color:#159588;
+	  font-size:18px;
+	}
+	.recognition-content-title {
+	  padding:8px 7px;
+	  color:#666;
+	}
+	.use-btn{
+	   float:right;
+	   background-image:url('../images/help.png');
+	   background-repeat:no-repeat;
+	   background-position: 10px 10px;
+       padding-left: 34px;
+	}
+	
+	.recognition-content{
+	  padding:0px 20px;
+	}
+	.recognition-content-left{
+	  display:inline-block;
+	  width:350px;
+	 
+	}
+	.recognition-img{
+	   width:350px;
+       height:350px;
+       border:1px solid #e6e6e6; 
+       line-height:350px;
+       text-align:center;
+       position: relative;
+	}
+	.recognition-img  img.upload-img{
+	  width: 100%;
+	  max-height:350px;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      
+	}
+	
+	.recognition-content-left .file-btn{
+	  width:350px;
+      height:40px;
+      margin:20px 0;
+      background-image:url('../images/local-upload.png');
+	  background-repeat:no-repeat;
+	  background-position: 118px 10px;
+      position: relative;
+	}
+	.file-btn input[type='file']{
+	    width: 100%;
+	    height: 40px;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    opacity: 0;
+	}
+	.img-url{
+	   width: 100%;
+      font-size: 0;
+	}
+	.img-url input[type="button"]{
+	  width: 70px;
+      height: 40px;
+      border-radius: 0;
+      vertical-align: top;
+	}
+	.img-url input[type="text"]{
+		text-indent: 10px;
+	    width: 280px;
+	    height: 40px;
+	    border-right: none;
+	    font-size: 14px;
+	}
+	.recognition-content-right{
+	   display:inline-block;
+	   width:600px;
+	   min-height: 476px;
+	   box-sizing: border-box;
+	   background:rgba(255,255,255,1);
+	   border:1px solid rgba(231,231,231,1);
+	   vertical-align: top;
+       margin-left: 25px;  
+       padding:19px 16px; 
+	}
+	.recognition-result-title{
+	  font-size:16px;
+	  color:#333;
+	  text-align: center;
+	  margin-bottom: 15px;
+	}
+	.face-imgs .btn-left{
+	    display:inline-block;
+		width:30px;
+        height:70px;
+        line-height:70px;
+        background:#ccc;
+        text-align: center;
+	}
+	.face-imgs .btn-right{
+	  float:right;
+	}
+	.img-group{
+	    display: inline-block;
+	    vertical-align: top;
+	    padding: 0 8px 0 0;
+	    width: 500px;
+	    height: 72px;
+	    overflow: hidden;
+	    box-sizing: border-box;
+	}
+	.img-item-list{
+	   position: relative;
+	   width: 1000%;
+	   font-size: 0;
+	}
+	.img-group .img-item{
+	    display:inline-block;
+	    width:70px;
+		height:70px;
+		border:1px solid rgb(231, 231, 231);
+		margin-right:10px;
+		vertical-align: top;
+		cursor: pointer;
+	}
+	.img-group .img-item:nth-child(6n+1){
+	  margin-left:9px;
+	}
+	.img-group .img-item img{
+	  width:100%;
+	  max-height: 70px;
+	}
+	.recognition-result{
+	  padding:20px 0 0 24px;
+	}
+	.recognition-result p{
+	  margin-bottom:15px;
+	}
+	.recognition-result p .result-item{
+	    display:inline-block;
+	    width:200px;
+	    overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+	}
+	.recognition-result p .result-item-message{
+	  display:inline-block;
+	  color:#999;
+	  margin-left:10px;
+	  vertical-align: top;
+	}
+
+	/*speechRecognition*/
+	.recognition-img .recognition-pic{
+	  border: 1px dotted;
+      margin-top: 57px;
+	}	
+	.prompt-font{
+	  width: 100%;
+      text-align: center;
+      color: #999;
+	}
+	.recognition-no-result{
+	  color:#666;
+	  font-size:16px;
+	  text-align:center;
+	  margin-top:93px;
+	}
+	.recognition-step{
+	  width: 500px;
+      margin: 0 auto;
+      margin-top: 72px;
+	}
+	.recognition-step .step-font{
+	  font-size:14px;
+	  color:#999;
+	  margin-top: 25px;
+      padding: 0 5px;
+	}
+	.recognition-step .step-font span{
+	   margin-right: 150px;
+	}
+	.recognition-step .step-font span:last-child{
+	   margin-right: 0px;
+	}

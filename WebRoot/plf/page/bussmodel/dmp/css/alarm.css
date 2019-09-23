@@ -1,0 +1,240 @@
+.earlyWarningConfig,.interaction{
+    float: left;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    min-width:1090px;
+}
+
+.earlyWarningConfig .hierarchy{
+	float:left;
+	width:185px;
+	padding-right:15px;
+	box-sizing:border-box;
+	margin-bottom:20px;
+}
+
+.hierarchyList li .layui-input{
+	border-top:0;
+	border-left:0;
+	border-right:0;
+	border-radius:0;
+}
+
+.hierarchyList li.current .layui-input{
+	background-color:#009688;
+	color:#fff;
+}
+
+.earlyWarningConfig .detail{
+	float:left;
+	width:calc(100% - 185px);
+	border:1px solid #e6e6e6;;
+	border-radius:2px;
+	padding:0 20px;
+	padding-bottom:20px;
+	box-sizing:border-box;
+	margin-bottom:20px;
+}
+
+#alarmCondition .layui-form-select{
+	width: 100%;
+}
+
+.alarmObj{
+	margin-bottom:0;
+}
+
+.overTimeLeft{
+	float:left;
+	width:170px;
+	padding-right:15px;
+	box-sizing:border-box;
+}
+
+.overTimeRight{
+	float:left;
+	width:calc(100% - 170px);
+}
+
+.overTimeLeft .Subtitle,.overTimeLeft .Subtitle H3,.overTimeRight .Subtitle,.overTimeRight .Subtitle H3{
+	border:0;
+	margin:0;
+}
+
+.overTimeLeft .layui-table,.overTimeRight .layui-table{
+	margin:0;
+}
+
+.overTimeLeft .layui-table td,.overTimeLeft .layui-table th{
+	padding:9px 0;
+	text-align:center;
+}
+
+.overTimeLeft .layui-table .layui-input{
+	border:0;
+	height:21px;
+	text-align:center;
+	padding-left:0;
+}
+
+.checkboxs .layui-form-checkbox[lay-skin="primary"] span{
+	padding-right:10px;
+}
+
+tr.selected{
+	background-color:#f5f5f5;
+}
+
+.interaction .interactionWay{
+	float:left;
+	width:150px;
+	box-sizing:border-box;
+	margin-bottom:20px;
+}
+
+.interactionWayList li{
+	line-height:38px;
+	padding-left:20px;
+	cursor:pointer;
+}
+
+.interactionWayList li.current{
+	background-color: #009688;
+    color: #fff;
+}
+
+.interaction .interactionTemplate{
+	float:left;
+	width:calc(100% - 150px);
+	box-sizing:border-box;
+	margin-bottom:20px;
+}
+
+.templateExplain{
+	height:230px;
+	line-height: 20px;
+    padding: 6px 10px;
+    background:rgba(255,255,255,1);
+	border:1px solid rgba(230,230,230,1);
+	border-radius:2px;
+	box-sizing:border-box;
+	color:#666;
+}
+
+
+
+.serveConfig .alarmServe{
+	float:left;
+	width:170px;
+	box-sizing:border-box;
+	margin-bottom:20px;
+}
+
+.alarmServeList li{
+	position: relative;
+	line-height:38px;
+	padding-left:20px;
+	cursor:pointer;
+}
+
+.alarmServeList li.current{
+	background-color: #009688;
+    color: #fff;
+}
+
+.alarmServeList li .play{
+	position: absolute;
+	width:25px;
+	height:25px;
+	right:5px;
+	top:6px;
+	background-image:url(../images/img/sever_play.png);
+}
+
+.alarmServeList li.current .play{
+	background-image:url(../images/img/sever_play_h.png);
+}
+
+.alarmServeList li .pause{
+	position: absolute;
+	width:25px;
+	height:25px;
+	right:5px;
+	top:6px;
+	background-image:url(../images/img/sever_pause.png);
+}
+
+.alarmServeList li.current .pause{
+	background-image:url(../images/img/sever_pause_h.png);
+}
+
+.serveConfig .alarmObj{
+	float:left;
+	width:calc(100% - 170px);
+	box-sizing:border-box;
+	padding-left:30px;
+	margin-bottom:20px;
+}
+
+
+.hierarchyPane .layui-elem-field{
+	margin-bottom:0;
+}
+
+.hierarchyPane .detail{
+    height: 0px;
+    overflow: hidden;
+}
+
+.hierarchyPane.open .detail{
+    height: auto;
+}
+
+.planPane{
+	border:1px solid #e7e7e7;
+	background-color:#F2F2F2;
+	margin-top:15px;
+}
+
+.planPane_l{
+	float:left;
+	width:58px;
+	text-align:center;
+	line-height:58px;
+}
+
+.planPane_r{
+	float:left;
+	width:calc(100% - 58px);
+	background-color:#fff;
+	padding:10px 0;
+}
+
+.planPane .layui-form-checkbox{
+	margin:10px 15px;
+	width:85px;
+}
+
+@media screen and (max-width: 1300px) {
+    .checkboxs.samallCheckbox .layui-form-checkbox[lay-skin=primary]{
+		padding-left:16px;
+	}
+	
+	.checkboxs.samallCheckbox .layui-form-checkbox[lay-skin=primary] span{
+		padding-right: 2px;
+		font-size:12px;
+	}
+	
+	.checkboxs.samallCheckbox .layui-form-checkbox[lay-skin=primary] i{
+		width:12px;
+		height:12px;
+		top:2px;
+	}
+	
+	.checkboxs.samallCheckbox .layui-form-checkbox[lay-skin=primary] .layui-icon-ok:before{
+		line-height: 12px;
+	}
+	    
+}
+

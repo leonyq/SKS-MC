@@ -1,0 +1,87 @@
+		.content-container{
+			margin-top:3px;
+		}
+		.dragActive {
+			border: 2px dotted orange;
+		}
+
+		.dropHover {
+			border: 1px dotted red;
+		}
+
+		.img_cls{
+			width:30px;
+			height:28px;
+		}
+			
+		#left .img_cls{
+			float:left;
+		}
+
+
+		#left {
+			border: 0px solid #00bfff;
+			/*width: 200px;*/
+			width: 160px;
+			position: absolute;
+			margin-left: -10px;
+		}
+		.left{overflow-y:auto;}
+		#right {
+			border: 0px solid #00bfff;
+			/*width: 800px;*/
+			width: 70%;
+			position: absolute;
+			/*left: 230px;*/
+			left: 200px;
+		}
+
+		#save {
+			border: 0px solid #00bfff;
+			width: 200px;
+			position: absolute;
+			right:20px;
+			padding:0 0 0 5px;
+		}
+		
+		.icon{
+            text-align: center;
+            z-index: 100;
+            position: absolute;
+            color: black;
+            font-size: 9pt;
+            cursor: pointer;
+			padding:5px 0px 0px 5px;
+		}
+		
+		#left .icon p{
+			margin-left:5px;
+			float:left;
+			width:30px;
+			white-space:nowrap;
+		}
+		
+		.icon p{
+			margin-top:3px;
+			margin-bottom:8px;
+		}
+		
+		.fontCls{
+			width:180px;
+			word-wrap:break-word;
+			word-break:break-all;
+			
+		}
+		.icon_font{
+			white-space:nowrap;	
+		}
+		#left .icon_font{
+			width:80px;			
+		}
+		#right .icon_font{
+			width:auto;			
+		}
+		#left .icon_font{
+			text-align:left;
+		}
+		

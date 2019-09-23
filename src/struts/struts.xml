@@ -1,0 +1,128 @@
+<!DOCTYPE struts PUBLIC
+         "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+         "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.action.extension" value="ms" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" /><!-- 允许页面调用静态方法 -->
+
+
+	<bean
+		type="org.apache.struts2.dispatcher.multipart.MultiPartRequest"
+		name="myRequestParser"
+		class="com.more.fw.core.common.filter.MyRequestParseWrapper"
+		scope="default" optional="true" />
+	<constant name="struts.multipart.parser" value="myRequestParser" />
+
+
+	<!--user!login方式为true,user_login通配符为false，零配置使用false会有问题 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<!--struts.convention零配置 -->
+	<constant name="struts.convention.action.mapallmatches"
+		value="true" />
+
+	<constant name="struts.convention.result.path"
+		value="/WEB-INF/page" />
+	<constant name="struts.convention.action.name.separator" value="_" />
+	<!-- 默认是default，要使用零配置需要配置成convention-default或者继承它 -->
+	<constant name="struts.convention.default.parent.package"
+		value="convention-default" />
+	<constant name="struts.convention.package.locators"
+		value="controller,action" /><!-- 指定搜寻包的路径 -->
+
+	<package name="project_default" extends="json-default">
+		<interceptors>
+			<interceptor name="viewAuthority"
+				class="com.more.fw.core.sysfa.fil.interceptor.ViewAuthInterceptor" />
+			<interceptor name="interceFilter"
+				class="com.more.fw.core.base.monitor.core.InterceFilter" />
+			<interceptor-stack name="project_defaultstack">
+				<interceptor-ref name="exception">
+					<param name="logEnabled">true</param>
+					<param name="logLevel">info</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack">
+					<param name="exception.logEnabled">true</param>
+					<param name="exception.logLevel">info</param>
+				</interceptor-ref>
+				<interceptor-ref name="viewAuthority" />
+				<interceptor-ref name="interceFilter" />
+			</interceptor-stack>
+			
+		</interceptors>
+		<default-interceptor-ref name="project_defaultstack" />
+
+		<global-results>
+			<result name="mcOut">/plf/common/mcOut.jsp</result>
+			
+			<!-- error -->
+			<result name="EXCEPTION_PAGE">/plf/common/exception.jsp</result>
+			<!-- nologin -->
+			<result name="GLOBAL_LOGIN">
+				/plf/common/UnloginedStaff.jsp
+			</result>
+			<!-- notPur -->
+			<result name="GLOBAL_ACCESS_PURVIEW">
+				/plf/common/accessPurview.jsp
+			</result>
+			<result name="GLOBAL_TRIG_ERROR">
+				/plf/common/trigError.jsp
+			</result>
+			<result name="GLOBAL_TRIG_ERROR1">
+				/plf/common/trigError1.jsp
+			</result>
+			<result name="GLOBAL_OVERDUE_ERROR">
+				/plf/common/moduleError.jsp
+			</result>
+			<!-- global info -->
+			<result name="GLOBAL_INFO">/plf/common/globalInfo.jsp</result>
+			<!-- operation info -->
+			<result name="INFO">/plf/common/info.jsp</result>
+			<result name="platFormLogin">/plf/common/platformLogin.jsp</result>
+			
+			<!-- root -->
+			<result name="GLOBAL_ROOT">/</result>
+		</global-results>
+		<global-exception-mappings>
+			<!-- exception -->
+			<exception-mapping exception="java.lang.Exception"
+				result="EXCEPTION_PAGE" />
+		</global-exception-mappings>
+	</package>
+	
+	<package name="UiAction" namespace="/ui" extends="json-default">
+		<action name = "show_*" class="com.more.fw.core.cont.formui.SearchUiAction" method="{1}">
+			<result type="json"></result>
+		</action>
+	</package>
+<package name="ExcelAction" namespace="/sys/excel" 
+	extends="project_default">
+		<action name="ExcelAction_*"
+			class="com.more.fw.core.excel.action.ExcelAction" method="{1}">
+			<interceptor-ref name="project_defaultstack" />
+			 
+			<result name="ExportPage">/plf/page/excel/export_page.jsp</result>
+			<result name="ImportPage">/plf/page/excel/import_page.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>
+	
+<package name="FrepAction" namespace="/sys/report" 
+	extends="project_default">
+		<action name="FrepAction_*"
+			class="com.more.fw.core.report.frep.action.FrepAction" method="{1}">
+			<interceptor-ref name="project_defaultstack" /> 
+			<result name="CommonReportPage">/plf/page/core/report/frep/common_report_page.jsp</result>
+			<result name="LargeScreenPage">/plf/page/core/report/frep/large_screen_page.jsp</result>
+			<result name="AJAX" type="json">
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>
+	
+
+</struts>

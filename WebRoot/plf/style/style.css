@@ -1,0 +1,130 @@
+/* CSS Document */
+body{
+background-color:#ececec;
+margin:0px;
+padding:0px;
+}
+/*----头部---*/
+.w980{
+width:980px;
+}
+
+a:hover{
+text-decoration:underline;
+}
+
+.bgwhite{ background-color:#FFFFFF;}
+.tb{ height:120px; margin:0px 4px; background:url(../style/images/top.jpg) repeat-x;}
+.tb_left{ height:110px; width:190px; padding-left:20px; padding-top:10px; overflow:hidden; }
+.tb_right{ height:120px; width:750px; background:url(../style/images/bjtop.jpg) right top no-repeat;}
+.nav{ height:33px;line-height:33px; background:url(../style/images/navbg.gif) no-repeat;  padding:9px 4px 0px 4px;}
+.zgydjy{ padding-top:10px;}
+.seach{ padding-top:3px; height:23px; line-height:23px;  text-align:right; padding-right:20px;}
+.navbnt{ width:77px; line-height:33px; height:33px; color:#fff; font-size:12px; text-align:center;}
+.navbnt1{ width:135px; line-height:33px; height:33px; color:#fff; font-size:12px; text-align:center;}
+.navxs{ width:1px; line-height:33px;}
+.nav a:hover{ background:url(../style/images/bnthv.gif) center center no-repeat; color:#b00100;}
+.seach_bnt{ height:18px; width:42px; background:url(images/seachtp.gif) no-repeat; border:none; margin-left:5px;}
+.xilkoy{ width:43px; padding-left:5px; height:18px; text-align:left; background:url(images/seachxkl.gif) no-repeat; border:none; line-height:18px;}
+.tckoysc{ display:none; width:60px; height:auto; border:1px  solid #ccc; background-color:#fff; text-align:left; position:absolute;}
+.tckoysc a{ float:left; width:60px; height:20px; line-height:20px;}
+.tckoysc a:hover{ background-color:#ededed;}
+/*----党建主体---*/
+.qtgz{ margin:0px 4px; padding:0px 4px;}
+.conter{ height:270px;}
+.conter_left{ width:300px; height:268px; border:1px solid #e9ecf2;}
+.conter_mid{ width:358px; height:268px;}
+.title_oy{ height:32px; border-bottom:1px solid #e9ecf2; text-align:center; line-height:32px;}
+.info_oy{ height:25px; line-height:25px; background:url(../style/images/infoxs.gif) 5px center no-repeat; padding-left:15px; padding-right:5px;}
+.conter_right{ height:270px; width:268px; border:1px solid #e9ecf2; background-color:#f6f6f6;}
+.titler{ height:27px; line-height:27px; background:#c0230c url(../style/images/nrtitle.jpg) right top no-repeat; margin:2px 2px 0px 2px;}
+.tspan{ height:27px; line-height:27px; padding-left:8px;}
+.tspan1{ height:27px; line-height:27px; padding-right:8px;}
+.ctspan{ height:23px; line-height:23px; padding-left:8px;}
+.ctspan1{ height:23px; line-height:23px; padding-right:8px;}
+.conter1{ height:415px;}
+.coneter1_left{ width:963px; height:412px; border:1px solid #e9ecf2; background-color:#f6f6f6;}
+.ctitle{ height:23px; line-height:23px; background:#c0230c url(../style/images/nrtitle.jpg) right top no-repeat; margin:2px 2px 0px 2px;}
+.conter2{ height:242px; border:1px solid #e9ecf2; background-color:#f6f6f6;}
+.conter2_info{ height:219px;}
+.conter2_left{ height:218px; width:270px;}
+.conter2_right{ height:193px; border-left:1px solid #e9ecf2; width:680px; padding-top:25px; overflow:hidden;}
+/* 图片滚动 */
+.rollBox{overflow:hidden;line-height:20px;}
+.w680{ width:680px;}
+.w213{ width:213px;}
+.w640{ width:640px;}
+.w954{ width:954px;}
+.w914{ width:914px;}
+.w223{ width:228px;}
+
+.rollBox .LeftBotton{height:60px;width:19px; background:url(../style/images/right.jpg) no-repeat;overflow:hidden;float:left;display:inline;margin:45px 0 0 0;cursor:pointer;} 
+.rollBox .RightBotton{height:60px;width:20px; background:url(../style/images/left.jpg) no-repeat;overflow:hidden;float:left;display:inline;margin:45px 0 0 0;cursor:pointer;} 
+.rollBox .Cont{overflow:hidden;float:left;} 
+.rollBox .ScrCont{width:10000000px;} 
+.rollBox .Cont .pic{ height:180px;float:left;text-align:center;} 
+.rollBox .Cont .pic img{ display:block;margin:0 auto; padding:0} 
+.rollBox #List1,.rollBox #List2{float:left;}
+.footer{ height:60px; line-height:20px; text-align:center; padding-top:25px; padding-bottom:20px; border-top:1px solid #e9ecf2; font-size:12px; color:#606060;}
+/*先锋号*/
+.xfhconter{ height:220px;}
+.xfhconter_left{width:310px; height:218px; border:1px solid #e9ecf2;}
+.xfhconter_mid{ height:218px; width:367px; padding-top:1px; background:url(images/xfhmid.jpg) no-repeat; padding:0px 30px 0px 10px; }
+.xtitle{ height:23px; line-height:23px;margin:2px 2px 0px 2px; padding-right:15px;}
+.xfh_cright{ width:215px; height:218px;}
+.pt14{ padding-top:14px;}
+.xfhconeter1_left{ width:310px; height:212px; border:1px solid #e9ecf2; background-color:#f6f6f6;}
+.xfhconter2_right{ height:193px; border-left:1px solid #e9ecf2;  padding-top:25px; overflow:hidden;}
+/*员工之家*/
+.ygconter_right{ width:632px; height:218px; border:1px solid #e9ecf2; background-color:#f6f6f6;}
+/*青年园地*/
+.qnconter{ height:280px;}
+.qnconter_left{width:250px; height:278px; border:1px solid #e9ecf2;}
+.qnconter_right{ width:692px; height:278px; border:1px solid #e9ecf2; background-color:#f6f6f6;}
+.info_oyi{ height:26px; line-height:26px; background:url(../style/images/infoxs.gif) 5px center no-repeat; padding-left:15px; padding-right:5px;}
+.qnconeter1_left{ width:250px; height:378px; border:1px solid #e9ecf2; background-color:#f6f6f6; _margin-top:6px;}
+.qnconter1{ height:450px;}
+.qnimg{ height:60px;}
+.qn_left{ width:252px;}
+.qnconeter1_right{ width:340px; height:218px; border:1px solid #e9ecf2; background-color:#f6f6f6;}
+/*概况*/
+.left{ width:214px; min-height:420px; height:auto!important; _height:420px;}
+.conter_all{ height:auto;}
+.right{ width:720px;}
+.zbdh{ min-height:420px; height:auto!important; _height:420px; background-color:#fff; border:1px solid #eaedf3;}
+.ltitle{ height:43px; line-height:42px; background:url(images/lefttbbg.gif) no-repeat; padding-left:50px;}
+.lnavlist{ height:auto; padding:8px; width:196px;}
+.lnav{ height:35px; line-height:35px; border-bottom:1px solid #eaedf3;width:166px; padding-left:30px; background:url(images/lnavxs.gif) 15px center no-repeat;}
+.lnav1{ height:35px; line-height:35px; border-bottom:1px dashed #eaedf3;width:166px; padding-left:40px; background:url(../style/images/infoxs.gif) 25px center no-repeat;}
+.lnav:hover{ color:#CC0000;}
+.rconter{ border:1px solid #eaedf3; padding:16px; background-color:#fff;}
+.rtitle{ height:35px; background:url(images/dqwzxs.gif) left bottom  no-repeat; line-height:35px; margin-top:5px;}
+.rtitle1{ height:35px; background:url(images/bgoy.gif) left bottom  no-repeat; line-height:35px; margin-top:5px;}
+.rtitle2{ height:35px; background:url(images/zytitle.jpg) left bottom  no-repeat; line-height:35px; margin-top:5px;}
+.rdqwz{ height:35px; line-height:35px; padding-left:10px; background:url(images/zyxs.gif) left center no-repeat;}
+.rdqwz1{ height:35px; line-height:35px; padding-left:10px; background:url(images/zyxs.jpg) left center no-repeat;}
+.rinfo{ height:auto;}
+.ldxklist{ width:213px; height:290px; background:url(images/gkrwbg.gif) left 10px no-repeat; padding-top:10px; display:inline;}
+.potolr{ width:201px; height:248px; padding:6px; }
+.potolr img{ width:201px; height:248px;}
+.ml22{ margin-left:22px;}
+.ldjs{ height:20px; padding-top:10px; clear:both; line-height:20px;}
+.ryxklist{ width:302px; height:242px; background:url(images/yyxkbg.gif) left 10px no-repeat; padding-top:10px; display:inline;}
+.potory{ width:290px; height:200px; padding:6px; }
+.potory img{ width:290px; height:200px;}
+.ml33{ margin-left:33px;}
+.zylist{ height:30px; line-height:30px; border-bottom:1px dashed #e9ecf2; background:url(../style/images/infoxs.gif) 5px center no-repeat;}
+.zylistsp{height:30px; line-height:30px; padding-left:15px;}
+.zylistsp1{height:30px; line-height:30px; padding-right:5px;}
+.wzdbt{ height:40px; line-height:40px; }
+.wznr{ line-height:30px; text-indent:2em;}
+.wzzz{ height:30px; line-height:30px; background-color:#f5f5f5;}
+.fysyp{ height:50px; padding-top:25px; line-height:25px; margin-top:20px; border-top:1px solid #dedede;}
+/*分页*/
+.page{ height:35px; padding-top:10px; overflow:hidden;}
+.page a{ height:16px; padding:0px 5px; border:1px solid #dedede; line-height:18px; margin-left:6px; overflow:hidden;}
+.page span{ height:16px; padding:0px 2px; line-height:18px;  margin-left:6px;}
+.page a:hover{ background:url(images/pagebj.gif) repeat-x;}
+
+.title_click{ background:url(../style/images/bnthv.gif) center center no-repeat; color:#b00100;}
+

@@ -1,0 +1,24 @@
+<!DOCTYPE struts PUBLIC
+         "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+         "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="initAction" namespace="/cs" extends="project_default">
+		<action name="InitAction_*" class="com.more.fw.core.cs.init.action.InitAction" method="{1}">
+			<result name="input">/plf/common/cache/{1}.jsp</result>
+			<result name="reloadCache">/plf/common/cache/reloadCache.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="bussAction" namespace="/cs" extends="project_default">
+		<action name="BussAction_*" class="com.more.fw.core.cs.buss.action.BussAction" method="{1}">
+			<result name="input">/plf/common/cache/{1}.jsp</result>
+			<result name="AJAX" type="json" >
+				<param name="includeProperties">ajax.*</param>
+			</result>
+		</action>
+	</package>
+	
+</struts>

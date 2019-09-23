@@ -1,0 +1,221 @@
+﻿body{
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+p{
+    margin: 0;
+}
+
+.bd{
+    padding: 5px;
+}
+
+ul,li{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+li{
+    height: 300px;
+    width: 289px;
+    border: 1px solid #ebebeb;
+    margin: 10px;
+    float: left;    
+    padding: 20px;
+    border-radius:4px;
+    position: relative; 
+}
+
+li>*{
+    float: left;
+}
+
+li>.pic{
+    width: 100%;
+    height: 188px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    position: relative;
+}
+
+li>.pic img{
+    width: 100%;
+    height: 100%;
+}
+
+li>.count{
+    width: 43px;
+    height: 43px;
+    background-image: url(../img/corner.png);
+    position: absolute;
+    top:0px;
+    left: 0px;
+}
+
+li>.count span{
+    color: #fff;
+    float: left;
+    margin-top: 5px;
+    display: block;
+    width: 20px;
+    text-align: center;
+}
+
+li>.p1{
+    margin-top: 15px;
+    width: 100%;
+}
+
+
+li>.p2{
+    margin-top: 10px;
+    width: 100%;    
+}
+
+li>.p2 p{
+    color: #666;
+    font-size: 12px;
+}
+
+li>.p2 p span{
+    float: right;
+}
+
+li>.p1 span:nth-of-type(1){
+    display: block;
+    width: 200px;
+    float: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+li>.p1 .switch{
+    display: block;
+    width: 34px;
+    height: 17px;
+    float: right;
+    margin-top: 1px;
+}
+
+/* 开关 */
+li>.p1 .switch[isOn='true']{
+    background-image: url(../img/ico-on.png);
+}
+
+li>.p1 .switch[isOn='false']{
+    background-image: url(../img/ico-off.png);
+}
+
+/* 隐藏的操作 */
+li .operation{
+    display: none;  
+    position: absolute;
+    width: 100%;
+    height: 208px;
+    background-color: #fff;
+    left: 0;
+    top: 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+li .operation .delete{
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    right: 5px;
+    top: 5px;
+    background-image: url(../img/ico-close.png);
+    cursor: pointer;
+}
+
+li .operation .buttons{
+    margin-top: 35px;
+    height: 180px;
+    margin-bottom: 8px;
+}
+
+/* 按钮样式 */
+li .operation .buttons>div{
+    height: 30px;
+    border: 1px solid #e2e2e2;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+}
+
+li .operation .buttons>div:hover{
+    background-color: #e2e2e2;
+}
+
+ /* 添加新项 */
+ #addLabel span{
+    display: block;
+    width: 70px;
+    height: 70px;
+    margin-top: 80px;
+    margin-left: calc((100% - 70px)/2);
+    background-image: url(../img/addLabel.png);
+    cursor: pointer;
+    float: none;
+}
+
+#addLabel p{
+    float: none;
+    text-align:center;
+    margin-top:10px;
+}
+
+/* 查看原图 */
+.master_map{
+    position: fixed;
+    background-color: #fff;
+    cursor: move;
+    z-index: 101;
+}
+
+.shadow_div{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.35;
+    z-index: 100;
+}
+
+.close_img{
+    position: fixed;
+    width: 36px;
+    height: 36px;
+    top: 0;
+    right: 0;
+    background-image: url(../img/close-big.png);
+    z-index: 102;
+    cursor: pointer;
+}
+
+.close_img:hover{
+    background-image: url(../img/close-big-h.png);
+}
+
+li .operation .buttons>div span{
+    float: left;
+}
+
+li .operation .buttons>div .ico{
+    display:block;
+    width: 23px;
+    height: 23px;
+    margin-top: 2.5px;
+    margin-right: 5px;
+}

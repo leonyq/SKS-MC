@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" printOrder="Horizontal" pageWidth="224" pageHeight="138" orientation="Landscape" columnWidth="224" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="lang" uuid="76973130-96fd-45b9-854e-fda31580c4a5">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from TEST_LDG_BARCODE_PRINT]]>
+	</queryString>
+	<field name="ID" class="java.lang.String"/>
+	<field name="NAME" class="java.lang.String"/>
+	<field name="CUSER" class="java.lang.String"/>
+	<field name="CDATE" class="java.sql.Timestamp"/>
+	<field name="REMSS" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="137" splitType="Stretch">
+			<image scaleImage="RealHeight" isLazy="true">
+				<reportElement x="167" y="35" width="47" height="26" uuid="632698d1-a2a2-49b5-b3ec-efb34dda3310"/>
+				<imageExpression><![CDATA["http://127.0.0.1:8080/mes/plf/images/user.png"]]></imageExpression>
+			</image>
+			<componentElement>
+				<reportElement mode="Opaque" x="2" y="5" width="214" height="32" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" uuid="27bf4bf4-79a3-4907-8755-9b712b12374b"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="true" barWidth="0" barHeight="0" evaluationTime="Page">
+					<jr:codeExpression><![CDATA[$F{ID}.toString()]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<textField>
+				<reportElement x="114" y="61" width="100" height="20" uuid="6c75a371-1d76-4215-9794-8ec52229e353"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="81" width="100" height="20" uuid="2b41b04d-4d2b-4d76-90d8-e7efbb463f31"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[用户：]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="114" y="81" width="100" height="20" uuid="2e56ab6e-fc88-4da3-8e5f-550ec11cd3b2"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CUSER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="101" width="100" height="20" uuid="70a6cddc-dc09-4a44-9b09-86eceb88d783"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[时间：]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="114" y="101" width="100" height="20" uuid="7759b2aa-e831-47f4-bad8-af3efa24482a"/>
+				<textFieldExpression><![CDATA[$F{CDATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="37" width="153" height="20" uuid="d5232645-4b26-440f-b843-6f599dc52ae6"/>
+				<textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="61" width="100" height="20" uuid="acd4b9b6-12d2-46c5-b6c1-92680aa409cc"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[str("test")]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

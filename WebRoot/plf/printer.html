@@ -1,0 +1,29 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset= UTF-8" />
+<title>JasperReports - Web Application Sample，java applet 条码打印测试
+</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css"
+	title="Style">
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+
+	<span class="title">Printer Applet</span>
+	<br>
+	<br>
+
+	<div style="width: 100%; margin-left: 20px;">
+		<applet name="myapplet" mayscript="mayscript"
+			code="applet.PrinterApplet.class"
+			archive="print.jar,barbecue-1.5-beta1.jar,zxing2.3.jar,commons-digester-2.1.jar,jfreechart-1.0.12.jar,jcommon-1.0.15.jar,jasperreports-5.6.0.jar,jasperreports-applet-5.6.0.jar,commons-logging-1.1.1.jar,commons-collections-3.2.1.jar"
+			codebase="." width="510" height="310" align="bottom">
+			<param name="REPORT_URL1" value="/mes/rep/report!barcode1.ms">
+			<param name="REPORT_URL" value="/mes/rep/barcode.ms">
+			<param name="text" value="applet打印测试">
+			<font color="ff0000">请安装JRE插件</font><a
+				href="${basePath}jre-6u43-windows-i586.exe" target="_blank">下载</a>
+		</applet>
+	</div>
+
+</body>
+</html>

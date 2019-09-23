@@ -1,0 +1,94 @@
+    .clear{
+        clear:both;
+    }
+    .draw{
+        width:300px;
+        /*height:240px;*/
+        margin-left:auto;
+        margin-right:auto;
+    }
+    .esop{
+        /*height:400px;*/
+    }
+    .div_title{
+        text-align: left;
+        background-color: #f6f5f7;
+        padding: 5px;
+    }
+    .datagrid table{
+        table-layout:fixed;
+        width:100%;
+    } 
+    .datagrid td{
+        border: 1px solid #dbe1ef;
+        box-sizing: border-box;
+        height: 28px;
+        padding: 0 5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .datagrid thead td{
+        background-color: #e6eaf4;
+        color: #666;
+        font-size: 15px;
+    }
+    .datagrid tr.selected{
+        background-color:#a6efa1
+    }
+    
+    .datagrid tr.selected2{
+        background-color:#ebf2f9
+    }
+    .zoomclass{
+        position: absolute;
+        background-color: #fff;
+        width: 100%;
+        /*height: 720px;*/ 
+    	/*height:90vh*/;  
+    }
+    .zoomrightclass{ 
+        width: 97%; 
+    }
+    .zoom{ 
+        float: right;
+	margin-left: 25px;
+        cursor: pointer;
+    }	
+    .pcb_viewer_div{
+        width:900px;
+        height:820px;
+    }
+    .zoomrightclass iframe{
+        /*width:1200px;
+        height:620px;*/
+    }
+    .div_draw{
+        background-color:#f5f5f5;//dbe7f1
+    }
+    .div_draw .btn{
+        font-size:10px;
+        float:right;
+        cursor:pointer;
+        margin-right:10px;
+        padding:2px 5px;
+        border-radius:2px;
+        background-color:#eee;
+        color:#999; 
+    }
+    .div_draw .btn.checked{
+        background-color:#999;
+        color:#eee; 
+    }
+    .remain_num{
+        width: 	100%;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        height: 25px;
+        line-height: 25px;
+        padding-left: 5px;
+        font-size: 13px; 
+    }
+    .none{
+        display:none;
+    }

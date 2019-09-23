@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.more.fw.core.base.login.model.UserDto" table="SY_USER">
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="33" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" length="60" />
+		</property>
+		<property name="loginName" type="java.lang.String">
+			<column name="login_name" length="120" />
+		</property>
+		<property name="pw" type="java.lang.String">
+			<column name="pw" length="32" />
+		</property>
+		<property name="enable" type="java.lang.String">
+			<column name="enable" length="30" />
+		</property>
+		<property name="deptId" type="java.lang.String">
+			<column name="dept_id" length="1" />
+		</property>
+		<property name="phone" type="java.lang.String">
+			<column name="phone" length="20" />
+		</property>
+		<property name="mobile" type="java.lang.String">
+			<column name="mobile" length="20" />
+		</property>
+		<property name="weixin" type="java.lang.String">
+			<column name="weixin" length="30" />
+		</property>
+		<property name="email" type="java.lang.String">
+			<column name="email" length="50" />
+		</property>
+		<property name="userType" type="java.lang.String">
+			<column name="user_type" length="1" />
+		</property>
+		<property name="photo" type="java.sql.Blob">
+			<column name="photo" />
+		</property>
+		<property name="fingerprint" type="java.lang.String">
+			<column name="fingerprint" length="100" />
+		</property>
+		<property name="editPwTime" type="java.util.Date">
+			<column name="EDIT_PW_TIME" />
+		</property>
+		<property name="photoName" type="java.lang.String">
+			<column name="photo_name" length="60" />
+		</property>
+		<property name="englishName" type="java.lang.String">
+			<column name="english_name" length="60" />
+		</property>
+		<property name="empSupCode" type="java.lang.String">
+			<column name="EMP_SUP_CODE" length="50" />
+		</property>
+		<property name="empCustCode" type="java.lang.String">
+			<column name="EMP_CUST_CODE" length="50" />
+		</property>
+		<property name="usTimeZone" type="java.lang.String">
+			<column name="US_TIME_ZONE" length="50" />
+		</property>
+		
+		<property name="ding_user_id" type="java.lang.String">
+			<column name="ding_user_id" length="255" />
+		</property>
+		<property name="wx_user_id" type="java.lang.String">
+			<column name="wx_user_id" length="255" />
+		</property>
+		<property name="init_login" type="java.lang.String">
+			<column name="init_login" length="1" />
+		</property>
+		
+		<property name="data_auth" type="java.lang.String">
+			<column name="data_auth" length="300" />
+		</property>
+		
+	</class>
+</hibernate-mapping>

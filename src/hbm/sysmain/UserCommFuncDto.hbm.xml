@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.more.fw.core.sysfa.usermessage.model.UserCommFuncDto" table="SY_USER_COMM_FUNC">
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="33" />
+		</id>
+		<property name="createId" type="java.lang.String">
+			<column name="CREATE_ID" length="33" />
+		</property>
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_DATE"  />
+		</property>
+		<property name="modifyId" type="java.lang.String">
+			<column name="UPDATE_ID" length="33" />
+		</property>
+		<property name="modTime" type="java.util.Date">
+			<column name="UPDATE_DATE" />
+		</property>
+		<property name="showOrder" type="java.lang.Integer">
+			<column name="SHOW_ORDER" />
+		</property>
+		<property name="menuId" type="java.lang.String">
+			<column name="MENU_ID" length="33" />
+		</property>
+		<property name="menuName" type="java.lang.String">
+			<column name="MENU_NAME" length="100" />
+		</property>
+	</class>
+</hibernate-mapping>

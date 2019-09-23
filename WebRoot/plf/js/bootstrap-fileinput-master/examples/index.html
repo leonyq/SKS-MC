@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!-- release v4.4.7, copyright 2014 - 2017 Kartik Visweswaran -->
+<!--suppress JSUnresolvedLibraryURL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Krajee JQuery Plugins - &copy; Kartik</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="../css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="../themes/explorer-fa/theme.css" media="all" rel="stylesheet" type="text/css"/>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="../js/plugins/sortable.js" type="text/javascript"></script>
+    <script src="../js/fileinput.js" type="text/javascript"></script>
+    <script src="../js/locales/fr.js" type="text/javascript"></script>
+    <script src="../js/locales/es.js" type="text/javascript"></script>
+    <script src="../themes/explorer-fa/theme.js" type="text/javascript"></script>
+    <script src="../themes/fa/theme.js" type="text/javascript"></script>
+    <script src="../js/popper.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="container kv-main">
+    <div class="page-header">
+        <h1>Bootstrap File Input Example
+            <small><a href="https://github.com/kartik-v/bootstrap-fileinput-samples"><i
+                    class="glyphicon glyphicon-download"></i> Download Sample Files</a></small>
+        </h1>
+    </div>
+    <form enctype="multipart/form-data">
+        <div class="file-loading">
+            <input id="kv-explorer" type="file" multiple>
+        </div>
+       
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-default">Reset</button>
+    </form>
+    <hr>
+   
+    <br>
+</div>
+</body>
+<script>
+ 
+    $(document).ready(function () {
+    
+        $("#kv-explorer").fileinput({
+            'theme': 'explorer-fa',
+            'uploadUrl': '#',
+            overwriteInitial: false,
+            showUpload:false,
+            
+            initialPreviewAsData: true,
+            layoutTemplates:{
+            	actionUpload:''
+            }
+          /*  initialPreview: [
+                "http://lorempixel.com/1920/1080/nature/1",
+                "http://lorempixel.com/1920/1080/nature/2",
+                "http://lorempixel.com/1920/1080/nature/3"
+            ],*/
+            /*initialPreviewConfig: [
+                {caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
+                {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
+                {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3}
+            ]*/
+        });
+        /*
+         $("#test-upload").on('fileloaded', function(event, file, previewId, index) {
+         alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
+         });
+         */
+    });
+</script>
+</html>

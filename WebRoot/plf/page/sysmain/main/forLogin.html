@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>登录</title>
+		<meta http-equiv="Content-Type" content="text/html; charset= UTF-8" />
+		<script type="text/javascript">
+			function getContextPath() {
+				var contextPath = document.location.pathname;
+				if("/"== contextPath.substr(0,1)){
+					index = contextPath.substr(1).indexOf("/");
+				}else{
+					contextPath = "/" +contextPath;
+				}
+				var index = contextPath.substr(1).indexOf("/");
+				contextPath = contextPath.substr(0, index + 1);
+				return contextPath;
+			}
+			window.top.location.href = getContextPath()+"/sys/LoginAction_forLogin.ms?loadMark=10";
+		</script>
+	</head>
+
+	<body>
+	</body>
+</html>

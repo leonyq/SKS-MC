@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.more.fw.buss.dmp.model.OrderDto" table="T_COMMAND_LIST">
+		<id name="tclCode" type="java.lang.String">
+			<column name="TCL_CODE" length="50" />
+		</id>
+		<property name="tclName" type="java.lang.String">
+			<column name="TCL_NAME" length="100" />
+		</property>
+		<property name="tclType" type="java.lang.String">
+			<column name="TCL_TYPE" length="1" />
+		</property>
+		<property name="tclClassify" type="java.lang.String">
+			<column name="TCL_CLASSIFY" length="2" />
+		</property>		
+		<property name="tclDeInput" type="java.lang.String">
+			<column name="TCL_DE_INPUT" length="100" />
+		</property>
+		<property name="tclRemark" type="java.lang.String">
+			<column name="TCL_REMARK" length="500" />
+		</property>
+		<property name="tclSysFlag" type="java.lang.String">
+			<column name="TCL_SYS_FLAG" length="50" />
+		</property>	
+	
+	</class>
+</hibernate-mapping>

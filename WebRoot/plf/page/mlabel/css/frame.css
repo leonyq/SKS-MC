@@ -1,0 +1,188 @@
+﻿.main .center .centerTop{
+    height: 44px;
+    background-color: #004098;
+    box-shadow: 0 -2px 5px rgba(204,204,204,0.3);
+}
+
+.main .center .centerTop h3{
+    height: 44px;
+    color: #fff;
+    line-height: 44px;
+    font-size: 18px;
+    float: left;
+    font-weight: bold;
+}
+
+/* 右上角 字 */
+.main .center .centerTop .other{
+    float: right;
+    margin-top: 13px;
+    color: #fff;
+}
+
+.main .center .centerTop .other a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+}
+
+.main .center .centerTop .other .line{
+    display: inline-block;
+    width: 1px;
+    height: 10px;
+    background-color: #fff;
+    margin: 0 8px;
+}  
+
+/* 步骤样式 */
+.main .center .centerBottom .step{
+    margin-top: 40px;
+    margin-left: calc(50% - 315px);
+    height:98px;
+}
+
+.main .center .centerBottom .step .pic{
+    height: 24px;
+    margin-bottom: 15px;
+}
+
+.main .center .centerBottom .step .pic span{
+    display: block;
+    width: 210px;
+    height: 24px;
+    float: left;
+}
+
+.main .center .centerBottom .step .char span{
+    display: block;
+    width: 210px;
+    height: 14px;
+    float: left;
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.main .center .centerBottom .step .pic .pic1{
+    background-image: url(../img/pic1.png);
+}
+
+.main .center .centerBottom .step .pic .pic2{
+    background-image: url(../img/pic2.png);
+}
+
+.main .center .centerBottom .step .pic .pic3{
+    background-image: url(../img/pic3.png);
+}
+
+.main .center .centerBottom .step .pic .pic4{
+    background-image: url(../img/pic4.png);
+}
+
+/* 输入框样式 */
+.main .center .centerBottom .content input{
+    height: 30px;
+    border: 1px solid #dbdbdb;
+    box-sizing: border-box;
+    padding-left: 10px;
+    outline: none;
+    border-radius: 2px;
+    color: #333;
+	font-size:14px;
+
+}
+
+.main .center .centerBottom .content input[type='text']:focus,
+.main .center .centerBottom .content input[type='password']:focus{
+    border-color: #75c4ff;
+    color: #4f96cb;
+    background-color: #f8fcff;
+}
+
+/* 下拉框样式 */
+.main .center .centerBottom .content select{
+    height: 30px;
+    border: 1px solid #dbdbdb;
+    box-sizing: border-box;
+    padding-left: 6px;
+    outline: none;
+    border-radius: 2px;
+    color: #333;
+}
+
+/* 下一步按钮样式 */
+.main .center .centerBottom .content input[type='button']{
+    cursor: pointer;
+}
+
+.main .center .centerBottom .content .next{
+    width: 300px;
+    height: 36px;
+    margin-left: calc((100% - 300px)/2);
+    background-color: #aace36;
+    color: #fff;
+    font-size: 14px;
+    border:none;
+}
+
+.main .center .centerBottom .content .next:hover{
+    background-color: #99b932;
+}
+
+.main .center .centerBottom .content{
+    width: 100%;
+}
+
+.main .center .centerBottom .content .name{
+    color: #333;
+    width: calc((100% - 300px)/2);
+    text-align: right;
+    float: left;
+    padding-right: 15px;
+    height: 30px;
+    line-height: 30px;
+    box-sizing: border-box;
+}
+
+.content div>.empty {
+    left: calc(50% + 150px - 25px);
+}
+
+.main .center .centerBottom .content .name span{
+    color: #DD4B39;
+    margin-right: 5px;    
+}
+
+.main .center .centerBottom .content div>.message{
+    width: 200px;   
+    font-size: 12px;
+    position: absolute;
+    top: 7px;
+    left:calc(50% + 150px + 10px);
+    color: #dd4b39;
+    display: none;
+}
+
+.readonly{
+    color: #666 !important;
+    background-color: #ebebe4 !important;
+    border-color:#dbdbdb !important; 
+}
+
+textarea{
+    box-sizing: border-box;
+    border: 1px solid #dbdbdb;
+    outline: none;
+    resize:none;
+    border-radius: 2px;
+    color: #333;
+    padding: 5px;
+    padding-left: 9px;
+}
+
+textarea:focus{
+    border-color: #75c4ff;
+    color: #4f96cb;
+    background-color: #f8fcff;
+}

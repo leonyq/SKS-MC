@@ -1,0 +1,56 @@
+<%@page import="com.more.fw.core.common.method.StringUtilsMc"%>
+<%@page import="com.more.fw.core.common.method.ConstantsMc"%>
+<%@page import="com.more.fw.core.common.method.CommMethodMc"%>
+<%@page import="com.more.fw.core.staticresource.PlfStaticRes"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
+<%@page language="java" errorPage="/plf/error.jsp" pageEncoding="UTF-8"
+	contentType="text/html;charset=UTF-8"%>
+<%@ taglib prefix="s" uri="/plf/tld/struts-tags.tld"%>
+<%@ taglib prefix="dict" uri="/plf/tld/ldg-dict-tags.tld"%>
+<%@ include file="/plf/common/pub_tag.jsp"%>
+<!DOCTYPE html>
+<html>
+<%
+  Map processdeMap=(Map)request.getAttribute("processdeMap");
+ %>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset= UTF-8" />
+  <title><dict:lang value="工具管理" /></title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <jsp:include page="/plf/common/pub_head.jsp">
+      <jsp:param name="popDivWin" value="1" />
+	  <jsp:param name="layui" value="1" />
+  </jsp:include>
+    <link href="/mc/plf/style/fonts/iconfont.css" rel="stylesheet" type="text/css">
+    <link href="${path}/plf/page/wf/tool_management/css/style.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+  
+     <div class="upload-content">
+         <img src="images/upload.png">
+         <div class="upload-btn">
+            <span>请选择文件...</span>
+           <button  class="layui-btn file-btn" style="position: relative;">
+              <input type="file" id="fileBtn">
+                                       上传
+           </button>
+         </div>
+     </div>
+    <div class="ptop_10 txac">
+	  <input type="button" value="确定" lay-submit=""  onclick="" class="layui-btn">
+      <input type="button" value="取消" onclick="closePopWin();" class="layui-btn layui-btn-danger">
+	 </div>
+  <script>
+
+  </script>
+  
+  <jsp:include page="/plf/common/pub_dom.jsp">
+	<jsp:param name="popConfirm" value="1" />
+</jsp:include>
+</body>
+</html>
+

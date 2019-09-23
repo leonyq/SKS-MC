@@ -1,0 +1,116 @@
+/* 绿色系：主色#40a789；hover：#359579
+首五：#ed6e6f、#40a789、#6c757c、#3ebbdf、#f2b046
+hover：#dc6a6c、#449d82、#687076、#45b0d0、#e2a54f */
+
+.pn1 .banner .item1>div{
+	background-color:#ed6e6f;
+}
+
+.pn1 .banner .item1>div:hover{
+	background-color:#dc6a6c;
+}
+
+.pn1 .banner .item2>div{
+	background-color:#40a789;
+}
+
+.pn1 .banner .item2>div:hover{
+	background-color:#449d82;
+}
+
+.pn1 .banner .item3>div{
+	background-color:#6c757c;
+}
+
+.pn1 .banner .item3>div:hover{
+	background-color:#687076;
+}
+
+.pn1 .banner .item4>div{
+	background-color:#3ebbdf;
+}
+
+.pn1 .banner .item4>div:hover{
+	background-color:#45b0d0;
+}
+
+.pn1 .banner .item5>div{
+	background-color:#f2b046;
+}
+
+.pn1 .banner .item5>div:hover{
+	background-color:#e2a54f;
+}
+
+.menu {
+    background-color: #40a789;
+}
+
+.menu .item:hover{
+	background-color: #359579;
+}
+
+.menu .item-in:hover{
+	background-color: #359579;
+}
+
+.menu .hoverColor{
+	background-color:#359579;
+}
+
+.menu .item {
+    border-bottom: 1px solid #38997d;
+}
+
+.menu .item-logo {
+    border-bottom: 1px solid #38997d;
+}
+
+.topbar-in .user-drop .item .con{
+	background-color: #40a789;
+}
+
+.topbar-in .user-drop .item .con:hover{
+	background-color: #359579;
+}
+
+.hd .ico-hd{
+	background-color: #40a789;
+}
+
+.nav .cur:before{
+	background-color: #359579;
+}
+
+.menu-sub a:hover{
+	color: #359579;
+}
+
+.menu-sub{
+	background-color: #f1f9f5;
+}
+
+.menu-sub-sub a:hover{
+	background-color: #dfeeeb;
+}
+
+.item-sub .fontColor{
+	color:#359579;
+}
+
+.optn button:hover {
+    background-color: #359579;
+    border: 1px solid #359579;
+}
+
+.dialog .dialog-hd{
+	background-color: #40a789;
+}
+
+.dialog .btn-add{
+	background-color: #359579;
+}
+
+.topbar-in .state .s2-drop a:hover{
+	background-color: #40a789;
+}

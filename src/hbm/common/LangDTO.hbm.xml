@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.more.fw.core.dbo.model.dto.LangDto"
+		table="T_SYS_LANGUAGE">
+		<id name="key" type="java.lang.String">
+			<column name="MSGNAME" length="255"></column>
+		</id>
+		<property name="enUs" type="java.lang.String">
+			<column name="ENGLISH" length="255"></column>
+		</property>
+		<property name="zhCn" type="java.lang.String">
+			<column name="CHINESE" length="255"></column>
+		</property>
+		<property name="zhTw" type="java.lang.String">
+			<column name="TRADITIONAL" length="255"></column>
+		</property>
+	</class>
+</hibernate-mapping>

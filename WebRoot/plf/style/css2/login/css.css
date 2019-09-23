@@ -1,0 +1,129 @@
+TD {
+	LINE-HEIGHT: 120%; COLOR: #353535; FONT-SIZE: 9pt
+}
+BODY {
+	SCROLLBAR-FACE-COLOR: #0099cc; PADDING-BOTTOM: 0px; LINE-HEIGHT: 120%; BACKGROUND-COLOR: #0099cc; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; SCROLLBAR-HIGHLIGHT-COLOR: #0099cc; SCROLLBAR-SHADOW-COLOR: #0099cc; FONT-SIZE: 9pt; PADDING-TOP: 0px
+}
+A:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #000000; TEXT-DECORATION: none 
+}
+A:hover {
+	POSITION: relative; COLOR: #336699; TOP: 1px; RIGHT: 0px; TEXT-DECORATION: none
+}
+BODY {
+	SCROLLBAR-ARROW-COLOR: #006699; SCROLLBAR-FACE-COLOR: #dee3e7; BACKGROUND-COLOR: #ffffff; SCROLLBAR-DARKSHADOW-COLOR: #98aab1; SCROLLBAR-HIGHLIGHT-COLOR: #ffffff; COLOR: #000000; SCROLLBAR-SHADOW-COLOR: #dee3e7; FONT-SIZE: 12px; SCROLLBAR-TRACK-COLOR: #efefef; SCROLLBAR-3DLIGHT-COLOR: #d1d7dc
+}
+TD {
+	LINE-HEIGHT: 18px; FONT-SIZE: 12px
+}
+TH {
+	BACKGROUND-IMAGE: url(skin/more/z3.gif); BACKGROUND-COLOR: #ffffff; COLOR: #ffffff; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+TD.TableBody1 {
+	BACKGROUND-COLOR: #ffffff
+}
+TD.TableBody2 {
+	BACKGROUND-COLOR: #ffffff
+}
+TD.TopLighNav2 {
+	BACKGROUND-COLOR: #ffffff
+}
+.tableBorder1 {
+	BORDER-BOTTOM: 1px; BORDER-LEFT: 1px; BACKGROUND-COLOR: #b26b7b; WIDTH: 97%; BORDER-TOP: 1px; BORDER-RIGHT: 1px
+}
+.tableBorder2 {
+	BORDER-BOTTOM: #c58f9b 1px solid; BORDER-LEFT: #c58f9b 1px solid; BACKGROUND-COLOR: #f4d9dd; WIDTH: 97%; BORDER-TOP: #c58f9b 1px solid; BORDER-RIGHT: #c58f9b 1px solid
+}
+#TableTitleLink A:link {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+#TableTitleLink A:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+#TableTitleLink A:active {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+#TableTitleLink A:hover {
+	COLOR: #ffffff; TEXT-DECORATION: underline
+}
+INPUT {
+	LINE-HEIGHT: 22px; FONT-FAMILY: mcfont; FONT-SIZE: 14px
+}
+SELECT {
+	LINE-HEIGHT: 15px; FONT-FAMILY: mcfont; FONT-SIZE: 12px
+}
+TEXTAREA {
+	LINE-HEIGHT: 15px; FONT-FAMILY: mcfont; FONT-SIZE: 12px
+}
+.normalTextSmall {
+	FONT-FAMILY: mcfont; COLOR: #000000; FONT-SIZE: 11px
+}
+.table-1 {
+	BORDER-BOTTOM: #cccccc 1px dotted; BORDER-LEFT: #cccccc 1px dotted; BORDER-TOP: #cccccc 1px dotted; BORDER-RIGHT: #cccccc 1px dotted
+}
+.table-zuoyou {
+	BORDER-LEFT: #cccccc 1px dotted; BORDER-RIGHT: #cccccc 1px dotted
+}
+.table-youxia {
+	BORDER-BOTTOM: #cccccc 1px dotted; BORDER-RIGHT: #cccccc 1px dotted
+}
+.wenbenkuang {
+	BORDER-BOTTOM: #999999 1px solid; BORDER-LEFT: #999999 1px solid; FONT-FAMILY: ""; COLOR: #333333; FONT-SIZE: 9pt; BORDER-TOP: #999999 1px solid; BORDER-RIGHT: #999999 1px solid
+}
+.go-wenbenkuang {
+	BORDER-BOTTOM: #a2a2a2 1px solid; BORDER-LEFT: #ffffff 1px solid; PADDING-BOTTOM: 1px; BACKGROUND-COLOR: #eeeeee; PADDING-LEFT: 1px; PADDING-RIGHT: 1px; FONT-FAMILY: ""; HEIGHT: 19px; COLOR: #333333; FONT-SIZE: 9pt; BORDER-TOP: #ffffff 1px solid; CURSOR: hand; BORDER-RIGHT: #a2a2a2 1px solid; PADDING-TOP: 1px
+}
+.table-shangxia {
+	BORDER-BOTTOM: #cccccc 1px dotted; BORDER-TOP: #cccccc 1px dotted
+}
+.table-you {
+	BORDER-RIGHT: #cccccc 1px dotted
+}
+.table-zuo {
+	BORDER-LEFT: #cccccc 1px dotted
+}
+.table-shang {
+	BORDER-TOP: #cccccc 1px dotted
+}
+.table-xia {
+	BORDER-BOTTOM: #cccccc 1px dotted
+}
+.whileBold {
+	PADDING-LEFT: 6px; COLOR: #333333; FONT-SIZE: 9pt; TEXT-DECORATION: none
+}
+.whileFont {
+	COLOR: #ffffff; FONT-SIZE: 9pt
+}
+FORM {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.pad {
+	PADDING-LEFT: 150px
+}
+.fontRed {
+	COLOR: #ff0000
+}
+.productClassManageLeftDiv1 {
+	BORDER-BOTTOM: #cccccc 1px solid; WIDTH: 60%; FLOAT: left; HEIGHT: 22px; CURSOR: hand; PADDING-TOP: 2px
+}
+.productClassManageLeftDiv2 {
+	BORDER-BOTTOM: #cccccc 1px solid; WIDTH: 60%; FLOAT: left; HEIGHT: 22px; PADDING-TOP: 2px
+}
+.productClassManageRightDiv {
+	BORDER-BOTTOM: #cccccc 1px solid; WIDTH: 40%; FLOAT: left; HEIGHT: 22px; PADDING-TOP: 2px
+}
+.productClassManageUl {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; HEIGHT: 22px; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px
+}
+.noDisplay {
+	BACKGROUND-COLOR: #999999; DISPLAY: none
+}
+.borderGray {
+	BORDER-BOTTOM: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; BORDER-RIGHT: #cccccc 1px solid
+}

@@ -1,0 +1,52 @@
+.topbar{position:absolute;z-index:400;height:40px;border:1px solid #eaeaea;width:99.9%;left:0;top:0;background-color:#fff;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.topbar-in{padding:0  10px 0 10px;position:relative;height:100%;}
+ .user{position:absolute;z-index:20;top:0;right:110px;width:110px;height:100%;}
+ .user .info{text-align:center;padding-top:12px;position:relative;z-index:-1;overflow: hidden;cursor:pointer;}
+ .user .info img{border-radius:50%;margin-right:5px;vertical-align: inherit;}
+ .user .info .name{font-size: 14px;letter-spacing:1px;width:70px;line-height:25px;display:inline-block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+ 
+ .state{position:absolute;z-index:21;right:5px;top:0;padding-top:15px;}
+ .state .s1,.state .s2,.state .s3{display:block;float:left;margin-right:14px;}
+ .state .s1{width:15px;height:12px;background-position:0 3px;padding:3px 0;background:url(../../../page/fp/img/ico-t3-w.png) no-repeat center;}
+ .state .s2{width:12px;height:12px;background-position:-17px 3px;margin-right:26px;position:relative;cursor:pointer;padding:3px;background:url(../../../page/fp/img/ico-t3-w.png) no-repeat center;}
+ .state .s2:after{content:'';width:1px;height:12px;background-color:#fff;position:absolute;right:-13px;top:4px;}
+ .state .s2-drop{width:100px;/*border:1px solid #d9d9d9;*/border-bottom:none;position:absolute;top:18px;left:-50px;background-color:#fff;display:block;}
+
+ .state .s2-drop a{display:block;width:100%;line-height:32px;text-align:center;border-bottom:1px solid #d9d9d9;}
+ .state .s2-drop .ico{margin-right:8px;margin-bottom: 4px;}
+ .state .s2-drop a:hover{background-color:#1c64b9;color:#fff;}
+ .state .s2-drop a:hover .ico-zx{background:url(../../../page/fp/img/ico-p-h.png) no-repeat center;}
+ .state .s2-drop a:hover .ico-tc{background:url(../../../page/fp/img/ico-d-h.png) no-repeat center;}
+ .state .s3{width:12px;height:12px;padding:3px 0;background:url(../../../page/fp/img/ico-exit.png) no-repeat center;}
+/* Slider */
+.slick-list{position:relative;overflow:hidden;display:block;}
+.slick-list:focus{outline:none;}
+.slick-track{display:block;position:relative;left:0;top:0;*zoom:1;}
+.slick-loading .slick-track,.slick-loading .slick-slide{visibility:hidden;}
+.slick-slide{display:none;float:left;height:100%;min-height:1px;}
+.slick-slide img,.slick-initialized .slick-slide{display:block;}
+.slick-loading img{display:none;}
+.nav{position:relative;width:100%;height:34px;padding-top:5px;}
+.nav .slick-prev,.nav .slick-next{position:absolute;z-index:10;top:9px;display:block;height:14px;width:8px;line-height:0;font-size:0;cursor:pointer;border:none;outline:none;background:url(../../../page/fp/img/ico.png) no-repeat;}
+.nav .slick-disabled{opacity:0.25;filter:alpha(opacity=25);}
+.nav .slick-prev{left:0px;background-position:-60px -2px;}
+.nav .slick-prev:hover{opacity:.8;}
+.nav .slick-next{right:0px;background-position:-68px -2px;}
+.nav .slick-next:hover{opacity:.8;}
+.nav-in{padding:0 28px 0;position:relative;height:34px;overflow:hidden;}
+.nav-in:after{content:'';width:1px;height:34px;background-color:#eaeaea;position:absolute;right:26px;top:0;}
+.nav-in:before{content:'';width:1px;height:34px;background-color:#eaeaea;position:absolute;left:27px;top:0;}
+.nav .item{width:12.5%;float:left;height:34px;position:relative;}
+.nav .item .slick-slide{display:block;width:100%;min-width:67px;float:left;color:#666;padding:0 .3%;height:34px;line-height:34px;border:1px solid #eaeaea;border-left:0;border-bottom:0;line-height:2.2;white-space:nowrap;text-align:center;position:relative;word-break:keep-all;overflow:hidden;text-overflow:ellipsis;}
+.nav .item .slick-slide img{vertical-align:middle;display:inline-block;margin-right:10px;}
+.nav .item .slick-slide:after{content:'';position:absolute;right:0;top:0;height:32px;background:-webkit-linear-gradient(right,#fff,rgba(255,255,255,0.1));background:linear-gradient(to left,#fff,rgba(255,255,255,0.1));}
+.nav .item .close{display:none;}
+.nav .item-click .slick-slide{color:#333;}
+.nav .item-click .close{display:block;position:absolute;z-index:10;right:0;top:8px;width:15px;height:15px;background:url(../../../page/fp/img/ico.png) no-repeat;background-position:-105px 5px;}
+.nav .item-click .close:hover{background-position:-105px -9px;border:1px red solid;}
+.nav .cur{background-color:#f6f5f7;position:relative;color:#333;}
+.nav .cur:before{content:'';width:100%;height:1px;background-color:#666;position:absolute;top:0;left:0;}
+.content{padding:45px 10px 0 0;overflow:hidden;}
+.hidecontent {
+	display: none;
+}

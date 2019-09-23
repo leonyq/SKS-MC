@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.more.fw.core.base.core.boot.model.ModuleDto" table="ms_module_mag">
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="33" />
+		</id>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE" />
+		</property>
+		<property name="updateDate" type="java.util.Date">
+			<column name="UPDATE_DATE" />
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="NAME" length="1000" />
+		</property>
+		<property name="showName" type="java.lang.String">
+			<column name="SHOWNAME" length="1000" />
+		</property>
+		<property name="version" type="java.lang.String">
+			<column name="VERSION" length="100" />
+		</property>
+		<property name="memo" type="java.lang.String">
+			<column name="MEMO" length="4000" />
+		</property>
+		<property name="userData" type="java.sql.Clob">
+			<column name="user_data"/>
+		</property>
+		<property name="type" type="java.lang.String">
+			<column name="type" length="10" />
+		</property>
+		<property name="groupName" type="java.lang.String">
+			<column name="GROUP_NAME" length="1000" />
+		</property>
+		<property name="startOrder" type="java.lang.String">
+			<column name="START_ORDER" length="10" />
+		</property>
+			<property name="databaseType" type="java.lang.String">
+			<column name="DATABASE_TYPE" length="1000" />
+		</property>
+			<property name="classCodeId" type="java.lang.String">
+			<column name="CLASS_CODE_ID" length="100" />
+		</property>
+			<property name="classType" type="java.lang.String">
+			<column name="CLASS_TYPE" length="10" />
+		</property>
+			<property name="className" type="java.lang.String">
+			<column name="CLASS_NAME" length="1000" />
+		</property>
+	</class>
+</hibernate-mapping>

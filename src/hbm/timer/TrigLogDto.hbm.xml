@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.more.fw.core.base.core.timer.model.TrigLogDto" table="MS_TRIGGER_LOG">
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="33" />
+		</id>
+		<property name="triggerId" type="java.lang.String">
+			<column name="TRIGGER_ID " length="33" />
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE"/>
+		</property>
+		<property name="logLevel" type="java.lang.String">
+			<column name="LOG_LEVEL " length="33" />
+		</property>
+		<property name="logMsg" type="java.lang.String">
+			<column name="LOG_MSG " length="4000" />
+		</property>
+	</class>
+</hibernate-mapping>

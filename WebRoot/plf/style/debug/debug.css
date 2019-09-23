@@ -1,0 +1,537 @@
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #999;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html,body{
+    height: 100%;
+    color: #333;
+    font-size: 12px;
+}
+
+ul{
+    list-style: none;
+}
+
+.main{
+    height: 100%;
+    min-width: 1260px;
+    position: relative;
+}
+
+.container{
+    height: 100%;
+    padding-right: 42px;
+    background-color:transparent;
+}
+
+.all .container{
+    padding: 0;
+}
+
+.menu{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: auto;
+    height: 100%;
+    width: 40px;
+    background-color: #b6b6b6;
+}
+
+.all .menu{
+    display: none;
+}
+
+.frame{
+    position: relative;
+    float: left;
+    height: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px; 
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.frame_top{
+    height: 30%;
+}
+
+.frame_center{
+    height: calc(50% - 4px);
+}
+
+.frame_bottom{
+    height: 20%;
+}
+
+.frame_tree{
+    width: calc(50% - 1px);
+}
+
+.frame_control{
+    width: calc(50% - 1px);
+}
+
+.frame_main{
+    width: calc(100% - 402px);
+}
+
+.frame_class{
+    width: 400px;
+}
+
+.frame_log{
+    width: 100%;
+}
+
+.verticalLine{
+    float: left;
+    width: 10px;
+    margin-left: -4px;
+    margin-right: -4px;
+    height: 100%;
+    background-color: transparent;
+    cursor: col-resize;
+    position: relative;
+    z-index: 100;
+}
+
+.acrossLine{
+    float: left;
+    width: 100%;
+    height: 10px;
+    margin-top: -4px;
+    margin-bottom: -4px;
+    background-color: transparent;
+    cursor: row-resize;
+    position: relative;
+    z-index: 100;
+}
+
+.tab_bar{
+    width: 100%;
+    height: 36px;
+    background-color: #d8d8d8;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.tab_bar .tab{
+    position: relative;
+    float: left;
+    height: 100%;
+    min-width: 20px;
+    max-width: 200px;
+    padding: 0 20px;
+    text-align: center;
+    line-height: 36px;
+    border-left: 1px solid #fff;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.frame_main .tab_bar{
+    padding-right: 70px;
+}
+
+.frame_main .tab_bar .tab{
+    padding-right: 30px;
+}
+
+.tab_bar .tab.tab_active{
+    background-color: #fff;
+}
+
+.tab_bar .tab.tab_active:before{
+    content: '';
+    display: block;
+    height: 2px;
+    background: #119588;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.tab_pane{
+    height: calc(100% - 36px);
+}
+
+.tab_pane .pane{
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    display: none;
+}
+
+.frame_log .tab_pane .pane{
+    padding: 10px;
+}
+
+.tab_pane .pane.pane_active{
+    display: block;
+}
+
+.frame .btns{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-right: 5px;
+}
+
+.frame .btns .icon{
+    font-size: 20px;
+    margin: 0 5px;
+    line-height: 35px;
+    color: #666;
+    cursor: pointer;
+}
+
+.frame .btns .icon:hover{
+    color: #159588;
+}
+
+.frame_main .icon-close{
+    font-size: 20px;
+    line-height: 36px;
+    position: absolute;
+    right: 5px;
+}
+
+.menu .item{
+    padding-top: 15px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    word-wrap: break-word;
+    cursor: pointer;
+}
+
+.menu .item:hover{
+    color: #fff;
+    background-color: #119588;
+}
+
+.menu .item .icon{
+    font-size: 20px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.menu .item:hover .icon{
+    color: #fff;
+}
+
+.menu .item_line{
+    width: 28px;
+    height: 1px;
+    margin: 0 auto;
+    background-color: #ccc;
+}
+
+.frame_main .more{
+    position: absolute;
+    z-index: 10;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    top: 36px;
+    right: 2px;
+    width: 200px;
+    padding: 10px 25px 10px 0;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 0 10px;
+    display: none;
+}
+
+.frame_main .more li{
+    position: relative;
+    width: 100%;
+    line-height: 35px;
+    cursor: pointer;
+}
+
+.frame_main .more li .icon{
+    position: absolute;
+    font-size: 24px;
+    top: 0;
+    left: 0;
+}
+
+.frame_main .more li p{
+    margin-left: 25px;
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.frame_main .more li:nth-last-of-type(1) p{
+    border: 0;
+}
+
+.searchDiv{
+    position: relative;
+    height: 30px;
+    border-bottom: 1px solid #ccc;
+}
+
+.searchDiv .icon-search{
+    position: absolute;
+    font-size: 16px;
+    top: 7px;
+    left: 7px;
+}
+
+.searchDiv input{
+    width: 100%;
+    height: 30px;
+    padding-left: 30px;
+    padding-right: 80px;
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+    color: inherit;
+}
+
+.searchDiv .btn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    background-color: #159588;
+    cursor: pointer;
+}
+
+.searchDiv .btn:hover{
+    background-color: #11796e;
+}
+
+.breakpoint .list{
+    height: calc(100% - 36px);
+    overflow: auto;
+}
+
+.breakpoint .bottom{
+    height: 36px;
+    background-color: #eee;    
+    padding-left: 10px;
+}
+
+.breakpoint .icon-checkbox,.breakpoint .icon-checkbox-h,.breakpoint .icon-radio,.breakpoint .icon-radio-h{
+    float: left;
+    line-height: 34px;
+    margin-right: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.breakpoint .list li{
+    height: 34px;
+    line-height: 34px;
+    padding-left: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.breakpoint .bottom .i{
+    float: left;
+    line-height: 36px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.breakpoint .bottom .i.fr{
+    float: right;
+}
+
+.breakpoint .bottom .icon-checkbox,.breakpoint .bottom .icon-checkbox-h,.breakpoint .bottom .icon-radio,.breakpoint .bottom .icon-radio-h{
+    line-height: 36px;
+}
+
+.breakpoint .bottom .icon-set{
+    float: left;
+    font-size: 20px;
+    line-height: 36px;
+    cursor: pointer;
+}
+
+/* 弹窗相关 */
+.shadow{
+    background: #000;
+    opacity: 0.3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: none;
+}
+
+.popDiv{
+    position: absolute;
+    width: 700px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform:translate(-50%,-50%);
+    -moz-transform:translate(-50%,-50%);
+    transform:translate(-50%,-50%);
+    z-index: 1001;
+    background-color: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    color: #333;
+    display: none;
+}
+
+.popDiv .h{
+    height: 40px;
+    line-height: 40px;
+    background-color: #239488;
+    position: relative;
+    color: #fff;
+    padding-left: 15px;
+}
+
+.popDiv .b{
+    height: calc(100% - 40px);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.popDiv .h .icon-close{
+    position: absolute;
+    font-size: 20px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.popDiv .b .searchInput{
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    outline: none;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.popDiv .b .classs{
+    height: 320px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.popDiv .b .classs li{
+    height: 26px;
+    line-height: 26px;
+    cursor: pointer;
+}
+
+.popDiv .b .classs li.active{
+    background-color: #dceaf7;
+}
+
+.popDiv .b .classs li .icon-class{
+    color: #239488;
+    float: left;
+    font-size: 20px;
+}
+
+.popDiv .b .row{
+    height: 30px;
+    line-height: 30px;
+}
+
+.popDiv .b .row:after{
+    clear: both;
+    content: " ";
+    display: table;
+}
+
+.popDiv .b .row .left{
+    float: left;
+    width: 100px;
+}
+
+.popDiv .b .row .right{
+    float: left;
+    width: calc(100% - 200px);
+}
+
+.popDiv .b .btn{
+    display: inline-block;
+    width: 80px;
+    height: 38px;
+    line-height: 38px;
+    border-radius: 2px;
+    text-align: center;
+    color: #fff;
+    background-color: #159888;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.popDiv .b .btn:hover{
+    background-color: #117a6e;
+}
+
+.popDiv .b .btn2{
+    background-color: #ccc;
+}
+
+.popDiv .b .btn2:hover{
+    background-color: rgb(199, 195, 195);
+}
+
+
+
+.popDiv .b textarea{
+    width: 100%;
+    height: 200px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    resize: none;
+    outline: none;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.checkbox,.radiobox{
+    float: left;
+    line-height: 30px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.checkbox .icon-checkbox,
+.checkbox .icon-checkbox-h,
+.radiobox .icon-radio,
+.radiobox .icon-radio-h{
+    float: left;
+    font-size: 16px;
+}
