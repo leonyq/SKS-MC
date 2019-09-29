@@ -260,46 +260,46 @@ function createTableModel(ms,formId){
             arrHtml.push("<td class='datagrid-cell no-print' style='width:30px;text-align:center; display:none;' ><span class='_noedit'>");
             arrHtml.push("<input type='checkbox' name='"+formId+"$ID' value='"+v.ID+"' class='isSubmit _selectdata' style='cursor: pointer;margin:0'>");
             arrHtml.push("</td>");
-      arrHtml.push("<td colno='PROJECT_ID' name='noprintset_PROJECT_ID' class='datagrid-cell  "+ms.tdClass(formId, 'PROJECT_ID')+"' style='"+ms.tdStyle(formId, 'PROJECT_ID')+"' "+ms.tdEvent(formId, 'PROJECT_ID')+">")
-            arrHtml.push("<span colno='PROJECT_ID' class='"+ms.uiClass(formId, 'PROJECT_ID')+"' style='"+ms.uiStyle(formId, 'PROJECT_ID')+"' "+ms.uiEvent(formId, 'PROJECT_ID')+" title='"+ms.titleAttr(formId,'PROJECT_ID','IS_TITLE_ATTR',v)+"' >"+v['PROJECT_ID']+"</span>")
+      arrHtml.push("<td colno='PROJECT_ID' name='noprintset_PROJECT_ID' class='datagrid-cell  "+ms.tdClass(formId, 'PROJECT_ID')+"' style='"+ms.tdStyle(formId, 'PROJECT_ID')+"' "+ms.tdEvent(formId, 'PROJECT_ID')+">");
+            arrHtml.push("<span colno='PROJECT_ID' class='"+ms.uiClass(formId, 'PROJECT_ID')+"' style='"+ms.uiStyle(formId, 'PROJECT_ID')+"' "+ms.uiEvent(formId, 'PROJECT_ID')+" title='"+ms.titleAttr(formId,'PROJECT_ID','IS_TITLE_ATTR',v)+"' >"+v['PROJECT_ID']+"</span>");
             arrHtml.push("</td>");
-      arrHtml.push("<td colno='T5#PRODUCT_MATERIAL' name='noprintset_T5#PRODUCT_MATERIAL' class='datagrid-cell  "+ms.tdClass(formId, 'T5#PRODUCT_MATERIAL')+"' style='"+ms.tdStyle(formId, 'T5#PRODUCT_MATERIAL')+"' "+ms.tdEvent(formId, 'T5#PRODUCT_MATERIAL')+">")
-            arrHtml.push("<span colno='T5#PRODUCT_MATERIAL' class='"+ms.uiClass(formId, 'T5#PRODUCT_MATERIAL')+"' style='"+ms.uiStyle(formId, 'T5#PRODUCT_MATERIAL')+"' "+ms.uiEvent(formId, 'T5#PRODUCT_MATERIAL')+" title='"+ms.titleAttr(formId,'T5#PRODUCT_MATERIAL','IS_TITLE_ATTR',v)+"' >"+v['T5#PRODUCT_MATERIAL']+"</span>")
+      arrHtml.push("<td colno='T5#PRODUCT_MATERIAL' name='noprintset_T5#PRODUCT_MATERIAL' class='datagrid-cell  "+ms.tdClass(formId, 'T5#PRODUCT_MATERIAL')+"' style='"+ms.tdStyle(formId, 'T5#PRODUCT_MATERIAL')+"' "+ms.tdEvent(formId, 'T5#PRODUCT_MATERIAL')+">");
+            arrHtml.push("<span colno='T5#PRODUCT_MATERIAL' class='"+ms.uiClass(formId, 'T5#PRODUCT_MATERIAL')+"' style='"+ms.uiStyle(formId, 'T5#PRODUCT_MATERIAL')+"' "+ms.uiEvent(formId, 'T5#PRODUCT_MATERIAL')+" title='"+ms.titleAttr(formId,'T5#PRODUCT_MATERIAL','IS_TITLE_ATTR',v)+"' >"+v['T5#PRODUCT_MATERIAL']+"</span>");
             arrHtml.push("</td>");
-      arrHtml.push("<td colno='T5#PRODUCT_COUNT' name='noprintset_T5#PRODUCT_COUNT' class='datagrid-cell  "+ms.tdClass(formId, 'T5#PRODUCT_COUNT')+"' style='"+ms.tdStyle(formId, 'T5#PRODUCT_COUNT')+"' "+ms.tdEvent(formId, 'T5#PRODUCT_COUNT')+">")
-            arrHtml.push("<span colno='T5#PRODUCT_COUNT' class='"+ms.uiClass(formId, 'T5#PRODUCT_COUNT')+"' style='"+ms.uiStyle(formId, 'T5#PRODUCT_COUNT')+"' "+ms.uiEvent(formId, 'T5#PRODUCT_COUNT')+" title='"+ms.titleAttr(formId,'T5#PRODUCT_COUNT','IS_TITLE_ATTR',v)+"' >"+v['T5#PRODUCT_COUNT']+"</span>")
+      arrHtml.push("<td colno='T5#PRODUCT_COUNT' name='noprintset_T5#PRODUCT_COUNT' class='datagrid-cell  "+ms.tdClass(formId, 'T5#PRODUCT_COUNT')+"' style='"+ms.tdStyle(formId, 'T5#PRODUCT_COUNT')+"' "+ms.tdEvent(formId, 'T5#PRODUCT_COUNT')+">");
+            arrHtml.push("<span colno='T5#PRODUCT_COUNT' class='"+ms.uiClass(formId, 'T5#PRODUCT_COUNT')+"' style='"+ms.uiStyle(formId, 'T5#PRODUCT_COUNT')+"' "+ms.uiEvent(formId, 'T5#PRODUCT_COUNT')+" title='"+ms.titleAttr(formId,'T5#PRODUCT_COUNT','IS_TITLE_ATTR',v)+"' >"+v['T5#PRODUCT_COUNT']+"</span>");
             arrHtml.push("</td>");
-      arrHtml.push("<td colno='T5#FINISH_COUNT' name='noprintset_T5#FINISH_COUNT' class='datagrid-cell  "+ms.tdClass(formId, 'T5#FINISH_COUNT')+"' style='"+ms.tdStyle(formId, 'T5#FINISH_COUNT')+"' "+ms.tdEvent(formId, 'T5#FINISH_COUNT')+">")
-            arrHtml.push("<span colno='T5#FINISH_COUNT' class='"+ms.uiClass(formId, 'T5#FINISH_COUNT')+"' style='"+ms.uiStyle(formId, 'T5#FINISH_COUNT')+"' "+ms.uiEvent(formId, 'T5#FINISH_COUNT')+" title='"+ms.titleAttr(formId,'T5#FINISH_COUNT','IS_TITLE_ATTR',v)+"' >"+v['T5#FINISH_COUNT']+"</span>")
+      arrHtml.push("<td colno='T5#FINISH_COUNT' name='noprintset_T5#FINISH_COUNT' class='datagrid-cell  "+ms.tdClass(formId, 'T5#FINISH_COUNT')+"' style='"+ms.tdStyle(formId, 'T5#FINISH_COUNT')+"' "+ms.tdEvent(formId, 'T5#FINISH_COUNT')+">");
+            arrHtml.push("<span colno='T5#FINISH_COUNT' class='"+ms.uiClass(formId, 'T5#FINISH_COUNT')+"' style='"+ms.uiStyle(formId, 'T5#FINISH_COUNT')+"' "+ms.uiEvent(formId, 'T5#FINISH_COUNT')+" title='"+ms.titleAttr(formId,'T5#FINISH_COUNT','IS_TITLE_ATTR',v)+"' >"+v['T5#FINISH_COUNT']+"</span>");
             arrHtml.push("</td>");
-            arrHtml.push("<td colno='ITEM_CODE' name='noprintset_ITEM_CODE' class='datagrid-cell  "+ms.tdClass(formId, 'ITEM_CODE')+"' style='"+ms.tdStyle(formId, 'ITEM_CODE')+"' "+ms.tdEvent(formId, 'ITEM_CODE')+">")
-            arrHtml.push("<span colno='ITEM_CODE' class='"+ms.uiClass(formId, 'ITEM_CODE')+"' style='"+ms.uiStyle(formId, 'ITEM_CODE')+"' "+ms.uiEvent(formId, 'ITEM_CODE')+" title='"+ms.titleAttr(formId,'ITEM_CODE','IS_TITLE_ATTR',v)+"' >"+v['ITEM_CODE']+"</span>")
+            arrHtml.push("<td colno='ITEM_CODE' name='noprintset_ITEM_CODE' class='datagrid-cell  "+ms.tdClass(formId, 'ITEM_CODE')+"' style='"+ms.tdStyle(formId, 'ITEM_CODE')+"' "+ms.tdEvent(formId, 'ITEM_CODE')+">");
+            arrHtml.push("<span colno='ITEM_CODE' class='"+ms.uiClass(formId, 'ITEM_CODE')+"' style='"+ms.uiStyle(formId, 'ITEM_CODE')+"' "+ms.uiEvent(formId, 'ITEM_CODE')+" title='"+ms.titleAttr(formId,'ITEM_CODE','IS_TITLE_ATTR',v)+"' >"+v['ITEM_CODE']+"</span>");
             arrHtml.push("</td>");
-            arrHtml.push("<td colno='ITEM_MANE' name='noprintset_ITEM_MANE' class='datagrid-cell  "+ms.tdClass(formId, 'ITEM_MANE')+"' style='"+ms.tdStyle(formId, 'ITEM_MANE')+"' "+ms.tdEvent(formId, 'ITEM_MANE')+">")
-            arrHtml.push("<span colno='ITEM_MANE' class='"+ms.uiClass(formId, 'ITEM_MANE')+"' style='"+ms.uiStyle(formId, 'ITEM_MANE')+"' "+ms.uiEvent(formId, 'ITEM_MANE')+" title='"+ms.titleAttr(formId,'ITEM_MANE','IS_TITLE_ATTR',v)+"' >"+v['ITEM_MANE']+"</span>")
+            arrHtml.push("<td colno='ITEM_MANE' name='noprintset_ITEM_MANE' class='datagrid-cell  "+ms.tdClass(formId, 'ITEM_MANE')+"' style='"+ms.tdStyle(formId, 'ITEM_MANE')+"' "+ms.tdEvent(formId, 'ITEM_MANE')+">");
+            arrHtml.push("<span colno='ITEM_MANE' class='"+ms.uiClass(formId, 'ITEM_MANE')+"' style='"+ms.uiStyle(formId, 'ITEM_MANE')+"' "+ms.uiEvent(formId, 'ITEM_MANE')+" title='"+ms.titleAttr(formId,'ITEM_MANE','IS_TITLE_ATTR',v)+"' >"+v['ITEM_MANE']+"</span>");
             arrHtml.push("</td>");
-            arrHtml.push("<td colno='ITEM_SPEC' name='noprintset_ITEM_SPEC' class='datagrid-cell  "+ms.tdClass(formId, 'ITEM_SPEC')+"' style='"+ms.tdStyle(formId, 'ITEM_SPEC')+"' "+ms.tdEvent(formId, 'ITEM_SPEC')+">")
-            arrHtml.push("<span colno='ITEM_SPEC' class='"+ms.uiClass(formId, 'ITEM_SPEC')+"' style='"+ms.uiStyle(formId, 'ITEM_SPEC')+"' "+ms.uiEvent(formId, 'ITEM_SPEC')+" title='"+ms.titleAttr(formId,'ITEM_SPEC','IS_TITLE_ATTR',v)+"' >"+v['ITEM_SPEC']+"</span>")
+            arrHtml.push("<td colno='ITEM_SPEC' name='noprintset_ITEM_SPEC' class='datagrid-cell  "+ms.tdClass(formId, 'ITEM_SPEC')+"' style='"+ms.tdStyle(formId, 'ITEM_SPEC')+"' "+ms.tdEvent(formId, 'ITEM_SPEC')+">");
+            arrHtml.push("<span colno='ITEM_SPEC' class='"+ms.uiClass(formId, 'ITEM_SPEC')+"' style='"+ms.uiStyle(formId, 'ITEM_SPEC')+"' "+ms.uiEvent(formId, 'ITEM_SPEC')+" title='"+ms.titleAttr(formId,'ITEM_SPEC','IS_TITLE_ATTR',v)+"' >"+v['ITEM_SPEC']+"</span>");
             arrHtml.push("</td>");
-            arrHtml.push("<td colno='WORK_SPACE' name='noprintset_WORK_SPACE' class='datagrid-cell  "+ms.tdClass(formId, 'WORK_SPACE')+"' style='"+ms.tdStyle(formId, 'WORK_SPACE')+"' "+ms.tdEvent(formId, 'WORK_SPACE')+">")
-            arrHtml.push("<span colno='WORK_SPACE' class='"+ms.uiClass(formId, 'WORK_SPACE')+"' style='"+ms.uiStyle(formId, 'WORK_SPACE')+"' "+ms.uiEvent(formId, 'WORK_SPACE')+" title='"+ms.titleAttr(formId,'WORK_SPACE','IS_TITLE_ATTR',v)+"' >"+v['WORK_SPACE']+"</span>")
+            arrHtml.push("<td colno='WORK_SPACE' name='noprintset_WORK_SPACE' class='datagrid-cell  "+ms.tdClass(formId, 'WORK_SPACE')+"' style='"+ms.tdStyle(formId, 'WORK_SPACE')+"' "+ms.tdEvent(formId, 'WORK_SPACE')+">");
+            arrHtml.push("<span colno='WORK_SPACE' class='"+ms.uiClass(formId, 'WORK_SPACE')+"' style='"+ms.uiStyle(formId, 'WORK_SPACE')+"' "+ms.uiEvent(formId, 'WORK_SPACE')+" title='"+ms.titleAttr(formId,'WORK_SPACE','IS_TITLE_ATTR',v)+"' >"+v['WORK_SPACE']+"</span>");
             arrHtml.push("</td>");
-            arrHtml.push("<td colno='WARE_HOUSE' name='noprintset_WARE_HOUSE' class='datagrid-cell  "+ms.tdClass(formId, 'WARE_HOUSE')+"' style='"+ms.tdStyle(formId, 'WARE_HOUSE')+"' "+ms.tdEvent(formId, 'WARE_HOUSE')+">")
-            arrHtml.push("<span colno='WARE_HOUSE' class='"+ms.uiClass(formId, 'WARE_HOUSE')+"' style='"+ms.uiStyle(formId, 'WARE_HOUSE')+"' "+ms.uiEvent(formId, 'WARE_HOUSE')+" title='"+ms.titleAttr(formId,'WARE_HOUSE','IS_TITLE_ATTR',v)+"' >"+v['WARE_HOUSE']+"</span>")
+            arrHtml.push("<td colno='WARE_HOUSE' name='noprintset_WARE_HOUSE' class='datagrid-cell  "+ms.tdClass(formId, 'WARE_HOUSE')+"' style='"+ms.tdStyle(formId, 'WARE_HOUSE')+"' "+ms.tdEvent(formId, 'WARE_HOUSE')+">");
+            arrHtml.push("<span colno='WARE_HOUSE' class='"+ms.uiClass(formId, 'WARE_HOUSE')+"' style='"+ms.uiStyle(formId, 'WARE_HOUSE')+"' "+ms.uiEvent(formId, 'WARE_HOUSE')+" title='"+ms.titleAttr(formId,'WARE_HOUSE','IS_TITLE_ATTR',v)+"' >"+v['WARE_HOUSE']+"</span>");
             arrHtml.push("</td>");
-            arrHtml.push("<td colno='ITEM_NUM' name='noprintset_ITEM_NUM' class='datagrid-cell  "+ms.tdClass(formId, 'ITEM_NUM')+"' style='"+ms.tdStyle(formId, 'ITEM_NUM')+"' "+ms.tdEvent(formId, 'ITEM_NUM')+">")
-            arrHtml.push("<span colno='ITEM_NUM' class='"+ms.uiClass(formId, 'ITEM_NUM')+"' style='"+ms.uiStyle(formId, 'ITEM_NUM')+"' "+ms.uiEvent(formId, 'ITEM_NUM')+" title='"+ms.titleAttr(formId,'ITEM_NUM','IS_TITLE_ATTR',v)+"' >"+v['ITEM_NUM']+"</span>")
+            arrHtml.push("<td colno='ITEM_NUM' name='noprintset_ITEM_NUM' class='datagrid-cell  "+ms.tdClass(formId, 'ITEM_NUM')+"' style='"+ms.tdStyle(formId, 'ITEM_NUM')+"' "+ms.tdEvent(formId, 'ITEM_NUM')+">");
+            arrHtml.push("<span colno='ITEM_NUM' class='"+ms.uiClass(formId, 'ITEM_NUM')+"' style='"+ms.uiStyle(formId, 'ITEM_NUM')+"' "+ms.uiEvent(formId, 'ITEM_NUM')+" title='"+ms.titleAttr(formId,'ITEM_NUM','IS_TITLE_ATTR',v)+"' >"+v['ITEM_NUM']+"</span>");
             arrHtml.push("</td>");
           
-            arrHtml.push("<td colno='PACK_NUM' name='noprintset_PACK_NUM' class='datagrid-cell  "+ms.tdClass(formId, 'PACK_NUM')+"' style='"+ms.tdStyle(formId, 'PACK_NUM')+"' "+ms.tdEvent(formId, 'PACK_NUM')+">")
-            arrHtml.push("<span colno='PACK_NUM' class='"+ms.uiClass(formId, 'PACK_NUM')+"' style='"+ms.uiStyle(formId, 'PACK_NUM')+"' "+ms.uiEvent(formId, 'PACK_NUM')+" title='"+ms.titleAttr(formId,'PACK_NUM','IS_TITLE_ATTR',v)+"' >"+v['PACK_NUM']+"</span>")
+            arrHtml.push("<td colno='PACK_NUM' name='noprintset_PACK_NUM' class='datagrid-cell  "+ms.tdClass(formId, 'PACK_NUM')+"' style='"+ms.tdStyle(formId, 'PACK_NUM')+"' "+ms.tdEvent(formId, 'PACK_NUM')+">");
+            arrHtml.push("<span colno='PACK_NUM' class='"+ms.uiClass(formId, 'PACK_NUM')+"' style='"+ms.uiStyle(formId, 'PACK_NUM')+"' "+ms.uiEvent(formId, 'PACK_NUM')+" title='"+ms.titleAttr(formId,'PACK_NUM','IS_TITLE_ATTR',v)+"' >"+v['PACK_NUM']+"</span>");
             arrHtml.push("</td>");
-            arrHtml.push("<td colno='EDIT_USER' name='noprintset_EDIT_USER' class='datagrid-cell  "+ms.tdClass(formId, 'EDIT_USER')+"' style='"+ms.tdStyle(formId, 'EDIT_USER')+"' "+ms.tdEvent(formId, 'EDIT_USER')+">")
-            arrHtml.push("<span colno='EDIT_USER' class='"+ms.uiClass(formId, 'EDIT_USER')+"' style='"+ms.uiStyle(formId, 'EDIT_USER')+"' "+ms.uiEvent(formId, 'EDIT_USER')+" title='"+ms.titleAttr(formId,'EDIT_USER','IS_TITLE_ATTR',v)+"' >"+v['EDIT_USER']+"</span>")
+            arrHtml.push("<td colno='EDIT_USER' name='noprintset_EDIT_USER' class='datagrid-cell  "+ms.tdClass(formId, 'EDIT_USER')+"' style='"+ms.tdStyle(formId, 'EDIT_USER')+"' "+ms.tdEvent(formId, 'EDIT_USER')+">");
+            arrHtml.push("<span colno='EDIT_USER' class='"+ms.uiClass(formId, 'EDIT_USER')+"' style='"+ms.uiStyle(formId, 'EDIT_USER')+"' "+ms.uiEvent(formId, 'EDIT_USER')+" title='"+ms.titleAttr(formId,'EDIT_USER','IS_TITLE_ATTR',v)+"' >"+v['EDIT_USER']+"</span>");
             arrHtml.push("</td>");
             
-            arrHtml.push("<td colno='EDIT_TIME' name='noprintset_EDIT_TIME' class='datagrid-cell  "+ms.tdClass(formId, 'EDIT_TIME')+"' style='"+ms.tdStyle(formId, 'EDIT_TIME')+"' "+ms.tdEvent(formId, 'EDIT_TIME')+">")
-            arrHtml.push("<span colno='EDIT_TIME' class='"+ms.uiClass(formId, 'EDIT_TIME')+"' style='"+ms.uiStyle(formId, 'EDIT_TIME')+"' "+ms.uiEvent(formId, 'EDIT_TIME')+" title='"+ms.titleAttr(formId,'EDIT_TIME','IS_TITLE_ATTR',v)+"' >"+v['EDIT_TIME']+"</span>")
+            arrHtml.push("<td colno='EDIT_TIME' name='noprintset_EDIT_TIME' class='datagrid-cell  "+ms.tdClass(formId, 'EDIT_TIME')+"' style='"+ms.tdStyle(formId, 'EDIT_TIME')+"' "+ms.tdEvent(formId, 'EDIT_TIME')+">");
+            arrHtml.push("<span colno='EDIT_TIME' class='"+ms.uiClass(formId, 'EDIT_TIME')+"' style='"+ms.uiStyle(formId, 'EDIT_TIME')+"' "+ms.uiEvent(formId, 'EDIT_TIME')+" title='"+ms.titleAttr(formId,'EDIT_TIME','IS_TITLE_ATTR',v)+"' >"+v['EDIT_TIME']+"</span>");
             arrHtml.push("</td>");
             arrHtml.push("</tr>")
         });
@@ -334,46 +334,46 @@ function createTableModel_print(ms,formId){
             arrHtml.push("<td class='datagrid-cell no-print' style='width:30px;text-align:center;' ><span class='_noedit'>");
             arrHtml.push("<input type='checkbox' name='"+formId+"$ID' value='"+v.ID+"' class='isSubmit _selectdata' style='cursor: pointer;margin:0'>");
             arrHtml.push("</td>");
-      arrHtml.push("<td colno='PROJECT_ID' name='noprintset_PROJECT_ID' class='datagrid-cell  "+ms.tdClass(formId, 'PROJECT_ID')+"' style='"+ms.tdStyle(formId, 'PROJECT_ID')+"' "+ms.tdEvent(formId, 'PROJECT_ID')+">")
-            arrHtml.push("<span colno='PROJECT_ID' class='"+ms.uiClass(formId, 'PROJECT_ID')+"' style='"+ms.uiStyle(formId, 'PROJECT_ID')+"' "+ms.uiEvent(formId, 'PROJECT_ID')+" title='"+ms.titleAttr(formId,'PROJECT_ID','IS_TITLE_ATTR',v)+"' >"+v['PROJECT_ID']+"</span>")
+      arrHtml.push("<td colno='PROJECT_ID' name='noprintset_PROJECT_ID' class='datagrid-cell  "+ms.tdClass(formId, 'PROJECT_ID')+"' style='"+ms.tdStyle(formId, 'PROJECT_ID')+"' "+ms.tdEvent(formId, 'PROJECT_ID')+">");
+            arrHtml.push("<span colno='PROJECT_ID' class='"+ms.uiClass(formId, 'PROJECT_ID')+"' style='"+ms.uiStyle(formId, 'PROJECT_ID')+"' "+ms.uiEvent(formId, 'PROJECT_ID')+" title='"+ms.titleAttr(formId,'PROJECT_ID','IS_TITLE_ATTR',v)+"' >"+v['PROJECT_ID']+"</span>");
             arrHtml.push("</td>");
-      arrHtml.push("<td colno='T5#PRODUCT_MATERIAL' name='noprintset_T5#PRODUCT_MATERIAL' class='datagrid-cell  "+ms.tdClass(formId, 'T5#PRODUCT_MATERIAL')+"' style='"+ms.tdStyle(formId, 'T5#PRODUCT_MATERIAL')+"' "+ms.tdEvent(formId, 'T5#PRODUCT_MATERIAL')+">")
-            arrHtml.push("<span colno='T5#PRODUCT_MATERIAL' class='"+ms.uiClass(formId, 'T5#PRODUCT_MATERIAL')+"' style='"+ms.uiStyle(formId, 'T5#PRODUCT_MATERIAL')+"' "+ms.uiEvent(formId, 'T5#PRODUCT_MATERIAL')+" title='"+ms.titleAttr(formId,'T5#PRODUCT_MATERIAL','IS_TITLE_ATTR',v)+"' >"+v['T5#PRODUCT_MATERIAL']+"</span>")
+      arrHtml.push("<td colno='T5#PRODUCT_MATERIAL' name='noprintset_T5#PRODUCT_MATERIAL' class='datagrid-cell  "+ms.tdClass(formId, 'T5#PRODUCT_MATERIAL')+"' style='"+ms.tdStyle(formId, 'T5#PRODUCT_MATERIAL')+"' "+ms.tdEvent(formId, 'T5#PRODUCT_MATERIAL')+">");
+            arrHtml.push("<span colno='T5#PRODUCT_MATERIAL' class='"+ms.uiClass(formId, 'T5#PRODUCT_MATERIAL')+"' style='"+ms.uiStyle(formId, 'T5#PRODUCT_MATERIAL')+"' "+ms.uiEvent(formId, 'T5#PRODUCT_MATERIAL')+" title='"+ms.titleAttr(formId,'T5#PRODUCT_MATERIAL','IS_TITLE_ATTR',v)+"' >"+v['T5#PRODUCT_MATERIAL']+"</span>");
             arrHtml.push("</td>");
-      arrHtml.push("<td colno='T5#PRODUCT_COUNT' name='noprintset_T5#PRODUCT_COUNT' class='datagrid-cell  "+ms.tdClass(formId, 'T5#PRODUCT_COUNT')+"' style='"+ms.tdStyle(formId, 'T5#PRODUCT_COUNT')+"' "+ms.tdEvent(formId, 'T5#PRODUCT_COUNT')+">")
-            arrHtml.push("<span colno='T5#PRODUCT_COUNT' class='"+ms.uiClass(formId, 'T5#PRODUCT_COUNT')+"' style='"+ms.uiStyle(formId, 'T5#PRODUCT_COUNT')+"' "+ms.uiEvent(formId, 'T5#PRODUCT_COUNT')+" title='"+ms.titleAttr(formId,'T5#PRODUCT_COUNT','IS_TITLE_ATTR',v)+"' >"+v['T5#PRODUCT_COUNT']+"</span>")
+      arrHtml.push("<td colno='T5#PRODUCT_COUNT' name='noprintset_T5#PRODUCT_COUNT' class='datagrid-cell  "+ms.tdClass(formId, 'T5#PRODUCT_COUNT')+"' style='"+ms.tdStyle(formId, 'T5#PRODUCT_COUNT')+"' "+ms.tdEvent(formId, 'T5#PRODUCT_COUNT')+">");
+            arrHtml.push("<span colno='T5#PRODUCT_COUNT' class='"+ms.uiClass(formId, 'T5#PRODUCT_COUNT')+"' style='"+ms.uiStyle(formId, 'T5#PRODUCT_COUNT')+"' "+ms.uiEvent(formId, 'T5#PRODUCT_COUNT')+" title='"+ms.titleAttr(formId,'T5#PRODUCT_COUNT','IS_TITLE_ATTR',v)+"' >"+v['T5#PRODUCT_COUNT']+"</span>");
             arrHtml.push("</td>");
-      arrHtml.push("<td colno='T5#FINISH_COUNT' name='noprintset_T5#FINISH_COUNT' class='datagrid-cell  "+ms.tdClass(formId, 'T5#FINISH_COUNT')+"' style='"+ms.tdStyle(formId, 'T5#FINISH_COUNT')+"' "+ms.tdEvent(formId, 'T5#FINISH_COUNT')+">")
-            arrHtml.push("<span colno='T5#FINISH_COUNT' class='"+ms.uiClass(formId, 'T5#FINISH_COUNT')+"' style='"+ms.uiStyle(formId, 'T5#FINISH_COUNT')+"' "+ms.uiEvent(formId, 'T5#FINISH_COUNT')+" title='"+ms.titleAttr(formId,'T5#FINISH_COUNT','IS_TITLE_ATTR',v)+"' >"+v['T5#FINISH_COUNT']+"</span>")
+      arrHtml.push("<td colno='T5#FINISH_COUNT' name='noprintset_T5#FINISH_COUNT' class='datagrid-cell  "+ms.tdClass(formId, 'T5#FINISH_COUNT')+"' style='"+ms.tdStyle(formId, 'T5#FINISH_COUNT')+"' "+ms.tdEvent(formId, 'T5#FINISH_COUNT')+">");
+            arrHtml.push("<span colno='T5#FINISH_COUNT' class='"+ms.uiClass(formId, 'T5#FINISH_COUNT')+"' style='"+ms.uiStyle(formId, 'T5#FINISH_COUNT')+"' "+ms.uiEvent(formId, 'T5#FINISH_COUNT')+" title='"+ms.titleAttr(formId,'T5#FINISH_COUNT','IS_TITLE_ATTR',v)+"' >"+v['T5#FINISH_COUNT']+"</span>");
             arrHtml.push("</td>");
-            arrHtml.push("<td colno='ITEM_CODE' name='noprintset_ITEM_CODE' class='datagrid-cell  "+ms.tdClass(formId, 'ITEM_CODE')+"' style='"+ms.tdStyle(formId, 'ITEM_CODE')+"' "+ms.tdEvent(formId, 'ITEM_CODE')+">")
-            arrHtml.push("<span colno='ITEM_CODE' class='"+ms.uiClass(formId, 'ITEM_CODE')+"' style='"+ms.uiStyle(formId, 'ITEM_CODE')+"' "+ms.uiEvent(formId, 'ITEM_CODE')+" title='"+ms.titleAttr(formId,'ITEM_CODE','IS_TITLE_ATTR',v)+"' >"+v['ITEM_CODE']+"</span>")
+            arrHtml.push("<td colno='ITEM_CODE' name='noprintset_ITEM_CODE' class='datagrid-cell  "+ms.tdClass(formId, 'ITEM_CODE')+"' style='"+ms.tdStyle(formId, 'ITEM_CODE')+"' "+ms.tdEvent(formId, 'ITEM_CODE')+">");
+            arrHtml.push("<span colno='ITEM_CODE' class='"+ms.uiClass(formId, 'ITEM_CODE')+"' style='"+ms.uiStyle(formId, 'ITEM_CODE')+"' "+ms.uiEvent(formId, 'ITEM_CODE')+" title='"+ms.titleAttr(formId,'ITEM_CODE','IS_TITLE_ATTR',v)+"' >"+v['ITEM_CODE']+"</span>");
             arrHtml.push("</td>");
-            arrHtml.push("<td colno='ITEM_MANE' name='noprintset_ITEM_MANE' class='datagrid-cell  "+ms.tdClass(formId, 'ITEM_MANE')+"' style='"+ms.tdStyle(formId, 'ITEM_MANE')+"' "+ms.tdEvent(formId, 'ITEM_MANE')+">")
-            arrHtml.push("<span colno='ITEM_MANE' class='"+ms.uiClass(formId, 'ITEM_MANE')+"' style='"+ms.uiStyle(formId, 'ITEM_MANE')+"' "+ms.uiEvent(formId, 'ITEM_MANE')+" title='"+ms.titleAttr(formId,'ITEM_MANE','IS_TITLE_ATTR',v)+"' >"+v['ITEM_MANE']+"</span>")
+            arrHtml.push("<td colno='ITEM_MANE' name='noprintset_ITEM_MANE' class='datagrid-cell  "+ms.tdClass(formId, 'ITEM_MANE')+"' style='"+ms.tdStyle(formId, 'ITEM_MANE')+"' "+ms.tdEvent(formId, 'ITEM_MANE')+">");
+            arrHtml.push("<span colno='ITEM_MANE' class='"+ms.uiClass(formId, 'ITEM_MANE')+"' style='"+ms.uiStyle(formId, 'ITEM_MANE')+"' "+ms.uiEvent(formId, 'ITEM_MANE')+" title='"+ms.titleAttr(formId,'ITEM_MANE','IS_TITLE_ATTR',v)+"' >"+v['ITEM_MANE']+"</span>");
             arrHtml.push("</td>");
-            arrHtml.push("<td colno='ITEM_SPEC' name='noprintset_ITEM_SPEC' class='datagrid-cell  "+ms.tdClass(formId, 'ITEM_SPEC')+"' style='"+ms.tdStyle(formId, 'ITEM_SPEC')+"' "+ms.tdEvent(formId, 'ITEM_SPEC')+">")
-            arrHtml.push("<span colno='ITEM_SPEC' class='"+ms.uiClass(formId, 'ITEM_SPEC')+"' style='"+ms.uiStyle(formId, 'ITEM_SPEC')+"' "+ms.uiEvent(formId, 'ITEM_SPEC')+" title='"+ms.titleAttr(formId,'ITEM_SPEC','IS_TITLE_ATTR',v)+"' >"+v['ITEM_SPEC']+"</span>")
+            arrHtml.push("<td colno='ITEM_SPEC' name='noprintset_ITEM_SPEC' class='datagrid-cell  "+ms.tdClass(formId, 'ITEM_SPEC')+"' style='"+ms.tdStyle(formId, 'ITEM_SPEC')+"' "+ms.tdEvent(formId, 'ITEM_SPEC')+">");
+            arrHtml.push("<span colno='ITEM_SPEC' class='"+ms.uiClass(formId, 'ITEM_SPEC')+"' style='"+ms.uiStyle(formId, 'ITEM_SPEC')+"' "+ms.uiEvent(formId, 'ITEM_SPEC')+" title='"+ms.titleAttr(formId,'ITEM_SPEC','IS_TITLE_ATTR',v)+"' >"+v['ITEM_SPEC']+"</span>");
             arrHtml.push("</td>");
-            arrHtml.push("<td colno='WORK_SPACE' name='noprintset_WORK_SPACE' class='datagrid-cell  "+ms.tdClass(formId, 'WORK_SPACE')+"' style='"+ms.tdStyle(formId, 'WORK_SPACE')+"' "+ms.tdEvent(formId, 'WORK_SPACE')+">")
-            arrHtml.push("<span colno='WORK_SPACE' class='"+ms.uiClass(formId, 'WORK_SPACE')+"' style='"+ms.uiStyle(formId, 'WORK_SPACE')+"' "+ms.uiEvent(formId, 'WORK_SPACE')+" title='"+ms.titleAttr(formId,'WORK_SPACE','IS_TITLE_ATTR',v)+"' >"+v['WORK_SPACE']+"</span>")
+            arrHtml.push("<td colno='WORK_SPACE' name='noprintset_WORK_SPACE' class='datagrid-cell  "+ms.tdClass(formId, 'WORK_SPACE')+"' style='"+ms.tdStyle(formId, 'WORK_SPACE')+"' "+ms.tdEvent(formId, 'WORK_SPACE')+">");
+            arrHtml.push("<span colno='WORK_SPACE' class='"+ms.uiClass(formId, 'WORK_SPACE')+"' style='"+ms.uiStyle(formId, 'WORK_SPACE')+"' "+ms.uiEvent(formId, 'WORK_SPACE')+" title='"+ms.titleAttr(formId,'WORK_SPACE','IS_TITLE_ATTR',v)+"' >"+v['WORK_SPACE']+"</span>");
             arrHtml.push("</td>");
-            arrHtml.push("<td colno='WARE_HOUSE' name='noprintset_WARE_HOUSE' class='datagrid-cell  "+ms.tdClass(formId, 'WARE_HOUSE')+"' style='"+ms.tdStyle(formId, 'WARE_HOUSE')+"' "+ms.tdEvent(formId, 'WARE_HOUSE')+">")
-            arrHtml.push("<span colno='WARE_HOUSE' class='"+ms.uiClass(formId, 'WARE_HOUSE')+"' style='"+ms.uiStyle(formId, 'WARE_HOUSE')+"' "+ms.uiEvent(formId, 'WARE_HOUSE')+" title='"+ms.titleAttr(formId,'WARE_HOUSE','IS_TITLE_ATTR',v)+"' >"+v['WARE_HOUSE']+"</span>")
+            arrHtml.push("<td colno='WARE_HOUSE' name='noprintset_WARE_HOUSE' class='datagrid-cell  "+ms.tdClass(formId, 'WARE_HOUSE')+"' style='"+ms.tdStyle(formId, 'WARE_HOUSE')+"' "+ms.tdEvent(formId, 'WARE_HOUSE')+">");
+            arrHtml.push("<span colno='WARE_HOUSE' class='"+ms.uiClass(formId, 'WARE_HOUSE')+"' style='"+ms.uiStyle(formId, 'WARE_HOUSE')+"' "+ms.uiEvent(formId, 'WARE_HOUSE')+" title='"+ms.titleAttr(formId,'WARE_HOUSE','IS_TITLE_ATTR',v)+"' >"+v['WARE_HOUSE']+"</span>");
             arrHtml.push("</td>");
-            arrHtml.push("<td colno='ITEM_NUM' name='noprintset_ITEM_NUM' class='datagrid-cell  "+ms.tdClass(formId, 'ITEM_NUM')+"' style='"+ms.tdStyle(formId, 'ITEM_NUM')+"' "+ms.tdEvent(formId, 'ITEM_NUM')+">")
-            arrHtml.push("<span colno='ITEM_NUM' class='"+ms.uiClass(formId, 'ITEM_NUM')+"' style='"+ms.uiStyle(formId, 'ITEM_NUM')+"' "+ms.uiEvent(formId, 'ITEM_NUM')+" title='"+ms.titleAttr(formId,'ITEM_NUM','IS_TITLE_ATTR',v)+"' >"+v['ITEM_NUM']+"</span>")
+            arrHtml.push("<td colno='ITEM_NUM' name='noprintset_ITEM_NUM' class='datagrid-cell  "+ms.tdClass(formId, 'ITEM_NUM')+"' style='"+ms.tdStyle(formId, 'ITEM_NUM')+"' "+ms.tdEvent(formId, 'ITEM_NUM')+">");
+            arrHtml.push("<span colno='ITEM_NUM' class='"+ms.uiClass(formId, 'ITEM_NUM')+"' style='"+ms.uiStyle(formId, 'ITEM_NUM')+"' "+ms.uiEvent(formId, 'ITEM_NUM')+" title='"+ms.titleAttr(formId,'ITEM_NUM','IS_TITLE_ATTR',v)+"' >"+v['ITEM_NUM']+"</span>");
             arrHtml.push("</td>");
           
-            arrHtml.push("<td colno='PACK_NUM' name='noprintset_PACK_NUM' class='datagrid-cell  "+ms.tdClass(formId, 'PACK_NUM')+"' style='"+ms.tdStyle(formId, 'PACK_NUM')+"' "+ms.tdEvent(formId, 'PACK_NUM')+">")
-            arrHtml.push("<span colno='PACK_NUM' class='"+ms.uiClass(formId, 'PACK_NUM')+"' style='"+ms.uiStyle(formId, 'PACK_NUM')+"' "+ms.uiEvent(formId, 'PACK_NUM')+" title='"+ms.titleAttr(formId,'PACK_NUM','IS_TITLE_ATTR',v)+"' >"+v['PACK_NUM']+"</span>")
+            arrHtml.push("<td colno='PACK_NUM' name='noprintset_PACK_NUM' class='datagrid-cell  "+ms.tdClass(formId, 'PACK_NUM')+"' style='"+ms.tdStyle(formId, 'PACK_NUM')+"' "+ms.tdEvent(formId, 'PACK_NUM')+">");
+            arrHtml.push("<span colno='PACK_NUM' class='"+ms.uiClass(formId, 'PACK_NUM')+"' style='"+ms.uiStyle(formId, 'PACK_NUM')+"' "+ms.uiEvent(formId, 'PACK_NUM')+" title='"+ms.titleAttr(formId,'PACK_NUM','IS_TITLE_ATTR',v)+"' >"+v['PACK_NUM']+"</span>");
             arrHtml.push("</td>");
-            arrHtml.push("<td colno='EDIT_USER' name='noprintset_EDIT_USER' class='datagrid-cell  "+ms.tdClass(formId, 'EDIT_USER')+"' style='"+ms.tdStyle(formId, 'EDIT_USER')+"' "+ms.tdEvent(formId, 'EDIT_USER')+">")
-            arrHtml.push("<span colno='EDIT_USER' class='"+ms.uiClass(formId, 'EDIT_USER')+"' style='"+ms.uiStyle(formId, 'EDIT_USER')+"' "+ms.uiEvent(formId, 'EDIT_USER')+" title='"+ms.titleAttr(formId,'EDIT_USER','IS_TITLE_ATTR',v)+"' >"+v['EDIT_USER']+"</span>")
+            arrHtml.push("<td colno='EDIT_USER' name='noprintset_EDIT_USER' class='datagrid-cell  "+ms.tdClass(formId, 'EDIT_USER')+"' style='"+ms.tdStyle(formId, 'EDIT_USER')+"' "+ms.tdEvent(formId, 'EDIT_USER')+">");
+            arrHtml.push("<span colno='EDIT_USER' class='"+ms.uiClass(formId, 'EDIT_USER')+"' style='"+ms.uiStyle(formId, 'EDIT_USER')+"' "+ms.uiEvent(formId, 'EDIT_USER')+" title='"+ms.titleAttr(formId,'EDIT_USER','IS_TITLE_ATTR',v)+"' >"+v['EDIT_USER']+"</span>");
             arrHtml.push("</td>");
             
-            arrHtml.push("<td colno='EDIT_TIME' name='noprintset_EDIT_TIME' class='datagrid-cell  "+ms.tdClass(formId, 'EDIT_TIME')+"' style='"+ms.tdStyle(formId, 'EDIT_TIME')+"' "+ms.tdEvent(formId, 'EDIT_TIME')+">")
-            arrHtml.push("<span colno='EDIT_TIME' class='"+ms.uiClass(formId, 'EDIT_TIME')+"' style='"+ms.uiStyle(formId, 'EDIT_TIME')+"' "+ms.uiEvent(formId, 'EDIT_TIME')+" title='"+ms.titleAttr(formId,'EDIT_TIME','IS_TITLE_ATTR',v)+"' >"+v['EDIT_TIME']+"</span>")
+            arrHtml.push("<td colno='EDIT_TIME' name='noprintset_EDIT_TIME' class='datagrid-cell  "+ms.tdClass(formId, 'EDIT_TIME')+"' style='"+ms.tdStyle(formId, 'EDIT_TIME')+"' "+ms.tdEvent(formId, 'EDIT_TIME')+">");
+            arrHtml.push("<span colno='EDIT_TIME' class='"+ms.uiClass(formId, 'EDIT_TIME')+"' style='"+ms.uiStyle(formId, 'EDIT_TIME')+"' "+ms.uiEvent(formId, 'EDIT_TIME')+" title='"+ms.titleAttr(formId,'EDIT_TIME','IS_TITLE_ATTR',v)+"' >"+v['EDIT_TIME']+"</span>");
             arrHtml.push("</td>");
             arrHtml.push("</tr>")
         });

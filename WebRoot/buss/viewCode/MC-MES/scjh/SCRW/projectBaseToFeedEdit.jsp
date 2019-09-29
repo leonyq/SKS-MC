@@ -158,6 +158,7 @@
                                             <td id="ITEM_STOCK_${status.count}" class='datagrid-cell datagrid-cell-2' style="width:150px;">${item.ITEM_STOCK}</td>
                                             <td id="ITEM_LOT_${status.count}" class='datagrid-cell datagrid-cell-3' style="width:150px;">${item.ITEM_LOT}</td>
                                             <td id="ITEM_NUM_${status.count}" class='datagrid-cell datagrid-cell-4' style="width:150px;">${item.ITEM_NUM}</td>
+                                            <td id="ITEM_UNIT_${status.count}" class='datagrid-cell datagrid-cell-4' style="width:150px;">${item.ITEM_UNIT}</td>
                                             <td id="FEED_NUM_${status.count}" class='datagrid-cell datagrid-cell-4' style="width:150px;">${item.FEED_NUM}</td>
                                             <td id="THRESHOLD_NUM_${status.count}" class='datagrid-cell datagrid-cell-4' style="width:150px;">${item.THRESHOLD_NUM}</td>
                                             <td id="PROCESS_ORDER_${status.count}" class='datagrid-cell datagrid-cell-4' style="width:150px;">${item.ITEM_SEQ }</td>
@@ -235,6 +236,7 @@
         var itemStockArr = [];
         var itemLotkArr = [];
         var itemNumArr = [];
+        var itemUnitArr = [];
         var itemFeedNumArr = [];
         var itemNameArr = [];
         var wareHouseArr = [];
@@ -276,6 +278,16 @@
                 itemNumArr.push("");
             }
         });
+
+        $("td[id^='ITEM_UNIT_']").each(function (){
+            var cur = $(this).text();
+            if (cur != null) {
+                itemUnitArr.push(cur);
+            }else{
+                itemUnitArr.push("");
+            }
+        });
+
         //XX
         $("td[id^='FEED_NUM_']").each(function (){
             var cur = $(this).text();
@@ -347,6 +359,9 @@
 
                 $("#paraMap"+(i+1)+"_ITEM_NUM").val(itemNumArr[i]);
                 $("#paraMap"+(i+1)+"_ITEM_NUM").css("background-color","rgb(173, 236, 178)");
+
+                $("#paraMap"+(i+1)+"_ITEM_UNIT").val(itemUnitArr[i]);
+                $("#paraMap"+(i+1)+"_ITEM_UNIT").css("background-color","rgb(173, 236, 178)");
 
                 $("#paraMap"+(i+1)+"_FEED_NUM").val(itemFeedNumArr[i]);
                 $("#paraMap"+(i+1)+"_FEED_NUM").attr("autocomplete","off");
@@ -595,6 +610,7 @@
         var stockCodeArr = [];
         var stockCodeArr = [];
         var itemNumArr = [];
+        var itemUnitArr = [];
         var feedNumArr = [];
         var rawLotArr = [];
         var processOrderArr = [];
@@ -665,6 +681,15 @@
             }
         });
 
+        $("input[id$='_ITEM_UNIT']").each(function () {
+            var cur = $(this).val();
+            if (cur != null) {
+                itemUnitArr.push(cur);
+            } else {
+                itemUnitArr.push("");
+            }
+        });
+
         $("input[id$='_FEED_NUM']").each(function () {
             var cur = $(this).val();
             if (cur != "") {
@@ -703,6 +728,7 @@
             "&ITEM_CODE=" + itemCodeArr.join(",")+
             "&STOCK_CODE=" + stockCodeArr.join(",")+
             "&ITEM_NUM=" +itemNumArr.join(",")+
+            "&ITEM_UNIT=" +itemUnitArr.join(",")+
             "&FEED_NUM=" +feedNumArr.join(",")+
             "&RAW_LOTNUMBER=" +rawLotArr.join(",")+
             "&PROCESS_ORDER="+processOrderArr.join(",")+

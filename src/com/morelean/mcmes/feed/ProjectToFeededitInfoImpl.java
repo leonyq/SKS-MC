@@ -67,23 +67,23 @@ public class ProjectToFeededitInfoImpl implements FuncService {
                 " WHERE 1 = 1 " +
                 "   AND A.project_id  = ? order by F.PROCESS_ORDER";*/
         String feedDetailSql = "select A.ITEM_CODE,"+
-                             " D.STOCK_CODE AS ITEM_STOCK,"+
-                             " A.ITEM_NUM,"+
-                             " A.FEED_NUM,"+
-                             " A.RAW_LOTNUMBER AS ITEM_LOT,"+
-                             " A.PROCESS_ORDER  AS ITEM_ORDER,"+
-                             "  D.CI_ITEM_NAME  AS ITEM_NAME,"+
-                             "  A.WORK_SPACE AS FACTORY_CODE,"+
-                             " A.WORK_SPACE,"+
-                             " T.PRODUCT_LINE  AS WORK_STATION,"+
-                             "  A.WAREHOUSE AS WARE_HOUSE "+
-                             " from T_PM_PROJECT_FEED_DETAIL A "+
-                             " left join T_CO_ITEM D "+
-                             "  ON A.ITEM_CODE = D.CI_ITEM_CODE "+
-                             " LEFT JOIN T_PM_PROJECT_BASE T ON T.PROJECT_ID = A.PROJECT_ID "+
-                             "  where 1=1 "+
-                             " AND A.project_id = ? "+
-                             " order by A.PROCESS_ORDER";
+                " D.STOCK_CODE AS ITEM_STOCK,"+
+                " A.ITEM_NUM,"+
+                " A.FEED_NUM,"+
+                " A.RAW_LOTNUMBER AS ITEM_LOT,"+
+                " A.PROCESS_ORDER  AS ITEM_ORDER,"+
+                "  D.CI_ITEM_NAME  AS ITEM_NAME,"+
+                "  A.WORK_SPACE AS FACTORY_CODE,"+
+                " A.WORK_SPACE,"+
+                " T.PRODUCT_LINE  AS WORK_STATION,"+
+                "  A.WAREHOUSE AS WARE_HOUSE "+
+                " from T_PM_PROJECT_FEED_DETAIL A "+
+                " left join T_CO_ITEM D "+
+                "  ON A.ITEM_CODE = D.CI_ITEM_CODE "+
+                " LEFT JOIN T_PM_PROJECT_BASE T ON T.PROJECT_ID = A.PROJECT_ID "+
+                "  where 1=1 "+
+                " AND A.project_id = ? "+
+                " order by TO_NUMBER(A.PROCESS_ORDER) ASC ";
         List<Map<String, Object>> list = modelService.listDataSql(feedDetailSql, new Object[]{projectId});
 
         //  int countSql = modelService.countSql(feedDetailSql, new Object[]{projectId});

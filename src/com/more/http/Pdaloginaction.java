@@ -164,10 +164,9 @@ String name = StringUtils.toString(service.getParamTo().get("name"));
   /**
      * 发送Http post请求
      * 
-     * @param xmlInfo
+     * @param:xmlInfo
      *            json转化成的字符串
-     * @param URL
-     *            请求url
+     * @param:URL 请求url
      * @return 返回信息
      */
      public static String encrypt(String pw){

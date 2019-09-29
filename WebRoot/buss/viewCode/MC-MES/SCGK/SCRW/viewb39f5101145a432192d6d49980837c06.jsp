@@ -244,9 +244,9 @@
 
                                 <tr>
                                     <td class="name"/>
-                                    <bu:uitn colNo="PRODUCT_MATERIAL_VER" formId="d34c8f48bead40d88c24a153c731de82"/>                                            </td>
-                                    <bu:td cssClass="dec" colNo="PRODUCT_MATERIAL_VER" formId="d34c8f48bead40d88c24a153c731de82">
-                                        <bu:ui colNo="PRODUCT_MATERIAL_VER" formId="d34c8f48bead40d88c24a153c731de82" dataId="${dataId}" cssClass="isSubmit input" disabled="disabled" formIndex="0" style="width:200px"/>
+                                    <bu:uitn colNo="LOT_NUMBER" formId="d34c8f48bead40d88c24a153c731de82"/>                                            </td>
+                                    <bu:td cssClass="dec" colNo="LOT_NUMBER" formId="d34c8f48bead40d88c24a153c731de82">
+                                        <bu:ui colNo="LOT_NUMBER" formId="d34c8f48bead40d88c24a153c731de82" dataId="${dataId}" cssClass="isSubmit input" disabled="disabled" formIndex="0" style="width:200px"/>
                                     </bu:td>
 
 
@@ -261,8 +261,6 @@
                                     <bu:td cssClass="dec" colNo="PROJECT_TYPE" formId="d34c8f48bead40d88c24a153c731de82">
                                         <bu:ui colNo="PROJECT_TYPE" formId="d34c8f48bead40d88c24a153c731de82" dataId="${dataId}" cssClass="isSubmit input" disabled="disabled" formIndex="0" style="width:200px"/>
                                     </bu:td>
-
-
                                 </tr>
                                 <tr>
                                     <td class="name"/>

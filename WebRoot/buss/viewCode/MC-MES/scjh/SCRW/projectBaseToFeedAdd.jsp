@@ -26,7 +26,6 @@
 
     <!-- 产品静态资源 -->
 
-
 </head>
 <body style="overflow:auto;">
 <div class="edit">
@@ -47,7 +46,6 @@
                     <s:select list="deptLs" headerKey="" headerValue='--%{getText("请选择")}--' listKey="id" listValue="name" value="" name="_DATA_AUTH" id="deptLs_data_auth" cssStyle="width: 200px;" cssClass="_VAL_NULL dept_select"/>
                 </s:else> </s:if>
 
-
             </div>
             <div class="optn">
                 <%--<button type="button" onclick="add(this,'<c:out value="${formId}"/>');">--%>
@@ -58,7 +56,6 @@
                     <i class="ico ico-cancel"></i> <dict:lang value="取消"/>
                 </button>
             </div>
-
         </div>
         <div class="bd">
 
@@ -204,6 +201,7 @@
                                             <td id="ITEM_STOCK_${status.count}" class='datagrid-cell datagrid-cell-2' style="width:150px;">${item.ITEM_STOCK}</td>
                                             <td id="ITEM_LOT_${status.count}" class='datagrid-cell datagrid-cell-3' style="width:150px;">${item.ITEM_LOT}</td>
                                             <td id="ITEM_NUM_${status.count}" class='datagrid-cell datagrid-cell-4' style="width:150px;">${item.ITEM_NUM}</td>
+                                            <td id="ITEM_UNIT_${status.count}" class='datagrid-cell datagrid-cell-4' style="width:150px;">${item.ITEM_UNIT}</td>
                                             <td id="THRESHOLD_NUM_${status.count}" class='datagrid-cell datagrid-cell-5' style="width:150px; display:none">${item.THRESHOLD_NUM}</td>
                                             <td id="ITEM_NAME_${status.count}" class='datagrid-cell datagrid-cell-6' style="width:150px; display:none">${item.ITEM_NAME}</td>
                                             <td id="PROCESS_ORDER_${status.count}" class='datagrid-cell datagrid-cell-7' style="width:150px; display:none">${item.PROCESS_ORDER}</td>
@@ -301,6 +299,7 @@
         var itemStockArr = [];
         var itemLotkArr = [];
         var itemNumArr = [];
+        var itemUnitArr = [];
         var thresholdNumArr = [];
         var itemNameArr = [];
 
@@ -371,6 +370,15 @@
             }
         });
 
+        $("td[id^='ITEM_UNIT']").each(function () {
+            var cur = $(this).text();
+            if (cur != null) {
+                itemUnitArr.push(cur);
+            } else {
+                itemUnitArr.push("");
+            }
+        });
+
         $("td[id^='THRESHOLD_NUM_']").each(function () {
             var cur = $(this).text();
             if (cur != null) {
@@ -403,6 +411,9 @@
 
                 $("#paraMap" + (i + 1) + "_ITEM_NUM").val(itemNumArr[i]);
                 $("#paraMap" + (i + 1) + "_ITEM_NUM").css("background-color", "rgb(225, 251, 227)");
+
+                $("#paraMap" + (i + 1) + "_ITEM_UNIT").val(itemUnitArr[i]);
+                $("#paraMap" + (i + 1) + "_ITEM_UNIT").css("background-color", "rgb(225, 251, 227)");
 
                 $("#paraMap" + (i + 1) + "_THRESHOLD_NUM").val(thresholdNumArr[i]);
                 $("#paraMap" + (i + 1) + "_THRESHOLD_NUM").css("background-color", "rgb(225, 251, 227)");
@@ -569,6 +580,7 @@
         var itemCodeArr = [];
         var stockCodeArr = [];
         var itemNumArr = [];
+        var itemUnitArr = [];
         var feedNumArr = [];
         var rawLotArr = [];
 
@@ -635,6 +647,15 @@
             }
         });
 
+        $("input[id$='_ITEM_UNIT']").each(function () {
+            var cur = $(this).val();
+            if (cur != null) {
+                itemUnitArr.push(cur);
+            } else {
+                itemUnitArr.push("");
+            }
+        });
+
         $("input[id$='_FEED_NUM']").each(function () {
             var cur = $(this).val();
             if (cur != null) {
@@ -669,6 +690,7 @@
             "&ITEM_CODE=" + itemCodeArr.join(",") +
             "&STOCK_CODE=" + stockCodeArr.join(",") +
             "&ITEM_NUM=" + itemNumArr.join(",") +
+            "&ITEM_UNIT=" + itemUnitArr.join(",") +
             "&FEED_NUM=" + feedNumArr.join(",") +
             "&RAW_LOTNUMBER=" + rawLotArr.join(",") +
             "&PROCESS_ORDER=" + processOrderArr.join(",") +
@@ -808,10 +830,12 @@
             var cur = $(this).val();
             if (cur != null) {
                 arr.push(cur);
-                count = parseInt(count) + parseInt(cur);
+                // count = parseInt(count) + parseInt(cur);
+                count = parseFloat(count) + parseFloat(cur);
+
             } else {
                 arr.push("");
-                count = parseInt(count) + parseInt(0);
+                count = parseFloat(count) + parseFloat(0);
             }
         });
 
@@ -907,6 +931,13 @@
         //calItemNum();
         calFeedCount();
         calFeedTimes();
+        $("input[id$='_FEED_NUM']").keyup(function (event) {
+            cursorMovement(this, event);
+            onlyNumber(this);
+        });
+        $("input[id$='_RAW_LOTNUMBER']").keyup(function () {
+            currawMovement(this, event);
+        });
     }
 
     /*  function checkMan(obj){

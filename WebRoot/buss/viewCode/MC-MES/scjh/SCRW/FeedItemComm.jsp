@@ -58,7 +58,7 @@
                         <tr>
                             <td>
                                 <div class="group" style="width:300px;">
-                                    <div class="name" title="等于"><dict:lang value="物料编码"/></div>
+                                    <div class="name" title="等于"><dict:lang value="物料编码2"/></div>
                                     <div class="dec" style="width:200px;">
                                         <input class="input inputsd" id="ciItemCode" name="paraMap2.ciItemCode" style="width:200px;">
                                     </div>
@@ -66,7 +66,7 @@
                             </td>
                             <td>
                                 <div class="group" style="width:300px;">
-                                    <div class="name" title="等于"><dict:lang value="物料名称"/></div>
+                                    <div class="name" title="等于"><dict:lang value="物料名称2"/></div>
                                     <div class="dec" style="width:200px;">
                                         <input class="input inputsd" id="ciItemName" name="paraMap2.ciItemName" style="width:200px;">
                                     </div>
@@ -76,7 +76,7 @@
                         <tr>
                             <td>
                                 <div class="group" style="width:300px;">
-                                    <div class="name" title="等于"><dict:lang value="物料规格"/></div>
+                                    <div class="name" title="等于"><dict:lang value="物料规格2"/></div>
                                     <div class="dec" style="width:200px;">
                                         <input class="input inputsd" id="ciItemSpec" name="paraMap2.ciItemSpec" style="width:200px;">
                                     </div>

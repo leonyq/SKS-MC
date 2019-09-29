@@ -34,8 +34,8 @@ public class ProjectReportIntfImpl extends InterfaceLog implements IhttpServiceJ
     private ModelService modelService = (ModelService) SpringContextUtil.getBean("modelService");
 
 //    private final String host = "http://phantomsaber.picp.io:53763";
-//     private final String host = "http://10.10.80.193:8080";
-    private final String host = "http://localhost:8080";
+     private final String host = "http://10.10.80.193:8080";
+//    private final String host = "http://localhost:8080";
 
     private final String reportPath = "/sks-wss-ssm/webservice/ProjectReportIntfImpl?wsdl";
     private final String reportUrl = host + reportPath;
@@ -82,6 +82,7 @@ public class ProjectReportIntfImpl extends InterfaceLog implements IhttpServiceJ
                     map.put("SFLAG", sflag);
                     map.put("MESSAGE", message);
                 }
+
             }
             String jsonStr = PdaService.MapToJson(map);
             resultMap.put("json", jsonStr);
@@ -171,13 +172,13 @@ public class ProjectReportIntfImpl extends InterfaceLog implements IhttpServiceJ
                 }
             }
         }
-
-        jsonMap.put(sflag, message);
+        jsonMap.put("SFLAG", sflag);
+        jsonMap.put("MESSAGE", message);
         return jsonMap;
     }
 
     private String getSflag(String json) {
-        return analysisJson(json).toString();
+        return analysisJson(json).get("SFLAG");
     }
 
     private String getMessage(String json) {

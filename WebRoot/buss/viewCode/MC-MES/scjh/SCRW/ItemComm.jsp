@@ -29,7 +29,7 @@
                             <tr>
                                 <td width="100%" align="right">
                                     <button type="button" value="" onclick="backFill('${paraMap.popId}pop','${paraMap.popId}shadow','${paraMap.thisId }');" sytle="" class="botton_img_add">
-                                        <i class="ico ico-kl "></i> <dict:lang value="提交"/>
+                                        <i class="ico ico-kl "></i> <dict:lang value="提交1"/>
                                     </button>
                                     <button type="button" value="" onclick="clearSel('${paraMap.popId}pop','${paraMap.popId}shadow','${paraMap.thisId }');" sytle="" class="botton_img_add">
                                         <i class="ico ico-xg "></i> <dict:lang value="清空"/>
@@ -58,9 +58,9 @@
                         <tr>
                             <td>
                                 <div class="group" style="width:300px;">
-                                    <div class="name" title="等于"><dict:lang value="物料编码"/></div>
+                                    <div class="name" title="等于"><dict:lang value="物料编码1"/></div>
                                     <div class="dec" style="width:200px;">
-                                        <input class="input inputsd" id="ciItemCode" name="paraMap2.ciItemCode" style="width:200px;">
+                                        <input class="input inputsd" id="ciItemCode" name="paraMap2.ciItemCode" style="width:200px;" onkeyup="searchOpen();">
                                     </div>
                                 </div>
                             </td>
@@ -68,7 +68,7 @@
                                 <div class="group" style="width:300px;">
                                     <div class="name" title="等于"><dict:lang value="物料名称"/></div>
                                     <div class="dec" style="width:200px;">
-                                        <input class="input inputsd" id="ciItemName" name="paraMap2.ciItemName" style="width:200px;">
+                                        <input class="input inputsd" id="ciItemName" name="paraMap2.ciItemName" style="width:200px;" onkeyup="searchOpen();">
                                     </div>
                                 </div>
                             </td>
@@ -78,7 +78,7 @@
                                 <div class="group" style="width:300px;">
                                     <div class="name" title="等于"><dict:lang value="物料规格"/></div>
                                     <div class="dec" style="width:200px;">
-                                        <input class="input inputsd" id="ciItemSpec" name="paraMap2.ciItemSpec" style="width:200px;">
+                                        <input class="input inputsd" id="ciItemSpec" name="paraMap2.ciItemSpec" style="width:200px;" onkeyup="searchOpen();">
                                     </div>
                                 </div>
                             </td>
@@ -86,7 +86,7 @@
                                 <div class="group" style="width:300px;">
                                     <div class="name" title="等于"><dict:lang value="存货代码"/></div>
                                     <div class="dec" style="width:200px;">
-                                        <input class="input inputsd" id="ciStockCode" name="paraMap2.ciStockCode" style="width:200px;">
+                                        <input class="input inputsd" id="ciStockCode" name="paraMap2.ciStockCode" style="width:200px;" onkeyup="searchOpen();">
                                     </div>
                                 </div>
                             </td>
@@ -115,11 +115,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="center"><c:choose> <c:when test="${isFullScreen==1}">
-                    <s:include value="/plf/page/fp/paginationAx.jsp?listDataFn=getDataTable&formId=formId1&showLoading=0"/>
-                </c:when> <c:otherwise>
-                    <s:include value="/plf/page/fp/paginationPopAx.jsp?listDataFn=getDataTable&formId=formId1&showLoading=0"/>
-                </c:otherwise> </c:choose></div>
+                <div class="center">
+                    <c:choose> <c:when test="${isFullScreen==1}">
+                        <s:include value="/plf/page/fp/paginationAx.jsp?listDataFn=getDataTable&formId=formId1&showLoading=0"/>
+                    </c:when> <c:otherwise>
+                        <s:include value="/plf/page/fp/paginationPopAx.jsp?listDataFn=getDataTable&formId=formId1&showLoading=0"/>
+                    </c:otherwise> </c:choose>
+                </div>
+            </form>
         </div>
 
     </div>
@@ -164,12 +167,20 @@
         var isFirstLoad = firstLoadThisPage(paginationImpl);
         var currentPage = isFirstLoad ? 1 : _GLO_FORM_PAGE_MAP[paginationImpl].currentPage;
         var pageRecord = isFirstLoad ? 20 : _GLO_FORM_PAGE_MAP[paginationImpl].pageRecord;
+
+        var itemCode = $("#ciItemCode").val();
+        var itemName = $("#ciItemName").val();
+        var itemSpec = $("#ciItemSpec").val();
+        var stockCode = $("#ciStockCode").val();
+
+
         util.showLoading("处理中...");
         $.ajax({
             type: "POST",
             dataType: "json",
             url: url,
-            data: $("#searchForm").serialize() + "&page.currentPage=" + currentPage + "&page.pageRecord=" + pageRecord,
+            data: $("#searchForm").serialize() + "&page.currentPage=" + currentPage + "&page.pageRecord=" + pageRecord
+            + "&item_code=" + itemCode + "&item_name=" + itemName + "&item_spec=" + itemSpec + "&stock_code=" + stockCode,
             success: function (data) {
                 var arrDataList = JSON.parse(data.ajaxString);
                 if (isFirstLoad) {
@@ -328,10 +339,12 @@
     function searchOpen() {
         getDataTable("formId1");
     }
+
     // 执行自定义脚本
     function executeJs(javaScriptFun) {
         eval(javaScriptFun);
     }
+
     function initPage(page) {
         var ajaxPage = {};
         ajaxPage.currentPage = parseInt(page.currentPage);
@@ -342,6 +355,7 @@
         ajaxPage.last = page.last;
         showPageBar(ajaxPage, "formId1");
     }
+
     getDataTable("formId1");
 
     $(function () {
@@ -393,8 +407,7 @@
             $('.hideTr').css('display', 'block');
             $(this).css('background', 'url(../mes/plf/page/fp/img/ico-s-more-h.png) no-repeat')
         }
-
-    })
+    });
 
 </script>
 

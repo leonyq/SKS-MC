@@ -13,6 +13,7 @@ import com.more.mes.pda.service.PdaService;
 import org.apache.axis.client.Call;
 import org.apache.axis.client.Service;
 import org.apache.axis.encoding.XMLType;
+import org.apache.batik.util.ParsedURLData;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -38,16 +39,25 @@ public class ProjectPostPackIntfImpl extends InterfaceLog implements IhttpServic
 
     private final String host = "http://10.10.80.193:8080";
 
-    private final String postPackPath = "/sks-wss-ssm/webservice/ProjectPostPackIntfImpl?wsdl";
+    private final String postPath = "/sks-wss-ssm/webservice/ProjectPostPackIntfImpl?wsdl";
     private final String feedPath = "/sks-wss-ssm/webservice/ProjectFeedIntfImpl?wsdl";
     private final String packFeedPath = "/sks-wss-ssm/webservice/ProjectPackFeedIntfImpl?wsdl";
 
-    private final String postPackUrl = host + postPackPath;
+    //缴库
+    private final String postUrl = host + postPath;
+
+    //投料
     private final String feedUrl = host + feedPath;
     private final String packFeedUrl = host + packFeedPath;
 
     private final String funcName = "ajaxExecByIds";
     private final String paramName = "idsJson";
+
+    private final static String PACKORDER = "2";
+
+    private final static String ERROR = "N";
+    private final static String SUCCESS = "Y";
+
 
 
     @Override
@@ -68,70 +78,66 @@ public class ProjectPostPackIntfImpl extends InterfaceLog implements IhttpServic
                 Map sortMap = modelService.queryForMap(sql, new Object[]{cur});
                 String projectSort = sortMap.get("PROJECT_SORT").toString();
 
-                Map<String, String> feedMap = execAjaxByIds(dataIdJson, feedUrl);
-                Map<String, String> packFeedMap = new HashMap<>();
-                Map<String, String> postPackMap = new HashMap<>();
+                Map<String, String> feedMap = new HashMap<>();
+                /**
+                 * 工单投料
+                 */
+                if(PACKORDER.equals(projectSort) || projectSort == PACKORDER){
+                    feedMap = execAjaxByIds(dataIdJson, packFeedUrl);
+                }else{
+                    feedMap = execAjaxByIds(dataIdJson, feedUrl);
+                }
 
-                String sflagFeed = null;
-                String messageFeed = null;
+                Map<String, String> postMap = execAjaxByIds(dataIdJson,postUrl);
+
+                //投料接口返回
+                String feedFlag = null;
+                String feedMsg = null;
+
+                //缴库接口返回
+                String postFlag = null;
+                String postMsg = null;
+
                 try {
-                    sflagFeed = getSflag(feedMap.get("json"));
-                    messageFeed = getMessage(feedMap.get("json"));
+                    feedFlag = getSflag(feedMap.get("json"));
+                    feedMsg = getMessage(feedMap.get("json"));
                 } catch (Exception e) {
-                    sflagFeed = null;
-                    messageFeed = null;
+                    feedFlag = "N";
+                    feedMsg = "投料失败,"+e.getMessage();
                 }
 
-                String sflagPack = null;
-                String sflagPost = null;
+                try {
+                    postFlag = getSflag(feedMap.get("json"));
+                    postMsg = getMessage(feedMap.get("json"));
+                } catch (Exception e) {
+                    postFlag = "N";
+                    postMsg = "缴库失败,"+e.getMessage();
+                }
 
-                String messagePack = null;
-                String messagePost = null;
-                if(!("Y".equalsIgnoreCase(sflagFeed)) && sflagFeed != "Y"){
-                    if("2".equals(projectSort) || projectSort == "2"){
-                        packFeedMap = execAjaxByIds(dataIdJson, packFeedUrl);
-                        sflagPack = getSflag(packFeedMap.get("json"));
-                        messagePack = getMessage(packFeedMap.get("json"));
-                        if(!("N".equalsIgnoreCase(sflagPack)) && sflagPack != "N"){
-                            postPackMap = execAjaxByIds(dataIdJson, postPackUrl);
-                            sflagPost = getSflag(postPackMap.get("json"));
-                            messagePost = getMessage(postPackMap.get("json"));
-                        }
-                    }
+                /**
+                 * 根据返回结果更新记录
+                 */
+                String updatePost = " UPDATE T_PM_PROJECT_POST A SET A.SFLAG = ?, A.MESSAGE = ? WHERE 1=1 AND A.ID = ? ";
+                String updateFlag = feedFlag;
+                String updateMsg = feedMsg + "|" + postMsg;
+
+                if(ERROR.equalsIgnoreCase(postFlag) || postFlag == ERROR ){
+                    updateFlag = postFlag;
                 }else{
-                    postPackMap = execAjaxByIds(dataIdJson, postPackUrl);
-                    sflagPost = getSflag(postPackMap.get("json"));
-                    messagePost = getMessage(postPackMap.get("json"));
-                }
-
-                if(!("N".equalsIgnoreCase(sflagFeed)) && sflagFeed != "N"){
-                    if(!("N".equalsIgnoreCase(sflagPack)) && sflagPack != "N"){
-                        if(!("N".equalsIgnoreCase(sflagPost)) && sflagPost != "N"){
-                            String updatePost = " UPDATE T_PM_PROJECT_POST A SET A.SFLAG = ?, A.MESSAGE = ? WHERE 1=1 AND A.ID = ? ";
-                            modelService.execSql(updatePost, new Object[]{sflagPost,messagePost, cur});
-//                            map.put("resultMap", StringEscapeUtils.unescapeJava(JSON.toJSONString(postPackMap)));
-                            map.put("SFLAG", sflagPost);
-                            map.put("MESSAGE", messagePost);
-                        }else{
-                            String updatePost = " UPDATE T_PM_PROJECT_POST A SET A.SFLAG = ?, A.MESSAGE = ? WHERE 1=1 AND A.ID = ? ";
-                            modelService.execSql(updatePost, new Object[]{sflagPost,messagePost, cur});
-//                            map.put("resultMap", StringEscapeUtils.unescapeJava(JSON.toJSONString(postPackMap)));
-                            map.put("SFLAG", sflagPost);
-                            map.put("MESSAGE", messagePost);
-                        }
+                    if(ERROR.equalsIgnoreCase(feedFlag) || feedFlag == ERROR){
+                        updateFlag = feedFlag;
                     }else{
-                        String updatePost = " UPDATE T_PM_PROJECT_POST A SET A.SFLAG = ?, A.MESSAGE = ? WHERE 1=1 AND A.ID = ? ";
-                        modelService.execSql(updatePost, new Object[]{sflagPack,messagePack, cur});
-//                        map.put("resultMap", StringEscapeUtils.unescapeJava(JSON.toJSONString(postPackMap)));
-                        map.put("SFLAG", sflagPack);
-                        map.put("MESSAGE", messagePack);
+                        updateFlag = postFlag;
                     }
-                }else{
-                    String updatePost = " UPDATE T_PM_PROJECT_POST A SET A.SFLAG = 'N', A.MESSAGE = ? WHERE 1=1 AND A.ID = ? ";
-                    modelService.execSql(updatePost, new Object[]{messageFeed, cur});
-//                    map.put("resultMap", StringEscapeUtils.unescapeJava(JSON.toJSONString(feedMap)));
-                    map.put("SFLAG", sflagFeed);
-                    map.put("MESSAGE", messageFeed);
+                }
+
+                try {
+                    modelService.execSql(updatePost, new Object[]{updateFlag,updateMsg, cur});
+                    map.put("SFLAG", updateFlag);
+                    map.put("MESSAGE", updateMsg);
+                } catch (Exception e) {
+                    map.put("SFLAG", updateFlag);
+                    map.put("MESSAGE", updateMsg);
                 }
             }
 

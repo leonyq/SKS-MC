@@ -1,26 +1,26 @@
-<%@page language="java" errorPage="/plf/error.jsp" pageEncoding="UTF-8" contentType="text/html;charset=UTF-8"%>
-<%@ include file="/plf/common/pub_tag.jsp"%>
-<%@page import="com.more.fw.core.staticresource.PlfStaticRes"%>
+<%@page language="java" errorPage="/plf/error.jsp" pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" %>
+<%@ include file="/plf/common/pub_tag.jsp" %>
+<%@page import="com.more.fw.core.staticresource.PlfStaticRes" %>
 <!-- 页面加载前 -->
 <jsp:include page="/plf/page/mesdemo/commCode/commCode.jsp">
-    <jsp:param name="modelName" value="VIEW_TYPE_10" />
-    <jsp:param name="location" value="beforePageLoad" />
+    <jsp:param name="modelName" value="VIEW_TYPE_10"/>
+    <jsp:param name="location" value="beforePageLoad"/>
 </jsp:include>
 <head>
-    <%@ include file="/plf/common/pub_meta.jsp"%>
-    <title><dict:lang value="新增" />
+    <%@ include file="/plf/common/pub_meta.jsp" %>
+    <title><dict:lang value="新增"/>
     </title>
     <jsp:include page="/plf/common/fp/pub_head_fp.jsp">
-        <jsp:param name="popDivWinFp" value="1" />
-        <jsp:param name="datePicker" value="1" />
-        <jsp:param name="chosen" value="1" />
+        <jsp:param name="popDivWinFp" value="1"/>
+        <jsp:param name="datePicker" value="1"/>
+        <jsp:param name="chosen" value="1"/>
     </jsp:include>
-    <%@ include file="/plf/page/common/buss/addCommJs.jsp"%>
-    <%@ include file="/plf/page/common/buss/bussCommJs.jsp"%>
-    <script type = "text/javascript" src = "${path}plf/js/ui/include.js?_mc_res_version=<%=PlfStaticRes.PlfJsUi_Include_js %>"></script>
+    <%@ include file="/plf/page/common/buss/addCommJs.jsp" %>
+    <%@ include file="/plf/page/common/buss/bussCommJs.jsp" %>
+    <script type="text/javascript" src="${path}plf/js/ui/include.js?_mc_res_version=<%=PlfStaticRes.PlfJsUi_Include_js %>"></script>
     <jsp:include page="/plf/page/mesdemo/commCode/commCode.jsp">
-        <jsp:param name="modelName" value="VIEW_TYPE_10" />
-        <jsp:param name="location" value="inHead" />
+        <jsp:param name="modelName" value="VIEW_TYPE_10"/>
+        <jsp:param name="location" value="inHead"/>
     </jsp:include>
     <!-- head里面 -->
 
@@ -51,7 +51,6 @@
             </div>
 
 
-
             <div class="optn">
                 <button type="button" onclick="doSave();"><i class="ico ico-save"></i><dict:lang value="保存"/></button>
                 <button type="button" onclick="closeWindow();"><i class="ico ico-cancel"></i><dict:lang value="取消"/>
@@ -62,18 +61,18 @@
         <div class="bd">
 
             <jsp:include page="/plf/page/mesdemo/commCode/commCode.jsp">
-                <jsp:param name="modelName" value="VIEW_TYPE_10" />
-                <jsp:param name="location" value="addForm" />
+                <jsp:param name="modelName" value="VIEW_TYPE_10"/>
+                <jsp:param name="location" value="addForm"/>
             </jsp:include>
-            <bu:set name="paraMapObj" value="${dataId}" formId="b36254ac37e74240b1528d44627b6a84" type="add" />
-            <table class="basic-table" >
-                <input type="hidden" name="formIds" value="b36254ac37e74240b1528d44627b6a84" />
-                <input type="hidden" id="prefixInd" name="b36254ac37e74240b1528d44627b6a84" value="paraMap1@" />
-                <input type="hidden"  name="paraMap1@__LEVEL__" value="1" />
-                <input type="hidden" name="paraMap1@__DATA_COUNT__" value="1" />
-                <s:set name="_$viewId" value="'b4c11c874315446aa80cb82883a392ee'" />
-                <s:set name="_$formId_1" value="'b36254ac37e74240b1528d44627b6a84'" />
-                <s:set name="_$type" value="'add'" />
+            <bu:set name="paraMapObj" value="${dataId}" formId="b36254ac37e74240b1528d44627b6a84" type="add"/>
+            <table class="basic-table">
+                <input type="hidden" name="formIds" value="b36254ac37e74240b1528d44627b6a84"/>
+                <input type="hidden" id="prefixInd" name="b36254ac37e74240b1528d44627b6a84" value="paraMap1@"/>
+                <input type="hidden" name="paraMap1@__LEVEL__" value="1"/>
+                <input type="hidden" name="paraMap1@__DATA_COUNT__" value="1"/>
+                <s:set name="_$viewId" value="'b4c11c874315446aa80cb82883a392ee'"/>
+                <s:set name="_$formId_1" value="'b36254ac37e74240b1528d44627b6a84'"/>
+                <s:set name="_$type" value="'add'"/>
                 <tr>
                     <!--   <td class="name-four"/>
                     <span class="dot">*</span>
@@ -85,7 +84,7 @@
                     <span class="dot">*</span>
                     工单号</td>
                     <bu:td cssClass="dec" colNo="PROJECT_ID" formId="734fa2159c4344848a3c1b5584c17b2b" colspan="">
-                        <input type="text" id="paraMap1_PROJECT_ID" name="paraMap1_PROJECT_ID" autocomplete="off" value="" class="input isSubmit " style="width:230px;" save_mark="0"  onkeydown="addSplit(event);"> </bu:td>
+                        <input type="text" id="paraMap1_PROJECT_ID" name="paraMap1_PROJECT_ID" autocomplete="off" value="" class="input isSubmit " style="width:230px;" save_mark="0" onkeydown="addSplit(event);"> </bu:td>
 
 
                     <td class="name-four"/>
@@ -172,38 +171,39 @@
                         <textarea id="paraMap1_T5#PM_MEMO" name="paraMap1@0#T5#PM_MEMO" value="" class=" input_textarea isSubmit  _VAL_OjbsData" readonly="readonly" save_mark="0" style="margin: 0px; width: 844px; height: 30px;"></textarea> </bu:td>
                 </tr>
             </table>
-            <bu:jsVal formId="b36254ac37e74240b1528d44627b6a84" formIndex="1" />		<div style="padding:1px;"></div>
+            <bu:jsVal formId="b36254ac37e74240b1528d44627b6a84" formIndex="1"/>
+            <div style="padding:1px;"></div>
 
-            <div class="mod" >
+            <div class="mod">
                 <div class="mod-hd">
-                    <h3 class="tit"><dict:lang value="投料明细表单" /></h3>
+                    <h3 class="tit"><dict:lang value="投料明细表单"/></h3>
                     <div class="extend-btn" style="float: right;margin-top:15px;">
-                        <button type="button" onclick="_addRowExtend('92c585de53ff4e9f879b4e4bc0c16e8f','2','','','');" style="padding:0;" title="<dict:lang value="添加" />">   <i class="ico ico-kl-new-add ico-small"></i>
+                        <button type="button" onclick="_addRowExtend('92c585de53ff4e9f879b4e4bc0c16e8f','2','','','');" style="padding:0;" title="<dict:lang value="添加" />">
+                            <i class="ico ico-kl-new-add ico-small"></i>
                         </button>
-                        <button type="button" onclick="_delRowExtend('92c585de53ff4e9f879b4e4bc0c16e8f','');"     style="padding:0"   title="<dict:lang value="移除" /> " >   <i class="ico ico-sc-new-add ico-small"></i>
+
+                        <button type="button" onclick="_delRowExtend('92c585de53ff4e9f879b4e4bc0c16e8f','');" style="padding:0" title="<dict:lang value="移除" /> ">
+                            <i class="ico ico-sc-new-add ico-small"></i>
                         </button>
                     </div>
                 </div>
-                <div class="mod-bd" >
+                <div class="mod-bd">
                     <div class="panel datagrid datagrid-div1">
-                        <div class="datagrid-div2 datagrid-div6 datagrid-view" onscroll="ajaxTableScroll(this,'92c585de53ff4e9f879b4e4bc0c16e8f')"   >
-                            <div class="datagrid-header" >
-                                <div class="datagrid-header-inner" id="datagrid-header-inner92c585de53ff4e9f879b4e4bc0c16e8f" >
-                                    <bu:addSub formid="b36254ac37e74240b1528d44627b6a84" formIndex="2"  selfformid="92c585de53ff4e9f879b4e4bc0c16e8f" hidecol=""  viewid="" />
+                        <div class="datagrid-div2 datagrid-div6 datagrid-view" onscroll="ajaxTableScroll(this,'92c585de53ff4e9f879b4e4bc0c16e8f')">
+                            <div class="datagrid-header">
+                                <div class="datagrid-header-inner" id="datagrid-header-inner92c585de53ff4e9f879b4e4bc0c16e8f">
+                                    <bu:addSub formid="b36254ac37e74240b1528d44627b6a84" formIndex="2" selfformid="92c585de53ff4e9f879b4e4bc0c16e8f" hidecol="" viewid=""/>
                                 </div>
                             </div>
-                            <div class="datagrid-body datagrid-div3"  style="height:250px"  >
-                                <table class="glxb-table fixedTable" style="width:100%" id="addTable_92c585de53ff4e9f879b4e4bc0c16e8f"   >
-                                    <tbody id="tbody_92c585de53ff4e9f879b4e4bc0c16e8f"  >
-                                    </tbody>
+                            <div class="datagrid-body datagrid-div3" style="height:250px">
+                                <table class="glxb-table fixedTable" style="width:100%" id="addTable_92c585de53ff4e9f879b4e4bc0c16e8f">
+                                    <tbody id="tbody_92c585de53ff4e9f879b4e4bc0c16e8f"></tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
     </form>
 </div>
@@ -212,12 +212,12 @@
     <iframe id="submitFrame" name="submitFrame" src="" width="0" height="0"></iframe>
 </div>
 <jsp:include page="/plf/page/mesdemo/commCode/commCode.jsp">
-    <jsp:param name="modelName" value="VIEW_TYPE_10" />
-    <jsp:param name="location" value="jsLoading" />
+    <jsp:param name="modelName" value="VIEW_TYPE_10"/>
+    <jsp:param name="location" value="jsLoading"/>
 </jsp:include>
 
 <jsp:include page="/plf/common/fp/pub_dom_fp.jsp">
-    <jsp:param name="needValidate" value="1" />
+    <jsp:param name="needValidate" value="1"/>
 </jsp:include>
 <script>
     var manual = true;
@@ -228,7 +228,7 @@
 
     $("#paraMap1_PROJECT_ID").focus();
 
-    $("#paraMap1_RECEIVE_COUNT").keyup(function() {
+    $("#paraMap1_RECEIVE_COUNT").keyup(function () {
         onlyNumber(this);
     });
 
@@ -246,31 +246,32 @@
             $('#inputType').attr('checked', true);
         }
     }
+
     //回车事件初始值
     function addSplit(e) {
         var e = e || window.event;
-        if(e && e.keyCode==13){
+        if (e && e.keyCode == 13) {
             var projectId = $("#paraMap1_PROJECT_ID").val();
-            console.log("projectId>>>" +projectId);
+            console.log("projectId>>>" + projectId);
             $.ajax({
-                type:"POST",
-                dataType:"json",
-                url:"${path}buss/bussModel_exeFunc.ms?funcMId=4a2911c7c5b04fea8b87d41679e1bb26",
-                data:{"projectId":projectId},
-                success:function(data){
-                    var reg  = data.ajaxString;
-                    if( "ng" == reg){
+                type: "POST",
+                dataType: "json",
+                url: "${path}buss/bussModel_exeFunc.ms?funcMId=4a2911c7c5b04fea8b87d41679e1bb26",
+                data: {"projectId": projectId},
+                success: function (data) {
+                    var reg = data.ajaxString;
+                    if ("ng" == reg) {
                         doFocus();
-                        utilsFp.confirmIcon(3,"","","", "工单输入错误,请重新输入",0,"300","");
+                        utilsFp.confirmIcon(3, "", "", "", "工单输入错误,请重新输入", 0, "300", "");
 
 
-                    }else if("ng1" == reg){
+                    } else if ("ng1" == reg) {
                         doFocus();
-                        utilsFp.confirmIcon(3,"","","", "工单输已投料,请重新输入",0,"300","");
-                    }else{
+                        utilsFp.confirmIcon(3, "", "", "", "工单输已投料,请重新输入", 0, "300", "");
+                    } else {
                         doBlur();
                         //工单初始化
-                        var pmap =  data.ajaxMap;
+                        var pmap = data.ajaxMap;
                         $("#paraMap1_PROJECT_ID").val(pmap.PROJECT_ID);
                         $("#paraMap1_LOT_NUMBER").val(pmap.LOT_NUMBER);
                         $("#paraMap1_ADMIN_EMP").val(pmap.curr_man);
@@ -285,17 +286,17 @@
                         $("#paraMap1_T5#PM_MEMO").val(pmap.PM_MEMO);
 
                         $("#paraMap1_T5#PRODUCT_COUNT").val(pmap.PRODUCT_COUNT);
-                        $("#paraMap1_VAT_NO").find("option[value="+pmap.VAT_NO+"]").attr("selected",true);
+                        $("#paraMap1_VAT_NO").find("option[value=" + pmap.VAT_NO + "]").attr("selected", true);
                         // $("#paraMap1_VAT_NO_chosen").innerText(pmap.VAT_NO);
 
                         //BOM初始化
                         var plist = data.ajaxList;
                         var len1 = $("#tbody_92c585de53ff4e9f879b4e4bc0c16e8f tr").length;
-                        var len =0;
-                        if(len1 != 0){
+                        var len = 0;
+                        if (len1 != 0) {
                             var tid = $("#tbody_92c585de53ff4e9f879b4e4bc0c16e8f").find('tr').last().attr('id');
-                            var ltid = tid.substr("10",tid.indexOf("_")-10);
-                            len= Number(ltid);
+                            var ltid = tid.substr("10", tid.indexOf("_") - 10);
+                            len = Number(ltid);
                         }
 
                         // var len = $("#tbody_92c585de53ff4e9f879b4e4bc0c16e8f tr").length;
@@ -303,40 +304,43 @@
                         $("#tbody_92c585de53ff4e9f879b4e4bc0c16e8f").empty();
 
                         if (plist.length > 0) {
-                            for (var i = 0; i < plist.length ; i++) {
+                            for (var i = 0; i < plist.length; i++) {
                                 _addRowExtend('92c585de53ff4e9f879b4e4bc0c16e8f', '2', '', '', '');
-                                if(len1 !=0 ){
-                                    $("#paraMap" + (len + i+1) + "_ITEM_CODE_SHOW").val(plist[i].ITEM_CODE);
-                                    $("#paraMap" + (len + i+1) + "_ITEM_CODE").val(plist[i].ITEM_CODE);
+                                if (len1 != 0) {
+                                    $("#paraMap" + (len + i + 1) + "_ITEM_CODE_SHOW").val(plist[i].ITEM_CODE);
+                                    $("#paraMap" + (len + i + 1) + "_ITEM_CODE").val(plist[i].ITEM_CODE);
 
-                                    $("#paraMap" + (len + i+1) + "_RAW_LOTNUMBER").val(plist[i].ITEM_LOT);
-                                    $("#paraMap" + (len + i+1) + "_RAW_LOTNUMBER").css("background-color", "rgb(225, 251, 227)");
+                                    $("#paraMap" + (len + i + 1) + "_RAW_LOTNUMBER").val(plist[i].ITEM_LOT);
+                                    $("#paraMap" + (len + i + 1) + "_RAW_LOTNUMBER").css("background-color", "rgb(225, 251, 227)");
 
-                                    $("#paraMap" + (len + i+1) + "_STOCK_CODE").val(plist[i].ITEM_STOCK);
-                                    $("#paraMap" + (len + i+1) + "_STOCK_CODE").css("background-color", "rgb(225, 251, 227)");
+                                    $("#paraMap" + (len + i + 1) + "_STOCK_CODE").val(plist[i].ITEM_STOCK);
+                                    $("#paraMap" + (len + i + 1) + "_STOCK_CODE").css("background-color", "rgb(225, 251, 227)");
 
-                                    $("#paraMap" + (len + i+1) + "_ITEM_NUM").val(plist[i].ITEM_NUM);
-                                    $("#paraMap" + (len + i+1) + "_ITEM_NUM").css("background-color", "rgb(225, 251, 227)");
+                                    $("#paraMap" + (len + i + 1) + "_ITEM_NUM").val(plist[i].ITEM_NUM);
+                                    $("#paraMap" + (len + i + 1) + "_ITEM_NUM").css("background-color", "rgb(225, 251, 227)");
 
-                                    $("#paraMap" + (len + i+1) + "_THRESHOLD_NUM").val(plist[i].THRESHOLD_NUM);
-                                    $("#paraMap" + (len + i+1) + "_THRESHOLD_NUM").css("background-color", "rgb(225, 251, 227)");
+                                    $("#paraMap" + (len + i + 1) + "_ITEM_UNIT").val(plist[i].ITEM_UNIT);
+                                    $("#paraMap" + (len + i + 1) + "_ITEM_UNIT").css("background-color", "rgb(225, 251, 227)");
 
-                                    $("#paraMap" + (len + i+1) + "_T3#PRODUCT_NAME").val(plist[i].ITEM_NAME);
-                                    $("#paraMap" + (len + i+1) + "_T3#PRODUCT_NAME").css("background-color", "rgb(225, 251, 227)");
+                                    $("#paraMap" + (len + i + 1) + "_THRESHOLD_NUM").val(plist[i].THRESHOLD_NUM);
+                                    $("#paraMap" + (len + i + 1) + "_THRESHOLD_NUM").css("background-color", "rgb(225, 251, 227)");
 
-                                    $("#paraMap" + (len + i+1) + "_PROCESS_ORDER").val(plist[i].ITEM_ORDER);
-                                    $("#paraMap" + (len + i+1) + "_PROCESS_ORDER").css("background-color", "rgb(225, 251, 227)");
+                                    $("#paraMap" + (len + i + 1) + "_T3#PRODUCT_NAME").val(plist[i].ITEM_NAME);
+                                    $("#paraMap" + (len + i + 1) + "_T3#PRODUCT_NAME").css("background-color", "rgb(225, 251, 227)");
 
-                                    $("#paraMap" + (len + i+1) + "_FEED_NUM").val(plist[i].FEED_NUM);
-                                    $("#paraMap" + (len + i+1) + "_FEED_NUM").css("background-color", "rgb(225, 251, 227)");
+                                    $("#paraMap" + (len + i + 1) + "_PROCESS_ORDER").val(plist[i].ITEM_ORDER);
+                                    $("#paraMap" + (len + i + 1) + "_PROCESS_ORDER").css("background-color", "rgb(225, 251, 227)");
+
+                                    $("#paraMap" + (len + i + 1) + "_FEED_NUM").val(plist[i].FEED_NUM);
+                                    $("#paraMap" + (len + i + 1) + "_FEED_NUM").css("background-color", "rgb(225, 251, 227)");
 
 
-                                    $("#paraMap" + (len + i+1) + "_WORK_SPACE").val(plist[i].WORK_SPACE);
-                                    $("#paraMap" + (len+ i+1) + "_WORK_SPACE").css("background-color", "rgb(225, 251, 227)");
+                                    $("#paraMap" + (len + i + 1) + "_WORK_SPACE").val(plist[i].WORK_SPACE);
+                                    $("#paraMap" + (len + i + 1) + "_WORK_SPACE").css("background-color", "rgb(225, 251, 227)");
 
-                                    $("#paraMap" + (len+ i+1) + "_WAREHOUSE").val(plist[i].WARE_HOUSE);
-                                    $("#paraMap" + (len + i+1) + "_WAREHOUSE").css("background-color", "rgb(225, 251, 227)");
-                                }else{
+                                    $("#paraMap" + (len + i + 1) + "_WAREHOUSE").val(plist[i].WARE_HOUSE);
+                                    $("#paraMap" + (len + i + 1) + "_WAREHOUSE").css("background-color", "rgb(225, 251, 227)");
+                                } else {
                                     $("#paraMap" + (i + 1) + "_ITEM_CODE_SHOW").val(plist[i].ITEM_CODE);
                                     $("#paraMap" + (i + 1) + "_ITEM_CODE").val(plist[i].ITEM_CODE);
 
@@ -348,6 +352,9 @@
 
                                     $("#paraMap" + (i + 1) + "_ITEM_NUM").val(plist[i].ITEM_NUM);
                                     $("#paraMap" + (i + 1) + "_ITEM_NUM").css("background-color", "rgb(225, 251, 227)");
+
+                                    $("#paraMap" + (i + 1) + "_ITEM_UNIT").val(plist[i].ITEM_UNIT);
+                                    $("#paraMap" + (i + 1) + "_ITEM_UNIT").css("background-color", "rgb(225, 251, 227)");
 
                                     $("#paraMap" + (i + 1) + "_THRESHOLD_NUM").val(plist[i].THRESHOLD_NUM);
                                     $("#paraMap" + (i + 1) + "_THRESHOLD_NUM").css("background-color", "rgb(225, 251, 227)");
@@ -369,18 +376,16 @@
                                     $("#paraMap" + (i + 1) + "_WAREHOUSE").val("3107");
                                     $("#paraMap" + (i + 1) + "_WAREHOUSE").css("background-color", "rgb(225, 251, 227)");
                                 }
-
                             }
                         }
-
                     }
                     thresholdCheck();
-                    $("input[id$='_FEED_NUM']").keyup(function(event) {
-                        cursorMovement(this,event);
+                    $("input[id$='_FEED_NUM']").keyup(function (event) {
+                        cursorMovement(this, event);
                         onlyNumber(this);
                     });
-                    $("input[id$='_RAW_LOTNUMBER']").keyup(function() {
-                        currawMovement(this,event);
+                    $("input[id$='_RAW_LOTNUMBER']").keyup(function () {
+                        currawMovement(this, event);
 
                     });
                 },
@@ -399,25 +404,24 @@
     function doFocus() {
         $("#paraMap1_PROJECT_ID").focus();
         $("#paraMap1_PROJECT_ID").val("");
-
     }
 
-    function doBlur(){
-
+    function doBlur() {
         $("#paraMap1_PROJECT_ID").blur();
     }
+
     //批次键盘操作
     function currawMovement(obj, event) {
-        if(event.keyCode==40 || event.keyCode==13){
+        if (event.keyCode == 40 || event.keyCode == 13) {
             var nextNode = $(obj).parent().parent().next().children().find('input[name$="RAW_LOTNUMBER"]');
-            if(nextNode.length==0){
+            if (nextNode.length == 0) {
                 return false;
             }
             nextNode.focus();
         }
-        if(event.keyCode==38){
+        if (event.keyCode == 38) {
             var nextNode = $(obj).parent().parent().prev().children().find('input[name$="RAW_LOTNUMBER"]');
-            if(nextNode.length==0){
+            if (nextNode.length == 0) {
                 return false;
             }
             nextNode.focus();
@@ -436,7 +440,7 @@
                 type: "POST",
                 dataType: "json",
                 url: url,
-                data: {"STOCK_CODE": cur,"PROJECT_ID":curProjectId},
+                data: {"STOCK_CODE": cur, "PROJECT_ID": curProjectId},
                 success: function (data) {
                     var obj = data.ajaxList[0];
                     //paraMap4_STOCK_CODE
@@ -460,6 +464,7 @@
             });
         }
     }
+
     function StockCodeOnBlur(e) {
         console.log("this is StockCodeOnBlur function: >>> ");
         var curProjectId = $("#paraMap1_PROJECT_ID").val();
@@ -473,7 +478,7 @@
             url: url,
             data: {"STOCK_CODE": cur, "PROJECT_ID": curProjectId},
             success: function (data) {
-                if(data.ajaxList !=null){
+                if (data.ajaxList != null) {
                     var obj = data.ajaxList[0];
                     var curCode = curId.replace("STOCK_CODE", "ITEM_CODE");
                     //var curNum = curId.replace("STOCK_CODE", "ITEM_NUM");
@@ -486,7 +491,7 @@
                     $("#" + curSpace).val(obj.WORK_SPACE);
                     var curHouse = curId.replace("STOCK_CODE", "WAREHOUSE");
                     $("#" + curHouse).val("3107");
-                }else{
+                } else {
                     var curCode = curId.replace("STOCK_CODE", "ITEM_CODE");
                     // var curNum = curId.replace("STOCK_CODE", "ITEM_NUM");
                     var curName = curId.replace("STOCK_CODE", "T3#PRODUCT_NAME");
@@ -508,26 +513,26 @@
     }
 
 
-    function doSave(){
+    function doSave() {
 
         var feedNums = $("input[id$='_FEED_NUM']");
-        for(var i=0; i<feedNums.size(); i++){
-            if(feedNums[i].value==null || feedNums[i].value==""){
+        for (var i = 0; i < feedNums.size(); i++) {
+            if (feedNums[i].value == null || feedNums[i].value == "") {
                 utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="投入数量不能为空" />", "", "260", "145");
                 return;
             }
         }
         var projectId = $("#paraMap1_PROJECT_ID").val();
         var receive_number = Number($("#paraMap1_RECEIVE_COUNT").val());
-        var	idStr = "paraMap1_T3#FEED_COUNT";
-        var total_number = Number($("#"+idStr).val());
+        var idStr = "paraMap1_T3#FEED_COUNT";
+        var total_number = Number($("#" + idStr).val());
 
-        if(isEmpty(receive_number)){
-            _alertValMsg(this,"<dict:lang value="该项不能为空" />");
+        if (isEmpty(receive_number)) {
+            _alertValMsg(this, "<dict:lang value="该项不能为空" />");
             return;
         }
 
-        if(!isNumber(total_number)){
+        if (!isNumber(total_number)) {
             utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="计划数量不正确，请核实" />", 0, "260", "");
             return;
         }
@@ -537,28 +542,28 @@
             dataType: "json",
             url: "${path}buss/bussModel_exeFunc.ms?funcMId=a381493664ad4dbd845f2051af2313af",
             data: {
-                "TYPE":"1",
-                "ItEM_CODE":"",
-                "PROJECT_ID":projectId
+                "TYPE": "1",
+                "ItEM_CODE": "",
+                "PROJECT_ID": projectId
             },
             success: function (data) {
                 //阈值
                 var Threshold = data.ajaxString;
-                if(!isNumber(Threshold)){
-                    utilsFp.confirmIcon(1,"","doSave1","", "该工单未维护阀值，是否重继续？","1","260","");
+                if (!isNumber(Threshold)) {
+                    utilsFp.confirmIcon(1, "", "doSave1", "", "该工单未维护阀值，是否重继续？", "1", "260", "");
                     return;
-                }else{
-                    Threshold=Number(Threshold)/100;
+                } else {
+                    Threshold = Number(Threshold) / 100;
                 }
 
 
-                if(total_number*(1+Threshold) < receive_number){
-                    utilsFp.confirmIcon(1,"","doSave1","", "收货数量超出阈值:"+Threshold*100+"%，是否重继续？","1","260","");
+                if (total_number * (1 + Threshold) < receive_number) {
+                    utilsFp.confirmIcon(1, "", "doSave1", "", "收货数量超出阈值:" + Threshold * 100 + "%，是否重继续？", "1", "260", "");
 
-                }else if(total_number*(1-Threshold) > receive_number){
-                    utilsFp.confirmIcon(1,"","doSave1","", "收货数量低于阈值:"+Threshold*100+"%，是否重继续？","1","260","");
+                } else if (total_number * (1 - Threshold) > receive_number) {
+                    utilsFp.confirmIcon(1, "", "doSave1", "", "收货数量低于阈值:" + Threshold * 100 + "%，是否重继续？", "1", "260", "");
 
-                }else{
+                } else {
                     doSave1();
 
                 }
@@ -577,6 +582,7 @@
         var itemCodeArr = [];
         var stockCodeArr = [];
         var itemNumArr = [];
+        var itemUnitArr = [];
         var feedNumArr = [];
         var rawLotArr = [];
 
@@ -599,7 +605,7 @@
 
             }
         });
-        if(fag){
+        if (fag) {
             utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="仓库值不能为空" />", "", "260", "145");
             return;
         }
@@ -608,7 +614,7 @@
 
             var cur = $(this).val();
 
-            if (cur != "" ) {
+            if (cur != "") {
                 workSpace.push(cur);
 
             } else {
@@ -616,7 +622,7 @@
 
             }
         });
-        if(fag){
+        if (fag) {
             utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="工厂值不能为空" />", "", "260", "145");
             return;
         }
@@ -645,6 +651,16 @@
                 itemNumArr.push(cur);
             } else {
                 itemNumArr.push("");
+            }
+        });
+
+
+        $("input[id$='_ITEM_UNIT']").each(function () {
+            var cur = $(this).val();
+            if (cur != null) {
+                itemUnitArr.push(cur);
+            } else {
+                itemUnitArr.push("");
             }
         });
 
@@ -679,14 +695,15 @@
         document.forms.addForm.action = "${path}buss/bussModel_exeFunc.ms?funcMId=3da1e9b4b7e84a409abf14b7bcdaa43f" +
             "&PROJECT_ID=" + projectId + "" +
             "&RECEIVE_COUNT=" + number + "" +
-            "&ITEM_CODE=" + itemCodeArr.join(",")+
-            "&STOCK_CODE=" + stockCodeArr.join(",")+
-            "&ITEM_NUM=" +itemNumArr.join(",")+
-            "&FEED_NUM=" +feedNumArr.join(",")+
-            "&RAW_LOTNUMBER=" +rawLotArr.join(",")+
-            "&PROCESS_ORDER="+processOrderArr.join(",")+
-            "&WORK_SPACE="+workSpace.join(",") +
-            "&WARE_HOUSE="+wareHouse.join(",");
+            "&ITEM_CODE=" + itemCodeArr.join(",") +
+            "&STOCK_CODE=" + stockCodeArr.join(",") +
+            "&ITEM_NUM=" + itemNumArr.join(",") +
+            "&ITEM_UNIT=" + itemUnitArr.join(",") +
+            "&FEED_NUM=" + feedNumArr.join(",") +
+            "&RAW_LOTNUMBER=" + rawLotArr.join(",") +
+            "&PROCESS_ORDER=" + processOrderArr.join(",") +
+            "&WORK_SPACE=" + workSpace.join(",") +
+            "&WARE_HOUSE=" + wareHouse.join(",");
         document.forms.addForm.submit();
         /*
 
@@ -715,6 +732,7 @@
         */
 
     }
+
     //监听原材合格证输入框
     $("#paraMap1_T5#RAW_LICENSE").bind("input keypress", function (e) {
         var curProjectId = $("#paraMap1_PROJECT_ID").val();
@@ -813,7 +831,6 @@
     }
 
 
-
     function calReceiveNum() {
         //$("#paraMap1_T5#PRODUCT_COUNT").val(0);
         var arr = [];
@@ -832,7 +849,7 @@
         $("#paraMap1_RECEIVE_COUNT").val(count);
     }
 
-    function calProductCount(){
+    function calProductCount() {
         $("#paraMap1_T5#PRODUCT_COUNT").val(0);
         var arr = [];
         var count = 0;
@@ -876,10 +893,10 @@
                     cur = 0;
                 }
                 arr.push(cur);
-                count = numAdd(parseFloat(count),parseFloat(cur));
+                count = numAdd(parseFloat(count), parseFloat(cur));
             } else {
                 arr.push("");
-                count = numAdd(parseFloat(count),parseFloat(cur));
+                count = numAdd(parseFloat(count), parseFloat(cur));
             }
         });
 
@@ -887,13 +904,13 @@
         $("#paraMap1_T3#FEED_COUNT").val(count);
         $("#paraMap1_RECEIVE_COUNT").val(count);
         var pec = $("#paraMap1@0#T5#PRODUCT_COUNT").val();
-        if(count>parseFloat(pec)){
+        if (count > parseFloat(pec)) {
             alert("投入物料大于备料重量,请核实")
         }
     }
 
     //小数相加减
-    function numAdd(num1,num2){
+    function numAdd(num1, num2) {
         var r1, r2, m;
         try {
             r1 = num1.toString().split('.')[1].length;
@@ -907,19 +924,19 @@
         }
         m = Math.pow(10, Math.max(r1, r2));
         a = Math.round(num1 * m + num2 * m) / m;
-        try{
+        try {
             countLen = a.toString().split('.')[1].length;
-            if(countLen ==1){
-                count = a.toString()+"00";
-            }else if(countLen ==2){
-                count = a.toString()+"0";
-            }else if(countLen ==3){
+            if (countLen == 1) {
+                count = a.toString() + "00";
+            } else if (countLen == 2) {
+                count = a.toString() + "0";
+            } else if (countLen == 3) {
                 count = a.toString();
-            }else{
+            } else {
                 utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="投入数量小数位错误,请正确输入" />", 0, "260", "")
             }
-        }catch (e) {
-            count = a.toString()+".000";
+        } catch (e) {
+            count = a.toString() + ".000";
         }
         return count;
     }
@@ -934,6 +951,13 @@
         //calItemNum();
         calFeedCount();
         calFeedTimes();
+        $("input[id$='_FEED_NUM']").keyup(function (event) {
+            cursorMovement(this, event);
+            onlyNumber(this);
+        });
+        $("input[id$='_RAW_LOTNUMBER']").keyup(function () {
+            currawMovement(this, event);
+        });
     }
 
     /* $("input").bind("input keypress", function (event) {
@@ -941,27 +965,27 @@
 
     });*/
     //删除本身及子表单
-    function _delRowExtendConfirm(obj){
-        var tableId=obj.tableId;
-        var subformids=obj.subformids;
+    function _delRowExtendConfirm(obj) {
+        var tableId = obj.tableId;
+        var subformids = obj.subformids;
 
-        $("input[name='checkbox"+tableId+"']:checked").each(function() { // 遍历选中的checkbox
+        $("input[name='checkbox" + tableId + "']:checked").each(function () { // 遍历选中的checkbox
             var trIndex = $(this).parents("tr").index();
-            $("#addTable_"+tableId).find("tr:eq("+trIndex+")").remove();
-            if(subformids=='null'||subformids==''||subformids==null||subformids==undefined){
+            $("#addTable_" + tableId).find("tr:eq(" + trIndex + ")").remove();
+            if (subformids == 'null' || subformids == '' || subformids == null || subformids == undefined) {
                 return true;
             }
-            var subformidArray=subformids.split(',');
-            for(var k=0;k<subformidArray.length;k++){
-                var subformid=subformidArray[k];
-                var colNoRel=$("input[name='COL_NO"+subformid+"']").val();
+            var subformidArray = subformids.split(',');
+            for (var k = 0; k < subformidArray.length; k++) {
+                var subformid = subformidArray[k];
+                var colNoRel = $("input[name='COL_NO" + subformid + "']").val();
 
-                var relValue=$(this).parents("tr").find('td').find(":input[name^='paraMap'][name$='"+colNoRel+"']").val();
+                var relValue = $(this).parents("tr").find('td').find(":input[name^='paraMap'][name$='" + colNoRel + "']").val();
 
-                var colNo=$("input[name='COL_NO_D"+subformid+"']").val();
-                $("#addTable_"+subformid+" tbody tr td").find(":input[name^='paraMap'][name$='"+colNo+"']").each(function(){
-                    var relV=$(this).val();
-                    if(relV==relValue){
+                var colNo = $("input[name='COL_NO_D" + subformid + "']").val();
+                $("#addTable_" + subformid + " tbody tr td").find(":input[name^='paraMap'][name$='" + colNo + "']").each(function () {
+                    var relV = $(this).val();
+                    if (relV == relValue) {
                         $(this).parent().parent().remove();
                     }
                 });
@@ -972,27 +996,27 @@
     }
 
     // 鼠标移入移出事件
-    $("input[id$='_FEED_NUM']").hover(function() {
+    $("input[id$='_FEED_NUM']").hover(function () {
         //做实际投入的计算
         $("input").bind("input keypress", function (event) {
             calNumber();
         });
     });
 
-    $("#paraMap1_RECEIVE_COUNT").mouseleave(function() {
-        var isFocus=$("#paraMap1_RECEIVE_COUNT").is(":focus");
-        if(true==isFocus){
+    $("#paraMap1_RECEIVE_COUNT").mouseleave(function () {
+        var isFocus = $("#paraMap1_RECEIVE_COUNT").is(":focus");
+        if (true == isFocus) {
             var projectId = $("#paraMap1_PROJECT_ID").val();
             var receive_number = Number($("#paraMap1_RECEIVE_COUNT").val());
-            var	idStr = "paraMap1_T3#FEED_COUNT";
-            var total_number = Number($("#"+idStr).val());
+            var idStr = "paraMap1_T3#FEED_COUNT";
+            var total_number = Number($("#" + idStr).val());
 
-            if(isEmpty(receive_number)){
-                _alertValMsg(this,"<dict:lang value="该项不能为空" />");
+            if (isEmpty(receive_number)) {
+                _alertValMsg(this, "<dict:lang value="该项不能为空" />");
                 return;
             }
 
-            if(!isNumber(total_number)){
+            if (!isNumber(total_number)) {
                 utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="计划数量不正确，请核实" />", 0, "260", "");
                 return;
             }
@@ -1002,29 +1026,29 @@
                 dataType: "json",
                 url: "${path}buss/bussModel_exeFunc.ms?funcMId=a381493664ad4dbd845f2051af2313af",
                 data: {
-                    "TYPE":"1",
-                    "ItEM_CODE":"",
-                    "PROJECT_ID":projectId
+                    "TYPE": "1",
+                    "ItEM_CODE": "",
+                    "PROJECT_ID": projectId
                 },
                 success: function (data) {
                     //阈值
                     var Threshold = data.ajaxString;
-                    if(!isNumber(Threshold)){
+                    if (!isNumber(Threshold)) {
                         utilsFp.confirmIcon(3, "", "", "", "该工单未维护阀值", 0, "260", "");
                         return;
-                    }else{
-                        Threshold=Number(Threshold)/100;
+                    } else {
+                        Threshold = Number(Threshold) / 100;
                     }
 
-                    if(total_number == receive_number){
+                    if (total_number == receive_number) {
                         return;
                     }
-                    if(total_number*(1+Threshold) < receive_number){
-                        utilsFp.confirmIcon(3, "", "", "", "产出数量超出阈值:"+Threshold*100+"%", 0, "260", "");
+                    if (total_number * (1 + Threshold) < receive_number) {
+                        utilsFp.confirmIcon(3, "", "", "", "产出数量超出阈值:" + Threshold * 100 + "%", 0, "260", "");
                         return;
                     }
-                    if(total_number*(1-Threshold) > receive_number){
-                        utilsFp.confirmIcon(3, "", "", "", "产出数量低于阈值:"+Threshold*100+"%", 0, "260", "");
+                    if (total_number * (1 - Threshold) > receive_number) {
+                        utilsFp.confirmIcon(3, "", "", "", "产出数量低于阈值:" + Threshold * 100 + "%", 0, "260", "");
 
                     }
                 },
@@ -1067,36 +1091,36 @@
         });
     }
 
-    function isEmpty(obj){
-        if(typeof obj == "undefined" || obj == null || obj == ""){
+    function isEmpty(obj) {
+        if (typeof obj == "undefined" || obj == null || obj == "") {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-    function onlyNumber(obj){
+    function onlyNumber(obj) {
         //得到第一个字符是否为负号
         var t = obj.value.charAt(0);
         //先把非数字的都替换掉，除了数字和.
-        obj.value = obj.value.replace(/[^\d\.]/g,'');
+        obj.value = obj.value.replace(/[^\d\.]/g, '');
         //必须保证第一个为数字而不是.
-        obj.value = obj.value.replace(/^\./g,'');
+        obj.value = obj.value.replace(/^\./g, '');
         //保证只有出现一个.而没有多个.
-        obj.value = obj.value.replace(/\.{2,}/g,'.');
+        obj.value = obj.value.replace(/\.{2,}/g, '.');
         //保证.只出现一次，而不能出现两次以上
-        obj.value = obj.value.replace('.','$#$').replace(/\./g,'').replace('$#$','.');
+        obj.value = obj.value.replace('.', '$#$').replace(/\./g, '').replace('$#$', '.');
         //如果第一位是负号，则允许添加
-        if(t == '-'){
-            obj.value = '-'+obj.value;
+        if (t == '-') {
+            obj.value = '-' + obj.value;
         }
     }
 
     function isNumber(val) {
         var regPos = /^\d+(\.\d+)?$/; //非负浮点数
-        if(regPos.test(val)) {
+        if (regPos.test(val)) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -1125,16 +1149,16 @@
     }*/
 
     function cursorMovement(obj, event) {
-        if(event.keyCode==40 || event.keyCode==13){
+        if (event.keyCode == 40 || event.keyCode == 13) {
             var nextNode = $(obj).parent().parent().next().children().find('input[name$="FEED_NUM"]');
-            if(nextNode.length==0){
+            if (nextNode.length == 0) {
                 return false;
             }
             nextNode.focus();
         }
-        if(event.keyCode==38){
+        if (event.keyCode == 38) {
             var nextNode = $(obj).parent().parent().prev().children().find('input[name$="FEED_NUM"]');
-            if(nextNode.length==0){
+            if (nextNode.length == 0) {
                 return false;
             }
             nextNode.focus();
@@ -1146,25 +1170,25 @@
         var receive_number = Number(obj.value);
         var threshold_number = obj.parentElement.nextElementSibling.firstElementChild.value;
 
-        if(isEmpty(receive_number)){
+        if (isEmpty(receive_number)) {
             //utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="物料不能为空" />", 0, "160", "");
-            _alertValMsg(obj,"<dict:lang value="该项不能为空" />");
+            _alertValMsg(obj, "<dict:lang value="该项不能为空" />");
             return false;
         }
 
-        if(!isNumber(threshold_number)){
+        if (!isNumber(threshold_number)) {
             //utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="该物料未维护阀值!" />", 0, "160", "");
             return false;
-        }else{
-            threshold_number = Number(threshold_number)/100;
+        } else {
+            threshold_number = Number(threshold_number) / 100;
         }
 
-        if(total_number*(1+threshold_number) < receive_number){
+        if (total_number * (1 + threshold_number) < receive_number) {
             <%--utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="物料超出阈值" />", 0, "160", "");--%>
             _alertValMsg(obj, "<dict:lang value="物料超出阈值" />");
             return false;
         }
-        if(total_number*(1-threshold_number) > receive_number){
+        if (total_number * (1 - threshold_number) > receive_number) {
             <%--utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="物料低于阈值" />", 0, "160", "");--%>
             _alertValMsg(obj, "<dict:lang value="物料低于阈值" />");
             return false;
@@ -1173,10 +1197,10 @@
     }
 </script>
 </body>
-<%@ include file="/plf/common/pub_end.jsp"%>
+<%@ include file="/plf/common/pub_end.jsp" %>
 
 <!-- 页面结束 -->
 <jsp:include page="/plf/page/mesdemo/commCode/commCode.jsp">
-    <jsp:param name="modelName" value="VIEW_TYPE_10" />
-    <jsp:param name="location" value="pageOver" />
+    <jsp:param name="modelName" value="VIEW_TYPE_10"/>
+    <jsp:param name="location" value="pageOver"/>
 </jsp:include>

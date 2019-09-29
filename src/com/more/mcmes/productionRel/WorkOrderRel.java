@@ -102,7 +102,7 @@ public class WorkOrderRel implements FuncService {
      */
     public String callProjectRel(ModelService modelService, String dataAuth, String workOrder, String relWorkerOrder,String userId) {
         ProFuncDto pf = new ProFuncDto();
-       // int[] inPlace = {1, 2, 3};
+        // int[] inPlace = {1, 2, 3};
         //int[] outplace = {4};
         int[] inPlace = {1, 2, 3,4};
         int[] outplace = {5};
@@ -113,7 +113,7 @@ public class WorkOrderRel implements FuncService {
         list.add(relWorkerOrder);
         list.add(userId);
         outType.add("String");
-      //  pf.setClassName("P_C_REL_PROJECT_SN");
+        //  pf.setClassName("P_C_REL_PROJECT_SN");
         pf.setClassName("P_LEO_REL_PROJECT_SN");
         pf.setInPlace(inPlace);
         pf.setOutPlace(outplace);

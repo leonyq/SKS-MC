@@ -18,138 +18,137 @@ import com.more.fw.core.dbo.model.service.impl.base.FuncService;
 
 public class ItemTableService implements FuncService {
 
-  @Override
-  public String exeFunc(ModelAction modelAction, ModelService modelService) {
-    String ciItemCode = null;
-    String ciItemName = null;
-    String ciItemSpec = null;
-    String ciStockCode = null;
-    if (modelAction.getParaMap2() != null) {
-      ciItemCode = modelAction.getParaMap2().get("ciItemCode");
-      ciItemName = modelAction.getParaMap2().get("ciItemName");
-      ciItemSpec = modelAction.getParaMap2().get("ciItemSpec");
-      ciStockCode = modelAction.getParaMap2().get("ciStockCode");
-    }
-    Map<String, String> sqlParaMap = new HashMap<String, String>();
+    @Override
+    public String exeFunc(ModelAction modelAction, ModelService modelService) {
+        String ciItemCode = null;
+        String ciItemName = null;
+        String ciItemSpec = null;
+        String ciStockCode = null;
+        if (modelAction.getParaMap2() != null) {
+            ciItemCode = modelAction.getParaMap2().get("ciItemCode");
+            ciItemName = modelAction.getParaMap2().get("ciItemName");
+            ciItemSpec = modelAction.getParaMap2().get("ciItemSpec");
+            ciStockCode = modelAction.getParaMap2().get("ciStockCode");
+        }
+        Map<String, String> sqlParaMap = new HashMap<String, String>();
 //    StringBuilder sql = new StringBuilder("select t.CI_ITEM_CODE MKEY,t.CI_ITEM_NAME VAL,t.CI_ITEM_SPEC ITEMSPEC,"
 //        + " t.CI_MIN_PACK MINPACK from T_CO_ITEM t"
 //      //  + " LEFT JOIN T_CO_SUPPLIER t2 on t.CI_supplier_code = t2.supplier_code"
 //        +" where 1=1 ");
-    StringBuilder sql = new StringBuilder(
-            " SELECT T.CI_ITEM_CODE MKEY," +
-                    " T.CI_ITEM_NAME VAL," +
-                    " T.STOCK_CODE   STOCK_CODE," +
-                    " T.CI_ITEM_SPEC ITEMSPEC " +
-                    " FROM T_CO_ITEM T " +
-                    " WHERE 1 = 1");
-    String dataAuth = modelAction.getParaMap2().get("dataAuth");//获取页面组织机构
-    String userId = modelAction.getSessionUser().getId();//用户id
-    String[] authArr = dataAuth.split(",");
-    int authSize = authArr.length;//1为单组织机构
-    //多组织机构控制
-    if(authSize==1) {
-        sql.append(" AND t.DATA_AUTH = :DATA_AUTH  ");   
-        /*sql.append(" AND t2.DATA_AUTH = :DATA_AUTH2  ");*/
-        sqlParaMap.put("DATA_AUTH", dataAuth);
-        /*sqlParaMap.put("DATA_AUTH2", dataAuth);*/
-    }else {
-    	sql.append(" AND t.DATA_AUTH IN (SELECT DEPT_ID FROM SY_DATA_AUTH WHERE USER_ID = :USER_ID )  ");
-    	/*sql.append(" AND t2.DATA_AUTH IN (SELECT DEPT_ID FROM SY_DATA_AUTH WHERE USER_ID = :USER_ID2 )  ");*/
-        sqlParaMap.put("USER_ID", userId);
-        /*sqlParaMap.put("USER_ID2", userId);*/	
-    }      
-    if (StringUtils.isNotBlank(ciItemCode)) {
-      ciItemCode = ciItemCode.trim();
-      sql.append(" AND t.CI_ITEM_CODE LIKE ");
-      sql.append("'%'");
-      sql.append("|| :CIITEMCODE");
-      sql.append("|| '%'");
-      sqlParaMap.put("CIITEMCODE", ciItemCode);
+        StringBuilder sql = new StringBuilder(
+                " SELECT T.CI_ITEM_CODE MKEY," +
+                        " T.CI_ITEM_NAME VAL," +
+                        " T.STOCK_CODE   STOCK_CODE," +
+                        " T.CI_ITEM_SPEC ITEMSPEC " +
+                        " FROM T_CO_ITEM T " +
+                        " WHERE 1 = 1");
+        String dataAuth = modelAction.getParaMap2().get("dataAuth");//获取页面组织机构
+        String userId = modelAction.getSessionUser().getId();//用户id
+        String[] authArr = dataAuth.split(",");
+        int authSize = authArr.length;//1为单组织机构
+        //多组织机构控制
+        if (authSize == 1) {
+            sql.append(" AND t.DATA_AUTH = :DATA_AUTH  ");
+            /*sql.append(" AND t2.DATA_AUTH = :DATA_AUTH2  ");*/
+            sqlParaMap.put("DATA_AUTH", dataAuth);
+            /*sqlParaMap.put("DATA_AUTH2", dataAuth);*/
+        } else {
+            sql.append(" AND t.DATA_AUTH IN (SELECT DEPT_ID FROM SY_DATA_AUTH WHERE USER_ID = :USER_ID )  ");
+            /*sql.append(" AND t2.DATA_AUTH IN (SELECT DEPT_ID FROM SY_DATA_AUTH WHERE USER_ID = :USER_ID2 )  ");*/
+            sqlParaMap.put("USER_ID", userId);
+            /*sqlParaMap.put("USER_ID2", userId);*/
+        }
+        if (StringUtils.isNotBlank(ciItemCode)) {
+            ciItemCode = ciItemCode.trim();
+            sql.append(" AND t.CI_ITEM_CODE LIKE ");
+            sql.append("'%'");
+            sql.append("|| :CIITEMCODE");
+            sql.append("|| '%'");
+            sqlParaMap.put("CIITEMCODE", ciItemCode);
+        }
+        if (StringUtils.isNotBlank(ciItemName)) {
+            ciItemName = ciItemName.trim();
+            sql.append(" AND t.CI_ITEM_NAME LIKE ");
+            sql.append("'%'");
+            sql.append("|| :CIITEMNAME");
+            sql.append("|| '%'");
+            sqlParaMap.put("CIITEMNAME", ciItemName);
+        }
+        if (StringUtils.isNotBlank(ciItemSpec)) {
+            ciItemSpec = ciItemSpec.trim();
+            sql.append(" AND t.CI_ITEM_SPEC LIKE ");
+            sql.append("'%'");
+            sql.append("|| :CIITEMSPEC");
+            sql.append("|| '%'");
+            sqlParaMap.put("CIITEMSPEC", ciItemSpec);
+        }
+        if (StringUtils.isNotBlank(ciStockCode)) {
+            ciStockCode = ciStockCode.trim();
+            sql.append(" AND t.STOCK_CODE LIKE ");
+            sql.append("'%'");
+            sql.append("|| :STOCK_CODE");
+            sql.append("|| '%'");
+            sqlParaMap.put("STOCK_CODE", ciStockCode);
+        }
+        List<Map> userList = modelService.listSql(sql.toString().toUpperCase(), modelAction.getPage(), sqlParaMap, null,null);
+        Map<String, Object> dataMap = new HashMap<String, Object>();
+        dataMap.put("title", getTitle(modelAction));
+        dataMap.put("tableData", userList);
+        dataMap.put("setHiddenCol", setHiddenCol());
+        //dataMap.put("javaScriptFun", javaScriptFun());
+        dataMap.put("page", pageData(modelAction.getPage()));
+        CommMethod.mapToEscapeJs(dataMap);
+        return JSONObject.fromObject(dataMap).toString();
     }
-    if (StringUtils.isNotBlank(ciItemName)) {
-      ciItemName = ciItemName.trim();
-      sql.append(" AND t.CI_ITEM_NAME LIKE ");
-      sql.append("'%'");
-      sql.append("|| :CIITEMNAME");
-      sql.append("|| '%'");
-      sqlParaMap.put("CIITEMNAME", ciItemName);
-    }
-    if (StringUtils.isNotBlank(ciItemSpec)) {
-      ciItemSpec = ciItemSpec.trim();
-      sql.append(" AND t.CI_ITEM_SPEC LIKE ");
-      sql.append("'%'");
-      sql.append("|| :CIITEMSPEC");
-      sql.append("|| '%'");
-      sqlParaMap.put("CIITEMSPEC", ciItemSpec);
-    }
-    if (StringUtils.isNotBlank(ciStockCode)) {
-      ciStockCode = ciStockCode.trim();
-      sql.append(" AND t.STOCK_CODE LIKE ");
-      sql.append("'%'");
-      sql.append("|| :STOCK_CODE");
-      sql.append("|| '%'");
-      sqlParaMap.put("STOCK_CODE", ciStockCode);
-    }
-    List<Map> userList = modelService.listSql(sql.toString().toUpperCase(), modelAction.getPage(), sqlParaMap, null,
-        null);
-    Map<String, Object> dataMap = new HashMap<String, Object>();
-    dataMap.put("title", getTitle(modelAction));
-    dataMap.put("tableData", userList);
-    dataMap.put("setHiddenCol", setHiddenCol());
-    //dataMap.put("javaScriptFun", javaScriptFun());
-    dataMap.put("page", pageData(modelAction.getPage()));
-    CommMethod.mapToEscapeJs(dataMap);
-    return JSONObject.fromObject(dataMap).toString();
-  }
 
-  private Map<String, Object> pageData(PaginationImpl paginationImpl) {
-    Map<String, Object> pageMap = new HashMap<String, Object>();
-    pageMap.put("currentPage", paginationImpl.getCurrentPage());
-    pageMap.put("totalPage", paginationImpl.getTotalPage());
-    pageMap.put("totalRecord", paginationImpl.getTotalRecord());
-    pageMap.put("pageRecord", paginationImpl.getPageRecord());
-    pageMap.put("first", paginationImpl.isFirst());
-    pageMap.put("last", paginationImpl.isLast());
-    return pageMap;
-  }
-  
-  private Map<String, String> getTitle(ModelAction modelAction) {
-    Map<String, String> map = new LinkedHashMap<String, String>();
-    map.put("mkey", modelAction.getText("物料料号"));
-    map.put("val", modelAction.getText("物料名称"));
-    map.put("STOCK_CODE", modelAction.getText("存货代码"));
-    map.put("ITEMSPEC", modelAction.getText("物料规格"));
-    //map.put("SUPPLIERNAME", modelAction.getText("供应商"));
+    private Map<String, Object> pageData(PaginationImpl paginationImpl) {
+        Map<String, Object> pageMap = new HashMap<String, Object>();
+        pageMap.put("currentPage", paginationImpl.getCurrentPage());
+        pageMap.put("totalPage", paginationImpl.getTotalPage());
+        pageMap.put("totalRecord", paginationImpl.getTotalRecord());
+        pageMap.put("pageRecord", paginationImpl.getPageRecord());
+        pageMap.put("first", paginationImpl.isFirst());
+        pageMap.put("last", paginationImpl.isLast());
+        return pageMap;
+    }
+
+    private Map<String, String> getTitle(ModelAction modelAction) {
+        Map<String, String> map = new LinkedHashMap<String, String>();
+        map.put("mkey", modelAction.getText("物料料号"));
+        map.put("val", modelAction.getText("物料名称"));
+        map.put("STOCK_CODE", modelAction.getText("存货代码"));
+        map.put("ITEMSPEC", modelAction.getText("物料规格"));
+        //map.put("SUPPLIERNAME", modelAction.getText("供应商"));
 //    map.put("MINPACK", modelAction.getText("最小包装数"));
-    return map;
-  }
+        return map;
+    }
 
-  private List<String> setHiddenCol() {
-    List<String> hiddList = new ArrayList<String>();
-    hiddList.add("ROWNUM_");
-    //hiddList.add("KEY");
-    return hiddList;
-  }
+    private List<String> setHiddenCol() {
+        List<String> hiddList = new ArrayList<String>();
+        hiddList.add("ROWNUM_");
+        //hiddList.add("KEY");
+        return hiddList;
+    }
 
-  private String javaScriptFun() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("function setJobNameValue(){\n");
-    sb.append("console.log('sssssss')\n");
-    sb.append("};setJobNameValue();\n");
-    return sb.toString();
-  }
+    private String javaScriptFun() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("function setJobNameValue(){\n");
+        sb.append("console.log('sssssss')\n");
+        sb.append("};setJobNameValue();\n");
+        return sb.toString();
+    }
 
 //  public String StringSql() {
 //    return "select t.CI_ITEM_CODE as mkey,t.CI_ITEM_CODE as val,t.ci_item_name, t.ci_item_spec as ciitemspec from t_co_item t  WHERE t.ci_item_code = ";
 //  }
 
-  public String StringSql() {
-    return " SELECT T.CI_ITEM_CODE AS MKEY," +
-            " T.CI_ITEM_CODE AS VAL," +
-            " T.STOCK_CODE   AS STOCK_CODE," +
-            " T.CI_ITEM_NAME," +
-            " T.CI_ITEM_SPEC AS CIITEMSPEC " +
-            " FROM T_CO_ITEM T " +
-            " WHERE T.CI_ITEM_CODE = ";
-  }
+    public String StringSql() {
+        return " SELECT T.CI_ITEM_CODE AS MKEY," +
+                " T.CI_ITEM_CODE AS VAL," +
+                " T.STOCK_CODE   AS STOCK_CODE," +
+                " T.CI_ITEM_NAME," +
+                " T.CI_ITEM_SPEC AS CIITEMSPEC " +
+                " FROM T_CO_ITEM T " +
+                " WHERE T.CI_ITEM_CODE = ";
+    }
 }
