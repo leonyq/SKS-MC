@@ -65,7 +65,7 @@
          <s:set name="_$type" value="'view'"/>
          <tbody class="isParentsTitle">
          <bu:tr cssClass="datagrid-header-row datagrid-title-ajax" id="datagrid-title-ajax">
-          
+
            <td class="datagrid-cell" style="width:30px; text-align:center;">
            <bu:thSeq formId="ca01f1e21e824c8b94fc899f340bee0e" i18n="1"/></td>
           <td class="datagrid-cell" style="width:30px; text-align:center;display:none;">
@@ -77,23 +77,23 @@
            <bu:uitn colNo="PROJECT_ID" formId="ca01f1e21e824c8b94fc899f340bee0e"/></td>
           <td class="datagrid-cell" style="text-align:center;width:100px;">
            <bu:uitn colNo="PROJECT_STATUS" formId="ca01f1e21e824c8b94fc899f340bee0e"/></td>
-         
+
            <!--<td class="datagrid-cell" style="text-align:center;width:100px;">
            <bu:uitn colNo="IS_REL" formId="ca01f1e21e824c8b94fc899f340bee0e"/></td>-->
           <!--
            <td class="datagrid-cell" style="width:150px;">
            <bu:uitn colNo="PRODUCT_MATERIAL" formId="ca01f1e21e824c8b94fc899f340bee0e"/></td>-->
-           
+
            <td class="datagrid-cell" style="text-align:center;width:100px;">
            <bu:uitn colNo="LOT_NUMBER" formId="ca01f1e21e824c8b94fc899f340bee0e"/></td>
-           
+
            <td class="datagrid-cell" style="text-align:center;width:100px;">
            <bu:uitn colNo="PRODUCT_MATERIAL" formId="ca01f1e21e824c8b94fc899f340bee0e"/></td>
-           
+
            <td class="datagrid-cell" style="text-align:center;width:100px;">
            <bu:uitn colNo="PRODUCT_NAME" formId="ca01f1e21e824c8b94fc899f340bee0e"/></td>
-           
-           
+
+
           <!--
             <bu:uitn colNo="PRODUCT_STANDARD" formId="ca01f1e21e824c8b94fc899f340bee0e"/></td>
           <td class="datagrid-cell" style="width:70px;">-->
@@ -101,8 +101,8 @@
            <bu:uitn colNo="PRODUCT_COUNT" formId="ca01f1e21e824c8b94fc899f340bee0e"/></td>
            <td class="datagrid-cell" style="text-align:center;width:100px;">
            <bu:uitn colNo="FINISH_COUNT" formId="ca01f1e21e824c8b94fc899f340bee0e"/></td>
-           
-          
+
+
           <!--
           <td class="datagrid-cell" style="width:110px;">
               <bu:uitn colNo="FAI_NUM" formId="ca01f1e21e824c8b94fc899f340bee0e"/></td>
@@ -165,13 +165,13 @@
       <!-- 修改组织机构的width-->
 <script type="text/javascript">
      $(function (){
-      
+
        editDadtAuthStyle();
     });
-  
+
 function editDadtAuthStyle(){
      $("#DATA_AUTH").width("150px");
-}  
+}
 </script>
 <script type="text/javascript">
     // 主列表
@@ -425,8 +425,8 @@ function editDadtAuthStyle(){
         } else {
             $("#check_" + trId).attr("checked", true);
         }
-     
-   
+
+
     }
     //生成异步表格
     function createTableModel(ms, formId) {
@@ -468,21 +468,21 @@ function editDadtAuthStyle(){
                 arrHtml.push("<span colno='PROJECT_STATUS'  class='" + ms.uiClass(formId, 'PROJECT_STATUS') + "' style='" + ms.uiStyle(formId, 'PROJECT_STATUS') + "' " + ms.uiEvent(formId, 'PROJECT_STATUS') + " >" + v['PROJECT_STATUS'] + "</span>");
                 arrHtml.push("<input type='hidden' id='PROJECT_STATUS_" + v.ID + "' value='" + uiRaw[i].PROJECT_STATUS + "' />");
                 arrHtml.push("</td>");
-                
+
           		//arrHtml.push("<td colno='IS_REL' class='datagrid-cell " + ms.tdClass(formId, 'IS_REL') + "' style='text-align:center;width:100px;" + ms.tdStyle(formId, 'IS_REL') + "' " + ms.tdEvent(formId, 'IS_REL') + ">")
                // arrHtml.push("<span colno='IS_REL'  class='" + ms.uiClass(formId, 'IS_REL') + "' style='" + ms.uiStyle(formId, 'IS_REL') + "' " + ms.uiEvent(formId, 'IS_REL') + " >" + v['IS_REL'] + "</span>")
                 //arrHtml.push("<input type='hidden' id='IS_REL" + v.ID + "' value='" + uiRaw[i].IS_REL + "' />");
                // arrHtml.push("</td>");
-                
-                
+
+
           		arrHtml.push("<td colno='LOT_NUMBER'  class='datagrid-cell " + ms.tdClass(formId, 'LOT_NUMBER') + "' style='width:100px;text-align:center;" + ms.tdStyle(formId, 'LOT_NUMBER') + "' " + ms.tdEvent(formId, 'LOT_NUMBER') + ">");
                 arrHtml.push("<span colno='LOT_NUMBER' class='" + ms.uiClass(formId, 'LOT_NUMBER') + "' onclick='itemJump1(\"" + v['LOT_NUMBER'] + "\")' style='' " + ms.uiEvent(formId, 'LOT_NUMBER') + " title='" + v['LOT_NUMBER'] + "' >" + v['LOT_NUMBER'] + "</span>");
                 arrHtml.push("<input type='hidden' id='PRODUCT_CONFIGURE_" + v.ID + "' value='" + uiRaw[i].PRODUCT_CONFIGURE + "' /></td>");
-          		
+
           		arrHtml.push("<td colno='PRODUCT_MATERIAL'  class='datagrid-cell " + ms.tdClass(formId, 'PRODUCT_MATERIAL') + "' style='width:100px;text-align:center;" + ms.tdStyle(formId, 'PRODUCT_MATERIAL') + "' " + ms.tdEvent(formId, 'PRODUCT_MATERIAL') + ">");
                 arrHtml.push("<span colno='PRODUCT_MATERIAL' class='" + ms.uiClass(formId, 'PRODUCT_MATERIAL') + "' onclick='itemJump1(\"" + v['PRODUCT_MATERIAL'] + "\")' style='' " + ms.uiEvent(formId, 'PRODUCT_MATERIAL') + " title='" + v['PRODUCT_MATERIAL'] + "' >" + v['PRODUCT_MATERIAL'] + "</span>");
                 arrHtml.push("<input type='hidden' id='PRODUCT_CONFIGURE_" + v.ID + "' value='" + uiRaw[i].PRODUCT_CONFIGURE + "' /></td>");
-          		
+
                 arrHtml.push("<td colno='PRODUCT_NAME' class='datagrid-cell " + ms.tdClass(formId, 'PRODUCT_NAME') + "' style='width:100px;text-align:center;" + ms.tdStyle(formId, 'PRODUCT_NAME') + "' " + ms.tdEvent(formId, 'PRODUCT_NAME') + ">");
                 arrHtml.push("<span colno='PRODUCT_NAME' class='" + ms.uiClass(formId, 'PRODUCT_NAME') + "' style='" + ms.uiStyle(formId, 'PRODUCT_NAME') + "' " + ms.uiEvent(formId, 'PRODUCT_NAME') + " title='" + v['PRODUCT_NAME'] + "' >" + v['PRODUCT_NAME'] + "</span>");
                 arrHtml.push("</td>");
@@ -492,11 +492,11 @@ function editDadtAuthStyle(){
                 arrHtml.push("<td colno='PRODUCT_COUNT' class='datagrid-cell " + ms.tdClass(formId, 'PRODUCT_COUNT') + "' style='width:100px;text-align:center;" + ms.tdStyle(formId, 'PRODUCT_COUNT') + "' " + ms.tdEvent(formId, 'PRODUCT_COUNT') + ">");
                 arrHtml.push("<span colno='PRODUCT_COUNT' class='" + ms.uiClass(formId, 'PRODUCT_COUNT') + "' style='" + ms.uiStyle(formId, 'PRODUCT_COUNT') + "' " + ms.uiEvent(formId, 'PRODUCT_COUNT') + " >" + v['PRODUCT_COUNT'] + "</span>");
                 arrHtml.push("</td>");
-                
+
                 arrHtml.push("<td colno='FINISH_COUNT' class='datagrid-cell " + ms.tdClass(formId, 'FINISH_COUNT') + "' style='width:100px;text-align:center;" + ms.tdStyle(formId, 'FINISH_COUNT') + "' " + ms.tdEvent(formId, 'FINISH_COUNT') + ">");
                 arrHtml.push("<span colno='FINISH_COUNT' class='" + ms.uiClass(formId, 'FINISH_COUNT') + "' style='" + ms.uiStyle(formId, 'FINISH_COUNT') + "' " + ms.uiEvent(formId, 'FINISH_COUNT') + " >" + v['FINISH_COUNT'] + "</span>");
                 arrHtml.push("</td>");
-          
+
                 /*
                 arrHtml.push("<td colno='FAI_NUM' class='datagrid-cell " + ms.tdClass(formId, 'FAI_NUM') + "' style='width:110px;text-align:right;" + ms.tdStyle(formId, 'FAI_NUM') + "' " + ms.tdEvent(formId, 'FAI_NUM') + ">")
                 arrHtml.push("<span colno='FAI_NUM' class='" + ms.uiClass(formId, 'FAI_NUM') + "' style='" + ms.uiStyle(formId, 'FAI_NUM') + "' " + ms.uiEvent(formId, 'FAI_NUM') + " >" + v['FAI_NUM'] + "</span>")
@@ -523,11 +523,11 @@ function editDadtAuthStyle(){
                 //arrHtml.push("<td colno='CREATE_USER' class='datagrid-cell " + ms.tdClass(formId, 'CREATE_USER') + "' style='width:90px;text-align:center;" + ms.tdStyle(formId, 'CREATE_USER') + "' " + ms.tdEvent(formId, 'CREATE_USER') + ">")
                 //arrHtml.push("<span colno='CREATE_USER' class='" + ms.uiClass(formId, 'CREATE_USER') + "' style='" + ms.uiStyle(formId, 'CREATE_USER') + "' " + ms.uiEvent(formId, 'CREATE_USER') + " >" + v['CREATE_USER'] + "</span>")
                 //arrHtml.push("</td>");
-          		
+
           		arrHtml.push("<td colno='EDIT_USER' class='datagrid-cell " + ms.tdClass(formId, 'EDIT_USER') + "' style='width:100px;text-align:center;" + ms.tdStyle(formId, 'EDIT_USER') + "' " + ms.tdEvent(formId, 'EDIT_USER') + ">");
                 arrHtml.push("<span colno='EDIT_USER' class='" + ms.uiClass(formId, 'EDIT_USER') + "' style='" + ms.uiStyle(formId, 'EDIT_USER') + "' " + ms.uiEvent(formId, 'EDIT_USER') + " >" + v['EDIT_USER'] + "</span>");
                 arrHtml.push("</td>");
-                
+
           		//arrHtml.push("<td colno='CREATE_TIME' class='datagrid-cell " + ms.tdClass(formId, 'CREATE_TIME') + "' style='width:140px;text-align:center;" + ms.tdStyle(formId, 'CREATE_TIME') + "' " + ms.tdEvent(formId, 'CREATE_TIME') + ">")
                 //arrHtml.push("<span colno='CREATE_TIME' class='" + ms.uiClass(formId, 'CREATE_TIME') + "' style='" + ms.uiStyle(formId, 'CREATE_TIME') + "' " + ms.uiEvent(formId, 'CREATE_TIME') + " >" + v['CREATE_TIME'] + "</span>")
                 //arrHtml.push("</td>");

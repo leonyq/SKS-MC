@@ -100,7 +100,8 @@ public class ProjectToFeedAddInfoImpl implements FuncService {
         modelAction.setAjaxString(reg);
         /*-- version:2019/7/18 15:38 | desc:投料标准配方 --*/
 
-        String feedDetailSql = " SELECT D.CI_ITEM_CODE  AS ITEM_CODE, " +
+        String feedDetailSql =
+                " SELECT D.CI_ITEM_CODE  AS ITEM_CODE, " +
                 "       D.STOCK_CODE    AS ITEM_STOCK, " +
                 "       D.RAW_LOTNUMBER AS ITEM_LOT, " +
                 "       C.CBD_ITEM_NUM  AS ITEM_NUM, " +
@@ -119,8 +120,6 @@ public class ProjectToFeedAddInfoImpl implements FuncService {
                 " WHERE 1 = 1 " +
                 "   AND A.project_id  = ? order by TO_NUMBER(C.WORKCENTER_NO) ASC ";
         List<Map<String, Object>> list = modelService.listDataSql(feedDetailSql, new Object[]{projectId});
-
-        //  int countSql = modelService.countSql(feedDetailSql, new Object[]{projectId});
 
         /*-- version:2019/7/18 15:39 | desc:基础信息 --*/
         String sql = "SELECT A.PROJECT_ID,A.LOT_NUMBER,A.PM_MEMO,A.PRODUCT_COUNT,B.FEED_NUM,C.RECEIVE_COUNT,A.PRODUCT_NAME,A.PRODUCT_MATERIAL,C.VAT_NO,C.RAW_LICENSE, D.FEED_NUM FROM T_PM_PROJECT_BASE A " +

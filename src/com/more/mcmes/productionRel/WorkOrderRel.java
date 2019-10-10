@@ -57,6 +57,7 @@ public class WorkOrderRel implements FuncService {
 
 
         String dataAuth = modelAction.getCurrUser().getData_auth();
+
         String baseOrder = StringUtils.toString(split[0]);
         String userId = modelAction.getUser().getId();
 

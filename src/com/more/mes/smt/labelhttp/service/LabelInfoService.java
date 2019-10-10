@@ -63,15 +63,14 @@ public class LabelInfoService {
                 dataList.add(labelMap);
             }
 
-            // /
+            //
             String sql = "SELECT DISTINCT T.CLD_LABEL_ID, " + " T.CLD_ITEM_ALIAS, "
                     + " T.CLD_COLUMN_NAME, " + " T1.DATA_ITEMS_NAME "
                     + " FROM T_CO_LABEL_DATACONFIGURE T " + " LEFT JOIN ML_DATA_ITEMS T1 "
                     + " ON T.CLD_ITEM_ALIAS = T1.DATA_ITEMS_ALIAS " + " WHERE T.CLD_LABEL_ID = ? "
                     + " and t1.template_id = ? "
                     + " AND T1.PICTURE_FLAG != 'Y' AND T.DATA_AUTH =? AND T1.DATA_AUTH=? ";
-            labelList = modelService.listDataSql(sql,
-                    new Object[]{labelId, labelId, dataAuth, dataAuth});
+            labelList = modelService.listDataSql(sql, new Object[]{labelId, labelId, dataAuth, dataAuth});
 
             String sql2 = "SELECT T.CLD_SQL,T.CLD_CODE_ALIAS,T.CLD_NUM_ALIAS  FROM T_CO_LABEL_DATASOURCE T WHERE T.CLD_LABEL_ID=? AND T.DATA_AUTH=? ";
             map = modelService.queryForMap(sql2, new Object[]{labelId, dataAuth});
