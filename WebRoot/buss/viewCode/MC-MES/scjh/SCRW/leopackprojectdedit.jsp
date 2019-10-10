@@ -135,7 +135,7 @@
 											<td id="ITEM_CODE_${status.count}" class='datagrid-cell datagrid-cell-1' style='width:150px;'>${item.ITEM_CODE}</td>
 											<td id="ITEM_MANE_${status.count}" class='datagrid-cell datagrid-cell-2' style="width:150px;">${item.ITEM_MANE}</td>
 											<td id="ITEM_SPEC_${status.count}" class='datagrid-cell datagrid-cell-3' style="width:150px;">${item.ITEM_SPEC}</td>
-                                            <td id="WORK_SPACE_${status.count}" class='datagrid-cell datagrid-cell-2' style="width:150px;">${item.WORK_SPACE}</td>
+											<td id="WORK_SPACE_${status.count}" class='datagrid-cell datagrid-cell-2' style="width:150px;">${item.WORK_SPACE}</td>
 											<td id="WARE_HOUSE_${status.count}" class='datagrid-cell datagrid-cell-3' style="width:150px;">${item.WARE_HOUSE}</td>
 											<td id="ITEM_NUM_${status.count}" class='datagrid-cell datagrid-cell-4' style="width:150px;">${item.ITEM_NUM}</td>
 											<td id="PACK_NUM_${status.count}" class='datagrid-cell datagrid-cell-4' style="width:150px;">${item.PACK_NUM}</td>
@@ -153,20 +153,20 @@
 				</div>
 			</div>
 			<script>
-				function initEditDataLs(){
-					getEditRows("5a4ae0bc729d430dac8d2d784e4687c5","2","734fa2159c4344848a3c1b5584c17b2b","","0510a29df5354c2c96aa45c07d3a0773","");
-					$('table').find('tbody tr:eq(0)').click();
-				}
+                function initEditDataLs(){
+                    getEditRows("5a4ae0bc729d430dac8d2d784e4687c5","2","734fa2159c4344848a3c1b5584c17b2b","","0510a29df5354c2c96aa45c07d3a0773","");
+                    $('table').find('tbody tr:eq(0)').click();
+                }
 			</script>
 			<script>
-				$(function(){
+                $(function(){
 
-					//initFeedInfo1();
+                    //initFeedInfo1();
 
-					tableInfo();
-				});
+                    tableInfo();
+                });
 
-				/* function initFeedInfo1(){
+                /* function initFeedInfo1(){
                    console.log("初始化>>>>");
                    //var projectId = $("#paraMapObj_PROJECT_ID_SHOW").val();
                    var projectId = $("#paraMapObj_PROJECT_ID").val();
@@ -221,444 +221,451 @@
         });
     }*/
 
-				function tableInfo(){
+                function tableInfo(){
 
-					var packnumArr = [];
-					var itemcodeArr = [];
-					var itemnumArr = [];
-					var itemspecArr = [];
-					var itemnameArr = [];
-                    var workspaceArr = [];
-					var warehouseArr = [];
-                  
-                   
-                  
+                    var packnumArr = new Array();
+                    var itemcodeArr = new Array();
+                    var itemnumArr = new Array();
+                    var itemspecArr = new Array();
+                    var itemnameArr = new Array();
+                    var workspaceArr = new Array();
+                    var warehouseArr = new Array();
+
+
+
                     $("td[id^='WORK_SPACE_']").each(function () {
-						var cur = $(this).text();
-						if (cur != null) {
-							workspaceArr.push(cur);
-						} else {
-							workspaceArr.push("");
-						}
-					});
+                        var cur = $(this).text();
+                        if (cur != null) {
+                            workspaceArr.push(cur);
+                        } else {
+                            workspaceArr.push("");
+                        }
+                    });
                     $("td[id^='WARE_HOUSE_']").each(function () {
-						var cur = $(this).text();
-						if (cur != null) {
-							warehouseArr.push(cur);
-						} else {
-							warehouseArr.push("");
-						}
-					});
-					$("td[id^='PACK_NUM_']").each(function () {
-						var cur = $(this).text();
-						if (cur != null) {
-							packnumArr.push(cur);
-						} else {
-							packnumArr.push("");
-						}
-					});
+                        var cur = $(this).text();
+                        if (cur != null) {
+                            warehouseArr.push(cur);
+                        } else {
+                            warehouseArr.push("");
+                        }
+                    });
+                    $("td[id^='PACK_NUM_']").each(function () {
+                        var cur = $(this).text();
+                        if (cur != null) {
+                            packnumArr.push(cur);
+                        } else {
+                            packnumArr.push("");
+                        }
+                    });
 
-					$("td[id^='ITEM_CODE_']").each(function () {
-						var cur = $(this).text();
-						console.log("cur>>>>"+cur);
-						if (cur != null) {
-							itemcodeArr.push(cur);
-						} else {
-							itemcodeArr.push("");
-						}
-					});
-					$("td[id^='ITEM_NUM_']").each(function () {
-						var cur = $(this).text();
-						console.log("cur>>>>"+cur);
-						if (cur != null) {
-							itemnumArr.push(cur);
-						} else {
-							itemnumArr.push("");
-						}
-					});
-					$("td[id^='ITEM_SPEC_']").each(function () {
-						var cur = $(this).text();
-						console.log("cur>>>>"+cur);
-						if (cur != null) {
-							itemspecArr.push(cur);
-						} else {
-							itemspecArr.push("");
-						}
-					});
-					$("td[id^='ITEM_MANE_']").each(function () {
-						var cur = $(this).text();
-						console.log("cur>>>>"+cur);
-						if (cur != null) {
-							itemnameArr.push(cur);
-						} else {
-							itemnameArr.push("");
-						}
-					});
+                    $("td[id^='ITEM_CODE_']").each(function () {
+                        var cur = $(this).text();
+                        console.log("cur>>>>"+cur);
+                        if (cur != null) {
+                            itemcodeArr.push(cur);
+                        } else {
+                            itemcodeArr.push("");
+                        }
+                    });
+                    $("td[id^='ITEM_NUM_']").each(function () {
+                        var cur = $(this).text();
+                        console.log("cur>>>>"+cur);
+                        if (cur != null) {
+                            itemnumArr.push(cur);
+                        } else {
+                            itemnumArr.push("");
+                        }
+                    });
+                    $("td[id^='ITEM_SPEC_']").each(function () {
+                        var cur = $(this).text();
+                        console.log("cur>>>>"+cur);
+                        if (cur != null) {
+                            itemspecArr.push(cur);
+                        } else {
+                            itemspecArr.push("");
+                        }
+                    });
+                    $("td[id^='ITEM_MANE_']").each(function () {
+                        var cur = $(this).text();
+                        console.log("cur>>>>"+cur);
+                        if (cur != null) {
+                            itemnameArr.push(cur);
+                        } else {
+                            itemnameArr.push("");
+                        }
+                    });
 
-					$("#tbody_5a4ae0bc729d430dac8d2d784e4687c5").empty();
+                    $("#tbody_5a4ae0bc729d430dac8d2d784e4687c5").empty();
 
-					for(var i =0; i<itemcodeArr.length;i++){
-						_addRowExtend('5a4ae0bc729d430dac8d2d784e4687c5','2','','','');
-						$("#paraMap"  + (i+1) + "_ITEM_CODE").val(itemcodeArr[i]);
-						$("#paraMap" + (i+1) + "_ITEM_CODE_SHOW").val(itemcodeArr[i]);
-						$("#paraMap" + (i+1) + "_ITEM_MANE").val(itemnameArr[i]);
-						$("#paraMap" + (i+1) + "_ITEM_SPEC").val(itemspecArr[i]);
-						$("#paraMap" + (i+1) + "_ITEM_NUM").val(itemnumArr[i]);
-						$("#paraMap" + (i+1) + "_PACK_NUM").val(packnumArr[i]);
+                    for(var i =0; i<itemcodeArr.length;i++){
+                        _addRowExtend('5a4ae0bc729d430dac8d2d784e4687c5','2','','','');
+                        $("#paraMap"  + (i+1) + "_ITEM_CODE").val(itemcodeArr[i]);
+                        $("#paraMap" + (i+1) + "_ITEM_CODE_SHOW").val(itemcodeArr[i]);
+                        $("#paraMap" + (i+1) + "_ITEM_MANE").val(itemnameArr[i]);
+                        $("#paraMap" + (i+1) + "_ITEM_SPEC").val(itemspecArr[i]);
+                        $("#paraMap" + (i+1) + "_ITEM_NUM").val(itemnumArr[i]);
+                        $("#paraMap" + (i+1) + "_PACK_NUM").val(packnumArr[i]);
                         $("#paraMap" + (i+1) + "_WORK_SPACE").val(workspaceArr[i]);
-						$("#paraMap" + (i+1) + "_WARE_HOUSE").val(warehouseArr[i]);
-					}
-				}
+                        $("#paraMap" + (i+1) + "_WARE_HOUSE").val(warehouseArr[i]);
+                    }
+                }
 
 
 
 
 
 
-				//数据键盘监听
-				/*   $("input").bind("input keypress", function (event) {
+                //数据键盘监听
+                /*   $("input").bind("input keypress", function (event) {
                              calNumber();
                            });*/
-				$("input[name='paraMapObj.FINISH_COUNT']").bind("change", function (event) {
-					calNumber();
-				});
-				$("input[id$='_PACK_NUM']").bind("change",function(event){
-					var i = 0;
-					$("input[id$='_PACK_NUM']").each(function () {
-						var cur = $(this).val();
-						var pre = "paraMapObj_" + a + "_";
-						var cc = $("#" + pre + "PACK_NUM").val(cur);
-						a++;
-						console.log("cc>>>>"+cc)
-					})
-				});
+                $("input[name='paraMapObj.FINISH_COUNT']").bind("change", function (event) {
+                    calNumber();
+                });
+                $("input[id$='_PACK_NUM']").bind("change",function(event){
+                    var i = 0;
+                    $("input[id$='_PACK_NUM']").each(function () {
+                        var cur = $(this).val();
+                        var pre = "paraMapObj_" + a + "_";
+                        var cc = $("#" + pre + "PACK_NUM").val(cur);
+                        a++;
+                        console.log("cc>>>>"+cc)
+                    })
+                })
 
 
-				function calNumber(){
+                function calNumber(){
 
-					var finishCount = $("#paraMapObj_FINISH_COUNT").val();
-					var productCount = $("#paraMapObj_PRODUCT_COUNT").val();
-					var l = $("#tbody_5a4ae0bc729d430dac8d2d784e4687c5 tr").length;
-					var pocunt = parseFloat(finishCount)/parseFloat(productCount);
-					console.log("p>>"+pocunt);
-					for(var i=0;i<l;i++){
-						var feednum = $("#paraMap" + (i+1) + "_ITEM_NUM").val();
-						if(finishCount == null || finishCount == ""){
-							$("#paraMap" + (i+1)  + "_PACK_NUM").val("0");
-						}else{
-							var packnum1 = pocunt*parseFloat(feednum);
-							try{
-								countLen = packnum1.toString().split('.')[1].length;
-								if(countLen ==1){
-									packnum = packnum1.toString()+"00";
-								}else if(countLen ==2){
-									packnum = packnum1.toString()+"0";
-								}else if(countLen ==3){
-									packnum = packnum1.toString();
-								}else if(countLen > 3){
-									packnum = packnum1.toString().substring(0,packnum1.toString().indexOf(".")+4);
-								}
-							}catch (e) {
-								packnum = packnum1.toString()+".000";
-							}
-							$("#paraMap" + (i+1)  + "_PACK_NUM").val(packnum);
+                    var finishCount = $("#paraMapObj_FINISH_COUNT").val();
+                    var productCount = $("#paraMapObj_PRODUCT_COUNT").val()
+                    var l = $("#tbody_5a4ae0bc729d430dac8d2d784e4687c5 tr").length;
+                    var pocunt = parseFloat(finishCount)/parseFloat(productCount);
+                    console.log("p>>"+pocunt)
+                    for(var i=0;i<l;i++){
+                        var feednum = $("#paraMap" + (i+1) + "_ITEM_NUM").val();
+                        if(finishCount == null || finishCount == ""){
+                            $("#paraMap" + (i+1)  + "_PACK_NUM").val("0");
+                        }else{
+                            var packnum1 = pocunt*parseFloat(feednum);
+                            try{
+                                countLen = packnum1.toString().split('.')[1].length;
+                                if(countLen ==1){
+                                    packnum = packnum1.toString()+"00";
+                                }else if(countLen ==2){
+                                    packnum = packnum1.toString()+"0";
+                                }else if(countLen ==3){
+                                    packnum = packnum1.toString();
+                                }else if(countLen > 3){
+                                    packnum = packnum1.toString().substring(0,packnum1.toString().indexOf(".")+4);
+                                }
+                            }catch (e) {
+                                packnum = packnum1.toString()+".000";
+                            }
+                            $("#paraMap" + (i+1)  + "_PACK_NUM").val(packnum);
 
-						}
-					}
+                        }
+                    }
 
-				}
-				//包装保存
-				function  packsave1(){
+                }
+                //包装保存
+                function  packsave1(){
 
-					var projectId = $("#paraMapObj_PROJECT_ID").val();
-					var finishCount = $("#paraMapObj_FINISH_COUNT").val();
-					var packnumArr = [];
-					var itemcodeArr = [];
-					var itemnumArr = [];
-					var itemspecArr = [];
-					var itemnameArr = [];
-                   var workspaceArr = [];
-					var warehouseArr = [];
-                  
+                    var projectId = $("#paraMapObj_PROJECT_ID").val();
+                    var finishCount = $("#paraMapObj_FINISH_COUNT").val();
+                    var packnumArr = new Array();
+                    var itemcodeArr = new Array();
+                    var itemnumArr = new Array();
+                    var itemspecArr = new Array();
+                    var itemnameArr = new Array();
+                    var workspaceArr = new Array();
+                    var warehouseArr = new Array();
+
                     var fag = false;
 
                     $("input[id$='_WARE_HOUSE']").each(function () {
-                     var cur = $(this).val();
-                     if (cur != "") {
-                       warehouseArr.push(cur);
-                       
-                    } else {
-                      fag = true;
+                        var cur = $(this).val();
+                        if (cur != "") {
+                            warehouseArr.push(cur);
 
-                    }
-                   });
-                   if(fag){
-                     utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="仓库值不能为空" />", "", "260", "145");
-                       return;
-                    }
-
-                   $("input[id$='_WORK_SPACE']").each(function () {
-                       var cur = $(this).val();
-                       if (cur != "") {
-                        workspaceArr.push(cur);
-                      
-                      } else {
-                        fag = true;
-
-                      }
-                    }); 
+                        } else {
+                            fag = true;
+                            return;
+                        }
+                    });
                     if(fag){
-                      utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="工厂值不能为空" />", "", "260", "145");
-                      return;
+                        <%--utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="仓库值不能为空" />", "", "260", "145");--%>
+                        _alertValMsg($("#paraMap1_WARE_HOUSE"), "<dict:lang value="仓库值不能为空" />");
+                        return;
                     }
-					$("input[id$='_PACK_NUM']").each(function () {
-						var cur = $(this).val();
-						if (cur != null) {
-							packnumArr.push(cur);
-						} else {
-							packnumArr.push("");
-						}
-					});
 
-					$("input[id$='_ITEM_CODE_SHOW']").each(function () {
-						var cur = $(this).val();
-						console.log("cur>>>>"+cur);
-						if (cur != null) {
-							itemcodeArr.push(cur);
-						} else {
-							itemcodeArr.push("");
-						}
-					});
-					$("input[id$='_ITEM_NUM']").each(function () {
-						var cur = $(this).val();
-						console.log("cur>>>>"+cur);
-						if (cur != null) {
-							itemnumArr.push(cur);
-						} else {
-							itemnumArr.push("");
-						}
-					});
-					$("input[id$='_ITEM_SPEC']").each(function () {
-						var cur = $(this).val();
-						console.log("cur>>>>"+cur);
-						if (cur != null) {
-							itemspecArr.push(cur);
-						} else {
-							itemspecArr.push("");
-						}
-					});
-					$("input[id$='_ITEM_MANE']").each(function () {
-						var cur = $(this).val();
-						console.log("cur>>>>"+cur);
-						if (cur != null) {
-							itemnameArr.push(cur);
-						} else {
-							itemnameArr.push("");
-						}
-					});
+                    $("input[id$='_WORK_SPACE']").each(function () {
+                        var cur = $(this).val();
+                        if (cur != "") {
+                            workspaceArr.push(cur);
 
-					packnumArr.join(",");
-					itemcodeArr.join(",");
-					itemnumArr.join(",");
-					itemspecArr.join(",");
-					itemnameArr.join(",");
+                        } else {
+                            fag = true;
+                            return;
+                        }
+                    });
+                    if(fag){
+                        <%--utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="工厂值不能为空" />", "", "260", "145");--%>
+                        _alertValMsg($("#paraMap1_WORK_SPACE"), "<dict:lang value="工厂值不能为空" />");
+
+                        return;
+                    }
+                    $("input[id$='_PACK_NUM']").each(function () {
+                        var cur = $(this).val();
+                        if (cur != null) {
+                            packnumArr.push(cur);
+                        } else {
+                            packnumArr.push("");
+                        }
+                    });
+
+                    $("input[id$='_ITEM_CODE_SHOW']").each(function () {
+                        var cur = $(this).val();
+                        console.log("cur>>>>"+cur);
+                        if (cur != null) {
+                            itemcodeArr.push(cur);
+                        } else {
+                            itemcodeArr.push("");
+                        }
+                    });
+                    $("input[id$='_ITEM_NUM']").each(function () {
+                        var cur = $(this).val();
+                        console.log("cur>>>>"+cur);
+                        if (cur != null) {
+                            itemnumArr.push(cur);
+                        } else {
+                            itemnumArr.push("");
+                        }
+                    });
+                    $("input[id$='_ITEM_SPEC']").each(function () {
+                        var cur = $(this).val();
+                        console.log("cur>>>>"+cur);
+                        if (cur != null) {
+                            itemspecArr.push(cur);
+                        } else {
+                            itemspecArr.push("");
+                        }
+                    });
+                    $("input[id$='_ITEM_MANE']").each(function () {
+                        var cur = $(this).val();
+                        console.log("cur>>>>"+cur);
+                        if (cur != null) {
+                            itemnameArr.push(cur);
+                        } else {
+                            itemnameArr.push("");
+                        }
+                    });
+
+                    packnumArr.join(",");
+                    itemcodeArr.join(",");
+                    itemnumArr.join(",");
+                    itemspecArr.join(",");
+                    itemnameArr.join(",");
                     workspaceArr.join(",");
-					warehouseArr.join(",");
-					console.log("itemcodeArr>>>>>"+itemcodeArr);
-					$.ajax({
-						type:"POST",
-						dataType:"json",
-						url:"${path}buss/bussModel_exeFunc.ms?funcMId=cc7aaef74e364ecfb35eacf9e5fc3665",
-						data:"&projectId="+projectId +"&finishCount="+finishCount+"&packnumArr="+packnumArr+"&itemcodeArr="+itemcodeArr+"&itemspecArr="+itemspecArr+"&itemnumArr="+itemnumArr+"&itemnameArr="+itemnameArr+"&workspaceArr="+workspaceArr+"&warehouseArr="+warehouseArr,
-						success:function(data){
-							var flag = false;
-							if(data.ajaxString == "ok"){
-								//utilsFp.confirmIcon(2,"","","", "保存成功",0,"300","");
-								// $('#isCloseWin').attr('checked',true);
-								// top.document.getElementById('iframe2').contentWindow.reloadPgAx('包装修改成功','摩尔提示','200','150','3000','0');
+                    warehouseArr.join(",");
+                    console.log("itemcodeArr>>>>>"+itemcodeArr)
+                    $.ajax({
+                        type:"POST",
+                        dataType:"json",
+                        url:"${path}buss/bussModel_exeFunc.ms?funcMId=cc7aaef74e364ecfb35eacf9e5fc3665",
+                        data:"&projectId="+projectId +"&finishCount="+finishCount+"&packnumArr="+packnumArr+"&itemcodeArr="+itemcodeArr+"&itemspecArr="+itemspecArr+"&itemnumArr="+itemnumArr+"&itemnameArr="+itemnameArr+"&workspaceArr="+workspaceArr+"&warehouseArr="+warehouseArr,
+                        success:function(data){
+                            var flag = false;
+                            if(data.ajaxString == "ok"){
+                                //utilsFp.confirmIcon(2,"","","", "保存成功",0,"300","");
+                                // $('#isCloseWin').attr('checked',true);
+                                // top.document.getElementById('iframe2').contentWindow.reloadPgAx('包装修改成功','摩尔提示','200','150','3000','0');
                                 //parent.location.reload();
-								utilsFp.confirmIcon(2,"","closew","", "保存成功",0,"300","");
-								
-                               // utilsFp.confirmIcon(2,"","","", "保存成功",0,"300","");
-                              
-								flag = true;
-							}
+                                utilsFp.confirmIcon(2,"","closew","", "保存成功",0,"300","");
+
+                                // utilsFp.confirmIcon(2,"","","", "保存成功",0,"300","");
+
+                                flag = true;
+                            }
 
 
-						},
-						error: function (msg) {
-							utilsFp.confirmIcon(3,"","","", "error:"+msg,0,"300","");
+                        },
+                        error: function (msg) {
+                            utilsFp.confirmIcon(3,"","","", "error:"+msg,0,"300","");
 
-						}
-					});
-				}
-              
-              function query(thisObj){
-		        var _pageCurrentPageObj = "1";
-		        document.forms.editForm.submit();
-		        thisObj.onclick = function(){
-			    util.alert(util.submit_default_info);
-		     };
-		      util.showTopLoading();
-	         }	
-              //关闭窗口
-				function closew(){
-					//top.$(".dialog-close").click();
+                        }
+                    });
+                }
+
+                function query(thisObj){
+                    var _pageCurrentPageObj = "1";
+                    document.forms.editForm.submit();
+                    thisObj.onclick = function(){
+                        util.alert(util.submit_default_info);
+                    };
+                    util.showTopLoading();
+                }
+                //关闭窗口
+                function closew(){
+                    //top.$(".dialog-close").click();
                     query(this);
-                  
-				}
 
-				function isEmpty(obj){
-					if(typeof obj == "undefined" || obj == null || obj == ""){
-						return true;
-					}else{
-						return false;
-					}
-				}
+                }
 
-				function isNumber(val) {
-					var regPos = /^\d+(\.\d+)?$/; //非负浮点数
-					if(regPos.test(val)) {
-						return true;
-					}else{
-						return false;
-					}
-				}
+                function isEmpty(obj){
+                    if(typeof obj == "undefined" || obj == null || obj == ""){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }
 
-				function onlyNumber(obj){
-					//得到第一个字符是否为负号
-					var t = obj.value.charAt(0);
-					//先把非数字的都替换掉，除了数字和.
-					obj.value = obj.value.replace(/[^\d\.]/g,'');
-					//必须保证第一个为数字而不是.
-					obj.value = obj.value.replace(/^\./g,'');
-					//保证只有出现一个.而没有多个.
-					obj.value = obj.value.replace(/\.{2,}/g,'.');
-					//保证.只出现一次，而不能出现两次以上
-					obj.value = obj.value.replace('.','$#$').replace(/\./g,'').replace('$#$','.');
-					//如果第一位是负号，则允许添加
-					if(t == '-'){
-						obj.value = '-'+obj.value;
-					}
-				}
+                function isNumber(val) {
+                    var regPos = /^\d+(\.\d+)?$/; //非负浮点数
+                    if(regPos.test(val)) {
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }
 
-				$("#paraMapObj_FINISH_COUNT").keyup(function() {
-					onlyNumber(this);
-				});
+                function onlyNumber(obj){
+                    //得到第一个字符是否为负号
+                    var t = obj.value.charAt(0);
+                    //先把非数字的都替换掉，除了数字和.
+                    obj.value = obj.value.replace(/[^\d\.]/g,'');
+                    //必须保证第一个为数字而不是.
+                    obj.value = obj.value.replace(/^\./g,'');
+                    //保证只有出现一个.而没有多个.
+                    obj.value = obj.value.replace(/\.{2,}/g,'.');
+                    //保证.只出现一次，而不能出现两次以上
+                    obj.value = obj.value.replace('.','$#$').replace(/\./g,'').replace('$#$','.');
+                    //如果第一位是负号，则允许添加
+                    if(t == '-'){
+                        obj.value = '-'+obj.value;
+                    }
+                }
 
-				$("#paraMapObj_FINISH_COUNT").mouseleave(function() {
-					var isFocus=$("#paraMapObj_FINISH_COUNT").is(":focus");
-					if(true==isFocus){
-						var projectId = $("#paraMapObj_PROJECT_ID").val();
-						var finishCount = Number($("#paraMapObj_FINISH_COUNT").val());
-						var total_number = Number($("#paraMapObj_PRODUCT_COUNT").val());
+                $("#paraMapObj_FINISH_COUNT").keyup(function() {
+                    onlyNumber(this);
+                });
 
-						if(isEmpty(finishCount)){
-							_alertValMsg(this,"<dict:lang value="该项不能为空" />");
-							return;
-						}
+                $("#paraMapObj_FINISH_COUNT").mouseleave(function() {
+                    var isFocus=$("#paraMapObj_FINISH_COUNT").is(":focus");
+                    if(true==isFocus){
+                        var projectId = $("#paraMapObj_PROJECT_ID").val();
+                        var finishCount = Number($("#paraMapObj_FINISH_COUNT").val());
+                        var total_number = Number($("#paraMapObj_PRODUCT_COUNT").val());
 
-						if(total_number==0 || !isNumber(total_number)){
-							utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="计划数量不正确，请核实" />", 0, "160", "");
-							return;
-						}
+                        if(isEmpty(finishCount)){
+                            _alertValMsg(this,"<dict:lang value="该项不能为空" />");
+                            return;
+                        }
 
-						$.ajax({
-							type: "POST",
-							dataType: "json",
-							url: "${path}buss/bussModel_exeFunc.ms?funcMId=a381493664ad4dbd845f2051af2313af",
-							data: {
-								"TYPE":"2",
-								"ItEM_CODE":"",
-								"PROJECT_ID":projectId
-							},
-							success: function (data) {
-								debugger;
-								//阈值
-								var Threshold = data.ajaxString;
-								if(!isNumber(Threshold)){
-									utilsFp.confirmIcon(3, "", "", "", "该工单未维护阀值", 0, "160", "");
-									return;
-								}else{
-									Threshold=Number(Threshold)/100;
-								}
+                        if(total_number==0 || !isNumber(total_number)){
+                            <%--utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="计划数量不正确，请核实" />", 0, "160", "");--%>
+                            _alertValMsg($("#paraMapObj_PRODUCT_COUNT"),"<dict:lang value="计划数量不正确，请核实" />");
+                            return;
+                        }
 
-								if(total_number == finishCount){
-									return;
-								}
-								if(total_number*(1+Threshold) < finishCount){
-									utilsFp.confirmIcon(3, "", "", "", "产出数量超出阈值:"+Threshold*100+"%", 0, "160", "");
-									return;
-								}
-								if(total_number*(1-Threshold) > finishCount){
-									utilsFp.confirmIcon(3, "", "", "", "产出数量低于阈值:"+Threshold*100+"%", 0, "160", "");
+                        $.ajax({
+                            type: "POST",
+                            dataType: "json",
+                            url: "${path}buss/bussModel_exeFunc.ms?funcMId=a381493664ad4dbd845f2051af2313af",
+                            data: {
+                                "TYPE":"2",
+                                "ItEM_CODE":"",
+                                "PROJECT_ID":projectId
+                            },
+                            success: function (data) {
+                                debugger;
+                                //阈值
+                                var Threshold = data.ajaxString;
+                                if(!isNumber(Threshold)){
+                                    utilsFp.confirmIcon(3, "", "", "", "该工单未维护阀值", 0, "160", "");
+                                    return;
+                                }else{
+                                    Threshold=Number(Threshold)/100;
+                                }
 
-								}
-							},
-							error: function (msg) {
-								utilsFp.confirmIcon(3, "", "", "", msg, "", "260", "145");
-							}
-						});
-						calNumber();
-					}
+                                if(total_number == finishCount){
+                                    return;
+                                }
+                                if(total_number*(1+Threshold) < finishCount){
+                                    // utilsFp.confirmIcon(3, "", "", "", "产出数量超出阈值:"+Threshold*100+"%", 0, "160", "");
+                                    _alertValMsg($("#paraMapObj_FINISH_COUNT"),"<dict:lang value="产出数量超出阈值" />");
+
+                                    return;
+                                }
+                                if(total_number*(1-Threshold) > finishCount){
+                                    // utilsFp.confirmIcon(3, "", "", "", "产出数量低于阈值:"+Threshold*100+"%", 0, "160", "");
+                                    _alertValMsg($("#paraMapObj_FINISH_COUNT"),"<dict:lang value="产出数量低于阈值" />");
+                                    return;
+                                }
+                            },
+                            error: function (msg) {
+                                utilsFp.confirmIcon(3, "", "", "", msg, "", "260", "145");
+                            }
+                        });
+                        calNumber();
+                    }
 
 
-				});
+                });
 
-				//产出数量校验
-				function packsave(){
-					var projectId = $("#paraMapObj_PROJECT_ID").val();
-					var finishCount = Number($("#paraMapObj_FINISH_COUNT").val());
-					var	idStr = "paraMap1_T5#PRODUCT_COUNT";
-					var projectCount = Number($("#paraMapObj_PRODUCT_COUNT").val());
+                //产出数量校验
+                function packsave(){
+                    var projectId = $("#paraMapObj_PROJECT_ID").val();
+                    var finishCount = Number($("#paraMapObj_FINISH_COUNT").val());
+                    var	idStr = "paraMap1_T5#PRODUCT_COUNT";
+                    var projectCount = Number($("#paraMapObj_PRODUCT_COUNT").val());
 
-					if(isEmpty(finishCount)){
-						//_alertValMsg(this,"<dict:lang value="该项不能为空" />");
-						utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="产出数量不能为空，请核实" />", 0, "160", "");
-						return;
-					}
+                    if(isEmpty(finishCount)){
+                        //_alertValMsg(this,"<dict:lang value="该项不能为空" />");
+                        utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="产出数量不能为空，请核实" />", 0, "160", "");
+                        return;
+                    }
 
-					if(!isNumber(projectCount)){
-						utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="计划数量不正确，请核实" />", 0, "160", "");
-						return;
-					}
+                    if(!isNumber(projectCount)){
+                        utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="计划数量不正确，请核实" />", 0, "160", "");
+                        return;
+                    }
 
-					$.ajax({
-						type: "POST",
-						dataType: "json",
-						url: "${path}buss/bussModel_exeFunc.ms?funcMId=a381493664ad4dbd845f2051af2313af",
-						data: {
-							"TYPE":"2",
-							"ItEM_CODE":"",
-							"PROJECT_ID":projectId
-						},
-						success: function (data) {
-							//阈值
-							var Threshold = data.ajaxString;
-							if(!isNumber(Threshold)){
-								utilsFp.confirmIcon(1,"","packsave1","", "该工单未维护阀值，是否重继续？","1","260","");
-								return;
-							}else{
-								Threshold=Number(Threshold)/100;
-							}
+                    $.ajax({
+                        type: "POST",
+                        dataType: "json",
+                        url: "${path}buss/bussModel_exeFunc.ms?funcMId=a381493664ad4dbd845f2051af2313af",
+                        data: {
+                            "TYPE":"2",
+                            "ItEM_CODE":"",
+                            "PROJECT_ID":projectId
+                        },
+                        success: function (data) {
+                            //阈值
+                            var Threshold = data.ajaxString;
+                            if(!isNumber(Threshold)){
+                                utilsFp.confirmIcon(1,"","packsave1","", "该工单未维护阀值，是否重继续？","1","260","");
+                                return;
+                            }else{
+                                Threshold=Number(Threshold)/100;
+                            }
 
-							if(projectCount*(1+Threshold) < finishCount){
-								utilsFp.confirmIcon(1,"","packsave1","", "产出数量超出阈值:"+Threshold*100+"%，是否重继续","1","260","");
+                            if(projectCount*(1+Threshold) < finishCount){
+                                utilsFp.confirmIcon(1,"","packsave1","", "产出数量超出阈值:"+Threshold*100+"%，是否重继续","1","260","");
+                                return;
+                            }else if(projectCount*(1-Threshold) > finishCount){
+                                utilsFp.confirmIcon(1,"","packsave1","", "产出数量低于阈值:"+Threshold*100+"%，是否重继续？","1","260","");
+                                return;
+                            }else{
+                                packsave1();
+                                return;
+                            }
 
-							}else if(projectCount*(1-Threshold) > finishCount){
-								utilsFp.confirmIcon(1,"","packsave1","", "产出数量低于阈值:"+Threshold*100+"%，是否重继续？","1","260","");
-
-							}else{
-								packsave1();
-
-							}
-
-						},
-						error: function (msg) {
-							utilsFp.confirmIcon(3, "", "", "", msg, "", "260", "145");
-						}
-					});
-				}
+                        },
+                        error: function (msg) {
+                            utilsFp.confirmIcon(3, "", "", "", msg, "", "260", "145");
+                        }
+                    });
+                }
 			</script>
 
 		</div>
