@@ -216,8 +216,8 @@
                         utilsFp.confirmIcon(3, "", "", "", "工单输入错误,请重新输入", 0, "300", "");
                     } else if ("ng1" == reg) {
                         doFocus();
-                        utilsFp.confirmIcon(3, "", "", "", "工单输已包装,请重新输入", 0, "300", "");
-                    } else {
+                        utilsFp.confirmIcon(3, "", "", "", "工单已包装,请重新输入", 0, "300", "");
+                    }else {
                         doBlur();
                         //工单初始化
                         var pmap = data.ajaxMap;
@@ -520,8 +520,8 @@
         var itemspecArr = [];
         var itemnameArr = [];
         if (isEmpty(finishCount)) {
-            //_alertValMsg(this,"<dict:lang value="该项不能为空" />");
-            utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="产出数量不能为空，请核实" />", 0, "160", "");
+            _alertValMsg(this,"<dict:lang value="该项不能为空" />");
+            <%--utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="产出数量不能为空，请核实" />", 0, "160", "");--%>
             return;
         }
         var workspaceArr = [];
@@ -540,7 +540,8 @@
             }
         });
         if (fag) {
-            utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="仓库值不能为空" />", "", "260", "145");
+            _alertValMsg(this,"<dict:lang value="仓库值不能为空" />");
+            <%--utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="仓库值不能为空" />", "", "260", "145");--%>
             return;
         }
 
@@ -555,7 +556,8 @@
             }
         });
         if (fag) {
-            utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="工厂值不能为空" />", "", "260", "145");
+            _alertValMsg(this,"<dict:lang value="工厂值不能为空" />");
+            <%--utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="工厂值不能为空" />", "", "260", "145");--%>
             return;
         }
 
@@ -571,7 +573,6 @@
 
         $("input[id$='_ITEM_CODE_SHOW']").each(function () {
             var cur = $(this).val();
-            console.log("cur>>>>" + cur);
             if (cur != null) {
                 itemcodeArr.push(cur);
             } else {
@@ -580,7 +581,6 @@
         });
         $("input[id$='_ITEM_NUM']").each(function () {
             var cur = $(this).val();
-            console.log("cur>>>>" + cur);
             if (cur != null) {
                 itemnumArr.push(cur);
             } else {
@@ -589,7 +589,6 @@
         });
         $("input[id$='_ITEM_SPEC']").each(function () {
             var cur = $(this).val();
-            console.log("cur>>>>" + cur);
             if (cur != null) {
                 itemspecArr.push(cur);
             } else {
@@ -598,7 +597,6 @@
         });
         $("input[id$='_ITEM_MANE']").each(function () {
             var cur = $(this).val();
-            console.log("cur>>>>" + cur);
             if (cur != null) {
                 itemnameArr.push(cur);
             } else {
@@ -613,28 +611,26 @@
         itemnameArr.join(",");
         workspaceArr.join(",");
         warehouseArr.join(",");
-        console.log("projectId>>>>" + projectId);
-        console.log("finishCount>>>>" + finishCount);
-        console.log("packnumArr>>>>" + packnumArr.join(","));
-        console.log("itemcodeArr>>>>" + itemcodeArr);
+
         $.ajax({
             type: "POST",
-            dataType: "json",
+            dataType: "JSON",
             url: "${path}buss/bussModel_exeFunc.ms?funcMId=664a393743bc45318bbb28783d53764c",
             data: "&projectId=" + projectId + "&finishCount=" + finishCount + "&packnumArr=" + packnumArr + "&itemcodeArr=" + itemcodeArr + "&itemspecArr=" + itemspecArr + "&itemnumArr=" + itemnumArr + "&itemnameArr=" + itemnameArr + "&workspaceArr=" + workspaceArr + "&warehouseArr=" + warehouseArr,
             success: function (data) {
+                console.log("data: >>> ");
+                console.log(data);
                 var flag = false;
                 if (data.ajaxString == "ok") {
                     //utilsFp.confirmIcon(2,"","","", "保存成功",0,"300","");
                     // $('#isCloseWin').attr('checked',true);
-                    top.document.getElementById('iframe2').contentWindow.reloadPgAx('?包装提交成功', '摩尔提示', '200', '150', '3000', '0');
+                    top.document.getElementById('iframe2').contentWindow.reloadPgAx('包装提交成功', '摩尔提示', '200', '150', '3000', '0');
                     // utilsFp.confirmIcon(2,"","closew","", "保存成功",0,"300","");
                     flag = true;
                 }
-
-
             },
             error: function (msg) {
+                console.log(msg);
                 utilsFp.confirmIcon(3, "", "", "", "error:" + msg, 0, "300", "");
 
             }
@@ -648,12 +644,12 @@
         parentWindow.query(thisObj);
         top.$(".dialog-close").click();
 
-        /*thisObj.onclick = function(){
+        /*
+        thisObj.onclick = function(){
           util.alert(util.submit_default_info);
-       };
-        util.showTopLoading();*/
-
-
+        };
+        util.showTopLoading();
+        */
     }
 
     //关闭窗口
@@ -716,7 +712,8 @@
             }
 
             if (total_number == 0 || !isNumber(total_number)) {
-                utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="计划数量不正确，请核实" />", 0, "160", "");
+                _alertValMsg(this, "<dict:lang value="计划数量不正确，请核实" />");
+                <%--utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="计划数量不正确，请核实" />", 0, "160", "");--%>
                 return;
             }
 
@@ -726,7 +723,7 @@
                 url: "${path}buss/bussModel_exeFunc.ms?funcMId=a381493664ad4dbd845f2051af2313af",
                 data: {
                     "TYPE": "2",
-                    "ItEM_CODE": "",
+                    "ITEM_CODE": "",
                     "PROJECT_ID": projectId
                 },
                 success: function (data) {
@@ -744,12 +741,13 @@
                     }
 
                     if (total_number * (1 + Threshold) < finishCount) {
-                        utilsFp.confirmIcon(3, "", "", "", "产出数量超出阈值:" + Threshold * 100 + "%", 0, "160", "");
+                        // utilsFp.confirmIcon(3, "", "", "", "产出数量超出阈值:" + Threshold * 100 + "%", 0, "160", "");
+                        _alertValMsg($("#paraMap1_FINISH_COUNT"), "<dict:lang value="产出数量超出阈值" />");
                         return;
                     }
                     if (total_number * (1 - Threshold) > finishCount) {
-                        utilsFp.confirmIcon(3, "", "", "", "产出数量低于阈值:" + Threshold * 100 + "%", 0, "160", "");
-
+                        // utilsFp.confirmIcon(3, "", "", "", "产出数量低于阈值:" + Threshold * 100 + "%", 0, "160", "");
+                        _alertValMsg($("#paraMap1_FINISH_COUNT"), "<dict:lang value="产出数量低于阈值" />");
                     }
                 },
                 error: function (msg) {
@@ -769,12 +767,13 @@
         var projectCount = Number($("#paraMap1_PRODUCT_COUNT").val());
 
         if (isEmpty(finishCount)) {
-            _alertValMsg(this, "<dict:lang value="该项不能为空" />");
+            _alertValMsg($("#paraMap1_FINISH_COUNT"), "<dict:lang value="该项不能为空" />");
             return;
         }
 
         if (!isNumber(projectCount)) {
-            utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="计划数量不正确，请核实" />", 0, "160", "");
+            _alertValMsg(this, "<dict:lang value="计划数量不正确，请核实" />");
+            <%--utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="计划数量不正确，请核实" />", 0, "160", "");--%>
             return;
         }
 
