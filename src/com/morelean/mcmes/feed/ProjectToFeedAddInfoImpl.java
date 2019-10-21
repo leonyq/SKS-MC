@@ -12,6 +12,7 @@ import org.apache.commons.logging.LogFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -30,16 +31,30 @@ public class ProjectToFeedAddInfoImpl implements FuncService {
     public String exeFunc(ModelAction modelAction, ModelService modelService) {
 
         HttpServletRequest request = modelAction.getRequest();
+
+        Map<String, String> resMap = new HashMap<>();
+
         String projectId = request.getParameter("projectId");
         String reg = "ok";
+
+        request.getParameter("");
+
+        //判断工单是否已投料
+        String checksql1 = "SELECT * FROM  T_PM_PROJECT_FEED_BASE T  WHERE 1=1 AND  T.PROJECT_ID=?";
+        List list1 = modelService.listDataSql(checksql1, new Object[]{projectId});
+
+        if (list1.size() > 0) {
+            reg = "N";
+            resMap.put("res", reg);
+            resMap.put("msg", "该工单【" + projectId + "】已投料，请勿重复投料");
+            CommMethod.mapToEscapeJs(resMap);
+            modelAction.setAjaxMap(resMap);
+            return BaseActionSupport.AJAX;
+        }
+
         //验证工单是否到达投料流程
-        String checkSql = "SELECT * FROM  T_PM_PROJECT_BASE T  WHERE 1=1 AND T.PROJECT_STATUS='3' AND T.PROJECT_SORT='1' AND  T.PROJECT_ID=? ";
+        String checkSql = "SELECT * FROM T_PM_PROJECT_BASE T WHERE 1=1 AND T.PROJECT_STATUS='3' AND T.PROJECT_SORT='1' AND T.PROJECT_ID= ? ";
         List clist = modelService.listDataSql(checkSql, new Object[]{projectId});
-//        if(clist.size() <= 0){
-//            reg = "ng";
-//            modelAction.setAjaxString(reg);
-//            return modelAction.AJAX;
-//        }
         //验证工单是否到达投料流程
         if (clist.size() <= 0) {
             // 校验是否存在工单号
@@ -68,40 +83,77 @@ public class ProjectToFeedAddInfoImpl implements FuncService {
                 if (countRel < 1) {
                     relRes = doRel(modelService, dataAuth, projectId, userId);
                     if (!"OK".equals(relRes)) {
-                        modelAction.setAjaxString(projectId + "工单关联失败," + relRes);
+                        reg = "N";
+                        resMap.put("res", reg);
+                        resMap.put("msg", "该工单【"+projectId+"】投料失败,快速通道关联失败");
+                        CommMethod.mapToEscapeJs(resMap);
+                        modelAction.setAjaxMap(resMap);
                         return BaseActionSupport.AJAX;
                     }
                 }
 
                 String getPackSql = "SELECT A.PROJECT_ID FROM T_PM_PROJECT_REL A WHERE 1=1 AND A.REL_PROJECT_ID = ? ";
                 Map packMap = modelService.queryForMap(getPackSql, new Object[]{projectId});
-                String packId = packMap.get("PROJECT_ID").toString();
+                String packId = null;
+
+                try {
+                    packId = packMap.get("PROJECT_ID").toString();
+                } catch (Exception e) {
+                    reg = "N";
+                    resMap.put("res", reg);
+                    resMap.put("msg", "该工单【"+projectId+"】工单类型有误");
+                    CommMethod.mapToEscapeJs(resMap);
+                    modelAction.setAjaxMap(resMap);
+                    return BaseActionSupport.AJAX;
+                }
 
                 prepareRes = doPrepare(modelService, dataAuth, packId, userId);
                 if (!"OK".equals(prepareRes)) {
-                    modelAction.setAjaxString(projectId + "生产备料失败," + prepareRes);
+                    reg = "N";
+                    resMap.put("res", reg);
+                    resMap.put("msg", "该工单【"+projectId+"】投料失败,快速通道备料失败");
+                    CommMethod.mapToEscapeJs(resMap);
+                    modelAction.setAjaxMap(resMap);
                     return BaseActionSupport.AJAX;
                 }
             } else {
-                reg = "ng";
-                modelAction.setAjaxString(reg);
+                reg = "N";
+                resMap.put("res", reg);
+                resMap.put("msg", "该工单【"+projectId+"】不存在或状态错误不允许进行投料操作");
+                CommMethod.mapToEscapeJs(resMap);
+                modelAction.setAjaxMap(resMap);
                 return BaseActionSupport.AJAX;
             }
         }
-        //判断工单是否已包装
-        String checksql1 = "SELECT * FROM  T_PROJECT_PACK_FEED T  WHERE 1=1 AND  T.PROJECT_ID=?";
-        clist = modelService.listDataSql(checksql1, new Object[]{projectId});
 
-        if (clist.size() > 0) {
-            reg = "ng1";
-            modelAction.setAjaxString(reg);
-            return BaseActionSupport.AJAX;
-        }
         modelAction.setAjaxString(reg);
         /*-- version:2019/7/18 15:38 | desc:投料标准配方 --*/
 
-        String feedDetailSql =
-                " SELECT D.CI_ITEM_CODE  AS ITEM_CODE, " +
+        String feedDetailSql = " SELECT D.CI_ITEM_CODE  AS ITEM_CODE, " +
+                "       D.STOCK_CODE    AS ITEM_STOCK, " +
+                "       D.RAW_LOTNUMBER AS ITEM_LOT, " +
+                "       C.CBD_ITEM_NUM  AS ITEM_NUM, " +
+                "       C.CBD_UNITS    AS ITEM_UNIT," +
+                "       D.CI_ITEM_NAME AS ITEM_NAME ," +
+                "       F.FEED_NUM," +
+                "       C.WORKCENTER_NO   AS ITEM_ORDER, " +
+                "       C.WORK_SPACE," +
+//                "C.WARE_HOUSE, " +
+                "       CASE WHEN A.DATA_AUTH = '9e33fa093ca74f229a997f0cf3734a9c' THEN '3109' " +
+                "            WHEN A.DATA_AUTH = '7f60fed22c004015a9a4f1ab2fc59194' THEN '3107' " +
+                "            ELSE A.WARE_HOUSE" +
+                "       END AS WARE_HOUSE, " +
+                "       A.WORK_SPACE    AS FACTORY_CODE, " +
+                "       A.PRODUCT_LINE  AS WORK_STATION " +
+                "  FROM T_PM_PROJECT_BASE A " +
+                " LEFT JOIN T_PM_PROJECT_DETAIL C ON C.PROJECT_ID = A.PROJECT_ID " +
+                " LEFT JOIN T_PM_PROJECT_FEED_DETAIL F ON F.PROJECT_ID = A.PROJECT_ID AND F.ITEM_CODE = C.CBD_ITEM_CODE" +
+                "  LEFT JOIN T_CO_ITEM D " +
+                "    ON C.CBD_ITEM_CODE = D.CI_ITEM_CODE " +
+                " WHERE 1 = 1 " +
+                "   AND A.project_id  = ? order by TO_NUMBER(C.WORKCENTER_NO) ASC ";
+
+        String feedDetailSql1 = " SELECT D.CI_ITEM_CODE  AS ITEM_CODE, " +
                 "       D.STOCK_CODE    AS ITEM_STOCK, " +
                 "       D.RAW_LOTNUMBER AS ITEM_LOT, " +
                 "       C.CBD_ITEM_NUM  AS ITEM_NUM, " +
@@ -118,29 +170,32 @@ public class ProjectToFeedAddInfoImpl implements FuncService {
                 "  LEFT JOIN T_CO_ITEM D " +
                 "    ON C.CBD_ITEM_CODE = D.CI_ITEM_CODE " +
                 " WHERE 1 = 1 " +
-                "   AND A.project_id  = ? order by TO_NUMBER(C.WORKCENTER_NO) ASC ";
-        List<Map<String, Object>> list = modelService.listDataSql(feedDetailSql, new Object[]{projectId});
+                "   AND A.project_id  = ? order by C.WORKCENTER_NO ASC ";
+        List<Map<String, Object>> list = null;
+        try {
+            list = modelService.listDataSql(feedDetailSql, new Object[]{projectId});
+        } catch (Exception e) {
+            list = modelService.listDataSql(feedDetailSql1, new Object[]{projectId});
+        }
 
         /*-- version:2019/7/18 15:39 | desc:基础信息 --*/
         String sql = "SELECT A.PROJECT_ID,A.LOT_NUMBER,A.PM_MEMO,A.PRODUCT_COUNT,B.FEED_NUM,C.RECEIVE_COUNT,A.PRODUCT_NAME,A.PRODUCT_MATERIAL,C.VAT_NO,C.RAW_LICENSE, D.FEED_NUM FROM T_PM_PROJECT_BASE A " +
                 " LEFT JOIN T_PM_PROJECT_FEED_DETAIL B ON B.PROJECT_ID=A.PROJECT_ID " +
                 " LEFT JOIN T_PM_PROJECT_FEED_BASE C ON C.PROJECT_ID=A.PROJECT_ID " +
                 " LEFT JOIN (SELECT A.PROJECT_ID,COUNT(1) AS FEED_NUM FROM T_PM_PROJECT_FEED_DETAIL A WHERE 1=1 GROUP BY A.PROJECT_ID) D ON D.PROJECT_ID = A.PROJECT_ID WHERE 1=1 AND A.project_id = ? ";
+
         Map<String, String> map11 = modelService.queryForMap(sql, new Object[]{projectId});
 
         String curUserName = modelAction.getCurrUser().getName();
         map11.put("CUR_USER", curUserName);
-        //  map.put("COUNT", StringUtils.toString(countSql));
 
         if (map11.size() > 0) {
             CommMethod.mapToEscapeJs(map11);
-            // modelAction.setDataMap(map);
             modelAction.setAjaxMap(map11);
         }
 
         if (list.size() > 0) {
             CommMethod.listToEscapeJs(list);
-            // modelAction.setDataList(list);
             modelAction.setAjaxList(list);
         }
 
@@ -214,6 +269,7 @@ public class ProjectToFeedAddInfoImpl implements FuncService {
                 list.remove(i);
             }
         }
+
         // return modelAction.ActionForwardExeid(modelAction.getExeid());
         return BaseActionSupport.AJAX;
     }
