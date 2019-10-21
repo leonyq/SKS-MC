@@ -210,7 +210,18 @@
                 url: "${path}buss/bussModel_exeFunc.ms?funcMId=d62915a270334b6e9606d1ec392de713",
                 data: {"projectId": projectId},
                 success: function (data) {
+                    console.log("data: >>> ");
+                    console.log(data);
+                    
                     var reg = data.ajaxString;
+                    var resMap = data.ajaxMap;
+                    var res = resMap.res;
+                    var msg = resMap.msg;
+
+                    if("N" == res){
+                        utilsFp.confirmIcon(3, "", "", "", msg, 0, "300", "");
+                    }
+                    
                     if ("ng" == reg) {
                         doFocus();
                         utilsFp.confirmIcon(3, "", "", "", "工单输入错误,请重新输入", 0, "300", "");
