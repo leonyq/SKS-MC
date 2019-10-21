@@ -29,6 +29,7 @@ public class WorkOrderRel implements FuncService {
         // 获取封装的数据
         HttpServletRequest request = modelAction.getRequest();
         String workOrders = request.getParameter("workOrderSn");
+        String curDataAuth = request.getParameter("_mcDataAuth");
 
         String[] split = workOrders.split("\\|");
 
@@ -56,7 +57,12 @@ public class WorkOrderRel implements FuncService {
         }
 
 
-        String dataAuth = modelAction.getCurrUser().getData_auth();
+        String dataAuth = null;
+        if(StringUtils.isEmpty(curDataAuth)){
+            dataAuth = modelAction.getCurrUser().getData_auth();
+        }else{
+            dataAuth = curDataAuth;
+        }
 
         String baseOrder = StringUtils.toString(split[0]);
         String userId = modelAction.getUser().getId();
