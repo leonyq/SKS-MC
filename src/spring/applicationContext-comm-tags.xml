@@ -16,27 +16,19 @@
 	<bean id="dictService" parent="baseTransactionProxy">
 		<property name="target">
 			<bean class="com.more.fw.core.dict.service.impl.${db.dialect}.DictServiceImpl">
-				<property name="dictDao">
-					<ref bean="dictDao"/>
-				</property>
+				<property name="dictDao" ref="dictDao"/>
 			</bean>
 		</property>
 	</bean>
 	
 	<bean id="chartsConfigDaoImpl" class="com.more.fw.core.sysfa.echarts.dao.impl.ChartsConfigDaoImpl" autowire="default" dependency-check="default">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
-		<property name="jdbcTemplate">
-			<ref bean="jdbcTemplate" />
-		</property>
+		<property name="sessionFactory" ref="sessionFactory"/>
+		<property name="jdbcTemplate" ref="jdbcTemplate"/>
 	</bean>
 	<bean id="iChartsConfigService" parent="baseTransactionProxy">
 		<property name="target">
 			<bean class="com.more.fw.core.sysfa.echarts.service.impl.ChartsConfigServiceImpl">
-				<property name="chartsConfigDaoImpl">
-					<ref bean="chartsConfigDaoImpl"/>
-				</property>
+				<property name="chartsConfigDaoImpl" ref="chartsConfigDaoImpl"/>
 			</bean>
 		</property>
 	</bean>
