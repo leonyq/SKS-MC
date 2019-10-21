@@ -45,8 +45,11 @@ public class FeedWorkOrderAddSaveImpl implements FuncService {
         String workSpaceStr = request.getParameter("WORK_SPACE");
         String wareHouseStr = request.getParameter("WARE_HOUSE");
 
-        String dataAuth = String.valueOf(modelAction.getRequest().getSession().getAttribute("mcDataAuth"));
-        if(StringUtils.isEmpty(dataAuth)){
+        String itemUnitStr = request.getParameter("ITEM_UNIT");
+
+        String dataAuth = modelAction.getRequest().getParameter("_mcDataAuth");
+//        String dataAuth = String.valueOf(modelAction.getRequest().getSession().getAttribute("mcDataAuth"));
+        if (StringUtils.isEmpty(dataAuth)) {
             dataAuth = modelAction.getCurrUser().getData_auth();
         }
 
@@ -74,6 +77,9 @@ public class FeedWorkOrderAddSaveImpl implements FuncService {
         String[] processOrders = processOrderStr.split(",",-1);
         String[] workSpaces = workSpaceStr.split(",", -1);
         String[] wareHouses = wareHouseStr.split(",", -1);
+
+        String[] itemUnits = itemUnitStr.split(",", -1);
+
 
         MsHTranMan hbtran = BussService.getHbTran();// 定义事务对象
         try {
@@ -124,6 +130,7 @@ public class FeedWorkOrderAddSaveImpl implements FuncService {
                 detailTable.getColMap().put("FEED_NUM", (feedNums[i]));
                 detailTable.getColMap().put("RAW_LOTNUMBER", (rawLots[i]));
                 detailTable.getColMap().put("PROCESS_ORDER", (processOrders[i]));
+                detailTable.getColMap().put("ITEM_UNIT", (itemUnits[i]));
 
                 detailTable.getColMap().put("WORK_SPACE", (workSpaces[i]));
                 detailTable.getColMap().put("WAREHOUSE", (wareHouses[i]));

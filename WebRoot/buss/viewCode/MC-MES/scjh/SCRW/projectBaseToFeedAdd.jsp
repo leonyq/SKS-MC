@@ -7,24 +7,24 @@
 	<jsp:param name="location" value="beforePageLoad"/>
 </jsp:include>
 <head>
-    <%@ include file="/plf/common/pub_meta.jsp" %>
-    <title><dict:lang value="新增投料"/>
-    </title>
-    <jsp:include page="/plf/common/fp/pub_head_fp.jsp">
-        <jsp:param name="popDivWinFp" value="1"/>
-        <jsp:param name="datePicker" value="1"/>
-        <jsp:param name="chosen" value="1"/>
-    </jsp:include>
-    <%@ include file="/plf/page/common/buss/addCommJs.jsp" %>
-    <%@ include file="/plf/page/common/buss/bussCommJs.jsp" %>
-    <script type="text/javascript" src="${path}plf/js/ui/include.js?_mc_res_version=<%=PlfStaticRes.PlfJsUi_Include_js %>"></script>
-    <jsp:include page="/plf/page/mesdemo/commCode/commCode.jsp">
-        <jsp:param name="modelName" value="VIEW_TYPE_10"/>
-        <jsp:param name="location" value="inHead"/>
-    </jsp:include>
-    <!-- head里面 -->
-
-    <!-- 产品静态资源 -->
+	<%@ include file="/plf/common/pub_meta.jsp" %>
+	<title><dict:lang value="新增投料"/>
+	</title>
+	<jsp:include page="/plf/common/fp/pub_head_fp.jsp">
+		<jsp:param name="popDivWinFp" value="1"/>
+		<jsp:param name="datePicker" value="1"/>
+		<jsp:param name="chosen" value="1"/>
+	</jsp:include>
+	<%@ include file="/plf/page/common/buss/addCommJs.jsp" %>
+	<%@ include file="/plf/page/common/buss/bussCommJs.jsp" %>
+	<script type="text/javascript" src="${path}plf/js/ui/include.js?_mc_res_version=<%=PlfStaticRes.PlfJsUi_Include_js %>"></script>
+	<jsp:include page="/plf/page/mesdemo/commCode/commCode.jsp">
+		<jsp:param name="modelName" value="VIEW_TYPE_10"/>
+		<jsp:param name="location" value="inHead"/>
+	</jsp:include>
+	<!-- head里面 -->
+	
+	<!-- 产品静态资源 -->
 
 </head>
 <body style="overflow:auto;">
@@ -515,6 +515,7 @@
     }
 
     function doSave() {
+        console.log("doSave: >>> ");
         var feedNums = $("input[id$='_FEED_NUM']");
         for (var i = 0; i < feedNums.size(); i++) {
             if (feedNums[i].value == null || feedNums[i].value == "") {
@@ -567,13 +568,10 @@
 
                 if (total_number * (1 + Threshold) < receive_number) {
                     utilsFp.confirmIcon(1, "", "doSave1", "", "收货重量超出阈值:" + Threshold * 100 + "%，是否重继续？", "1", "260", "");
-
                 } else if (total_number * (1 - Threshold) > receive_number) {
                     utilsFp.confirmIcon(1, "", "doSave1", "", "收货重量低于阈值:" + Threshold * 100 + "%，是否重继续？", "1", "260", "");
-
                 } else {
                     doSave1();
-
                 }
             },
             error: function (msg) {
@@ -584,7 +582,7 @@
 
     function doSave1() {
         var url = "${path}buss/bussModel_exeFunc.ms?funcMId=3931858457af46c8b86a176c884a6a37";
-
+        var _mcDataAuth = top.$("#_mcDataAuth").val();
         var projectId = $("#paraMap1_PROJECT_ID").val();
         var itemCodeArr = [];
         var stockCodeArr = [];
@@ -709,7 +707,8 @@
             "&RAW_LOTNUMBER=" + rawLotArr.join(",") +
             "&PROCESS_ORDER=" + processOrderArr.join(",") +
             "&WORK_SPACE=" + workSpace.join(",") +
-            "&WARE_HOUSE=" + wareHouse.join(",");
+            "&WARE_HOUSE=" + wareHouse.join(",") +
+            "&_mcDataAuth=" + _mcDataAuth;
         document.forms.addForm.submit();
         /*
 
@@ -869,7 +868,25 @@
         $("#paraMap1_T5#PRODUCT_COUNT").val(count);
     }
 
-
+    /*
+		function calReceiveNum() {
+			//$("#paraMap1_T5#PRODUCT_COUNT").val(0);
+			var arr = [];
+			var count = 0;
+			$("input[id$='_ITEM_NUM']").each(function () {
+				var cur = $(this).val();
+				if (cur != null) {
+					arr.push(cur);
+					count = parseInt(count) + parseInt(cur);
+				} else {
+					arr.push("");
+					count = parseInt(count) + parseInt(0);
+				}
+			});
+	
+			$("#paraMap1_RECEIVE_COUNT").val(count);
+		}
+	*/
     function calReceiveNum() {
         //$("#paraMap1_T5#PRODUCT_COUNT").val(0);
         var arr = [];
@@ -1127,10 +1144,14 @@
         $("input[id$='_FEED_NUM']").mouseleave(function () {
             var idStr = this.id;
             var isFocus = $("#" + idStr).is(":focus");
+
+            var split = idStr.split("_");
+            var cur = split[0];
             if (true == isFocus) {
                 var total_number = Number(this.parentElement.previousElementSibling.firstElementChild.value);
                 var receive_number = Number(this.value);
-                var threshold_number = this.parentElement.nextElementSibling.firstElementChild.value;
+                //var threshold_number = this.parentElement.nextElementSibling.firstElementChild.value;
+                var threshold_number = $("#" + cur + "_THRESHOLD_NUM").val();
 
                 if (!isNumber(threshold_number)) {
                     //utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="该物料未维护阀值!" />", 0, "160", "");

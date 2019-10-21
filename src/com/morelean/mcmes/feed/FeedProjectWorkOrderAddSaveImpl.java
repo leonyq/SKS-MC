@@ -42,21 +42,24 @@ public class FeedProjectWorkOrderAddSaveImpl implements FuncService {
         String feedNumStr = request.getParameter("FEED_NUM");
         String rawLotStr = request.getParameter("RAW_LOTNUMBER");
         String processOrderStr = request.getParameter("PROCESS_ORDER");
-       String workSpaceStr = request.getParameter("WORK_SPACE");
+        String workSpaceStr = request.getParameter("WORK_SPACE");
         String wareHouseStr = request.getParameter("WARE_HOUSE");
 
-        String dataAuth = String.valueOf(modelAction.getRequest().getSession().getAttribute("mcDataAuth"));
-        if(StringUtils.isEmpty(dataAuth)){
+        String itemUnitStr = request.getParameter("ITEM_UNIT");
+
+        String dataAuth = modelAction.getRequest().getParameter("_mcDataAuth");
+//        String dataAuth = String.valueOf(modelAction.getRequest().getSession().getAttribute("mcDataAuth"));
+        if (StringUtils.isEmpty(dataAuth)) {
             dataAuth = modelAction.getCurrUser().getData_auth();
         }
 
-        if(StringUtils.isEmpty(projectId)){
-            throw new BussException(modelAction.getText("工单号为空"),"");
-        }else{
+        if (StringUtils.isEmpty(projectId)) {
+            throw new BussException(modelAction.getText("工单号为空"), "");
+        } else {
             String sql = "SELECT * FROM T_PM_PROJECT_FEED_DETAIL A WHERE 1=1 AND A.PROJECT_ID = ? ";
             int count = modelService.countSql(sql, new Object[]{projectId});
-            if(count > 0){
-                throw new BussException(modelAction.getText("该工单已存在投料明细"),"");
+            if (count > 0) {
+                throw new BussException(modelAction.getText("该工单已存在投料明细"), "");
             }
         }
 
@@ -65,20 +68,22 @@ public class FeedProjectWorkOrderAddSaveImpl implements FuncService {
         List list = new ArrayList();
         list.add(projectId);
 
-        String[] itemCodes = itemCodeStr.split(",",-1);
-        String[] stockCodes = stockCodeStr.split(",",-1);
+        String[] itemCodes = itemCodeStr.split(",", -1);
+        String[] stockCodes = stockCodeStr.split(",", -1);
 
-        String[] itemNums = itemNumStr.split(",",-1);
-        String[] feedNums = feedNumStr.split(",",-1);
-        String[] rawLots = rawLotStr.split(",",-1);
-        String[] processOrders = processOrderStr.split(",",-1);
-      String[] workSpaces = workSpaceStr.split(",", -1);
+        String[] itemNums = itemNumStr.split(",", -1);
+        String[] feedNums = feedNumStr.split(",", -1);
+        String[] rawLots = rawLotStr.split(",", -1);
+        String[] processOrders = processOrderStr.split(",", -1);
+        String[] workSpaces = workSpaceStr.split(",", -1);
         String[] wareHouses = wareHouseStr.split(",", -1);
+
+        String[] itemUnits = itemUnitStr.split(",", -1);
 
         MsHTranMan hbtran = BussService.getHbTran();// 定义事务对象
         try {
             TableDataMapExt baseTable = new TableDataMapExt();
-            for (int i=0;i<itemCodes.length;i++) {
+            for (int i = 0; i < itemCodes.length; i++) {
                 baseTable.setTableName("T_PM_PROJECT_FEED_BASE");
 
                 baseTable.getColMap().put("ID", StringUtils.getUUID());
@@ -89,8 +94,8 @@ public class FeedProjectWorkOrderAddSaveImpl implements FuncService {
                 baseTable.getColMap().put("EDIT_TIME", DateUtil.getCurDate());
 
 
-                baseTable.getColMap().put("DATA_AUTH",dataAuth);
-                baseTable.getColMap().put("PROJECT_ID",projectId);
+                baseTable.getColMap().put("DATA_AUTH", dataAuth);
+                baseTable.getColMap().put("PROJECT_ID", projectId);
 
                 baseTable.getColMap().put("MODEL_CODE", "");
                 baseTable.getColMap().put("WEIGHT_EMP", "");
@@ -105,7 +110,7 @@ public class FeedProjectWorkOrderAddSaveImpl implements FuncService {
             modelService.save(baseTable);
 
             TableDataMapExt detailTable = new TableDataMapExt();
-            for (int i=0;i<itemCodes.length;i++) {
+            for (int i = 0; i < itemCodes.length; i++) {
                 detailTable.setTableName("T_PM_PROJECT_FEED_DETAIL");
 
                 detailTable.getColMap().put("ID", StringUtils.getUUID());
@@ -126,6 +131,8 @@ public class FeedProjectWorkOrderAddSaveImpl implements FuncService {
                 detailTable.getColMap().put("WORK_SPACE", (workSpaces[i]));
                 detailTable.getColMap().put("WAREHOUSE", (wareHouses[i]));
 
+                detailTable.getColMap().put("ITEM_UNIT", (itemUnits[i]));
+
                 CommMethod.addSysDefCol(detailTable, modelAction.getUser(), dataAuth);
                 modelService.save(detailTable);
             }
@@ -143,7 +150,7 @@ public class FeedProjectWorkOrderAddSaveImpl implements FuncService {
         } catch (Exception e) {
             e.printStackTrace();
             hbtran.rollback();
-            throw new BussException(modelAction.getText("投料失败,"+e.getMessage()),e.getMessage());
+            throw new BussException(modelAction.getText("投料失败," + e.getMessage()), e.getMessage());
         }
 
         return modelAction.reloadIframeByIds(iframeId, modelAction.getText("投料成功"), "0");
