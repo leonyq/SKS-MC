@@ -27,14 +27,14 @@
 	<!-- 产品静态资源 -->
 
 <style>
-      
+ 
  .pic {
     width: 220px;
     height: 100px;
     background-image: url(/mc/plf/page/fp/img/leading-in.png);
     
-}      
-</style>	
+}
+</style>
 </head>
 <body style="overflow:auto;">
 	<div class="edit">
@@ -51,14 +51,14 @@
                 		<span class="dot">*</span><dict:lang value="组织机构" />
                 		<s:if test="${fn:length(deptLs)==1}">
                    			<s:select list="deptLs" listKey="id" listValue="name"  name="_DATA_AUTH"
-								id="deptLs_data_auth" cssStyle="width: 200px;" cssClass="_VAL_NULL dept_select"/> 
+								id="deptLs_data_auth" cssStyle="width: 200px;" cssClass="_VAL_NULL dept_select"/>
                    		</s:if>
                    		<s:else>
                 			<s:select list="deptLs" headerKey="" headerValue='--%{getText("请选择")}--'
 								listKey="id" listValue="name" value=""  name="_DATA_AUTH"
-								id="deptLs_data_auth" cssStyle="width: 200px;" cssClass="_VAL_NULL dept_select"/> 
+								id="deptLs_data_auth" cssStyle="width: 200px;" cssClass="_VAL_NULL dept_select"/>
 		   				</s:else>
-                	</s:if>	
+                	</s:if>
                 	
                 	
                 </div>
@@ -69,7 +69,7 @@
 			   
 			</div>
 			<div class="bd">
-	    			
+	    
 					<jsp:include page="/plf/page/mesdemo/commCode/commCode.jsp">
     				   <jsp:param name="modelName" value="VIEW_TYPE_10" />
      				   <jsp:param name="location" value="addForm" />
@@ -88,7 +88,7 @@
         <div class='pic'>
         </div>
       </td>
-        
+      
       </tr>
 	<tr>
 					
@@ -99,11 +99,11 @@
       </tr>
       <tr>
 						<td class="dec-self" ><a href="plf/template/ProjectRel.xls" download="关联表导入模板.xls" onclick="/*downTemplate();*/"><font color="blue"><dict:lang value="下载关联表导入模板" /></font></a>
-						</td> 
+						</td>
 					</tr>
 	</table>
 			<bu:jsVal formId="04fdea69454640d1828d5b903153d18e" formIndex="1" />
-				
+			
 			</div>
 		 </form>
 	</div>
@@ -137,8 +137,8 @@ function uploadExcel(thisObj) {
 		if (file == "") {
 		//	utilsFp.confirmIcon(3, "", "", "","%{getText("请选择要上传的excel文档")}"
 		//			, "", "360", "145");
-					
-			utilsFp.confirmIcon(3,"","","", "<dict:lang value="请选择要上传的excel文档" />",0,"260","");		
+			
+			utilsFp.confirmIcon(3,"","","", "<dict:lang value="请选择要上传的excel文档" />",0,"260","");
 
 		} else {
                         var fileL=file.toLowerCase();
