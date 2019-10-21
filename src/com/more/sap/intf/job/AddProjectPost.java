@@ -73,7 +73,7 @@ public class AddProjectPost implements IJobx {
                 " AND (A.ITEM_NUM <> B.RECEIVE_COUNT OR A.ITEM_NUM IS NULL)) " +
                 " WHERE 1 = 1 " +
                 " AND A.PROJECT_SORT = '1' " +
-                " AND (A.ITEM_NUM IS NULL OR A.ITEM_NUM <> (SELECT B.RECEIVE_COUNT FROM T_PM_PROJECT_FEED_BASE B WHERE 1 = 1 AND A.PROJECT_ID = B.PROJECT_ID)) ";
+                " AND (A.ITEM_NUM IS NULL OR A.ITEM_NUM <> (SELECT B.RECEIVE_COUNT FROM T_PM_PROJECT_FEED_BASE B WHERE 1 = 1 AND A.PROJECT_ID = B.PROJECT_ID AND ROWNUM = 1 )) ";
         modelService.execSql(update);
 
         String updatePack = "UPDATE T_PM_PROJECT_POST A " +

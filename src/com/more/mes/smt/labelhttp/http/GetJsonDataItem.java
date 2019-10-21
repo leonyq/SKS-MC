@@ -45,10 +45,9 @@ public class GetJsonDataItem extends InterfaceLog implements IhttpServiceJosn
   }
 
   /**
-   * @param arg0
+   * 获取打印数据项接口
+   * @param service
    * @return
-   * @see com.more.fw.http.service.IhttpServiceJosn#exeFunc
-   *      (com.more.fw.http.service.HttpCoreService)
    */
   @Override
   public String exeFunc(HttpCoreService service)
@@ -56,12 +55,20 @@ public class GetJsonDataItem extends InterfaceLog implements IhttpServiceJosn
     String itemSn = "";
     String labelId = "";
     String dataAuth = "";
+    String rawLicenseSn = "";
+    String weightNum = "";
     itemSn = StringUtils.toString(service.getParamTo().get("itemSn"));
+    rawLicenseSn = StringUtils.toString(service.getParamTo().get("rawLicenseSn"));
+    weightNum = StringUtils.toString(service.getParamTo().get("weightNum"));
+
     labelId = StringUtils.toString(service.getParamTo().get("labelId"));
     dataAuth = StringUtils.toString(service.getParamTo().get("dataAuth"));
     LabelInfoService lis = new LabelInfoService();
     JSONArray json = new JSONArray();
-    List list = lis.getDataItem(labelId, itemSn, dataAuth);
+
+//    List list = lis.getDataItem(labelId, itemSn, dataAuth);
+    List list = lis.getDataItemNew(itemSn, rawLicenseSn, weightNum, labelId, dataAuth);
+
     if (list != null && !list.isEmpty())
     {
       json = JSONArray.fromObject(list);

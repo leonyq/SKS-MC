@@ -160,7 +160,11 @@ public class WorkOrderUnRel implements FuncService {
         Boolean res = false;
         try {
             count = modelService.countSql(sql, new Object[]{projectId});
-            res = count > 0;
+            if (count > 0) {
+                res = true;
+            } else {
+                res = false;
+            }
         } catch (Exception e) {
             e.printStackTrace();
             res = false;

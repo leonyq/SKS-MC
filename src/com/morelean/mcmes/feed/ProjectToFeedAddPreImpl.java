@@ -44,7 +44,8 @@ public class ProjectToFeedAddPreImpl implements FuncService {
                         "WHERE 1=1 AND A.ID = ? " +
                         " ORDER BY C.WORKCENTER_NO ASC";
         */
-        String feedDetailSql = " SELECT D.CI_ITEM_CODE AS ITEM_CODE, " +
+        String feedDetailSql =
+                " SELECT D.CI_ITEM_CODE AS ITEM_CODE, " +
                 "       A.PRODUCT_COUNT  AS PRODUCT_COUNT, " +
                 "       A.PRODUCT_LINE  AS WORK_STATION, " +
                 "       D.STOCK_CODE AS ITEM_STOCK, " +
@@ -55,6 +56,10 @@ public class ProjectToFeedAddPreImpl implements FuncService {
                 "       C.WORKCENTER_NO AS PROCESS_ORDER, " +
                 "       C.WORK_SPACE, " +
                 "       C.WARE_HOUSE, " +
+                "       CASE WHEN A.DATA_AUTH = '9e33fa093ca74f229a997f0cf3734a9c' THEN '3109' " +
+                "            WHEN A.DATA_AUTH = '7f60fed22c004015a9a4f1ab2fc59194' THEN '3107' " +
+                "            ELSE A.WARE_HOUSE" +
+                "       END AS WARE_HOUSE," +
                 "       A.WORK_SPACE    AS FACTORY_CODE " +
                 "  FROM T_PM_PROJECT_BASE A " +
                 "  LEFT JOIN T_PM_PROJECT_DETAIL C " +

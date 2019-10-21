@@ -36,11 +36,11 @@ public class ReSendProjectReportIntfImpl extends InterfaceLog implements IhttpSe
     private final Log log = LogFactory.getLog(this.getClass());
     private ModelService modelService = (ModelService) SpringContextUtil.getBean("modelService");
 
-    private final String host = "http://phantomsaber.picp.io:53763";
+//    private final String host = "http://phantomsaber.picp.io:53763";
 //    private final String host = "http://localhost:8080";
-
 //    private final String host = "http://10.10.78.161:8080";
-//    private final String host = "http://10.10.80.193:8080";
+
+    private final String host = "http://10.10.80.193:8080";
 
     private final String reportPath = "/sks-wss-ssm/webservice/ProjectReportIntfImpl?wsdl";
     private final String reportUrl = host + reportPath;
@@ -96,11 +96,13 @@ public class ReSendProjectReportIntfImpl extends InterfaceLog implements IhttpSe
                 String sflag = null;
                 String message = null;
 
+/*
                 List<TProjectSapLogDetail> sapLogDetailList = getSapLogDetail(reportMap.get("json"));
                 for (TProjectSapLogDetail tProjectSapLogDetail : sapLogDetailList) {
                     String sflag1 = tProjectSapLogDetail.getSFLAG();
                     String message1 = tProjectSapLogDetail.getMESSAGE();
                 }
+*/
 
                 try {
                     sflag = getSflag(reportMap.get("json"));
@@ -227,7 +229,7 @@ public class ReSendProjectReportIntfImpl extends InterfaceLog implements IhttpSe
         }
         return message;
     }
-
+/*
     private List<TProjectSapLogDetail> getSapLogDetail(String json){
         JSONArray jsonArray = JSON.parseArray(json.toUpperCase());
         JSONObject jsonObject = (JSONObject) jsonArray.get(0);
@@ -245,10 +247,11 @@ public class ReSendProjectReportIntfImpl extends InterfaceLog implements IhttpSe
 
         String sflag = null;
 
-        String js = JSONObject.toJSONString(jsonArray1, SerializerFeature.WriteClassName);
+        String js = JSONObject.toJSONString(jsonArray1, SerializerFeature.DisableCircularReferenceDetect);
 
         List<TProjectSapLogDetail> collection = JSONObject.parseArray(js, TProjectSapLogDetail.class);//把字符串转换成集合
 
         return collection;
     }
+*/
 }
