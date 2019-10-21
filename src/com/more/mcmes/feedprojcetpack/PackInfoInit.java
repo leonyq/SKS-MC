@@ -1,5 +1,6 @@
 package com.more.mcmes.feedprojcetpack;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ArrayList;
@@ -24,16 +25,23 @@ public class PackInfoInit implements FuncService {
         HttpServletRequest req = modelAction.getRequest();
         String projectId = req.getParameter("projectId");
         String dataAuth = String.valueOf(modelAction.getRequest().getSession().getAttribute("mcDataAuth"));
-		/*
-		  String sql = "SELECT distinct T1.*,T3.CI_ITEM_NAME,T3.CI_ITEM_SPEC,T4.FEED_NUM "
-		  + "FROM T_PM_PROJECT_DETAIL T1 "
-		  + "LEFT JOIN T_PM_PROJECT_BASE T2 ON T1.PROJECT_ID = T2.PROJECT_ID AND T2.DATA_AUTH=? "
-		  + "LEFT JOIN T_CO_ITEM T3 ON T3.CI_ITEM_CODE = T1.CBD_ITEM_CODE AND T3.DATA_AUTH=? "
-          + "LEFT JOIN T_PM_PROJECT_FEED_DETAIL T4 ON T4.PROJECT_ID = T1.PROJECT_ID AND T4.DATA_AUTH=? "
-		  + "WHERE T2.PROJECT_ID = ? AND T1.DATA_AUTH=? ";
-		*/
 
         String reg = "ok";
+        Map<String, String> resMap = new HashMap<>();
+
+        //判断工单是否已包装
+        String checkPackSql = "SELECT * FROM  T_PROJECT_PACK_FEED T  WHERE 1=1 AND  T.PROJECT_ID=?";
+        List list1 = modelService.listDataSql(checkPackSql, new Object[]{projectId});
+
+        if (list1.size() > 0) {
+            reg = "N";
+            resMap.put("res", reg);
+            resMap.put("msg", "该工单【"+projectId+"】已包装，请勿重复包装");
+            CommMethod.mapToEscapeJs(resMap);
+            modelAction.setAjaxMap(resMap);
+            return modelAction.AJAX;
+        }
+
 
         //工单是否存在
 //        String checksql = "SELECT * FROM  T_PM_PROJECT_BASE T  WHERE 1=1 AND (T.PROJECT_STATUS='4' or T.PROJECT_STATUS='3')  AND T.PROJECT_SORT = '2' AND T.PROJECT_ID=?  ";
@@ -46,8 +54,11 @@ public class PackInfoInit implements FuncService {
 
         if (list.size() <= 0) {
             if(checksql2List.size() <= 0){
-                reg = "ng";
-                modelAction.setAjaxString(reg);
+                reg = "N";
+                resMap.put("res", reg);
+                resMap.put("msg", "该工单【"+projectId+"】不存在或状态错误不允许进行投料操作，请重新输入");
+                CommMethod.mapToEscapeJs(resMap);
+                modelAction.setAjaxMap(resMap);
                 return modelAction.AJAX;
             }else{
                 //判断工单是否已包装
@@ -55,43 +66,36 @@ public class PackInfoInit implements FuncService {
                 list = modelService.listDataSql(checksql1, new Object[]{projectId});
 
                 if (list.size() > 0) {
-                    reg = "ng1";
-                    modelAction.setAjaxString(reg);
+                    reg = "N";
+                    resMap.put("res", reg);
+                    resMap.put("msg", "该工单【"+projectId+"】已包装，请勿重复包装");
+                    CommMethod.mapToEscapeJs(resMap);
+                    modelAction.setAjaxMap(resMap);
                     return modelAction.AJAX;
                 }else{
                     String prepareRes = "";
                     String relRes = "";
                     relRes = doRel(modelService, dataAuth, projectId, modelAction.getCurrUser().getId());
                     if (!"OK".equals(relRes)) {
-                        reg = "ng2";
-                        modelAction.setAjaxString(reg);
+                        reg = "N";
+                        resMap.put("res", reg);
+                        resMap.put("msg", "该工单【"+projectId+"】投料失败,快速通道关联失败");
+                        CommMethod.mapToEscapeJs(resMap);
+                        modelAction.setAjaxMap(resMap);
                         return BaseActionSupport.AJAX;
                     }
 
                     prepareRes = doPrepare(modelService, dataAuth, projectId, projectId);
                     if (!"OK".equals(prepareRes)) {
-                        reg = "ng3";
-                        modelAction.setAjaxString(reg);
+                        reg = "N";
+                        resMap.put("res", reg);
+                        resMap.put("msg", "该工单【"+projectId+"】投料失败,快速通道备料失败");
+                        CommMethod.mapToEscapeJs(resMap);
+                        modelAction.setAjaxMap(resMap);
                         return BaseActionSupport.AJAX;
                     }
                 }
             }
-        }
-
-//        if (list.size() <= 0) {
-//            reg = "ng";
-//            modelAction.setAjaxString(reg);
-//            return modelAction.AJAX;
-//        }
-
-        //判断工单是否已包装
-        String checksql1 = "SELECT * FROM  T_PROJECT_PACK_FEED T  WHERE 1=1 AND  T.PROJECT_ID=?";
-        list = modelService.listDataSql(checksql1, new Object[]{projectId});
-
-        if (list.size() > 0) {
-            reg = "ng1";
-            modelAction.setAjaxString(reg);
-            return modelAction.AJAX;
         }
 
         //查询工单信息
@@ -155,18 +159,9 @@ public class PackInfoInit implements FuncService {
                     map1 = modelService.queryForMap(sql, new Object[]{workSpace, itemCode, projectId});
                     dataList.add(map1);
                 }
-
             }
-
-
         }
-     /* String sql = "SELECT distinct T1.*,T3.CI_ITEM_NAME,T3.CI_ITEM_SPEC,T1.WARE_HOUSE,T1.WORK_SPACE "
-		  + "FROM T_PM_PROJECT_DETAIL T1 "
-		  + "LEFT JOIN T_PM_PROJECT_BASE T2 ON T1.PROJECT_ID = T2.PROJECT_ID  "
-		  + "LEFT JOIN T_CO_ITEM T3 ON T3.CI_ITEM_CODE = T1.CBD_ITEM_CODE  "
-          + "LEFT JOIN T_SAP_WH_CONFIG T4 ON T4.WORK_SPACE = T1.WORK_SPACE AND T4.WARE_HOUSE = T1.WARE_HOUSE  "
-		  + "WHERE 1=1 AND T2.PROJECT_ID = ?  ";
-		List<Map> dataList = modelService.listDataSql(sql, new Object[]{projectId});*/
+
         modelAction.setAjaxString(reg);
         CommMethod.listToEscapeJs(dataList);
         modelAction.setAjaxList(dataList);
