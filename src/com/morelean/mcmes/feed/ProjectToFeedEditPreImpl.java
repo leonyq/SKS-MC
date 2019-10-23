@@ -1,6 +1,7 @@
 package com.morelean.mcmes.feed;
 
 import com.more.fw.core.base.core.action.ModelAction;
+import com.more.fw.core.common.exception.BussException;
 import com.more.fw.core.common.method.CommMethod;
 import com.more.fw.core.common.method.StringUtils;
 import com.more.fw.core.dbo.model.service.ModelService;
@@ -9,11 +10,13 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
  * 修改生产投料-视图前执行类
+ *
  * @author:phantomsaber
  * @version:2019/7/18 14:09
  * @email:phantomsaber@foxmail.com
@@ -28,6 +31,16 @@ public class ProjectToFeedEditPreImpl implements FuncService {
         HttpServletRequest request = modelAction.getRequest();
         String dataId = modelAction.getDataId();
 
+        String checkAuthSql = "SELECT * FROM T_PM_PROJECT_BASE A INNER JOIN T_PM_PROJECT_FEED_BASE B ON A.PROJECT_ID = B.PROJECT_ID " +
+                " WHERE 1 = 1 AND B.ID = ? AND A.DATA_AUTH = ? ";
+
+        String dataAuth = String.valueOf(modelAction.getRequest().getSession().getAttribute("mcDataAuth"));
+        if (StringUtils.isEmpty(dataAuth)) {
+            dataAuth = modelAction.getCurrUser().getData_auth();
+        }
+
+        List checkAuthList = modelService.listDataSql(checkAuthSql, new Object[]{dataId, dataAuth});
+
         /*-- version:2019/7/18 15:38 | desc:投料标准配方 --*/
         String feedDetailSql = " SELECT B.ITEM_CODE,  " +
                 "       B.STOCK_CODE    AS ITEM_STOCK,  " +
@@ -40,7 +53,9 @@ public class ProjectToFeedEditPreImpl implements FuncService {
                 "       B.WORK_SPACE,  " +
                 "       B.WAREHOUSE AS WARE_HOUSE,  " +
                 "       C.WORK_SPACE    AS FACTORY_CODE,  " +
-                "       C.PRODUCT_LINE  AS WORK_STATION  " +
+                "       C.PRODUCT_LINE  AS WORK_STATION,  " +
+                "       B.DATA_AUTH," +
+                "       B.CREATE_USER" +
                 "  FROM T_PM_PROJECT_FEED_BASE A  " +
                 "  LEFT JOIN T_PM_PROJECT_FEED_DETAIL B  " +
                 "    ON A.PROJECT_ID = B.PROJECT_ID  " +
@@ -66,11 +81,11 @@ public class ProjectToFeedEditPreImpl implements FuncService {
                 " WHERE 1=1 " +
                 "   AND T.Threshold_Type='1' " +
                 "   AND T.FACTORY_CODE " + factoryCode +
-                "   AND T.WORK_STATION_CODE "+workStation +
+                "   AND T.WORK_STATION_CODE " + workStation +
                 "   AND T.ITEM_CODE IS NULL ";
         Map<String, String> map = modelService.queryForMap(getThresholdSQL);
 
-        if (map == null || map.size()==0) {
+        if (map == null || map.size() == 0) {
             String getThresholdSQL2 = " SELECT T.ID, T.THRESHOLD_NUM " +
                     "  FROM T_CO_THRESHOLD_CONFIGURATION T " +
                     " WHERE 1=1 " +
@@ -83,22 +98,22 @@ public class ProjectToFeedEditPreImpl implements FuncService {
 
         //得到量级里的阀值
         String thresholdID = "";
-        if(map!=null && !map.isEmpty()){
+        if (map != null && !map.isEmpty()) {
             //得到量级表里的阀值ID
             thresholdID = map.get("ID");
         }
 
         //如果物料有设置阀值,则使用物料的,无则使用上级的;
-        for (int i=0; i<list.size(); i++) {
+        for (int i = 0; i < list.size(); i++) {
             Map<String, Object> map1 = list.get(i);
             Object itemCodeObj = map1.get("ITEM_CODE");
-            if(itemCodeObj!=null && !itemCodeObj.toString().isEmpty()){
+            if (itemCodeObj != null && !itemCodeObj.toString().isEmpty()) {
                 String itemCode = itemCodeObj.toString();
                 Object itemFactoryCodeObj = map1.get("WORK_SPACE");
                 String itemFactoryCode = getString(itemFactoryCodeObj);
                 Object itemNumObj = map1.get("ITEM_NUM");
                 Double planNum = null;
-                if(itemNumObj!=null && !itemNumObj.toString().isEmpty()){
+                if (itemNumObj != null && !itemNumObj.toString().isEmpty()) {
                     planNum = Double.parseDouble(itemNumObj.toString());
                 }
                 getThresholdSQL = " SELECT T.ID, T.THRESHOLD_NUM " +
@@ -106,25 +121,25 @@ public class ProjectToFeedEditPreImpl implements FuncService {
                         " WHERE 1=1 " +
                         "   AND T.Threshold_Type='1' " +
                         "   AND T.FACTORY_CODE " + itemFactoryCode +
-                        "   AND T.WORK_STATION_CODE "+workStation +
-                        "   AND T.ITEM_CODE = '"+itemCode+"' ";
+                        "   AND T.WORK_STATION_CODE " + workStation +
+                        "   AND T.ITEM_CODE = '" + itemCode + "' ";
                 Map<String, String> map2 = modelService.queryForMap(getThresholdSQL);
-                if(map2!=null && !map2.isEmpty()){
+                if (map2 != null && !map2.isEmpty()) {
                     String itemThresholdNum = getQuantity(modelService, map2.get("ID"), planNum);
-                    if(itemThresholdNum!=null && !itemThresholdNum.isEmpty()){
+                    if (itemThresholdNum != null && !itemThresholdNum.isEmpty()) {
                         list.get(i).put("THRESHOLD_NUM", itemThresholdNum);
-                    }else{
+                    } else {
                         list.get(i).put("THRESHOLD_NUM", map2.get("THRESHOLD_NUM"));
                     }
-                }else{
+                } else {
                     String thresholdNum = getQuantity(modelService, thresholdID, planNum);
-                    if(thresholdNum.isEmpty()){
+                    if (thresholdNum.isEmpty()) {
                         list.get(i).put("THRESHOLD_NUM", map.get("THRESHOLD_NUM"));
-                    }else{
+                    } else {
                         list.get(i).put("THRESHOLD_NUM", thresholdNum);
                     }
                 }
-            }else{
+            } else {
                 list.remove(i);
             }
         }
@@ -133,6 +148,18 @@ public class ProjectToFeedEditPreImpl implements FuncService {
             CommMethod.listToEscapeJs(list);
             modelAction.setDataList(list);
             modelAction.setAjaxList(list);
+
+            Map<String, String> sizeMap = new HashMap<>();
+            sizeMap.put("size", String.valueOf(list.size()));
+
+            if (checkAuthList.size() <= 0) {
+                modelAction.setAjaxString("dataAuth");
+                sizeMap.put("dataAuth", "false");
+            }else{
+                modelAction.setAjaxString(modelAction.getCurrUser().getId());
+                sizeMap.put("dataAuth", "true");
+            }
+            modelAction.setAjaxMap(sizeMap);
         }
 
         return modelAction.ActionForwardExeid(modelAction.getExeid());
@@ -153,7 +180,7 @@ public class ProjectToFeedEditPreImpl implements FuncService {
                 "   AND T.LEVEL_HIGHT > ? ";
         Map<String, Object> map0 = modelService.queryForMap(quantityLevelThresholdSQL,
                 new Object[]{thresholdId, planInNum, planInNum});
-        if(map0!=null && !map0.isEmpty()){
+        if (map0 != null && !map0.isEmpty()) {
             thresholdNum = map0.get("THRESHOLD_NUM").toString();
         }
         return thresholdNum;

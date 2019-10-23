@@ -46,7 +46,7 @@ public class FeedWorkOrderAddSaveImpl implements FuncService {
         String wareHouseStr = request.getParameter("WARE_HOUSE");
 
         String itemUnitStr = request.getParameter("ITEM_UNIT");
-        String lotNum = request.getParameter("LOT_NUMBER");
+
         String dataAuth = modelAction.getRequest().getParameter("_mcDataAuth");
 //        String dataAuth = String.valueOf(modelAction.getRequest().getSession().getAttribute("mcDataAuth"));
         if (StringUtils.isEmpty(dataAuth)) {
@@ -105,7 +105,6 @@ public class FeedWorkOrderAddSaveImpl implements FuncService {
                 baseTable.getColMap().put("RECEIVE_COUNT", receiveCount);
                 baseTable.getColMap().put("RAW_LICENSE", rawLicense);
                 baseTable.getColMap().put("VAT_NO", vatNo);
-                baseTable.getColMap().put("LOT_NUMBER", lotNum);
                 CommMethod.addSysDefCol(baseTable, modelAction.getUser(), dataAuth);
             }
             modelService.save(baseTable);

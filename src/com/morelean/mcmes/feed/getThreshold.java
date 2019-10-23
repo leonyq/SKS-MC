@@ -1,6 +1,5 @@
 package com.morelean.mcmes.feed;
 
-import com.more.fw.core.base.core.action.BaseActionSupport;
 import com.more.fw.core.base.core.action.ModelAction;
 import com.more.fw.core.common.exception.BussException;
 import com.more.fw.core.dbo.model.service.ModelService;
@@ -32,20 +31,37 @@ public class getThreshold implements FuncService {
 			String PROJECT_ID = request.getParameter("PROJECT_ID");
 			String THRESHOLD_TYPE = request.getParameter("TYPE");
 
-			String sql = " SELECT B.ID, B.THRESHOLD_NUM, A.PRODUCT_COUNT " +
-					"  FROM T_PM_PROJECT_BASE A " +
-					"  LEFT JOIN T_CO_THRESHOLD_CONFIGURATION B " +
-					"    ON 1 = 1 " +
-					" WHERE 1 = 1 " +
-					"   AND A.PROJECT_ID = ? " +
-					"   AND B.THRESHOLD_TYPE = ? " +
-					"   AND A.WORK_SPACE = B.FACTORY_CODE " +
-					"   AND A.PRODUCT_LINE = B.WORK_STATION_CODE " +
-					"   AND B.ITEM_CODE IS NULL  ";
+			String sql = "SELECT T.WORK_SPACE, T.PRODUCT_LINE, T.PRODUCT_COUNT " +
+					"  FROM T_PM_PROJECT_BASE T " +
+					" WHERE T.PROJECT_ID = ? ";
 
-			Map<String, Object> map = modelService.queryForMap(sql, new Object[] {PROJECT_ID, THRESHOLD_TYPE});
+			Map<String, Object> map1 = modelService.queryForMap(sql, new Object[] {PROJECT_ID});
+			Object factoryCodeObj = map1.get("WORK_SPACE");
+			String factoryCode = getString(factoryCodeObj);
+			Object workStationObj = map1.get("PRODUCT_LINE");
+			String workStation = getString(workStationObj);
+
+			String getThresholdSQL1 = " SELECT T.ID, T.THRESHOLD_NUM " +
+					"  FROM T_CO_THRESHOLD_CONFIGURATION T " +
+					" WHERE 1=1 " +
+					"   AND T.Threshold_Type='"+THRESHOLD_TYPE+"' " +
+					"   AND T.FACTORY_CODE " + factoryCode +
+					"   AND T.WORK_STATION_CODE "+workStation +
+					"   AND T.ITEM_CODE IS NULL ";
+			Map<String, Object> map = modelService.queryForMap(getThresholdSQL1);
+			if (map == null || map.size()==0) {
+				String getThresholdSQL2 = " SELECT T.ID, T.THRESHOLD_NUM " +
+						"  FROM T_CO_THRESHOLD_CONFIGURATION T " +
+						" WHERE 1=1 " +
+						"   AND T.Threshold_Type='"+THRESHOLD_TYPE+"' " +
+						"   AND T.FACTORY_CODE " + factoryCode +
+						"   AND T.WORK_STATION_CODE IS NULL " +
+						"   AND T.ITEM_CODE IS NULL ";
+				map = modelService.queryForMap(getThresholdSQL2);
+			}
+
 			if (map != null && map.size()>0) {
-				thresholdNum = getQuantity(modelService, map.get("ID").toString(), Double.parseDouble(map.get("PRODUCT_COUNT").toString()));
+				thresholdNum = getQuantity(modelService, map.get("ID").toString(), Double.parseDouble(map1.get("PRODUCT_COUNT").toString()));
 				thresholdNum = thresholdNum !=null && !thresholdNum.isEmpty()? thresholdNum : map.get("THRESHOLD_NUM").toString();
 			}
 
@@ -55,7 +71,7 @@ public class getThreshold implements FuncService {
 			throw new BussException(modelAction.getText(e.getMessage()),e);
 		}
 		modelAction.setAjaxString(thresholdNum);
-		return BaseActionSupport.AJAX;
+		return modelAction.AJAX;
 	}
 
 	private String getQuantity(ModelService modelService, String thresholdId, double planInNum) {
@@ -72,6 +88,11 @@ public class getThreshold implements FuncService {
 			thresholdNum = map0.get("THRESHOLD_NUM").toString();
 		}
 		return thresholdNum;
+	}
+
+	private String getString(Object object) {
+		return object != null && !object.toString().isEmpty() ?
+				"= '" + object.toString() + "'" : "IS NULL";
 	}
 
 }

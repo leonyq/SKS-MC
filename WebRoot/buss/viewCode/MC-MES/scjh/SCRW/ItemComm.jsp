@@ -29,7 +29,7 @@
                             <tr>
                                 <td width="100%" align="right">
                                     <button type="button" value="" onclick="backFill('${paraMap.popId}pop','${paraMap.popId}shadow','${paraMap.thisId }');" sytle="" class="botton_img_add">
-                                        <i class="ico ico-kl "></i> <dict:lang value="提交1"/>
+                                        <i class="ico ico-kl "></i> <dict:lang value="提交"/>
                                     </button>
                                     <button type="button" value="" onclick="clearSel('${paraMap.popId}pop','${paraMap.popId}shadow','${paraMap.thisId }');" sytle="" class="botton_img_add">
                                         <i class="ico ico-xg "></i> <dict:lang value="清空"/>
@@ -47,7 +47,7 @@
                 </div>
             </div>
         </div>
-
+        
         <div class="bd" style="border-top:none;border-bottom:none;">
             <div class="search-box">
                 <form id="searchForm" name="searchForm" action="" method="post">
@@ -58,7 +58,7 @@
                         <tr>
                             <td>
                                 <div class="group" style="width:300px;">
-                                    <div class="name" title="等于"><dict:lang value="物料编码1"/></div>
+                                    <div class="name" title="等于"><dict:lang value="物料编码"/></div>
                                     <div class="dec" style="width:200px;">
                                         <input class="input inputsd" id="ciItemCode" name="paraMap2.ciItemCode" style="width:200px;" onkeyup="searchOpen();">
                                     </div>
@@ -90,12 +90,20 @@
                                     </div>
                                 </div>
                             </td>
+                            <td>
+                                <div class="group" style="width:300px;">
+                                    <div class="name" title="等于"><dict:lang value="单位"/></div>
+                                    <div class="dec" style="width:200px;">
+                                        <input class="input inputsd" id="itemUnit" name="paraMap2.itemUnit" style="width:200px;" onkeyup="searchOpen();">
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
-
+                        
                         </tbody>
                     </table>
                 </form>
-
+            
             </div>
             <input type="hidden" name="formId" id="formId1" value='123456'/>
             <form id="submitForm" name="submitForm" action="" method="post" target="submitFrame">
@@ -124,9 +132,9 @@
                 </div>
             </form>
         </div>
-
+    
     </div>
-
+    
     </form>
 </div>
 </div>
@@ -163,6 +171,7 @@
 
 
     function getDataTable(paginationImpl) {
+        debugger;
         var url = "${path}buss/bussModel_exeCommonTableFunc.ms";
         var isFirstLoad = firstLoadThisPage(paginationImpl);
         var currentPage = isFirstLoad ? 1 : _GLO_FORM_PAGE_MAP[paginationImpl].currentPage;
@@ -172,6 +181,7 @@
         var itemName = $("#ciItemName").val();
         var itemSpec = $("#ciItemSpec").val();
         var stockCode = $("#ciStockCode").val();
+        var itemUnit = $("#itemUnit").val();
 
 
         util.showLoading("处理中...");

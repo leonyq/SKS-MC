@@ -8,6 +8,7 @@ import java.util.Date;
  * @author 
  */
 public class TProjectSapLogDetail implements Serializable {
+
     private String ID;
 
     private String DEPT_ID;

@@ -47,17 +47,38 @@ public class PorjectFeedWorkOrderEditSaveImpl implements FuncService {
         String feedNumStr = request.getParameter("FEED_NUM");
         String rawLotStr = request.getParameter("RAW_LOTNUMBER");
         String processOrderStr = request.getParameter("PROCESS_ORDER");
-      
-      String workSpaceStr = request.getParameter("WORK_SPACE");
+
+
+        String oldItemCodeStr = request.getParameter("OLD_ITEM_CODE");
+        String oldStockCodeStr = request.getParameter("OLD_STOCK_CODE");
+        String oldItemNumStr = request.getParameter("OLD_ITEM_NUM");
+        String oldFeedNumStr = request.getParameter("OLD_FEED_NUM");
+        String oldItemUnitStr = request.getParameter("OLD_ITEM_UNIT");
+        String oldRawLotStr = request.getParameter("OLD_RAW_LOTNUMBER");
+        String oldProcessOrderStr = request.getParameter("OLD_PROCESS_ORDER");
+        String oldWorkSpaceStr = request.getParameter("OLD_WORK_SPACE");
+        String oldWareHouseStr = request.getParameter("OLD_WARE_HOUSE");
+
+        String newItemCodeStr = request.getParameter("NEW_ITEM_CODE");
+        String newStockCodeStr = request.getParameter("NEW_STOCK_CODE");
+        String newItemNumStr = request.getParameter("NEW_ITEM_NUM");
+        String newFeedNumStr = request.getParameter("NEW_FEED_NUM");
+        String newItemUnitStr = request.getParameter("NEW_ITEM_UNIT");
+        String newRawLotStr = request.getParameter("NEW_RAW_LOTNUMBER");
+        String newProcessOrderStr = request.getParameter("NEW_PROCESS_ORDER");
+        String newWorkSpaceStr = request.getParameter("NEW_WORK_SPACE");
+        String newWareHouseStr = request.getParameter("NEW_WARE_HOUSE");
+
+        String workSpaceStr = request.getParameter("WORK_SPACE");
         String wareHouseStr = request.getParameter("WARE_HOUSE");
 
         String dataAuth = String.valueOf(modelAction.getRequest().getSession().getAttribute("mcDataAuth"));
-        if(StringUtils.isEmpty(dataAuth)){
+        if (StringUtils.isEmpty(dataAuth)) {
             dataAuth = modelAction.getCurrUser().getData_auth();
         }
 
-        if(StringUtils.isEmpty(projectId)){
-            throw new BussException(modelAction.getText("工单号为空"),"");
+        if (StringUtils.isEmpty(projectId)) {
+            throw new BussException(modelAction.getText("工单号为空"), "");
         }
 
         String userId = modelAction.getCurrUser().getId();
@@ -65,67 +86,124 @@ public class PorjectFeedWorkOrderEditSaveImpl implements FuncService {
         List list = new ArrayList();
         list.add(projectId);
 
-        String[] itemCodes = itemCodeStr.split(",",-1);
-        String[] stockCodes = stockCodeStr.split(",",-1);
+        String[] itemCodes = itemCodeStr.split(",", -1);
+        String[] stockCodes = stockCodeStr.split(",", -1);
 
-        String[] itemNums = itemNumStr.split(",",-1);
-        String[] feedNums = feedNumStr.split(",",-1);
-        String[] rawLots = rawLotStr.split(",",-1);
-        String[] processOrders = processOrderStr.split(",",-1);
-      String[] workSpaces = workSpaceStr.split(",", -1);
+        String[] itemNums = itemNumStr.split(",", -1);
+        String[] feedNums = feedNumStr.split(",", -1);
+        String[] rawLots = rawLotStr.split(",", -1);
+        String[] processOrders = processOrderStr.split(",", -1);
+        String[] workSpaces = workSpaceStr.split(",", -1);
         String[] wareHouses = wareHouseStr.split(",", -1);
+
+
+        String[] oldItemCodes = oldItemCodeStr.split(",", -1);
+        String[] oldStockCodes = oldStockCodeStr.split(",", -1);
+        String[] oldItemNums = oldItemNumStr.split(",", -1);
+        String[] oldFeedNums = oldFeedNumStr.split(",", -1);
+        String[] oldItemUnits = oldItemUnitStr.split(",", -1);
+        String[] oldRawLots = oldRawLotStr.split(",", -1);
+        String[] oldProcessOrders = oldProcessOrderStr.split(",", -1);
+        String[] oldWorkSpaces = oldWorkSpaceStr.split(",", -1);
+        String[] oldWareHouses = oldWareHouseStr.split(",", -1);
+
+        String[] newItemCodes = newItemCodeStr.split(",", -1);
+        String[] newStockCodes = newStockCodeStr.split(",", -1);
+        String[] newItemNums = newItemNumStr.split(",", -1);
+        String[] newFeedNums = newFeedNumStr.split(",", -1);
+        String[] newItemUnits = newItemUnitStr.split(",", -1);
+        String[] newRawLots = newRawLotStr.split(",", -1);
+        String[] newProcessOrders = newProcessOrderStr.split(",", -1);
+        String[] newWorkSpaces = newWorkSpaceStr.split(",", -1);
+        String[] newWareHouses = newWareHouseStr.split(",", -1);
+
 
         MsHTranMan hbtran = BussService.getHbTran();// 定义事务对象
         try {
-        	TableDataMapExt baseTable = new TableDataMapExt();
-        	
-        	String updateSql = " UPDATE T_PM_PROJECT_feed_BASE A " + 
-        			"   SET A.RECEIVE_COUNT= ?, " + 
-        			"   A.EDIT_USER= ? " + 
-        			" WHERE 1 = 1 " + 
-        			"   AND A.PROJECT_ID = ? ";
-        	
-        	modelService.execSql(updateSql, new Object[]{receiveCount, userId, projectId});
-        	
-        	
-        	String deleteSql = "DELETE T_PM_PROJECT_FEED_DETAIL WHERE PROJECT_ID=?";
-        	modelService.execSql(deleteSql, new Object[]{projectId});
-        	
-        	TableDataMapExt detailTable = new TableDataMapExt();
-        	for (int i=0;i<itemCodes.length;i++) {
-                detailTable.setTableName("T_PM_PROJECT_FEED_DETAIL");
+            TableDataMapExt baseTable = new TableDataMapExt();
 
-                detailTable.getColMap().put("ID", StringUtils.getUUID());
-                detailTable.getColMap().put("DEPT_ID", modelAction.getCurrUser().getDeptId());
+            String updateSql = " UPDATE T_PM_PROJECT_feed_BASE A SET A.RECEIVE_COUNT= ?, A.EDIT_USER= ? WHERE 1 = 1 AND A.PROJECT_ID = ? ";
 
-                detailTable.getColMap().put("CREATE_USER", userId);
-                detailTable.getColMap().put("CREATE_TIME", DateUtil.getCurDate());
-              
-                detailTable.getColMap().put("EDIT_USER", userId);
-                detailTable.getColMap().put("EDIT_TIME", DateUtil.getCurDate());
+            modelService.execSql(updateSql, new Object[]{receiveCount, userId, projectId});
 
-                detailTable.getColMap().put("DATA_AUTH", dataAuth);
-                detailTable.getColMap().put("PROJECT_ID", projectId);
 
-                detailTable.getColMap().put("ITEM_CODE", StringUtils.toString(itemCodes[i]));
-                detailTable.getColMap().put("STOCK_CODE", (stockCodes[i]));
-                detailTable.getColMap().put("ITEM_NUM", (itemNums[i]));
-                detailTable.getColMap().put("FEED_NUM", (feedNums[i]));
-                detailTable.getColMap().put("RAW_LOTNUMBER", (rawLots[i]));
-                detailTable.getColMap().put("PROCESS_ORDER", (processOrders[i]));
-              
-              detailTable.getColMap().put("WORK_SPACE", (workSpaces[i]));
-                detailTable.getColMap().put("WAREHOUSE", (wareHouses[i]));
+            String deleteDataUserSql = "DELETE FROM T_PM_PROJECT_FEED_DETAIL A " +
+                    "WHERE 1=1 " +
+                    "AND A.PROJECT_ID = ? " +
+                    "AND A.CREATE_USER = ? ";
+            modelService.execSql(deleteDataUserSql, new Object[]{projectId, userId});
 
-                CommMethod.addSysDefCol(detailTable, modelAction.getUser(), dataAuth);
-                modelService.save(detailTable);
+            TableDataMapExt detailTable = new TableDataMapExt();
+            if (newItemCodes.length > 0 & newItemCodes[0].length() > 1) {
+                for (int i = 0; i < newItemCodes.length; i++) {
+                    if (newItemCodes[i].length() > 0 & (!StringUtils.isEmpty(newItemCodes[i]))) {
+                        detailTable.setTableName("T_PM_PROJECT_FEED_DETAIL");
+
+                        detailTable.getColMap().put("ID", StringUtils.getUUID());
+                        detailTable.getColMap().put("DEPT_ID", modelAction.getCurrUser().getDeptId());
+
+                        detailTable.getColMap().put("CREATE_USER", userId);
+                        detailTable.getColMap().put("CREATE_TIME", DateUtil.getCurDate());
+
+                        detailTable.getColMap().put("EDIT_USER", userId);
+                        detailTable.getColMap().put("EDIT_TIME", DateUtil.getCurDate());
+
+                        detailTable.getColMap().put("DATA_AUTH", dataAuth);
+                        detailTable.getColMap().put("PROJECT_ID", projectId);
+
+                        detailTable.getColMap().put("ITEM_CODE", StringUtils.toString(newItemCodes[i]));
+                        detailTable.getColMap().put("STOCK_CODE", (newStockCodes[i]));
+                        detailTable.getColMap().put("ITEM_NUM", (newItemNums[i]));
+                        detailTable.getColMap().put("ITEM_UNIT", (newItemUnits[i]));
+                        detailTable.getColMap().put("FEED_NUM", (newFeedNums[i]));
+                        detailTable.getColMap().put("RAW_LOTNUMBER", (newRawLots[i]));
+                        detailTable.getColMap().put("PROCESS_ORDER", (newProcessOrders[i]));
+
+                        detailTable.getColMap().put("WORK_SPACE", (newWorkSpaces[i]));
+                        detailTable.getColMap().put("WAREHOUSE", (newWareHouses[i]));
+
+                        CommMethod.addSysDefCol(detailTable, modelAction.getUser(), dataAuth);
+                        modelService.save(detailTable);
+                    }
+                }
+            } else {
+                for (int i = 0; i < oldItemCodes.length; i++) {
+                    if (oldItemCodes[i].length() > 0 & (!StringUtils.isEmpty(oldItemCodes[i]))) {
+                        detailTable.setTableName("T_PM_PROJECT_FEED_DETAIL");
+
+                        detailTable.getColMap().put("ID", StringUtils.getUUID());
+                        detailTable.getColMap().put("DEPT_ID", modelAction.getCurrUser().getDeptId());
+
+                        detailTable.getColMap().put("CREATE_USER", userId);
+                        detailTable.getColMap().put("CREATE_TIME", DateUtil.getCurDate());
+
+                        detailTable.getColMap().put("EDIT_USER", userId);
+                        detailTable.getColMap().put("EDIT_TIME", DateUtil.getCurDate());
+
+                        detailTable.getColMap().put("DATA_AUTH", dataAuth);
+                        detailTable.getColMap().put("PROJECT_ID", projectId);
+
+                        detailTable.getColMap().put("ITEM_CODE", StringUtils.toString(oldItemCodes[i]));
+                        detailTable.getColMap().put("STOCK_CODE", (oldStockCodes[i]));
+                        detailTable.getColMap().put("ITEM_NUM", (oldItemNums[i]));
+                        detailTable.getColMap().put("ITEM_UNIT", (oldItemUnits[i]));
+                        detailTable.getColMap().put("FEED_NUM", (oldFeedNums[i]));
+                        detailTable.getColMap().put("RAW_LOTNUMBER", (oldRawLots[i]));
+                        detailTable.getColMap().put("PROCESS_ORDER", (oldProcessOrders[i]));
+
+                        detailTable.getColMap().put("WORK_SPACE", (oldWorkSpaces[i]));
+                        detailTable.getColMap().put("WAREHOUSE", (oldWareHouses[i]));
+
+                        CommMethod.addSysDefCol(detailTable, modelAction.getUser(), dataAuth);
+                        modelService.save(detailTable);
+                    }
+                }
             }
-        	
             hbtran.commit();
         } catch (Exception e) {
             e.printStackTrace();
             hbtran.rollback();
-            throw new BussException(modelAction.getText("投料修改失败,"+e.getMessage()),e.getMessage());
+            throw new BussException(modelAction.getText("投料修改失败," + e.getMessage()), e.getMessage());
         }
 
         return modelAction.reloadIframeByIds(iframeId, modelAction.getText("投料修改成功"), "0");

@@ -26,9 +26,21 @@ public class ProjectToFeededitInfoImpl implements FuncService {
     public String exeFunc(ModelAction modelAction, ModelService modelService) {
 
         HttpServletRequest request = modelAction.getRequest();
-        //String dataId = modelAction.getDataId();
         String projectId = request.getParameter("projectId");
+        String dataAuth = request.getParameter("_mcDataAuth");
         String reg = "ok";
+
+        if(StringUtils.isEmpty(dataAuth)){
+            dataAuth  = modelAction.getCurrUser().getData_auth();
+        }
+        String checkAuthSql = "SELECT * FROM T_PM_PROJECT_BASE T WHERE 1=1 AND T.PROJECT_ID= ? AND T.DATA_AUTH = ? ";
+        List checkAuthList = modelService.listDataSql(checkAuthSql, new Object[]{projectId,dataAuth});
+        if(checkAuthList.size() <= 0){
+            reg = "ng2";
+            modelAction.setAjaxString(reg);
+            return BaseActionSupport.AJAX;
+        }
+
         //验证工单是否到达投料流程
         String checkSql = "SELECT * FROM  T_PM_PROJECT_BASE T  WHERE 1=1 AND T.PROJECT_STATUS='4' AND T.PROJECT_SORT='1' AND  T.PROJECT_ID=? ";
         List clist = modelService.listDataSql(checkSql, new Object[]{projectId});
@@ -37,6 +49,7 @@ public class ProjectToFeededitInfoImpl implements FuncService {
             modelAction.setAjaxString(reg);
             return BaseActionSupport.AJAX;
         }
+
         //判断工单是否已包装
         String checksql1 = "SELECT * FROM  T_PROJECT_PACK_FEED T  WHERE 1=1 AND  T.PROJECT_ID=?";
         clist = modelService.listDataSql(checksql1, new Object[]{projectId});
@@ -47,46 +60,32 @@ public class ProjectToFeededitInfoImpl implements FuncService {
             return BaseActionSupport.AJAX;
         }
         modelAction.setAjaxString(reg);
+
         /*-- version:2019/7/18 15:38 | desc:投料标准配方 --*/
-
-       /* String feedDetailSql = " SELECT D.CI_ITEM_CODE  AS ITEM_CODE, " +
-                "       D.STOCK_CODE    AS ITEM_STOCK, " +
-                "       D.RAW_LOTNUMBER AS ITEM_LOT, " +
-                "       C.CBD_ITEM_NUM  AS ITEM_NUM, " +
-                "       D.CI_ITEM_NAME AS ITEM_NAME ," +
-                "       F.FEED_NUM," +
-                "       F.PROCESS_ORDER   AS ITEM_ORDER, " +
-                "       f.WAREHOUSE AS WARE_HOUSE, " +
-                "       f.WORK_SPACE    AS FACTORY_CODE, "+
-                "       A.PRODUCT_LINE  AS WORK_STATION "+
-                "  FROM T_PM_PROJECT_BASE A " +
-                " LEFT JOIN T_PM_PROJECT_DETAIL C ON C.PROJECT_ID = A.PROJECT_ID " +
-                " LEFT JOIN T_PM_PROJECT_FEED_DETAIL F ON F.PROJECT_ID = A.PROJECT_ID AND F.ITEM_CODE = C.CBD_ITEM_CODE"+
+        String feedDetailSql =
+                "SELECT A.ITEM_CODE," +
+                "       D.STOCK_CODE    AS ITEM_STOCK," +
+                "       A.ITEM_NUM," +
+                "       A.ITEM_UNIT," +
+                "       A.FEED_NUM," +
+                "       A.RAW_LOTNUMBER AS ITEM_LOT," +
+                "       A.PROCESS_ORDER AS ITEM_ORDER," +
+                "       D.CI_ITEM_NAME  AS ITEM_NAME," +
+                "       A.WORK_SPACE    AS FACTORY_CODE," +
+                "       A.WORK_SPACE," +
+                "       T.PRODUCT_LINE  AS WORK_STATION," +
+                "       A.WAREHOUSE     AS WARE_HOUSE," +
+                "       A.DATA_AUTH," +
+                "       A.CREATE_USER " +
+                "  FROM T_PM_PROJECT_FEED_DETAIL A " +
                 "  LEFT JOIN T_CO_ITEM D " +
-                "    ON C.CBD_ITEM_CODE = D.CI_ITEM_CODE " +
+                "    ON A.ITEM_CODE = D.CI_ITEM_CODE " +
+                "  LEFT JOIN T_PM_PROJECT_BASE T " +
+                "    ON T.PROJECT_ID = A.PROJECT_ID " +
                 " WHERE 1 = 1 " +
-                "   AND A.project_id  = ? order by F.PROCESS_ORDER";*/
-        String feedDetailSql = "select A.ITEM_CODE,"+
-                " D.STOCK_CODE AS ITEM_STOCK,"+
-                " A.ITEM_NUM,"+
-                " A.FEED_NUM,"+
-                " A.RAW_LOTNUMBER AS ITEM_LOT,"+
-                " A.PROCESS_ORDER  AS ITEM_ORDER,"+
-                "  D.CI_ITEM_NAME  AS ITEM_NAME,"+
-                "  A.WORK_SPACE AS FACTORY_CODE,"+
-                " A.WORK_SPACE,"+
-                " T.PRODUCT_LINE  AS WORK_STATION,"+
-                "  A.WAREHOUSE AS WARE_HOUSE "+
-                " from T_PM_PROJECT_FEED_DETAIL A "+
-                " left join T_CO_ITEM D "+
-                "  ON A.ITEM_CODE = D.CI_ITEM_CODE "+
-                " LEFT JOIN T_PM_PROJECT_BASE T ON T.PROJECT_ID = A.PROJECT_ID "+
-                "  where 1=1 "+
-                " AND A.project_id = ? "+
-                " order by TO_NUMBER(A.PROCESS_ORDER) ASC ";
+                "   AND A.PROJECT_ID = ? " +
+                " ORDER BY TO_NUMBER(A.PROCESS_ORDER) ASC ";
         List<Map<String, Object>> list = modelService.listDataSql(feedDetailSql, new Object[]{projectId});
-
-        //  int countSql = modelService.countSql(feedDetailSql, new Object[]{projectId});
 
         /*-- version:2019/7/18 15:39 | desc:基础信息 --*/
         String sql = "SELECT T1.PROJECT_ID,T5.PRODUCT_MATERIAL,T5.PRODUCT_NAME,T5.LOT_NUMBER,T5.PM_MEMO,T5.PRODUCT_COUNT,T3.FEED_COUNT,T1.RECEIVE_COUNT,T1.VAT_NO,T1.RAW_LICENSE, T4.FEED_NUM "+
@@ -101,8 +100,11 @@ public class ProjectToFeededitInfoImpl implements FuncService {
         Map<String, String> map11 = modelService.queryForMap(sql, new Object[]{projectId});
 
         String curUserName = modelAction.getCurrUser().getName();
+        String curId = modelAction.getCurrUser().getId();
+
         map11.put("CUR_USER", curUserName);
-        //  map.put("COUNT", StringUtils.toString(countSql));
+        map11.put("CUR_USER_ID", curId);
+        map11.put("SIZE", String.valueOf(list.size()));
 
         /*
          * 阀值信息
@@ -139,56 +141,16 @@ public class ProjectToFeededitInfoImpl implements FuncService {
             thresholdID = map.get("ID");
         }
 
-        //如果物料有设置阀值,则使用物料的,无则使用上级的;
-      /*  for (int i=0; i<list.size(); i++) {
-            Map<String, Object> map1 = list.get(i);
-            Object itemCodeObj = map1.get("ITEM_CODE");
-            if(itemCodeObj!=null && !itemCodeObj.toString().isEmpty()){
-                String itemCode = itemCodeObj.toString();
-                Object itemFactoryCodeObj = map1.get("WORK_SPACE");
-                String itemFactoryCode = getString(itemFactoryCodeObj);
-                double planNum = Double.parseDouble(map1.get("ITEM_NUM").toString());
-                getThresholdSQL = " SELECT T.ID, T.THRESHOLD_NUM " +
-                        "  FROM T_CO_THRESHOLD_CONFIGURATION T " +
-                        " WHERE 1=1 " +
-                        "   AND T.Threshold_Type='1' " +
-                        "   AND T.FACTORY_CODE " + itemFactoryCode +
-                        "   AND T.WORK_STATION_CODE "+workStation +
-                        "   AND T.ITEM_CODE = '"+itemCode+"' ";
-                Map<String, String> map2 = modelService.queryForMap(getThresholdSQL);
-                if(map2!=null && !map2.isEmpty()){
-                    String itemThresholdNum = getQuantity(modelService, map2.get("ID"), planNum);
-                    if(itemThresholdNum!=null && !itemThresholdNum.isEmpty()){
-                        list.get(i).put("THRESHOLD_NUM", itemThresholdNum);
-                    }else{
-                        list.get(i).put("THRESHOLD_NUM", map2.get("THRESHOLD_NUM"));
-                    }
-                }else{
-                    String thresholdNum = getQuantity(modelService, thresholdID, planNum);
-                    if(thresholdNum.isEmpty()){
-                        list.get(i).put("THRESHOLD_NUM", map.get("THRESHOLD_NUM"));
-                    }else{
-                        list.get(i).put("THRESHOLD_NUM", thresholdNum);
-                    }
-                }
-            }else{
-                list.remove(i);
-            }
-        }*/
-
         if(map11.size() > 0){
             CommMethod.mapToEscapeJs(map11);
-            // modelAction.setDataMap(map);
             modelAction.setAjaxMap(map11);
         }
 
         if (list.size() > 0) {
             CommMethod.listToEscapeJs(list);
-            // modelAction.setDataList(list);
             modelAction.setAjaxList(list);
         }
 
-        // return modelAction.ActionForwardExeid(modelAction.getExeid());
         return BaseActionSupport.AJAX;
     }
 

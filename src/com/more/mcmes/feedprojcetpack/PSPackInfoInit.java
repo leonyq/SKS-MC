@@ -12,10 +12,9 @@ import com.more.fw.core.dbo.model.service.ModelService;
 import com.more.fw.core.dbo.model.service.impl.base.FuncService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 /**
  * -初始化数据
- * 
- * 
  */
 public class PSPackInfoInit implements FuncService {
     private final Log log = LogFactory.getLog(this.getClass());

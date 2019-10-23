@@ -24,17 +24,16 @@ public class ItemTableService implements FuncService {
         String ciItemName = null;
         String ciItemSpec = null;
         String ciStockCode = null;
+        String itemUnit = null;
         if (modelAction.getParaMap2() != null) {
             ciItemCode = modelAction.getParaMap2().get("ciItemCode");
             ciItemName = modelAction.getParaMap2().get("ciItemName");
             ciItemSpec = modelAction.getParaMap2().get("ciItemSpec");
             ciStockCode = modelAction.getParaMap2().get("ciStockCode");
+            itemUnit = modelAction.getParaMap2().get("ciStockCode");
         }
         Map<String, String> sqlParaMap = new HashMap<String, String>();
-//    StringBuilder sql = new StringBuilder("select t.CI_ITEM_CODE MKEY,t.CI_ITEM_NAME VAL,t.CI_ITEM_SPEC ITEMSPEC,"
-//        + " t.CI_MIN_PACK MINPACK from T_CO_ITEM t"
-//      //  + " LEFT JOIN T_CO_SUPPLIER t2 on t.CI_supplier_code = t2.supplier_code"
-//        +" where 1=1 ");
+
         StringBuilder sql = new StringBuilder(
                 " SELECT T.CI_ITEM_CODE MKEY," +
                         " T.CI_ITEM_NAME VAL," +
@@ -90,6 +89,15 @@ public class ItemTableService implements FuncService {
             sql.append("|| '%'");
             sqlParaMap.put("STOCK_CODE", ciStockCode);
         }
+        if(StringUtils.isNotBlank(itemUnit)){
+            itemUnit = itemUnit.trim();
+            sql.append(" AND t.CI_UNIT LIKE ");
+            sql.append("'%'");
+            sql.append("|| :CI_UNIT");
+            sql.append("|| '%'");
+            sqlParaMap.put("CI_UNIT", itemUnit);
+        }
+
         List<Map> userList = modelService.listSql(sql.toString().toUpperCase(), modelAction.getPage(), sqlParaMap, null,null);
         Map<String, Object> dataMap = new HashMap<String, Object>();
         dataMap.put("title", getTitle(modelAction));
@@ -118,6 +126,7 @@ public class ItemTableService implements FuncService {
         map.put("val", modelAction.getText("物料名称"));
         map.put("STOCK_CODE", modelAction.getText("存货代码"));
         map.put("ITEMSPEC", modelAction.getText("物料规格"));
+        map.put("ITEM_UNIT", modelAction.getText("单位"));
         //map.put("SUPPLIERNAME", modelAction.getText("供应商"));
 //    map.put("MINPACK", modelAction.getText("最小包装数"));
         return map;
@@ -137,10 +146,6 @@ public class ItemTableService implements FuncService {
         sb.append("};setJobNameValue();\n");
         return sb.toString();
     }
-
-//  public String StringSql() {
-//    return "select t.CI_ITEM_CODE as mkey,t.CI_ITEM_CODE as val,t.ci_item_name, t.ci_item_spec as ciitemspec from t_co_item t  WHERE t.ci_item_code = ";
-//  }
 
     public String StringSql() {
         return " SELECT T.CI_ITEM_CODE AS MKEY," +

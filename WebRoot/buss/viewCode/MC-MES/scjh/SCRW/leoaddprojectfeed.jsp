@@ -23,7 +23,7 @@
         <jsp:param name="location" value="inHead"/>
     </jsp:include>
     <!-- head里面 -->
-
+    
     <!-- 产品静态资源 -->
 
 
@@ -49,17 +49,17 @@
                     <s:select list="deptLs" headerKey="" headerValue='--%{getText("请选择")}--' listKey="id" listValue="name" name="paraMapObj._DATA_AUTH" id="deptLs_data_auth" cssStyle="width: 200px;" cssClass="_VAL_NULL dept_select"/>
                 </s:else> </s:if>
             </div>
-
-
+            
+            
             <div class="optn">
                 <button type="button" onclick="doSave();"><i class="ico ico-save"></i><dict:lang value="保存"/></button>
                 <button type="button" onclick="closeWindow();"><i class="ico ico-cancel"></i><dict:lang value="取消"/>
                 </button>
             </div>
-
+        
         </div>
         <div class="bd">
-
+            
             <jsp:include page="/plf/page/mesdemo/commCode/commCode.jsp">
                 <jsp:param name="modelName" value="VIEW_TYPE_10"/>
                 <jsp:param name="location" value="addForm"/>
@@ -85,54 +85,54 @@
                     工单号</td>
                     <bu:td cssClass="dec" colNo="PROJECT_ID" formId="734fa2159c4344848a3c1b5584c17b2b" colspan="">
                         <input type="text" id="paraMap1_PROJECT_ID" name="paraMap1_PROJECT_ID" autocomplete="off" value="" class="input isSubmit " style="width:230px;" save_mark="0" onkeydown="addSplit(event);"> </bu:td>
-
-
+                    
+                    
                     <td class="name-four"/>
                     <bu:uitn colNo="LOT_NUMBER" formId="b36254ac37e74240b1528d44627b6a84"/></td>
                     <bu:td cssClass="dec-self" colNo="LOT_NUMBER" formId="b36254ac37e74240b1528d44627b6a84">
                         <bu:ui colNo="LOT_NUMBER" formId="b36254ac37e74240b1528d44627b6a84" value="%{LOT_NUMBER}" formIndex="1"/>
                     </bu:td>
-
+                    
                     <td class="name-four"/>
                     <bu:uitn colNo="ADMIN_EMP" formId="b36254ac37e74240b1528d44627b6a84"/></td>
                     <bu:td cssClass="dec-self" colNo="ADMIN_EMP" formId="b36254ac37e74240b1528d44627b6a84">
                         <bu:ui disabled="disabled" colNo="ADMIN_EMP" formId="b36254ac37e74240b1528d44627b6a84" value="" formIndex="1"/>
                     </bu:td>
                 </tr>
-
+                
                 <tr>
                     <td class="name-four"/>
                     <bu:uitn colNo="T5#PRODUCT_COUNT" formId="b36254ac37e74240b1528d44627b6a84"/></td>
                     <bu:td cssClass="dec-self" colNo="T5#PRODUCT_COUNT" formId="b36254ac37e74240b1528d44627b6a84">
                         <bu:ui colNo="T5#PRODUCT_COUNT" formId="b36254ac37e74240b1528d44627b6a84" value="" formIndex="1"/>
                     </bu:td>
-
+                    
                     <td class="name-four"/>
                     <bu:uitn colNo="T3#FEED_COUNT" formId="b36254ac37e74240b1528d44627b6a84"/></td>
                     <bu:td cssClass="dec-self" colNo="T3#FEED_COUNT" formId="b36254ac37e74240b1528d44627b6a84">
                         <bu:ui colNo="T3#FEED_COUNT" formId="b36254ac37e74240b1528d44627b6a84" value="" formIndex="1"/>
                     </bu:td>
-
+                    
                     <td class="name-four"/>
                     <bu:uitn colNo="RECEIVE_COUNT" formId="b36254ac37e74240b1528d44627b6a84"/></td>
                     <bu:td cssClass="dec-self" colNo="RECEIVE_COUNT" formId="b36254ac37e74240b1528d44627b6a84">
                         <bu:ui colNo="RECEIVE_COUNT" formId="b36254ac37e74240b1528d44627b6a84" value="" formIndex="1"/>
                     </bu:td>
                 </tr>
-
+                
                 <tr>
                     <td class="name-four"/>
                     <bu:uitn colNo="T5#PRODUCT_MATERIAL" formId="b36254ac37e74240b1528d44627b6a84"/></td>
                     <bu:td cssClass="dec-self" colNo="T5#PRODUCT_MATERIAL" formId="b36254ac37e74240b1528d44627b6a84">
                         <bu:ui colNo="T5#PRODUCT_MATERIAL" formId="b36254ac37e74240b1528d44627b6a84" value="" formIndex="1"/>
                     </bu:td>
-
+                    
                     <td class="name-four"/>
                     <bu:uitn colNo="T5#PRODUCT_NAME" formId="b36254ac37e74240b1528d44627b6a84"/></td>
                     <bu:td cssClass="dec-self" colNo="T5#PRODUCT_NAME" formId="b36254ac37e74240b1528d44627b6a84">
                         <bu:ui colNo="T5#PRODUCT_NAME" formId="b36254ac37e74240b1528d44627b6a84" dataId="" formIndex="1"/>
                     </bu:td>
-
+                    
                     <td class="name-four"/>
                     <bu:uitn colNo="RAW_LICENSE" formId="b36254ac37e74240b1528d44627b6a84"/></td>
                     <bu:td colspan="5" cssClass="dec-self" colNo="RAW_LICENSE" formId="b36254ac37e74240b1528d44627b6a84">
@@ -145,13 +145,13 @@
                     <bu:td cssClass="dec-self" colNo="T4#FEED_NUM" formId="b36254ac37e74240b1528d44627b6a84">
                         <bu:ui colNo="T4#FEED_NUM" formId="b36254ac37e74240b1528d44627b6a84" value="" formIndex="1"/>
                     </bu:td>
-
+                    
                     <td class="name-four"/>
                     <bu:uitn colNo="VAT_NO" formId="b36254ac37e74240b1528d44627b6a84"/></td>
                     <bu:td cssClass="dec-self" colNo="VAT_NO" formId="b36254ac37e74240b1528d44627b6a84">
                         <bu:ui colNo="VAT_NO" formId="b36254ac37e74240b1528d44627b6a84" dataId="" formIndex="1"/>
                     </bu:td>
-
+                
                 </tr>
                 <%--
                                 <tr>
@@ -162,7 +162,7 @@
                                     </bu:td>
                                 </tr>
                 --%>
-
+                
                 <tr>
                     <td class="name-four"/>
                     <bu:uitn colNo="T5#PM_MEMO" formId="b36254ac37e74240b1528d44627b6a84"/></td>
@@ -173,15 +173,15 @@
             </table>
             <bu:jsVal formId="b36254ac37e74240b1528d44627b6a84" formIndex="1"/>
             <div style="padding:1px;"></div>
-
+            
             <div class="mod">
                 <div class="mod-hd">
                     <h3 class="tit"><dict:lang value="投料明细表单"/></h3>
                     <div class="extend-btn" style="float: right;margin-top:15px;">
-                        <button type="button" onclick="_addRowExtend('92c585de53ff4e9f879b4e4bc0c16e8f','2','','','');" style="padding:0;" title="<dict:lang value="添加" />">
+                        <button type="button" onclick="_addRowExtend('92c585de53ff4e9f879b4e4bc0c16e8f','2','','','');addRow();" style="padding:0;" title="<dict:lang value="添加" />">
                             <i class="ico ico-kl-new-add ico-small"></i>
                         </button>
-
+                        
                         <button type="button" onclick="_delRowExtend('92c585de53ff4e9f879b4e4bc0c16e8f','');" style="padding:0" title="<dict:lang value="移除" /> ">
                             <i class="ico ico-sc-new-add ico-small"></i>
                         </button>
@@ -232,6 +232,33 @@
         onlyNumber(this);
     });
 
+    function addRow() {
+        console.log("addRow function: >>> ");
+        var ws = "1101";
+        var wh = "3107";
+
+        var _mcDataAuth = top.$("#_mcDataAuth").val();
+        if (_mcDataAuth == "9e33fa093ca74f229a997f0cf3734a9c") {
+            ws = "1101";
+            wh = "3109";
+        } else if (_mcDataAuth == "7f60fed22c004015a9a4f1ab2fc59194") {
+            ws = "1101";
+            wh = "3107";
+        } else {
+            ws = "1101";
+            wh = "3107";
+        }
+
+        var tid = $("#tbody_92c585de53ff4e9f879b4e4bc0c16e8f").find('tr').last().attr('id');
+        var ftid = $("#tbody_92c585de53ff4e9f879b4e4bc0c16e8f").find('tr').first().attr('id');
+
+        var fws = $("#" + ftid).find("td").eq(10).find("input").eq(0).val();
+        var fwh = $("#" + ftid).find("td").eq(11).find("input").eq(0).val();
+
+        $("#" + tid).find("td").eq(10).find("input").eq(0).val(fws);
+        $("#" + tid).find("td").eq(11).find("input").eq(0).val(fwh);
+    }
+
     function switchInput(self) {
         if (manual == true) {
             $(self).addClass('save-not-close');
@@ -249,22 +276,33 @@
 
     //回车事件初始值
     function addSplit(e) {
+        var _mcDataAuth = top.$("#_mcDataAuth").val();
         var e = e || window.event;
         if (e && e.keyCode == 13) {
             var projectId = $("#paraMap1_PROJECT_ID").val();
-            console.log("projectId>>>" + projectId);
+            console.log("projectId: >>>" + projectId);
             $.ajax({
                 type: "POST",
                 dataType: "json",
                 url: "${path}buss/bussModel_exeFunc.ms?funcMId=4a2911c7c5b04fea8b87d41679e1bb26",
-                data: {"projectId": projectId},
+                data: {"projectId": projectId,"_mcDataAuth":_mcDataAuth},
                 success: function (data) {
+                    console.log("data: >>> ");
+                    console.log(data);
+
                     var reg = data.ajaxString;
+                    var ajaxMap = data.ajaxMap;
+
+                    var res = ajaxMap.res;
+                    var msg = ajaxMap.msg;
+                    
+                    if("N" == res){
+                        utilsFp.confirmIcon(3, "", "", "", msg, 0, "300", "");
+                    }
+                    
                     if ("ng" == reg) {
                         doFocus();
                         utilsFp.confirmIcon(3, "", "", "", "工单输入错误,请重新输入", 0, "300", "");
-
-
                     } else if ("ng1" == reg) {
                         doFocus();
                         utilsFp.confirmIcon(3, "", "", "", "工单输已投料,请重新输入", 0, "300", "");
@@ -372,8 +410,8 @@
                                     $("#paraMap" + (i + 1) + "_WORK_SPACE").val(plist[i].WORK_SPACE);
                                     $("#paraMap" + (i + 1) + "_WORK_SPACE").css("background-color", "rgb(225, 251, 227)");
 
-                                    //  $("#paraMap" + (i + 1) + "_WAREHOUSE").val(plist[i].WARE_HOUSE);
-                                    $("#paraMap" + (i + 1) + "_WAREHOUSE").val("3107");
+                                     $("#paraMap" + (i + 1) + "_WAREHOUSE").val(plist[i].WARE_HOUSE);
+                                    // $("#paraMap" + (i + 1) + "_WAREHOUSE").val("3107");
                                     $("#paraMap" + (i + 1) + "_WAREHOUSE").css("background-color", "rgb(225, 251, 227)");
                                 }
                             }
@@ -522,6 +560,15 @@
                 return;
             }
         }
+
+        var itemCodes = $("input[id$='ITEM_CODE']");
+        for (var i = 0; i < itemCodes.size(); i++) {
+            if (itemCodes[i].value == null || itemCodes[i].value == "") {
+                utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="物料编码不能为空" />", "", "260", "145");
+                return;
+            }
+        }
+        
         var projectId = $("#paraMap1_PROJECT_ID").val();
         var receive_number = Number($("#paraMap1_RECEIVE_COUNT").val());
         var idStr = "paraMap1_T3#FEED_COUNT";
@@ -575,9 +622,9 @@
     }
 
     function doSave1() {
-
+        
         var url = "${path}buss/bussModel_exeFunc.ms?funcMId=3da1e9b4b7e84a409abf14b7bcdaa43f";
-
+        var _mcDataAuth = top.$("#_mcDataAuth").val();
         var projectId = $("#paraMap1_PROJECT_ID").val();
         var itemCodeArr = [];
         var stockCodeArr = [];
@@ -703,7 +750,8 @@
             "&RAW_LOTNUMBER=" + rawLotArr.join(",") +
             "&PROCESS_ORDER=" + processOrderArr.join(",") +
             "&WORK_SPACE=" + workSpace.join(",") +
-            "&WARE_HOUSE=" + wareHouse.join(",");
+            "&WARE_HOUSE=" + wareHouse.join(",") +
+            "&_mcDataAuth=" + _mcDataAuth;
         document.forms.addForm.submit();
         /*
 
@@ -783,6 +831,7 @@
                                 $("#paraMap" + (lastId) + "_T3#PRODUCT_NAME").val(obj.ITEM_NAME);
                                 $("#paraMap" + (lastId) + "_WORK_SPACE").val(obj.WORK_SPACE);
                                 $("#paraMap" + (lastId) + "_WAREHOUSE").val(obj.WARE_HOUSE);
+                                $("#paraMap" + (lastId) + "_ITEM_UNIT").val(obj.ITEM_UNIT);
                             } else {
                                 $("#paraMap" + (index + 1) + "_ITEM_CODE_SHOW").val(obj.ITEM_CODE);
                                 $("#paraMap" + (index + 1) + "_ITEM_CODE").val(obj.ITEM_CODE);
@@ -792,6 +841,7 @@
                                 $("#paraMap" + (index + 1) + "_T3#PRODUCT_NAME").val(obj.ITEM_NAME);
                                 $("#paraMap" + (index + 1) + "_WORK_SPACE").val(obj.WORK_SPACE);
                                 $("#paraMap" + (index + 1) + "_WAREHOUSE").val(obj.WARE_HOUSE);
+                                $("#paraMap" + (index + 1) + "_ITEM_UNIT").val(obj.ITEM_UNIT);
                             }
                         } else {
                             utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="无匹配结果" />", 0, "260", "")
@@ -1064,10 +1114,15 @@
         $("input[id$='_FEED_NUM']").mouseleave(function () {
             var idStr = this.id;
             var isFocus = $("#" + idStr).is(":focus");
+
+            var split = idStr.split("_");
+            var cur = split[0];
             if (true == isFocus) {
                 var total_number = Number(this.parentElement.previousElementSibling.firstElementChild.value);
                 var receive_number = Number(this.value);
-                var threshold_number = this.parentElement.nextElementSibling.firstElementChild.value;
+                // var threshold_number = this.parentElement.nextElementSibling.firstElementChild.value;
+                var threshold_number = $("#" + cur + "_THRESHOLD_NUM").val();
+
 
                 if (!isNumber(threshold_number)) {
                     //utilsFp.confirmIcon(3, "", "", "", "<dict:lang value="该物料未维护阀值!" />", 0, "160", "");
