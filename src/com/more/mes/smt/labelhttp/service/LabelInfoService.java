@@ -37,6 +37,7 @@ public class LabelInfoService {
 
     /**
      * 获取明细
+     *
      * @param itemSn
      * @param rawLicenseSn
      * @param weightNum
@@ -44,7 +45,7 @@ public class LabelInfoService {
      * @param dataAuth
      * @return
      */
-    public List getDataItemDetail(String itemSn, String rawLicenseSn, String weightNum,String detailLabelId ,String dataAuth) {
+    public List getDataItemDetail(String itemSn, String rawLicenseSn, String weightNum, String detailLabelId, String dataAuth) {
         Map<String, Object> map = new HashMap<String, Object>();
         List<Map<String, Object>> labelList = new ArrayList<Map<String, Object>>();
         List<Map<String, Object>> stockList = new ArrayList<Map<String, Object>>();
@@ -87,20 +88,20 @@ public class LabelInfoService {
 
                 String tempSql = StringUtils.toString(map.get("CLD_SQL"));
 
-                if("2ab5bcb3c9a341ab8bc5db8258679e68".equals(detailLabelId)){
-                    tempSql += " AND A.CI_ITEM_CODE = '"+itemSn+"'";
+                if ("2ab5bcb3c9a341ab8bc5db8258679e68".equals(detailLabelId)) {
+                    tempSql += " AND A.CI_ITEM_CODE = '" + itemSn + "'";
                     tempSql = tempSql.replace("'V1'", rawLicenseSn);
                     tempSql = tempSql.replace("'V2'", weightNum);
                     try {
-                        if(!StringUtils.isEmpty(weightNum)){
-                            if(Integer.valueOf(weightNum) > 0){
-                                tempSql = tempSql.replace("'V3'", "STOCK_CODE||'$'||"+rawLicenseSn+"||'$'||"+weightNum);
+                        if (!StringUtils.isEmpty(weightNum)) {
+                            if (Integer.valueOf(weightNum) > 0) {
+                                tempSql = tempSql.replace("'V3'", "STOCK_CODE||'$'||" + rawLicenseSn + "||'$'||" + weightNum);
                             }
-                        }else{
-                            tempSql = tempSql.replace("'V3'", "STOCK_CODE||'$'||"+rawLicenseSn);
+                        } else {
+                            tempSql = tempSql.replace("'V3'", "STOCK_CODE||'$'||" + rawLicenseSn);
                         }
                     } catch (NumberFormatException e) {
-                        tempSql = tempSql.replace("'V3'", "STOCK_CODE||'$'||"+rawLicenseSn);
+                        tempSql = tempSql.replace("'V3'", "STOCK_CODE||'$'||" + rawLicenseSn);
                     }
                 }
 
@@ -122,7 +123,7 @@ public class LabelInfoService {
                     paramList.add(matcher.group(1));
                 }
 
-                if(paramList.size() > 0){
+                if (paramList.size() > 0) {
                     if (tempLen != 1) {
                         boolean tempFlag = false;
                         String tempStr = paramList.get(0);
@@ -177,14 +178,15 @@ public class LabelInfoService {
 
     /**
      * 获取打印数据项
-     * @param itemSn 物料编码
+     *
+     * @param itemSn       物料编码
      * @param rawLicenseSn 原材批次号
-     * @param weightNum 重量
-     * @param labelId   标签打印模板
-     * @param dataAuth  组织机构
+     * @param weightNum    重量
+     * @param labelId      标签打印模板
+     * @param dataAuth     组织机构
      * @return
      */
-    public List getDataItemNew(String itemSn, String rawLicenseSn, String weightNum,String labelId,String detailLabelId ,String dataAuth) {
+    public List getDataItemNew(String itemSn, String rawLicenseSn, String weightNum, String labelId, String detailLabelId, String dataAuth) {
         Map<String, Object> map = new HashMap<String, Object>();
         List<Map<String, Object>> labelList = new ArrayList<Map<String, Object>>();
         List<Map<String, Object>> stockList = new ArrayList<Map<String, Object>>();
@@ -240,22 +242,21 @@ public class LabelInfoService {
 
                 String tempSql = StringUtils.toString(map.get("CLD_SQL"));
 
-                if("2ab5bcb3c9a341ab8bc5db8258679e68".equals(labelId)){
-                    tempSql += " AND A.CI_ITEM_CODE = '"+itemSn+"'";
+                if ("2ab5bcb3c9a341ab8bc5db8258679e68".equals(labelId)) {
+                    tempSql += " AND A.CI_ITEM_CODE = '" + itemSn + "'";
                     tempSql = tempSql.replace("'V1'", rawLicenseSn);
                     tempSql = tempSql.replace("'V2'", weightNum);
                     try {
-                        if(!StringUtils.isEmpty(weightNum)){
+                        if (!StringUtils.isEmpty(weightNum)) {
                             double value = Double.valueOf(weightNum.toString());
-
-                            if(value > 0){
-                                tempSql = tempSql.replace("'V3'", "STOCK_CODE||'$'||"+rawLicenseSn+"||'$'||"+ StringUtils.toString(weightNum));
+                            if (value > 0) {
+                                tempSql = tempSql.replace("'V3'", "STOCK_CODE||'$'||" + rawLicenseSn + "||'$'||" + StringUtils.toString(weightNum));
                             }
-                        }else{
-                            tempSql = tempSql.replace("'V3'", "STOCK_CODE||'$'||"+rawLicenseSn);
+                        } else {
+                            tempSql = tempSql.replace("'V3'", "STOCK_CODE||'$'||" + rawLicenseSn);
                         }
                     } catch (NumberFormatException e) {
-                        tempSql = tempSql.replace("'V3'", "STOCK_CODE||'$'||"+rawLicenseSn);
+                        tempSql = tempSql.replace("'V3'", "STOCK_CODE||'$'||" + rawLicenseSn);
                     }
                 }
 
@@ -281,7 +282,7 @@ public class LabelInfoService {
                     paramList.add(matcher.group(1));
                 }
 
-                if(paramList.size() > 0){
+                if (paramList.size() > 0) {
                     if (tempLen != 1) {
                         boolean tempFlag = false;
                         String tempStr = paramList.get(0);
@@ -387,6 +388,7 @@ public class LabelInfoService {
         }
         return dataList;
     }
+
     /**
      * @return List
      * @throws
@@ -433,8 +435,8 @@ public class LabelInfoService {
 
                 String tempSql = StringUtils.toString(map.get("CLD_SQL"));
 
-                if("2ab5bcb3c9a341ab8bc5db8258679e68".equals(labelId)){
-                    tempSql += " AND A.CI_ITEM_CODE = '"+itemSn+"'";
+                if ("2ab5bcb3c9a341ab8bc5db8258679e68".equals(labelId)) {
+                    tempSql += " AND A.CI_ITEM_CODE = '" + itemSn + "'";
                 }
 
                 String dataAuthStr = "'" + dataAuth + "'";
@@ -469,7 +471,7 @@ public class LabelInfoService {
                     paramList.add(matcher.group(1));
                 }
 
-                if(paramList.size() > 0){
+                if (paramList.size() > 0) {
                     if (tempLen != 1) {
                         boolean tempFlag = false;
                         String tempStr = paramList.get(0);
