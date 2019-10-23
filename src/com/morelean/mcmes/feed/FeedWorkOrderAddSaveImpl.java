@@ -45,8 +45,11 @@ public class FeedWorkOrderAddSaveImpl implements FuncService {
         String workSpaceStr = request.getParameter("WORK_SPACE");
         String wareHouseStr = request.getParameter("WARE_HOUSE");
 
-        String dataAuth = String.valueOf(modelAction.getRequest().getSession().getAttribute("mcDataAuth"));
-        if(StringUtils.isEmpty(dataAuth)){
+        String itemUnitStr = request.getParameter("ITEM_UNIT");
+        String lotNum = request.getParameter("LOT_NUMBER");
+        String dataAuth = modelAction.getRequest().getParameter("_mcDataAuth");
+//        String dataAuth = String.valueOf(modelAction.getRequest().getSession().getAttribute("mcDataAuth"));
+        if (StringUtils.isEmpty(dataAuth)) {
             dataAuth = modelAction.getCurrUser().getData_auth();
         }
 
@@ -75,6 +78,9 @@ public class FeedWorkOrderAddSaveImpl implements FuncService {
         String[] workSpaces = workSpaceStr.split(",", -1);
         String[] wareHouses = wareHouseStr.split(",", -1);
 
+        String[] itemUnits = itemUnitStr.split(",", -1);
+
+
         MsHTranMan hbtran = BussService.getHbTran();// 定义事务对象
         try {
             TableDataMapExt baseTable = new TableDataMapExt();
@@ -99,6 +105,7 @@ public class FeedWorkOrderAddSaveImpl implements FuncService {
                 baseTable.getColMap().put("RECEIVE_COUNT", receiveCount);
                 baseTable.getColMap().put("RAW_LICENSE", rawLicense);
                 baseTable.getColMap().put("VAT_NO", vatNo);
+                baseTable.getColMap().put("LOT_NUMBER", lotNum);
                 CommMethod.addSysDefCol(baseTable, modelAction.getUser(), dataAuth);
             }
             modelService.save(baseTable);
@@ -124,6 +131,7 @@ public class FeedWorkOrderAddSaveImpl implements FuncService {
                 detailTable.getColMap().put("FEED_NUM", (feedNums[i]));
                 detailTable.getColMap().put("RAW_LOTNUMBER", (rawLots[i]));
                 detailTable.getColMap().put("PROCESS_ORDER", (processOrders[i]));
+                detailTable.getColMap().put("ITEM_UNIT", (itemUnits[i]));
 
                 detailTable.getColMap().put("WORK_SPACE", (workSpaces[i]));
                 detailTable.getColMap().put("WAREHOUSE", (wareHouses[i]));
