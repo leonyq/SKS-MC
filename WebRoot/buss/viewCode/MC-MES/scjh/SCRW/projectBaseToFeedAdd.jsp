@@ -866,6 +866,7 @@
 		}
 	*/
     function calReceiveNum() {
+
         //$("#paraMap1_T5#PRODUCT_COUNT").val(0);
         var arr = [];
         var count = 0;
@@ -905,6 +906,7 @@
 
 
     function calFeedCount() {
+
         $("#paraMap1_T3#FEED_COUNT").val(0);
         var arr = [];
         var count = 0;
@@ -913,6 +915,29 @@
             if (cur != null) {
                 if (cur.length < 1) {
                     cur = 0;
+                }
+                //判断物料单位,如果是PAI 则乘以净重换成KG
+                var strHead = $(this).attr("id").substr(0,$(this).attr("id").indexOf("_"));
+                var itemUnit = $("#"+strHead + "_ITEM_UNIT").val();
+                if("PAI" === itemUnit){
+                    var ItemCode = $("#"+($(this).attr("id").substr(0,$(this).attr("id").indexOf("_")) +"_ITEM_CODE")).val();
+                    $.ajax({
+                        type: "POST",
+                        dataType: "json",
+                        async:false,
+                        url: "${path}buss/bussModel_exeFunc.ms?funcMId=58cae9f645e742cbaa7ff5195930678f",
+                        data: {
+                            "ITEM_CODE": ItemCode
+                        },
+                        success: function (data) {
+                            var netWeight = data.ajaxMap.SAP_NET_WEIGHT;
+                            cur = parseFloat(cur) * parseFloat(netWeight);
+                            return cur;
+                        },
+                        error: function (msg) {
+                            utilsFp.confirmIcon(3, "", "", "", msg, "", "260", "145");
+                        }
+                    });
                 }
                 arr.push(cur);
                 count = numAdd(parseFloat(count), parseFloat(cur));

@@ -3,198 +3,203 @@
 <%@page import="com.more.fw.core.staticresource.PlfStaticRes" %>
 <!-- 页面加载前 -->
 <jsp:include page="/plf/page/mesdemo/commCode/commCode.jsp">
-	<jsp:param name="modelName" value="VIEW_TYPE_11"/>
-	<jsp:param name="location" value="beforePageLoad"/>
+    <jsp:param name="modelName" value="VIEW_TYPE_11"/>
+    <jsp:param name="location" value="beforePageLoad"/>
 </jsp:include>
 <head>
-	<%@ include file="/plf/common/pub_meta.jsp" %>
-	<title><dict:lang value="修改"/></title>
-	<jsp:include page="/plf/common/fp/pub_head_fp.jsp">
-		<jsp:param name="popDivWinFp" value="1"/>
-		<jsp:param name="datePicker" value="1"/>
-		<jsp:param name="chosen" value="1"/>
-	</jsp:include>
-	<%@ include file="/plf/page/common/buss/addCommJs.jsp" %>
-	<%@ include file="/plf/page/common/buss/bussCommJs.jsp" %>
-	<script type="text/javascript" src="${path}plf/js/ui/include.js?_mc_res_version=<%=PlfStaticRes.PlfJsUi_Include_js %>"></script>
-	<jsp:include page="/plf/page/mesdemo/commCode/commCode.jsp">
-		<jsp:param name="modelName" value="VIEW_TYPE_11"/>
-		<jsp:param name="location" value="inHead"/>
-	</jsp:include>
-	<!-- 产品静态资源 -->
+    <%@ include file="/plf/common/pub_meta.jsp" %>
+    <title><dict:lang value="修改"/></title>
+    <jsp:include page="/plf/common/fp/pub_head_fp.jsp">
+        <jsp:param name="popDivWinFp" value="1"/>
+        <jsp:param name="datePicker" value="1"/>
+        <jsp:param name="chosen" value="1"/>
+    </jsp:include>
+    <%@ include file="/plf/page/common/buss/addCommJs.jsp" %>
+    <%@ include file="/plf/page/common/buss/bussCommJs.jsp" %>
+    <script type="text/javascript" src="${path}plf/js/ui/include.js?_mc_res_version=<%=PlfStaticRes.PlfJsUi_Include_js %>"></script>
+    <jsp:include page="/plf/page/mesdemo/commCode/commCode.jsp">
+        <jsp:param name="modelName" value="VIEW_TYPE_11"/>
+        <jsp:param name="location" value="inHead"/>
+    </jsp:include>
+    <!-- 产品静态资源 -->
 
 </head>
 <body style="overflow:auto;">
 <div class="edit">
-	<form id="editForm" name="editForm" action="${path}buss/bussModel_editAjaxComm.ms" method="post" target="submitFrame"
-			<bu:formet exeid="%{exeid}"/>>
-		<div class="hd">
-			<div style="margin-left:10px;">
-				<div class="save-close" onclick="switchInput(this)"></div>
-				<input type="checkbox" checked id="inputType" name="inputType" value="0" style="display: none;"/>
-			</div>
-			<div style="margin-left:40px;">
-				<s:if test="${isDataAuth == '1'}">
-					<span class="dot">*</span>
-					<dict:lang value="组织机构"/> <s:if test="${fn:length(deptLs)==1}">
-					<s:select list="deptLs" listKey="id" listValue="name" name="paraMapObj._DATA_AUTH" id="deptLs_data_auth" cssStyle="width: 200px;" cssClass="_VAL_NULL dept_select"/>
-				</s:if> <s:else>
-					<s:select list="deptLs" headerKey="" headerValue='--%{getText("请选择")}--' listKey="id" listValue="name" name="paraMapObj._DATA_AUTH" id="deptLs_data_auth" cssStyle="width: 200px;" cssClass="_VAL_NULL dept_select"/>
-				</s:else> </s:if>
-			</div>
-			<div class="optn">
-				<button type="button" onclick="doSave(this)"><i class="ico ico-save"></i><dict:lang value="保存"/>
-				</button>
-				<button type="button" onclick="closeWindow();"><i class="ico ico-cancel"></i><dict:lang value="取消"/>
-				</button>
-				<!--<button type="button" onclick="resetForm();"><i class="ico ico-gk"></i><dict:lang value="重置"/></button>-->
-			</div>
-		
-		</div>
-		<div class="bd">
-			<jsp:include page="/plf/page/mesdemo/commCode/commCode.jsp">
-				<jsp:param name="modelName" value="VIEW_TYPE_11"/>
-				<jsp:param name="location" value="editForm"/>
-			</jsp:include>
-			<bu:set name="paraMapObj" value="${dataId}" formId="b36254ac37e74240b1528d44627b6a84" type="edit"/>
-			<table class="basic-table">
-				<input type="hidden" name="formIds" value="b36254ac37e74240b1528d44627b6a84"/>
-				<input type="hidden" id="oldLength" name="oldLength" value="0" />
-				<input type="hidden" id="prefixInd" name="b36254ac37e74240b1528d44627b6a84" value="paraMap1@"/>
-				<input type="hidden" name="paraMap1@__LEVEL__" value="1"/>
-				<input type="hidden" name="paraMap1@__DATA_COUNT__" value="1"/>
-				<s:set name="_$viewId" value="'b5111853ca65422fb14572829366a96a'"/>
-				<s:set name="_$formId_1" value="'b36254ac37e74240b1528d44627b6a84'"/>
-				<s:set name="_$type" value="'edit'"/>
-				<tr>
-					<!-- <td class="name-four"/>
+    <form id="editForm" name="editForm" action="${path}buss/bussModel_editAjaxComm.ms" method="post" target="submitFrame"
+            <bu:formet exeid="%{exeid}"/>>
+        <div class="hd">
+            <div style="margin-left:10px;">
+                <div class="save-close" onclick="switchInput(this)"></div>
+                <input type="checkbox" checked id="inputType" name="inputType" value="0" style="display: none;"/>
+            </div>
+            <div style="margin-left:40px;">
+                <s:if test="${isDataAuth == '1'}">
+                    <span class="dot">*</span>
+                    <dict:lang value="组织机构"/> <s:if test="${fn:length(deptLs)==1}">
+                    <s:select list="deptLs" listKey="id" listValue="name" name="paraMapObj._DATA_AUTH" id="deptLs_data_auth" cssStyle="width: 200px;" cssClass="_VAL_NULL dept_select"/>
+                </s:if> <s:else>
+                    <s:select list="deptLs" headerKey="" headerValue='--%{getText("请选择")}--' listKey="id" listValue="name" name="paraMapObj._DATA_AUTH" id="deptLs_data_auth" cssStyle="width: 200px;" cssClass="_VAL_NULL dept_select"/>
+                </s:else> </s:if>
+            </div>
+            <div class="optn">
+                <button type="button" onclick="doSave(this)"><i class="ico ico-save"></i><dict:lang value="保存"/>
+                </button>
+                <button type="button" onclick="closeWindow();"><i class="ico ico-cancel"></i><dict:lang value="取消"/>
+                </button>
+                <!--<button type="button" onclick="resetForm();"><i class="ico ico-gk"></i><dict:lang value="重置"/></button>-->
+            </div>
+
+        </div>
+        <div class="bd">
+            <jsp:include page="/plf/page/mesdemo/commCode/commCode.jsp">
+                <jsp:param name="modelName" value="VIEW_TYPE_11"/>
+                <jsp:param name="location" value="editForm"/>
+            </jsp:include>
+            <bu:set name="paraMapObj" value="${dataId}" formId="b36254ac37e74240b1528d44627b6a84" type="edit"/>
+            <table class="basic-table">
+                <input type="hidden" name="formIds" value="b36254ac37e74240b1528d44627b6a84"/>
+                <input type="hidden" id="oldLength" name="oldLength" value="0" />
+                <input type="hidden" id="prefixInd" name="b36254ac37e74240b1528d44627b6a84" value="paraMap1@"/>
+                <input type="hidden" name="paraMap1@__LEVEL__" value="1"/>
+                <input type="hidden" name="paraMap1@__DATA_COUNT__" value="1"/>
+                <s:set name="_$viewId" value="'b5111853ca65422fb14572829366a96a'"/>
+                <s:set name="_$formId_1" value="'b36254ac37e74240b1528d44627b6a84'"/>
+                <s:set name="_$type" value="'edit'"/>
+                <tr>
+                    <!-- <td class="name-four"/>
                     <span class="dot">*</span>
                     <bu:uitn colNo="PROJECT_ID" formId="b36254ac37e74240b1528d44627b6a84"/></td>
                     <bu:td cssClass="dec-self" colNo="PROJECT_ID" formId="b36254ac37e74240b1528d44627b6a84">
                         <bu:ui style="background-color:rgb(235, 235, 228);width:230px;" disabled="disabled" colNo="PROJECT_ID" formId="b36254ac37e74240b1528d44627b6a84" dataId="${dataId}" formIndex="1"/>
                     </bu:td>-->
-					<td class="name-four"/>
-					<span class="dot">*</span>
-					工单号</td>
-					<bu:td cssClass="dec" colNo="PROJECT_ID" formId="734fa2159c4344848a3c1b5584c17b2b" colspan="">
-						<input type="text" id="paraMapObj_PROJECT_ID" name="paraMapObj_PROJECT_ID" autocomplete="off" value="" class="input isSubmit " style="width:230px;" save_mark="0" onkeydown="addSplit(event);"> </bu:td>
-					
-					<td class="name-four"/>
-					<bu:uitn colNo="LOT_NUMBER" formId="b36254ac37e74240b1528d44627b6a84"/></td>
-					<bu:td cssClass="dec-self" colNo="LOT_NUMBER" formId="b36254ac37e74240b1528d44627b6a84">
-						<bu:ui colNo="LOT_NUMBER" formId="b36254ac37e74240b1528d44627b6a84" dataId="${dataId}" formIndex="1"/>
-					</bu:td>
-					
-					<td class="name-four"/>
-					<bu:uitn colNo="ADMIN_EMP" formId="b36254ac37e74240b1528d44627b6a84"/></td>
-					<bu:td cssClass="dec-self" colNo="ADMIN_EMP" formId="b36254ac37e74240b1528d44627b6a84">
-						<bu:ui disabled="disabled" colNo="ADMIN_EMP" formId="b36254ac37e74240b1528d44627b6a84" dataId="${dataId}" formIndex="1"/>
-					</bu:td>
-				</tr>
-				
-				<tr>
-					<td class="name-four"/>
-					<bu:uitn colNo="T5#PRODUCT_MATERIAL" formId="b36254ac37e74240b1528d44627b6a84"/></td>
-					<bu:td cssClass="dec-self" colNo="T5#PRODUCT_MATERIAL" formId="b36254ac37e74240b1528d44627b6a84">
-						<bu:ui disabled="disabled" colNo="T5#PRODUCT_MATERIAL" formId="b36254ac37e74240b1528d44627b6a84" dataId="${dataId}" formIndex="1"/>
-					</bu:td>
-					
-					<td class="name-four"/>
-					<bu:uitn colNo="T5#PRODUCT_NAME" formId="b36254ac37e74240b1528d44627b6a84"/></td>
-					<bu:td cssClass="dec-self" colNo="T5#PRODUCT_NAME" formId="b36254ac37e74240b1528d44627b6a84">
-						<bu:ui colNo="T5#PRODUCT_NAME" formId="b36254ac37e74240b1528d44627b6a84" dataId="${dataId}" formIndex="1"/>
-					</bu:td>
-					
-					<td class="name-four"/>
-					<bu:uitn colNo="T5#PRODUCT_COUNT" formId="b36254ac37e74240b1528d44627b6a84"/></td>
-					<bu:td cssClass="dec-self" colNo="T5#PRODUCT_COUNT" formId="b36254ac37e74240b1528d44627b6a84">
-						<bu:ui colNo="T5#PRODUCT_COUNT" formId="b36254ac37e74240b1528d44627b6a84" dataId="${dataId}" formIndex="1"/>
-					</bu:td>
-				
-				
-				</tr>
-				
-				
-				<tr>
-					<td class="name-four"/>
-					<bu:uitn colNo="T3#FEED_COUNT" formId="b36254ac37e74240b1528d44627b6a84"/></td>
-					<bu:td cssClass="dec-self" colNo="T3#FEED_COUNT" formId="b36254ac37e74240b1528d44627b6a84">
-						<bu:ui colNo="T3#FEED_COUNT" formId="b36254ac37e74240b1528d44627b6a84" dataId="${dataId}" formIndex="1"/>
-					</bu:td>
-					
-					<td class="name-four"/>
-					<bu:uitn colNo="T4#FEED_NUM" formId="b36254ac37e74240b1528d44627b6a84"/></td>
-					<bu:td cssClass="dec-self" colNo="T4#FEED_NUM" formId="b36254ac37e74240b1528d44627b6a84">
-						<bu:ui colNo="T4#FEED_NUM" formId="b36254ac37e74240b1528d44627b6a84" dataId="${dataId}" formIndex="1"/>
-					</bu:td>
-					
-					<td class="name-four"/>
-					<bu:uitn colNo="RECEIVE_COUNT" formId="b36254ac37e74240b1528d44627b6a84"/></td>
-					<bu:td cssClass="dec-self" colNo="RECEIVE_COUNT" formId="b36254ac37e74240b1528d44627b6a84">
-						<bu:ui colNo="RECEIVE_COUNT" formId="b36254ac37e74240b1528d44627b6a84" dataId="${dataId}" formIndex="1"/>
-					</bu:td>
-				</tr>
-			</table>
-			<bu:jsVal formId="b36254ac37e74240b1528d44627b6a84" formIndex="1"/>
-			<div style="padding:1px;"></div>
-			
-			<div class="mod">
-				<div class="mod-hd">
-					<h3 class="tit"><dict:lang value="VOID-投料明细表单"/></h3>
-					<div class="extend-btn" style="float: right;margin-top:15px;">
-						<button type="button" onclick="_addRowExtend('92c585de53ff4e9f879b4e4bc0c16e8f','2','','','');" style="padding:0;" title="<dict:lang value="添加" />">
-							<i class="ico ico-kl-new-add ico-small"></i>
-						</button>
-						<button type="button" onclick="_delRowExtend('92c585de53ff4e9f879b4e4bc0c16e8f','');" style="padding:0" title="<dict:lang value="移除" /> ">
-							<i class="ico ico-sc-new-add ico-small"></i>
-						</button>
-					</div>
-				</div>
-				<div class="mod-bd">
-					<div class="panel datagrid datagrid-div1">
-						<div class="datagrid-div2 datagrid-div6 datagrid-view">
-							<div class="datagrid-header">
-								<div class="datagrid-header-inner" id="datagrid-header-inner92c585de53ff4e9f879b4e4bc0c16e8f">
-									<bu:addSub formid="b36254ac37e74240b1528d44627b6a84" formIndex="2" selfformid="92c585de53ff4e9f879b4e4bc0c16e8f" hidecol="" viewid=""/>
-								</div>
-							</div>
-							<div class="datagrid-body datagrid-div3" style="height:150px" onscroll="ajaxTableScroll(this,'92c585de53ff4e9f879b4e4bc0c16e8f')">
-								<table class="glxb-table" style="width:100%" id="addTable_92c585de53ff4e9f879b4e4bc0c16e8f">
-									<tbody id="tbody_92c585de53ff4e9f879b4e4bc0c16e8f">
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<script>
+                    <td class="name-four"/>
+                    <span class="dot">*</span>
+                    工单号</td>
+                    <bu:td cssClass="dec" colNo="PROJECT_ID" formId="734fa2159c4344848a3c1b5584c17b2b" colspan="">
+                        <input type="text" id="paraMapObj_PROJECT_ID" name="paraMapObj_PROJECT_ID" autocomplete="off" value="" class="input isSubmit " style="width:230px;" save_mark="0" onkeydown="addSplit(event);"> </bu:td>
+
+                    <td class="name-four"/>
+                    <bu:uitn colNo="LOT_NUMBER" formId="b36254ac37e74240b1528d44627b6a84"/></td>
+                    <bu:td cssClass="dec-self" colNo="LOT_NUMBER" formId="b36254ac37e74240b1528d44627b6a84">
+                        <bu:ui colNo="LOT_NUMBER" formId="b36254ac37e74240b1528d44627b6a84" dataId="${dataId}" formIndex="1"/>
+                    </bu:td>
+
+                    <td class="name-four"/>
+                    <bu:uitn colNo="ADMIN_EMP" formId="b36254ac37e74240b1528d44627b6a84"/></td>
+                    <bu:td cssClass="dec-self" colNo="ADMIN_EMP" formId="b36254ac37e74240b1528d44627b6a84">
+                        <bu:ui disabled="disabled" colNo="ADMIN_EMP" formId="b36254ac37e74240b1528d44627b6a84" dataId="${dataId}" formIndex="1"/>
+                    </bu:td>
+                </tr>
+
+                <tr>
+                    <td class="name-four"/>
+                    <bu:uitn colNo="T5#PRODUCT_MATERIAL" formId="b36254ac37e74240b1528d44627b6a84"/></td>
+                    <bu:td cssClass="dec-self" colNo="T5#PRODUCT_MATERIAL" formId="b36254ac37e74240b1528d44627b6a84">
+                        <bu:ui disabled="disabled" colNo="T5#PRODUCT_MATERIAL" formId="b36254ac37e74240b1528d44627b6a84" dataId="${dataId}" formIndex="1"/>
+                    </bu:td>
+
+                    <td class="name-four"/>
+                    <bu:uitn colNo="T5#PRODUCT_NAME" formId="b36254ac37e74240b1528d44627b6a84"/></td>
+                    <bu:td cssClass="dec-self" colNo="T5#PRODUCT_NAME" formId="b36254ac37e74240b1528d44627b6a84">
+                        <bu:ui colNo="T5#PRODUCT_NAME" formId="b36254ac37e74240b1528d44627b6a84" dataId="${dataId}" formIndex="1"/>
+                    </bu:td>
+
+                    <td class="name-four"/>
+                    <bu:uitn colNo="T5#PRODUCT_COUNT" formId="b36254ac37e74240b1528d44627b6a84"/></td>
+                    <bu:td cssClass="dec-self" colNo="T5#PRODUCT_COUNT" formId="b36254ac37e74240b1528d44627b6a84">
+                        <bu:ui colNo="T5#PRODUCT_COUNT" formId="b36254ac37e74240b1528d44627b6a84" dataId="${dataId}" formIndex="1"/>
+                    </bu:td>
+
+
+                </tr>
+
+
+                <tr>
+                    <td class="name-four"/>
+                    <bu:uitn colNo="T3#FEED_COUNT" formId="b36254ac37e74240b1528d44627b6a84"/></td>
+                    <bu:td cssClass="dec-self" colNo="T3#FEED_COUNT" formId="b36254ac37e74240b1528d44627b6a84">
+                        <bu:ui colNo="T3#FEED_COUNT" formId="b36254ac37e74240b1528d44627b6a84" dataId="${dataId}" formIndex="1"/>
+                    </bu:td>
+
+                    <td class="name-four"/>
+                    <bu:uitn colNo="T4#FEED_NUM" formId="b36254ac37e74240b1528d44627b6a84"/></td>
+                    <bu:td cssClass="dec-self" colNo="T4#FEED_NUM" formId="b36254ac37e74240b1528d44627b6a84">
+                        <bu:ui colNo="T4#FEED_NUM" formId="b36254ac37e74240b1528d44627b6a84" dataId="${dataId}" formIndex="1"/>
+                    </bu:td>
+
+                    <td class="name-four"/>
+                    <bu:uitn colNo="RECEIVE_COUNT" formId="b36254ac37e74240b1528d44627b6a84"/></td>
+                    <bu:td cssClass="dec-self" colNo="RECEIVE_COUNT" formId="b36254ac37e74240b1528d44627b6a84">
+                        <bu:ui colNo="RECEIVE_COUNT" formId="b36254ac37e74240b1528d44627b6a84" dataId="${dataId}" formIndex="1"/>
+                    </bu:td>
+                </tr>
+            </table>
+            <bu:jsVal formId="b36254ac37e74240b1528d44627b6a84" formIndex="1"/>
+            <div style="padding:1px;"></div>
+
+            <div class="mod">
+                <div class="mod-hd">
+                    <h3 class="tit"><dict:lang value="VOID-投料明细表单"/></h3>
+                    <div class="extend-btn" style="float: right;margin-top:15px;">
+                        <button type="button" onclick="_addRowExtend('92c585de53ff4e9f879b4e4bc0c16e8f','2','','','');" style="padding:0;" title="<dict:lang value="添加" />">
+                            <i class="ico ico-kl-new-add ico-small"></i>
+                        </button>
+                        <button type="button" onclick="_delRowExtend('92c585de53ff4e9f879b4e4bc0c16e8f','');" style="padding:0" title="<dict:lang value="移除" /> ">
+                            <i class="ico ico-sc-new-add ico-small"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mod-bd">
+                    <div class="panel datagrid datagrid-div1">
+                        <div class="datagrid-div2 datagrid-div6 datagrid-view">
+                            <div class="datagrid-header">
+                                <div class="datagrid-header-inner" id="datagrid-header-inner92c585de53ff4e9f879b4e4bc0c16e8f">
+                                    <bu:addSub formid="b36254ac37e74240b1528d44627b6a84" formIndex="2" selfformid="92c585de53ff4e9f879b4e4bc0c16e8f" hidecol="" viewid=""/>
+                                </div>
+                            </div>
+                            <div class="datagrid-body datagrid-div3 scroll12 " style="height:150px;" onscroll="ajaxTableScroll(this,'92c585de53ff4e9f879b4e4bc0c16e8f')">
+                                <table class="glxb-table" style="width:100%" id="addTable_92c585de53ff4e9f879b4e4bc0c16e8f">
+                                    <tbody id="tbody_92c585de53ff4e9f879b4e4bc0c16e8f">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
                 function initEditDataLs() {
                     getEditRows("92c585de53ff4e9f879b4e4bc0c16e8f", "2", "b36254ac37e74240b1528d44627b6a84", "", "339b7c191163426684496a67b2a51866", "");
                     $('table').find('tbody tr:eq(0)').click();
                 }
-			</script>
-		
-		
-		</div>
-	</form>
+            </script>
+
+
+        </div>
+    </form>
 </div>
 
 <div style="display: none;">
-	<iframe id="submitFrame" name="submitFrame" src="" width="0" height="0"></iframe>
+    <iframe id="submitFrame" name="submitFrame" src="" width="0" height="0"></iframe>
 </div>
 
 <!-- js初始化方法 -->
 <jsp:include page="/plf/page/mesdemo/commCode/commCode.jsp">
-	<jsp:param name="modelName" value="VIEW_TYPE_11"/>
-	<jsp:param name="location" value="jsLoading"/>
+    <jsp:param name="modelName" value="VIEW_TYPE_11"/>
+    <jsp:param name="location" value="jsLoading"/>
 </jsp:include>
 
 <jsp:include page="/plf/common/fp/pub_dom_fp.jsp">
-	<jsp:param name="popConfirm" value="1"/>
-	<jsp:param name="needValidate" value="1"/>
+    <jsp:param name="popConfirm" value="1"/>
+    <jsp:param name="needValidate" value="1"/>
 </jsp:include>
 <script>
+    $(function(){
+        $(".tr1").eq(0).width(92);
+        $(".tr1").eq(4).width(40);
+        $(".tr1").eq(6).width(120);
+    })
     $(function () {
         $("#paraMapObj_PROJECT_ID").focus();
         //calNumber();
@@ -212,7 +217,6 @@
             cursorMovement(this,event);
             onlyNumber(this);
         });
-
         $("input[id$='_RAW_LOTNUMBER']").keyup(function () {
             currawMovement(this, event);
         });
@@ -262,7 +266,7 @@
                     } else if("ng2" == reg){
                         doFocus();
                         utilsFp.confirmIcon(3, "", "", "", "无操作当前单据权限,请切换组织机构后重试", 0, "300", "");
-	                } else {
+                    } else {
                         doBlur();
                         //工单初始化
                         var pmap = data.ajaxMap;
@@ -290,7 +294,7 @@
 
                         var plist = data.ajaxList;
                         var loginUserId = pmap.CUR_USER_ID;
-                        
+
                         $("#tbody_92c585de53ff4e9f879b4e4bc0c16e8f").empty();
                         if (plist.length > 0) {
                             for (var i = 0; i < plist.length; i++) {
@@ -331,7 +335,10 @@
 
                                     $("#paraMap" + (len + i + 1) + "_WAREHOUSE").val(plist[i].WARE_HOUSE);
                                     $("#paraMap" + (len + i + 1) + "_WAREHOUSE").css("background-color", "rgb(225, 251, 227)");
-
+                                    $("#addTableTr1_92c585de53ff4e9f879b4e4bc0c16e8f").each(function(){
+                                        $(this).find("td:eq(5)").width(40);
+                                        $(this).find("td:eq(7)").width(120);
+                                    })
                                 } else {
 
                                     $("#paraMap" + i + "_ITEM_CODE_SHOW").val(plist[i].ITEM_CODE);
@@ -367,11 +374,15 @@
 
                                     $("#paraMap" + i + "_WAREHOUSE").val(plist[i].WARE_HOUSE);
                                     $("#paraMap" + i + "_WAREHOUSE").css("background-color", "rgb(225, 251, 227)");
+                                    $("#addTableTr1_92c585de53ff4e9f879b4e4bc0c16e8f").each(function(){
+                                        $(this).find("td:eq(5)").width(40);
+                                        $(this).find("td:eq(7)").width(120);
+                                    })
                                 }
 
                                 var oldLength = pmap.SIZE;
                                 $("#oldLength").val(oldLength);
-                                
+
                                 if(plist[i].CREATE_USER != loginUserId){
                                     $("#paraMap" + (i) + "_ITEM_CODE_SHOW").attr("disabled", "disabled");
                                     $("#paraMap" + (i) + "_ITEM_CODE").attr("disabled", "disabled");
@@ -401,15 +412,23 @@
                                     $("#paraMap" + (i) + "_PROCESS_ORDER").css("background-color", "rgb(187, 187, 187)");
                                     $("#paraMap" + (i) + "_WORK_SPACE").css("background-color", "rgb(187, 187, 187)");
                                     $("#paraMap" + (i) + "_WAREHOUSE").css("background-color", "rgb(187, 187, 187)");
+                                    $("#addTableTr1_92c585de53ff4e9f879b4e4bc0c16e8f").each(function(){
+                                        $(this).find("td:eq(5)").width(40);
+                                        $(this).find("td:eq(7)").width(120);
+                                    })
                                 }
                             }
                         }
                     }
+
                     //阈值校验
                     thresholdCheck();
                     $("input[id$='_FEED_NUM']").keyup(function () {
                         cursorMovement(this, event);
                         onlyNumber(this);
+                    });
+                    $("input[id$='_RAW_LOTNUMBER']").keyup(function () {
+                        currawMovement(this, event);
                     });
 
                 },
@@ -666,12 +685,12 @@
     function doSave1() {
         var projectId = $("#paraMapObj_PROJECT_ID").val();
         var oldLength = parseInt($("#oldLength").val());
-        
+
         var url = "${path}buss/bussModel_exeFunc.ms?funcMId=f915f2a4135c4aa2bad32e47a0853e13";
-        
+
         console.log("oldLength: >>> ");
         console.log(oldLength);
-        
+
         var itemCodeArr = [];
         var stockCodeArr = [];
         var stockCodeArr = [];
@@ -999,7 +1018,7 @@
         //物料号
         $("input[id$='_ITEM_CODE']").each(function () {
             var cur = $(this).val();
-			debugger;
+            debugger;
             var flag = $(this).prop("disabled");
             if(!flag){
                 if (cur != null) {
@@ -1138,7 +1157,7 @@
             "&NEW_PROCESS_ORDER="   + new_processOrderArr.join(",") +
             "&NEW_WORK_SPACE="      + new_workSpace.join(",") +
             "&NEW_WARE_HOUSE="      + new_wareHouse.join(",");
-        
+
         document.forms.editForm.submit();
     }
 
@@ -1382,12 +1401,34 @@
         });
         calNumber()
     }
-
+    //批次键盘操作
+    function currawMovement(obj, event) {
+        console.log("+++++++");
+        if (event.keyCode == 40 || event.keyCode == 13) {
+            var nextNode = $(obj).parent().parent().next().children().find('input[name$="RAW_LOTNUMBER"]');
+            if (nextNode.length == 0) {
+                return false;
+            }
+            nextNode.focus();
+        }
+        if (event.keyCode == 38) {
+            var nextNode = $(obj).parent().parent().prev().children().find('input[name$="RAW_LOTNUMBER"]');
+            if (nextNode.length == 0) {
+                return false;
+            }
+            nextNode.focus();
+        }
+    }
+    (function($) {
+        $(window).on('load', function() {
+            setPopScroll('.scroll12');
+        })
+    })(jQuery)
 </script>
 </body>
 <%@ include file="/plf/common/pub_end.jsp" %>
 <!-- 页面结束 -->
 <jsp:include page="/plf/page/mesdemo/commCode/commCode.jsp">
-	<jsp:param name="modelName" value="VIEW_TYPE_11"/>
-	<jsp:param name="location" value="pageOver"/>
+    <jsp:param name="modelName" value="VIEW_TYPE_11"/>
+    <jsp:param name="location" value="pageOver"/>
 </jsp:include>

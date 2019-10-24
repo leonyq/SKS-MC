@@ -1494,6 +1494,23 @@
         $("#"+curId+"_ITEM_UNIT").val(itemUnit);
         $("#"+curId+"_T3#PRODUCT_NAME").val(itemName);
     }
+    //批次键盘操作
+    function currawMovement(obj, event) {
+        if (event.keyCode == 40 || event.keyCode == 13) {
+            var nextNode = $(obj).parent().parent().next().children().find('input[name$="RAW_LOTNUMBER"]');
+            if (nextNode.length == 0) {
+                return false;
+            }
+            nextNode.focus();
+        }
+        if (event.keyCode == 38) {
+            var nextNode = $(obj).parent().parent().prev().children().find('input[name$="RAW_LOTNUMBER"]');
+            if (nextNode.length == 0) {
+                return false;
+            }
+            nextNode.focus();
+        }
+    }
     (function($) {
         $(window).on('load', function() {
             setPopScroll('.scroll12');
