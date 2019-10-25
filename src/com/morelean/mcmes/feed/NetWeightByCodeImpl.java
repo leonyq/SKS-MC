@@ -24,7 +24,7 @@ public class NetWeightByCodeImpl implements FuncService {
         HttpServletRequest request = modelAction.getRequest();
         String itemCode = request.getParameter("ITEM_CODE");
 
-        String feedDetailSql = "SELECT T1.SAP_NET_WEIGHT FROM T_CO_ITEM T1 where T1.SAP_BASE_UNIT='PAI' AND  T1.CI_ITEM_CODE = '' ";
+        String feedDetailSql = "SELECT T1.SAP_NET_WEIGHT FROM T_CO_ITEM T1 where T1.SAP_BASE_UNIT='PAI' AND  T1.CI_ITEM_CODE = ? ";
         Map map = modelService.queryForMap(feedDetailSql, new Object[]{itemCode});
         if (map.size() > 0) {
             CommMethod.mapToEscapeJs(map);
