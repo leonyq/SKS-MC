@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 
 /**
- * 新增生产投料-根据存货代码获取物料信息
+ * 包装保存
  *
  * @author:phantomsaber
  * @version:2019/7/19 13:59
@@ -116,7 +116,7 @@ public class ProjectpackaddImpl implements FuncService {
         try{
 
             String updateSql = "UPDATE T_PM_PROJECT_BASE A SET A.PROJECT_STATUS='5', A.FINISH_COUNT = ?,A.EDIT_USER=?,A.EDIT_TIME=? WHERE 1=1 AND A.PROJECT_ID = ? ";
-            modelService.execSql(updateSql, new Object[]{receiveCount,packUserId, DateUtil.getCurDate(),projectId});
+            modelService.execSql(updateSql, new Object[]{receiveCount,modelAction.getCurrUser().getId(), DateUtil.getCurDate(),projectId});
 
             TableDataMapExt baseTable = new TableDataMapExt();
             for(int i=0;i<itemCodes.length;i++){

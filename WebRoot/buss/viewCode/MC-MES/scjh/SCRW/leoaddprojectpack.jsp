@@ -212,7 +212,7 @@
                 success: function (data) {
                     console.log("data: >>> ");
                     console.log(data);
-                    
+
                     var reg = data.ajaxString;
                     var resMap = data.ajaxMap;
                     var res = resMap.res;
@@ -221,7 +221,7 @@
                     if("N" == res){
                         utilsFp.confirmIcon(3, "", "", "", msg, 0, "300", "");
                     }
-                    
+
                     if ("ng" == reg) {
                         doFocus();
                         utilsFp.confirmIcon(3, "", "", "", "工单输入错误,请重新输入", 0, "300", "");
@@ -635,8 +635,8 @@
                 if (data.ajaxString == "ok") {
                     //utilsFp.confirmIcon(2,"","","", "保存成功",0,"300","");
                     // $('#isCloseWin').attr('checked',true);
-                    top.document.getElementById('iframe2').contentWindow.reloadPgAx('包装提交成功', '摩尔提示', '200', '150', '3000', '0');
-                    // utilsFp.confirmIcon(2,"","closew","", "保存成功",0,"300","");
+                    //top.document.getElementById('iframe2').contentWindow.reloadPgAx('包装提交成功', '摩尔提示', '200', '150', '3000', '0');
+                    utilsFp.confirmIcon(2,"","closew","", "保存成功",0,"300","");
                     flag = true;
                 }
             },
@@ -651,7 +651,7 @@
     function query(thisObj) {
 
         var _pageCurrentPageObj = "1";
-        document.forms.editForm.submit();
+        //document.forms.editForm.submit();
         parentWindow.query(thisObj);
         top.$(".dialog-close").click();
 
@@ -734,7 +734,7 @@
                 url: "${path}buss/bussModel_exeFunc.ms?funcMId=a381493664ad4dbd845f2051af2313af",
                 data: {
                     "TYPE": "2",
-                    "ITEM_CODE": "",
+                    "ItEM_CODE": "",
                     "PROJECT_ID": projectId
                 },
                 success: function (data) {
