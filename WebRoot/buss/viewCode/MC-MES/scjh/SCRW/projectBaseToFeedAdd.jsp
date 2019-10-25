@@ -412,6 +412,7 @@
 
                 $("#paraMap" + (i + 1) + "_RAW_LOTNUMBER").val(itemLotkArr[i]);
                 $("#paraMap" + (i + 1) + "_RAW_LOTNUMBER").css("background-color", "rgb(225, 251, 227)");
+                $("#paraMap" + (i + 1) + "_RAW_LOTNUMBER").attr("autocomplete","off");
 
                 $("#paraMap" + (i + 1) + "_STOCK_CODE").val(itemStockArr[i]);
                 $("#paraMap" + (i + 1) + "_STOCK_CODE").css("background-color", "rgb(225, 251, 227)");

@@ -123,6 +123,14 @@
 
 <bu:script viewId="53745dab58e344cdb6e278900138763f" />
 <script type="text/javascript">
+    $(function(){
+        var arr1 =  $("#CREATE_TIME_BEGIN").val().substr(0,11);
+        var arr1 = arr1 + "00:00:00";
+        var arr2 =  $("#CREATE_TIME_END").val().substr(0,11);
+        var arr2 =  arr2 + "23:59:59";
+        $("#CREATE_TIME_BEGIN").val(arr1);
+        $("#CREATE_TIME_END").val(arr2);
+    })
     // 主列表
     function listAjaxTable(formId){
         var currentPage="";

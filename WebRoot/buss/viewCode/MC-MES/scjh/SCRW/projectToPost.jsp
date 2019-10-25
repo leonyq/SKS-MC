@@ -69,6 +69,7 @@
                 <input type="hidden" name="formId" id="formId1" value='2c88768c86a3467f901210be05a180a9'/>
                 <input type="hidden" id="subRelColIds" name="subRelColIds" value='null'/>
                 <input type="hidden" id="subFormIds" name="subFormIds" value='null'/>
+                <input type="hidden" id="jumpId" value=""/>
                 <div class="panel-ajax datagrid datagrid-div1" id="2c88768c86a3467f901210be05a180a9">
                     <div class="datagrid-div2 datagrid-div6 datagrid-view-ajax" id="datagrid-view-ajax2c88768c86a3467f901210be05a180a9" style="">
                         <div class="datagrid-header">
@@ -82,15 +83,23 @@
                                         <td class="datagrid-cell no-print" style="width:30px; text-align:center">
                                             <span><input type="checkbox" id="selectAll_2c88768c86a3467f901210be05a180a9" onclick="_selectAjaxTableAllData(this,'2c88768c86a3467f901210be05a180a9')" style="cursor: pointer;" title="全选"/></span>
                                         </td>
-                                        <td name="noprintset_DATA_AUTH" style="width:200px; text-align:center" class="datagrid-cell">
+                                        <td name="noprintset_DATA_AUTH" style="width:120px; text-align:center" class="datagrid-cell">
                                             <bu:uitn colNo="DATA_AUTH" formId="2c88768c86a3467f901210be05a180a9"/></td>
                                         <td name="noprintset_PROJECT_ID" style="width:110px; text-align:center" class="datagrid-cell">
                                             <bu:uitn colNo="PROJECT_ID" formId="2c88768c86a3467f901210be05a180a9"/></td>
+
+
                                         <td name="noprintset_PROJECT_SORT" style="width:100px; text-align:center" class="datagrid-cell">
                                             <bu:uitn colNo="PROJECT_SORT" formId="2c88768c86a3467f901210be05a180a9"/></td>
+                                        <td style="width:100px; text-align:center" name="noprintset_LOT" class="datagrid-cell">
+                                            <bu:uitn colNo="LOT" formId="2c88768c86a3467f901210be05a180a9"/></td>
+                                        <td style="width:80px; text-align:center" name="noprintset_ITEM_NUM" class="datagrid-cell">
+                                            <bu:uitn colNo="ITEM_NUM" formId="2c88768c86a3467f901210be05a180a9"/></td>
+                                        <td style="width:80px; text-align:center" name="noprintset_BASE_UNIT" class="datagrid-cell">
+                                            <bu:uitn colNo="BASE_UNIT" formId="2c88768c86a3467f901210be05a180a9"/></td>
+
                                         <td name="noprintset_ITEM_CODE" style="width:100px; text-align:center" class="datagrid-cell">
                                             <bu:uitn colNo="ITEM_CODE" formId="2c88768c86a3467f901210be05a180a9"/></td>
-
                                         <td name="noprintset_T2#CI_ITEM_NAME" style="width:300px; text-align:center" class="datagrid-cell">
                                             <bu:uitn colNo="T2#CI_ITEM_NAME" formId="2c88768c86a3467f901210be05a180a9"/></td>
                                         <td name="noprintset_T2#STOCK_CODE" style="width:165px; text-align:center" class="datagrid-cell">
@@ -98,16 +107,13 @@
                                         <td name="noprintset_T2#SAP_COLOR_CODE" style="width:230px; text-align:center" class="datagrid-cell">
                                             <bu:uitn colNo="T2#SAP_COLOR_CODE" formId="2c88768c86a3467f901210be05a180a9"/></td>
 
-                                        <td style="width:100px; text-align:center" name="noprintset_LOT" class="datagrid-cell">
-                                            <bu:uitn colNo="LOT" formId="2c88768c86a3467f901210be05a180a9"/></td>
+
                                         <td style="width:100px; text-align:center" name="noprintset_WORK_SPACE" class="datagrid-cell">
                                             <bu:uitn colNo="WORK_SPACE" formId="2c88768c86a3467f901210be05a180a9"/></td>
                                         <td style="width:100px; text-align:center" name="noprintset_WARE_HOUSE" class="datagrid-cell">
                                             <bu:uitn colNo="WARE_HOUSE" formId="2c88768c86a3467f901210be05a180a9"/></td>
-                                        <td style="width:80px; text-align:center" name="noprintset_ITEM_NUM" class="datagrid-cell">
-                                            <bu:uitn colNo="ITEM_NUM" formId="2c88768c86a3467f901210be05a180a9"/></td>
-                                        <td style="width:80px; text-align:center" name="noprintset_BASE_UNIT" class="datagrid-cell">
-                                            <bu:uitn colNo="BASE_UNIT" formId="2c88768c86a3467f901210be05a180a9"/></td>
+
+
                                         <td style="width:150px; text-align:center" name="noprintset_ITEM_SN" class="datagrid-cell">
                                             <bu:uitn colNo="ITEM_SN" formId="2c88768c86a3467f901210be05a180a9"/></td>
                                         <td style="width:80px; text-align:center" name="noprintset_REVERSE" class="datagrid-cell">
@@ -352,6 +358,16 @@
     $(function (){
 
         editDadtAuthStyle();
+        var arr1 =  $("#CREATE_TIME_BEGIN").val().substr(0,11);
+
+        var arr1 = arr1 + "00:00:00";
+
+        var arr2 =  $("#CREATE_TIME_END").val().substr(0,11);
+
+        var arr2 =  arr2 + "23:59:59";
+
+        $("#CREATE_TIME_BEGIN").val(arr1);
+        $("#CREATE_TIME_END").val(arr2);
     });
     function editDadtAuthStyle(){
         $("#DATA_AUTH").width("150px");
@@ -381,18 +397,31 @@
                 arrHtml.push("<input type='checkbox' name='" + formId + "$ID' value='" + v.ID + "' class='isSubmit _selectdata' style='cursor: pointer;margin:0'>");
                 arrHtml.push("</td>");
                 arrHtml.push("<td colno='DATA_AUTH' name='noprintset_DATA_AUTH' class='datagrid-cell TD_DATA_AUTH " + ms.tdClass(formId, 'DATA_AUTH') + "' style='" + ms.tdStyle(formId, 'DATA_AUTH') + "' " + ms.tdEvent(formId, 'DATA_AUTH') + ">");
-                arrHtml.push("<span colno='DATA_AUTH' class='" + ms.uiClass(formId, 'DATA_AUTH') + "' style='" + ms.uiStyle(formId, 'DATA_AUTH') + "' " + ms.uiEvent(formId, 'DATA_AUTH') + " title='" + ms.titleAttr(formId, 'DATA_AUTH', 'IS_TITLE_ATTR', v) + "' >" + v['DATA_AUTH'] + "</span>");
+                arrHtml.push("<span colno='DATA_AUTH' class='" + ms.uiClass(formId, 'DATA_AUTH') + "' style='text-align:center;" + ms.uiStyle(formId, 'DATA_AUTH') + "' " + ms.uiEvent(formId, 'DATA_AUTH') + " title='" + ms.titleAttr(formId, 'DATA_AUTH', 'IS_TITLE_ATTR', v) + "' >" + v['DATA_AUTH'] + "</span>");
                 arrHtml.push("</td>");
                 arrHtml.push("<td colno='PROJECT_ID' name='noprintset_PROJECT_ID' class='datagrid-cell  " + ms.tdClass(formId, 'PROJECT_ID') + "' style='" + ms.tdStyle(formId, 'PROJECT_ID') + "' " + ms.tdEvent(formId, 'PROJECT_ID') + ">");
-                arrHtml.push("<span colno='PROJECT_ID' class='" + ms.uiClass(formId, 'PROJECT_ID') + "' style='" + ms.uiStyle(formId, 'PROJECT_ID') + "' " + ms.uiEvent(formId, 'PROJECT_ID') + " title='" + ms.titleAttr(formId, 'PROJECT_ID', 'IS_TITLE_ATTR', v) + "' >" + v['PROJECT_ID'] + "</span>");
-                arrHtml.push("</td>");
-                arrHtml.push("<td colno='PROJECT_SORT' name='noprintset_PROJECT_SORT' class='datagrid-cell  " + ms.tdClass(formId, 'PROJECT_SORT') + "' style='" + ms.tdStyle(formId, 'PROJECT_SORT') + "' " + ms.tdEvent(formId, 'PROJECT_SORT') + ">");
-                arrHtml.push("<span colno='PROJECT_SORT' class='" + ms.uiClass(formId, 'PROJECT_SORT') + "' style='" + ms.uiStyle(formId, 'PROJECT_SORT') + "' " + ms.uiEvent(formId, 'PROJECT_SORT') + " title='" + ms.titleAttr(formId, 'PROJECT_SORT', 'IS_TITLE_ATTR', v) + "' >" + v['PROJECT_SORT'] + "</span>");
-                arrHtml.push("</td>");
-                arrHtml.push("<td colno='ITEM_CODE' name='noprintset_ITEM_CODE' class='datagrid-cell  " + ms.tdClass(formId, 'ITEM_CODE') + "' style='" + ms.tdStyle(formId, 'ITEM_CODE') + "' " + ms.tdEvent(formId, 'ITEM_CODE') + ">");
-                arrHtml.push("<span colno='ITEM_CODE' class='" + ms.uiClass(formId, 'ITEM_CODE') + "' style='" + ms.uiStyle(formId, 'ITEM_CODE') + "' " + ms.uiEvent(formId, 'ITEM_CODE') + " title='" + ms.titleAttr(formId, 'ITEM_CODE', 'IS_TITLE_ATTR', v) + "' >" + v['ITEM_CODE'] + "</span>");
+                arrHtml.push("<span colno='PROJECT_ID' class='" + ms.uiClass(formId, 'PROJECT_ID') + "' style='text-align:center;" + ms.uiStyle(formId, 'PROJECT_ID') + "' " + ms.uiEvent(formId, 'PROJECT_ID') + " title='" + ms.titleAttr(formId, 'PROJECT_ID', 'IS_TITLE_ATTR', v) + "' >" + v['PROJECT_ID'] + "</span>");
                 arrHtml.push("</td>");
 
+
+
+                arrHtml.push("<td colno='PROJECT_SORT' name='noprintset_PROJECT_SORT' class='datagrid-cell  " + ms.tdClass(formId, 'PROJECT_SORT') + "' style='" + ms.tdStyle(formId, 'PROJECT_SORT') + "' " + ms.tdEvent(formId, 'PROJECT_SORT') + ">");
+                arrHtml.push("<span colno='PROJECT_SORT' class='" + ms.uiClass(formId, 'PROJECT_SORT') + "' style='text-align:center;" + ms.uiStyle(formId, 'PROJECT_SORT') + "' " + ms.uiEvent(formId, 'PROJECT_SORT') + " title='" + ms.titleAttr(formId, 'PROJECT_SORT', 'IS_TITLE_ATTR', v) + "' >" + v['PROJECT_SORT'] + "</span>");
+                arrHtml.push("</td>");
+                arrHtml.push("<td colno='LOT' name='noprintset_LOT' class='datagrid-cell  " + ms.tdClass(formId, 'LOT') + "' style='" + ms.tdStyle(formId, 'LOT') + "' " + ms.tdEvent(formId, 'LOT') + ">");
+                arrHtml.push("<span colno='LOT' class='" + ms.uiClass(formId, 'LOT') + "' style='text-align:center;" + ms.uiStyle(formId, 'LOT') + "' " + ms.uiEvent(formId, 'LOT') + " title='" + ms.titleAttr(formId, 'LOT', 'IS_TITLE_ATTR', v) + "' >" + v['LOT'] + "</span>");
+                arrHtml.push("</td>");
+                arrHtml.push("<td colno='ITEM_NUM' name='noprintset_ITEM_NUM' class='datagrid-cell  " + ms.tdClass(formId, 'ITEM_NUM') + "' style='" + ms.tdStyle(formId, 'ITEM_NUM') + "' " + ms.tdEvent(formId, 'ITEM_NUM') + ">");
+                arrHtml.push("<span colno='ITEM_NUM' class='" + ms.uiClass(formId, 'ITEM_NUM') + "' style='text-align:center;" + ms.uiStyle(formId, 'ITEM_NUM') + "' " + ms.uiEvent(formId, 'ITEM_NUM') + " title='" + ms.titleAttr(formId, 'ITEM_NUM', 'IS_TITLE_ATTR', v) + "' >" + v['ITEM_NUM'] + "</span>");
+                arrHtml.push("</td>");
+                arrHtml.push("<td colno='BASE_UNIT' name='noprintset_BASE_UNIT' class='datagrid-cell  " + ms.tdClass(formId, 'BASE_UNIT') + "' style='" + ms.tdStyle(formId, 'BASE_UNIT') + "' " + ms.tdEvent(formId, 'BASE_UNIT') + ">");
+                arrHtml.push("<span colno='BASE_UNIT' class='" + ms.uiClass(formId, 'BASE_UNIT') + "' style='text-align:center;" + ms.uiStyle(formId, 'BASE_UNIT') + "' " + ms.uiEvent(formId, 'BASE_UNIT') + " title='" + ms.titleAttr(formId, 'BASE_UNIT', 'IS_TITLE_ATTR', v) + "' >" + v['BASE_UNIT'] + "</span>");
+                arrHtml.push("</td>");
+
+
+                arrHtml.push("<td colno='ITEM_CODE' name='noprintset_ITEM_CODE' class='datagrid-cell  " + ms.tdClass(formId, 'ITEM_CODE') + "' style='" + ms.tdStyle(formId, 'ITEM_CODE') + "' " + ms.tdEvent(formId, 'ITEM_CODE') + ">");
+                arrHtml.push("<span colno='ITEM_CODE' class='" + ms.uiClass(formId, 'ITEM_CODE') + "' style='text-align:center;" + ms.uiStyle(formId, 'ITEM_CODE') + "' " + ms.uiEvent(formId, 'ITEM_CODE') + " title='" + ms.titleAttr(formId, 'ITEM_CODE', 'IS_TITLE_ATTR', v) + "' >" + v['ITEM_CODE'] + "</span>");
+                arrHtml.push("</td>");
                 arrHtml.push("<td colno='T2#CI_ITEM_NAME' name='noprintset_T2#CI_ITEM_NAME' class='datagrid-cell  " + ms.tdClass(formId, 'T2#CI_ITEM_NAME') + "' style='" + ms.tdStyle(formId, 'T2#CI_ITEM_NAME') + "' " + ms.tdEvent(formId, 'T2#CI_ITEM_NAME') + ">");
                 arrHtml.push("<span colno='T2#CI_ITEM_NAME' class='" + ms.uiClass(formId, 'T2#CI_ITEM_NAME') + "' style='" + ms.uiStyle(formId, 'T2#CI_ITEM_NAME') + "' " + ms.uiEvent(formId, 'T2#CI_ITEM_NAME') + " title='" + ms.titleAttr(formId, 'T2#CI_ITEM_NAME', 'IS_TITLE_ATTR', v) + "' >" + v['T2#CI_ITEM_NAME'] + "</span>");
                 arrHtml.push("</td>");
@@ -403,38 +432,31 @@
                 arrHtml.push("<span colno='T2#SAP_COLOR_CODE' class='" + ms.uiClass(formId, 'T2#SAP_COLOR_CODE') + "' style='" + ms.uiStyle(formId, 'T2#SAP_COLOR_CODE') + "' " + ms.uiEvent(formId, 'T2#SAP_COLOR_CODE') + " title='" + ms.titleAttr(formId, 'T2#SAP_COLOR_CODE', 'IS_TITLE_ATTR', v) + "' >" + v['T2#SAP_COLOR_CODE'] + "</span>");
                 arrHtml.push("</td>");
 
-                arrHtml.push("<td colno='LOT' name='noprintset_LOT' class='datagrid-cell  " + ms.tdClass(formId, 'LOT') + "' style='" + ms.tdStyle(formId, 'LOT') + "' " + ms.tdEvent(formId, 'LOT') + ">");
-                arrHtml.push("<span colno='LOT' class='" + ms.uiClass(formId, 'LOT') + "' style='" + ms.uiStyle(formId, 'LOT') + "' " + ms.uiEvent(formId, 'LOT') + " title='" + ms.titleAttr(formId, 'LOT', 'IS_TITLE_ATTR', v) + "' >" + v['LOT'] + "</span>");
-                arrHtml.push("</td>");
                 arrHtml.push("<td colno='WORK_SPACE' name='noprintset_WORK_SPACE' class='datagrid-cell  " + ms.tdClass(formId, 'WORK_SPACE') + "' style='" + ms.tdStyle(formId, 'WORK_SPACE') + "' " + ms.tdEvent(formId, 'WORK_SPACE') + ">");
-                arrHtml.push("<span colno='WORK_SPACE' class='" + ms.uiClass(formId, 'WORK_SPACE') + "' style='" + ms.uiStyle(formId, 'WORK_SPACE') + "' " + ms.uiEvent(formId, 'WORK_SPACE') + " title='" + ms.titleAttr(formId, 'WORK_SPACE', 'IS_TITLE_ATTR', v) + "' >" + v['WORK_SPACE'] + "</span>");
+                arrHtml.push("<span colno='WORK_SPACE' class='" + ms.uiClass(formId, 'WORK_SPACE') + "' style='text-align:center;" + ms.uiStyle(formId, 'WORK_SPACE') + "' " + ms.uiEvent(formId, 'WORK_SPACE') + " title='" + ms.titleAttr(formId, 'WORK_SPACE', 'IS_TITLE_ATTR', v) + "' >" + v['WORK_SPACE'] + "</span>");
                 arrHtml.push("</td>");
                 arrHtml.push("<td colno='WARE_HOUSE' name='noprintset_WARE_HOUSE' class='datagrid-cell  " + ms.tdClass(formId, 'WARE_HOUSE') + "' style='" + ms.tdStyle(formId, 'WARE_HOUSE') + "' " + ms.tdEvent(formId, 'WARE_HOUSE') + ">");
-                arrHtml.push("<span colno='WARE_HOUSE' class='" + ms.uiClass(formId, 'WARE_HOUSE') + "' style='" + ms.uiStyle(formId, 'WARE_HOUSE') + "' " + ms.uiEvent(formId, 'WARE_HOUSE') + " title='" + ms.titleAttr(formId, 'WARE_HOUSE', 'IS_TITLE_ATTR', v) + "' >" + v['WARE_HOUSE'] + "</span>");
+                arrHtml.push("<span colno='WARE_HOUSE' class='" + ms.uiClass(formId, 'WARE_HOUSE') + "' style='text-align:center;" + ms.uiStyle(formId, 'WARE_HOUSE') + "' " + ms.uiEvent(formId, 'WARE_HOUSE') + " title='" + ms.titleAttr(formId, 'WARE_HOUSE', 'IS_TITLE_ATTR', v) + "' >" + v['WARE_HOUSE'] + "</span>");
                 arrHtml.push("</td>");
-                arrHtml.push("<td colno='ITEM_NUM' name='noprintset_ITEM_NUM' class='datagrid-cell  " + ms.tdClass(formId, 'ITEM_NUM') + "' style='" + ms.tdStyle(formId, 'ITEM_NUM') + "' " + ms.tdEvent(formId, 'ITEM_NUM') + ">");
-                arrHtml.push("<span colno='ITEM_NUM' class='" + ms.uiClass(formId, 'ITEM_NUM') + "' style='" + ms.uiStyle(formId, 'ITEM_NUM') + "' " + ms.uiEvent(formId, 'ITEM_NUM') + " title='" + ms.titleAttr(formId, 'ITEM_NUM', 'IS_TITLE_ATTR', v) + "' >" + v['ITEM_NUM'] + "</span>");
-                arrHtml.push("</td>");
-                arrHtml.push("<td colno='BASE_UNIT' name='noprintset_BASE_UNIT' class='datagrid-cell  " + ms.tdClass(formId, 'BASE_UNIT') + "' style='" + ms.tdStyle(formId, 'BASE_UNIT') + "' " + ms.tdEvent(formId, 'BASE_UNIT') + ">");
-                arrHtml.push("<span colno='BASE_UNIT' class='" + ms.uiClass(formId, 'BASE_UNIT') + "' style='" + ms.uiStyle(formId, 'BASE_UNIT') + "' " + ms.uiEvent(formId, 'BASE_UNIT') + " title='" + ms.titleAttr(formId, 'BASE_UNIT', 'IS_TITLE_ATTR', v) + "' >" + v['BASE_UNIT'] + "</span>");
-                arrHtml.push("</td>");
+
+
                 arrHtml.push("<td colno='ITEM_SN' name='noprintset_ITEM_SN' class='datagrid-cell  " + ms.tdClass(formId, 'ITEM_SN') + "' style='" + ms.tdStyle(formId, 'ITEM_SN') + "' " + ms.tdEvent(formId, 'ITEM_SN') + ">");
-                arrHtml.push("<span colno='ITEM_SN' class='" + ms.uiClass(formId, 'ITEM_SN') + "' style='" + ms.uiStyle(formId, 'ITEM_SN') + "' " + ms.uiEvent(formId, 'ITEM_SN') + " title='" + ms.titleAttr(formId, 'ITEM_SN', 'IS_TITLE_ATTR', v) + "' >" + v['ITEM_SN'] + "</span>");
+                arrHtml.push("<span colno='ITEM_SN' class='" + ms.uiClass(formId, 'ITEM_SN') + "' style='text-align:center;" + ms.uiStyle(formId, 'ITEM_SN') + "' " + ms.uiEvent(formId, 'ITEM_SN') + " title='" + ms.titleAttr(formId, 'ITEM_SN', 'IS_TITLE_ATTR', v) + "' >" + v['ITEM_SN'] + "</span>");
                 arrHtml.push("</td>");
                 arrHtml.push("<td colno='REVERSE' name='noprintset_REVERSE' class='datagrid-cell  " + ms.tdClass(formId, 'REVERSE') + "' style='" + ms.tdStyle(formId, 'REVERSE') + "' " + ms.tdEvent(formId, 'REVERSE') + ">");
-                arrHtml.push("<span colno='REVERSE' class='" + ms.uiClass(formId, 'REVERSE') + "' style='" + ms.uiStyle(formId, 'REVERSE') + "' " + ms.uiEvent(formId, 'REVERSE') + " title='" + ms.titleAttr(formId, 'REVERSE', 'IS_TITLE_ATTR', v) + "' >" + v['REVERSE'] + "</span>");
+                arrHtml.push("<span colno='REVERSE' class='" + ms.uiClass(formId, 'REVERSE') + "' style='text-align:center;" + ms.uiStyle(formId, 'REVERSE') + "' " + ms.uiEvent(formId, 'REVERSE') + " title='" + ms.titleAttr(formId, 'REVERSE', 'IS_TITLE_ATTR', v) + "' >" + v['REVERSE'] + "</span>");
                 arrHtml.push("</td>");
                 arrHtml.push("<td colno='SFLAG' name='noprintset_SFLAG' class='datagrid-cell  " + ms.tdClass(formId, 'SFLAG') + "' style='" + ms.tdStyle(formId, 'SFLAG') + "' " + ms.tdEvent(formId, 'SFLAG') + ">");
-                arrHtml.push("<span colno='SFLAG' class='" + ms.uiClass(formId, 'SFLAG') + "' style='" + ms.uiStyle(formId, 'SFLAG') + "' " + ms.uiEvent(formId, 'SFLAG') + " title='" + ms.titleAttr(formId, 'SFLAG', 'IS_TITLE_ATTR', v) + "' >" + v['SFLAG'] + "</span>");
+                arrHtml.push("<span colno='SFLAG' class='" + ms.uiClass(formId, 'SFLAG') + "' style='text-align:center;" + ms.uiStyle(formId, 'SFLAG') + "' " + ms.uiEvent(formId, 'SFLAG') + " title='" + ms.titleAttr(formId, 'SFLAG', 'IS_TITLE_ATTR', v) + "' >" + v['SFLAG'] + "</span>");
                 arrHtml.push("</td>");
                 arrHtml.push("<td colno='MESSAGE' name='noprintset_MESSAGE' class='datagrid-cell  " + ms.tdClass(formId, 'MESSAGE') + "' style='" + ms.tdStyle(formId, 'MESSAGE') + "' " + ms.tdEvent(formId, 'MESSAGE') + ">");
                 arrHtml.push("<span colno='MESSAGE' class='" + ms.uiClass(formId, 'MESSAGE') + "' style='" + ms.uiStyle(formId, 'MESSAGE') + "' " + ms.uiEvent(formId, 'MESSAGE') + " title='" + ms.titleAttr(formId, 'MESSAGE', 'IS_TITLE_ATTR', v) + "' >" + v['MESSAGE'] + "</span>");
                 arrHtml.push("</td>");
                 arrHtml.push("<td colno='CREATE_TIME' name='noprintset_CREATE_TIME' class='datagrid-cell  " + ms.tdClass(formId, 'CREATE_TIME') + "' style='" + ms.tdStyle(formId, 'CREATE_TIME') + "' " + ms.tdEvent(formId, 'CREATE_TIME') + ">");
-                arrHtml.push("<span colno='CREATE_TIME' class='" + ms.uiClass(formId, 'CREATE_TIME') + "' style='" + ms.uiStyle(formId, 'CREATE_TIME') + "' " + ms.uiEvent(formId, 'CREATE_TIME') + " title='" + ms.titleAttr(formId, 'CREATE_TIME', 'IS_TITLE_ATTR', v) + "' >" + v['CREATE_TIME'] + "</span>");
+                arrHtml.push("<span colno='CREATE_TIME' class='" + ms.uiClass(formId, 'CREATE_TIME') + "' style='text-align:center;" + ms.uiStyle(formId, 'CREATE_TIME') + "' " + ms.uiEvent(formId, 'CREATE_TIME') + " title='" + ms.titleAttr(formId, 'CREATE_TIME', 'IS_TITLE_ATTR', v) + "' >" + v['CREATE_TIME'] + "</span>");
                 arrHtml.push("</td>");
                 arrHtml.push("<td colno='CREATE_USER' name='noprintset_CREATE_USER' class='datagrid-cell  " + ms.tdClass(formId, 'CREATE_USER') + "' style='" + ms.tdStyle(formId, 'CREATE_USER') + "' " + ms.tdEvent(formId, 'CREATE_USER') + ">");
-                arrHtml.push("<span colno='CREATE_USER' class='" + ms.uiClass(formId, 'CREATE_USER') + "' style='" + ms.uiStyle(formId, 'CREATE_USER') + "' " + ms.uiEvent(formId, 'CREATE_USER') + " title='" + ms.titleAttr(formId, 'CREATE_USER', 'IS_TITLE_ATTR', v) + "' >" + v['CREATE_USER'] + "</span>");
+                arrHtml.push("<span colno='CREATE_USER' class='" + ms.uiClass(formId, 'CREATE_USER') + "' style='text-align:center;" + ms.uiStyle(formId, 'CREATE_USER') + "' " + ms.uiEvent(formId, 'CREATE_USER') + " title='" + ms.titleAttr(formId, 'CREATE_USER', 'IS_TITLE_ATTR', v) + "' >" + v['CREATE_USER'] + "</span>");
                 arrHtml.push("</td>");
                 arrHtml.push("</tr>")
             });
@@ -535,6 +557,7 @@
         $("#DATA_AUTH_chosen").width("150px");
     });
 
+
     function getVoidSelectedCount() {
         var selCount = 0;
         $(".datagrid-btable tbody tr").each(function (seq) {
@@ -554,8 +577,8 @@
         return selCount;
     }
 
-    // var url = "http://10.10.80.193:8018/mc/http/interface.ms?model=ProjectPostPackIntfImpl&method=sync";
-    var url = "http://localhost:8018/mc/http/interface.ms?model=ProjectPostPackIntfImpl&method=sync";
+    //var url = "http://10.10.80.193:8018/mc/http/interface.ms?model=ProjectPostPackIntfImpl&method=sync";
+    var url = "http://10.10.78.161:8018/mc/http/interface.ms?model=ProjectPostPackIntfImpl&method=sync";
 
     function ajaxHttp() {
         var idArray = [];
@@ -587,7 +610,7 @@
                 console.log("info: >>> ");
                 console.log(info);
                 var resultMap = eval(info);
-                console.log("resultMap: >>> ");
+                console.log("resultMap: >>> ")
                 console.log(resultMap);
 
                 var sflag = resultMap.SFLAG;
