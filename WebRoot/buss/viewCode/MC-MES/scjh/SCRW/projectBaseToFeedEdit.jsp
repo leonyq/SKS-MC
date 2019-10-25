@@ -73,9 +73,9 @@
                     </bu:td>
 
                     <td class="name-four"/>
-                    <bu:uitn colNo="LOT_NUMBER" formId="b36254ac37e74240b1528d44627b6a84"/></td>
-                    <bu:td cssClass="dec-self" colNo="LOT_NUMBER" formId="b36254ac37e74240b1528d44627b6a84">
-                        <bu:ui colNo="LOT_NUMBER" formId="b36254ac37e74240b1528d44627b6a84" dataId="${dataId}" formIndex="1"/>
+                    <bu:uitn colNo="T5#LOT_NUMBER" formId="b36254ac37e74240b1528d44627b6a84"/></td>
+                    <bu:td cssClass="dec-self" colNo="T5#LOT_NUMBER" formId="b36254ac37e74240b1528d44627b6a84">
+                        <bu:ui colNo="T5#LOT_NUMBER" formId="b36254ac37e74240b1528d44627b6a84" dataId="${dataId}" formIndex="1"/>
                     </bu:td>
 
                     <td class="name-four"/>
@@ -410,6 +410,7 @@
 
                 $("#paraMap" + (i + 1) + "_RAW_LOTNUMBER").val(itemLotkArr[i]);
                 $("#paraMap" + (i + 1) + "_RAW_LOTNUMBER").css("background-color", "rgb(173, 236, 178)");
+                $("#paraMap" + (i + 1) + "_RAW_LOTNUMBER").attr("autocomplete","off");
 
                 $("#paraMap" + (i + 1) + "_STOCK_CODE").val(itemStockArr[i]);
                 $("#paraMap" + (i + 1) + "_STOCK_CODE").css("background-color", "rgb(173, 236, 178)");

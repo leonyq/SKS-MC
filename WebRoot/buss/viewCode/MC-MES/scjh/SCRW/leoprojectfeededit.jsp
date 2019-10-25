@@ -308,6 +308,7 @@
 
                                     $("#paraMap" + (len + i + 1) + "_RAW_LOTNUMBER").val(plist[i].ITEM_LOT);
                                     $("#paraMap" + (len + i + 1) + "_RAW_LOTNUMBER").css("background-color", "rgb(173, 236, 178)");
+                                    $("#paraMap" + (len + i + 1) + "_RAW_LOTNUMBER").attr("autocomplete","off");
 
                                     $("#paraMap" + (len + i + 1) + "_STOCK_CODE").val(plist[i].ITEM_STOCK);
                                     $("#paraMap" + (len + i + 1) + "_STOCK_CODE").css("background-color", "rgb(173, 236, 178)");
@@ -347,6 +348,7 @@
 
                                     $("#paraMap" + i + "_RAW_LOTNUMBER").val(plist[i].ITEM_LOT);
                                     $("#paraMap" + i + "_RAW_LOTNUMBER").css("background-color", "rgb(173, 236, 178)");
+                                    $("#paraMap" + i + "_RAW_LOTNUMBER").attr("autocomplete","off");
 
                                     $("#paraMap" + i + "_STOCK_CODE").val(plist[i].ITEM_STOCK);
                                     $("#paraMap" + i + "_STOCK_CODE").css("background-color", "rgb(173, 236, 178)");
