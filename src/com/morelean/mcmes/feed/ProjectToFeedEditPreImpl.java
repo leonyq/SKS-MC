@@ -34,7 +34,7 @@ public class ProjectToFeedEditPreImpl implements FuncService {
         /*String checkAuthSql = "SELECT * FROM T_PM_PROJECT_BASE A INNER JOIN T_PM_PROJECT_FEED_BASE B ON A.PROJECT_ID = B.PROJECT_ID " +
                 " WHERE 1 = 1 AND B.ID = ? AND B.DATA_AUTH = ? ";*/
         String checkAuthSql = "SELECT * FROM T_PM_PROJECT_BASE A INNER JOIN T_PM_PROJECT_FEED_BASE B ON A.PROJECT_ID = B.PROJECT_ID " +
-                " WHERE 1 = 1 AND B.ID = ? AND B.DEPT_ID = ? ";
+                " WHERE 1 = 1 AND B.ID = ? AND B.DEPT_ID = ?  ";
 
         String dataAuth = String.valueOf(modelAction.getRequest().getSession().getAttribute("mcDataAuth"));
         if (StringUtils.isEmpty(dataAuth)) {
